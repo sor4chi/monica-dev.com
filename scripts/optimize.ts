@@ -15,11 +15,19 @@ const resize = async (image: string, size: number) => {
   const input = join(imagePath, image);
   const filename = image.split(".")[0];
   const output = join(imagePath, `${filename}-${size}.webp`);
-  await sharp(input).resize(size).toFile(output);
+  await sharp(input)
+    .resize({
+      width: size,
+      height: (size / 1200) * 630,
+      fit: "cover",
+    })
+    .toFile(output);
 };
 
 const globImages = async () => {
-  const images = glob.sync(`${imagePath}/**/*.{${ext.join(",")}}`);
+  const images = glob
+    .sync(`${imagePath}/**/*.{${ext.join(",")}}`)
+    .filter((image) => image.match(/-\d+\.webp$/) === null);
   return images.map((image) => image.replace(`${imagePath}/`, ""));
 };
 
