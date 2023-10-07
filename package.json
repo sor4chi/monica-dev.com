@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,5 +11,9 @@
   },
   "dependencies": {
     "astro": "^3.2.3"
+  },
+  "devDependencies": {
+    "@vanilla-extract/css": "^1.13.0",
+    "@vanilla-extract/vite-plugin": "^3.9.0"
   }
 }
