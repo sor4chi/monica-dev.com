@@ -2,9 +2,10 @@
 import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 import { styles } from "./Base.css";
+import Switch from "./Switch.astro";
 ---
 
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -12,9 +13,11 @@ import { styles } from "./Base.css";
     <meta name="generator" content={Astro.generator} />
     <title>Portfolio</title>
     <meta name="robots" content="noindex" />
+    <script src="/scripts/theme.js" is:inline></script>
     <ViewTransitions />
   </head>
-  <body class="dark">
+  <body>
+    <Switch />
     <main class={styles.container}>
       <slot />
     </main>

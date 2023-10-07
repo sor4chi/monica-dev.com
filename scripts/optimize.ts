@@ -33,7 +33,6 @@ const globImages = async () => {
 
 const main = async () => {
   const images = await globImages();
-  console.log(images);
   for (const image of images) {
     await resize(image, 640);
   }

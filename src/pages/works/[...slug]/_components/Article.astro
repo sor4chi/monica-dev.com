@@ -35,5 +35,7 @@ const formatDateTime = (date: Date) => {
     class={styles.heroImage}
     transition:name={`works-hero-${slug}`}
   />
-  <slot />
+  <div class={styles.contents}>
+    <slot />
+  </div>
 </article>

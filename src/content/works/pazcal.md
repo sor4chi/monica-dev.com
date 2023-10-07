@@ -32,7 +32,7 @@ This is a link
 
 This is an image
 
-![Image](/images/blog-thumbnails/markdown.avif)
+![Image](/images/works/pazcal/hero.png)
 
 This is a blockquote
 

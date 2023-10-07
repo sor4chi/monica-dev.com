@@ -27,8 +27,16 @@ export const styles = {
     margin: `${vars.spacing.relative[2]} 0`,
     color: vars.color.gray[11],
   }),
+  contents: style({
+    display: "flex",
+    flexDirection: "column",
+    gap: vars.spacing.absolute[4],
+  }),
 };
 
+globalStyle(`${styles.contents} > *:first-child`, {
+  marginTop: vars.spacing[0],
+});
 
 globalStyle(`${styles.article} h2`, {
   fontSize: vars.font.size.lg,
@@ -130,6 +138,27 @@ globalStyle(`${styles.article} :not(pre) > code`, {
   backgroundColor: vars.color.gray[4],
   padding: vars.spacing.relative[1],
   borderRadius: vars.spacing.relative[1],
+});
+
+globalStyle(`${styles.article} pre:has(> code)`, {
+  border: `1px solid ${vars.color.gray[4]}`,
+  background: "none !important",
+  padding: vars.spacing.relative[4],
+  borderRadius: vars.spacing.relative[2],
+  overflowX: "auto",
+});
+
+globalStyle(`${styles.article} pre code`, {
+  fontSize: vars.font.size.sm,
+  fontFamily: "Menlo, Monaco, Consolas, 'Courier New', monospace",
+  lineHeight: 1.8,
+});
+
+globalStyle(`${styles.article} img`, {
+  width: vars.spacing.full,
+  height: "auto",
+  borderRadius: vars.spacing.absolute[2],
+  margin: `${vars.spacing.relative[4]} 0`,
 });
 
 globalStyle(`${styles.article} .math-display`, {
