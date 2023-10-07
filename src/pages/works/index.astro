@@ -1,9 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import BaseLayout from "@/components/layouts/Base.astro";
-import WorksListContainer from "./_components/WorksListContainer.astro";
-import WorksItem from "./_components/WorksItem.astro";
+import List from "./_components/List.astro";
+import Item from "./_components/Item.astro";
 
 const works = await getCollection("works");
 const groupedWorks = works.reduce(
@@ -33,16 +32,16 @@ const sortedGroupedWorks = Object.entries(groupedWorks)
 <BaseLayout>
   {
     sortedGroupedWorks.map(([year, works]) => (
-      <WorksListContainer title={year}>
+      <List title={year}>
         {works.map((work) => (
-          <WorksItem
+          <Item
             title={work.data.title}
             slug={work.slug}
             description={work.data.description}
             heroImage={work.data.heroImage}
           />
         ))}
-      </WorksListContainer>
+      </List>
     ))
   }
 </BaseLayout>
