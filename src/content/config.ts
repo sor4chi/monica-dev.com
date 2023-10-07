@@ -14,7 +14,6 @@ const works = defineCollection({
     title: z.string(),
     description: z.string(),
     createdAt: z.coerce.date(),
-    heroImage: z.string(),
   }),
 });
 

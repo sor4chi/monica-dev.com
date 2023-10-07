@@ -6,18 +6,18 @@ interface Props {
   slug: string;
   title: string;
   description: string;
-  heroImage?: string;
 }
 
-const { slug, title, heroImage, description } = Astro.props;
+const { slug, title, description } = Astro.props;
 ---
 
 <li>
   <a href={`/works/${slug}`} class={styles.item}>
+    <!-- For View Transition, have to use same size image with hero image -->
     <Image
       width={120}
       height={63}
-      src={heroImage || ""}
+      src={`/images/works/${slug}/hero-640.webp`}
       alt={title}
       transition:name={`works-hero-${slug}`}
       class={styles.thumbnail}
