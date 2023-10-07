@@ -1,0 +1,52 @@
+---
+import type { MarkdownHeading } from "astro";
+import { styles } from "./Toc.css";
+import { clsx } from "clsx";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<ul class={styles.toc} id="toc-list">
+  {
+    headings.map((item) => (
+      <li class={styles.tocItem}>
+        <a
+          href={`#${item.slug}`}
+          class={clsx(styles.link, "toc-anchor")}
+          style={{
+            paddingLeft: `${item.depth - 2}rem !important`,
+          }}
+        >
+          {item.text}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<script>
+  const headings = document.querySelectorAll(
+    "#article h2, #article h3, #article h4, #article h5, #article h6"
+  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const { target } = entry;
+      const toc = document.querySelector(
+        `#toc-list a[href="#${target.id}"]`
+      );
+      if (!toc) return;
+      if (entry.isIntersecting) {
+        toc.classList.add("toc-active");
+      } else {
+        toc.classList.remove("toc-active");
+      }
+    });
+  });
+  headings.forEach((heading) => {
+    observer.observe(heading);
+  });
+</script>

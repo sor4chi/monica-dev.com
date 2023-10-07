@@ -1,0 +1,30 @@
+---
+import { styles } from "./WorksItem.css";
+import { Image } from "astro:assets";
+
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  heroImage?: string;
+}
+
+const { slug, title, heroImage, description } = Astro.props;
+---
+
+<li>
+  <a href={`/works/${slug}`} class={styles.item}>
+    <Image
+      width={120}
+      height={63}
+      src={heroImage || ""}
+      alt={title}
+      transition:name={`works-hero-${slug}`}
+      class={styles.thumbnail}
+    />
+    <div class={styles.content}>
+      <h2 class={styles.title}>{title}</h2>
+      <p class={styles.description}>{description}</p>
+    </div>
+  </a>
+</li>

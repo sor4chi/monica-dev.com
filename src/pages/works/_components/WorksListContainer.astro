@@ -1,0 +1,15 @@
+---
+import { styles } from "./WorksListContainer.css";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class={styles.container}>
+  <h2 class={styles.title}>{title}</h2>
+  <ul class={styles.listContainer}>
+    <slot />
+  </ul>
+</div>

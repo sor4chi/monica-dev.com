@@ -1,0 +1,43 @@
+---
+import { styles } from "./Article.css";
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  slug: string;
+  heroImage?: string;
+  createdAt: Date;
+}
+
+const { slug, title, heroImage, createdAt } = Astro.props;
+
+const formatDateTime = (date: Date) => {
+  return date.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+};
+---
+
+<article id="article" class={styles.article}>
+  <h1 class={styles.title}>{title}</h1>
+  <p class={styles.meta}>
+    <time datetime={createdAt.toISOString()}>
+      {formatDateTime(createdAt)}
+    </time>
+  </p>
+  {
+    heroImage && (
+      <Image
+        width={1200}
+        height={630}
+        src={heroImage}
+        alt={title}
+        class={styles.heroImage}
+        transition:name={`works-hero-${slug}`}
+      />
+    )
+  }
+  <slot />
+</article>

@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import BaseLayout from "@/components/layouts/Base.astro";
+import WorksListContainer from "./_components/WorksListContainer.astro";
+import WorksItem from "./_components/WorksItem.astro";
+
+const works = await getCollection("works");
+const groupedWorks = works.reduce(
+  (acc, work) => {
+    const year = work.data.createdAt.getFullYear();
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(work);
+    return acc;
+  },
+  {} as Record<string, typeof works>
+);
+const sortedGroupedWorks = Object.entries(groupedWorks)
+  .sort(([a], [b]) => Number(b) - Number(a))
+  .map(
+    ([year, works]) =>
+      [
+        year,
+        works.sort(
+          (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime()
+        ),
+      ] as const
+  );
+---
+
+<BaseLayout>
+  {
+    sortedGroupedWorks.map(([year, works]) => (
+      <WorksListContainer title={year}>
+        {works.map((work) => (
+          <WorksItem
+            title={work.data.title}
+            slug={work.slug}
+            description={work.data.description}
+            heroImage={work.data.heroImage}
+          />
+        ))}
+      </WorksListContainer>
+    ))
+  }
+</BaseLayout>

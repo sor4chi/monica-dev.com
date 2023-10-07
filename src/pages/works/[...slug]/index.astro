@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@/components/layouts/Base.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+import Container from "./_components/Container.astro";
+import Aside from "./_components/Aside.astro";
+import Article from "./_components/Article.astro";
+import Toc from "@/components/document/Toc.astro";
+import Link from "@/components/ui/Link.astro";
+
+export async function getStaticPaths() {
+  const works = await getCollection("works");
+  return works.map((work) => ({
+    params: { slug: work.slug },
+    props: work,
+  }));
+}
+type Props = CollectionEntry<"works">;
+
+const work = Astro.props;
+const { Content, headings } = await work.render();
+---
+
+<BaseLayout>
+  <Container>
+    <Aside>
+      <Link href="/works">← Back</Link>
+      <Toc headings={headings} />
+    </Aside>
+    <Article
+      slug={work.slug}
+      title={work.data.title}
+      heroImage={work.data.heroImage}
+      createdAt={work.data.createdAt}
+    >
+      <Content />
+    </Article>
+    <Aside />
+  </Container>
+</BaseLayout>
