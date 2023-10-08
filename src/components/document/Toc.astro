@@ -29,24 +29,30 @@ const { headings } = Astro.props;
 </ul>
 
 <script>
-  const headings = document.querySelectorAll(
-    "#article h2, #article h3, #article h4, #article h5, #article h6"
-  );
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const { target } = entry;
-      const toc = document.querySelector(
-        `#toc-list a[href="#${target.id}"]`
-      );
-      if (!toc) return;
-      if (entry.isIntersecting) {
-        toc.classList.add("toc-active");
-      } else {
-        toc.classList.remove("toc-active");
-      }
+  const initToc = () => {
+    const headings = document.querySelectorAll(
+      "#article h2, #article h3, #article h4, #article h5, #article h6"
+    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const { target } = entry;
+        const toc = document.querySelector(`#toc-list a[href="#${target.id}"]`);
+        if (!toc) return;
+        if (entry.isIntersecting) {
+          toc.classList.add("toc-active");
+        } else {
+          toc.classList.remove("toc-active");
+        }
+      });
     });
-  });
-  headings.forEach((heading) => {
-    observer.observe(heading);
+    headings.forEach((heading) => {
+      observer.observe(heading);
+    });
+  };
+
+  initToc();
+
+  document.addEventListener("astro:after-swap", () => {
+    initToc();
   });
 </script>
