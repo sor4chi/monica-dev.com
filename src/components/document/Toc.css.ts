@@ -36,8 +36,12 @@ export const styles = {
 
     transition: "color 0.2s ease-in-out",
 
-    ":hover": {
-      color: vars.color.blue[9],
+    "@media": {
+      "(hover: hover)": {
+        ":hover": {
+          color: vars.color.blue[9],
+        },
+      },
     },
   }),
 };

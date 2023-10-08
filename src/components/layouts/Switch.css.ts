@@ -9,6 +9,13 @@ export const styles = {
     top: vars.spacing.absolute[8],
     right: vars.spacing.absolute[8],
     zIndex: vars.zIndex.windowFloat,
+
+    "@media": {
+      [`screen and (max-width: 30rem)`]: {
+        top: vars.spacing.absolute[4],
+        right: vars.spacing.absolute[4],
+      },
+    },
   }),
   button: style([
     focusInteraction,
@@ -24,9 +31,12 @@ export const styles = {
       fill: "none",
       stroke: vars.color.gray[11],
       overflow: "hidden",
-
-      ":hover": {
-        backgroundColor: vars.color.gray[3],
+      "@media": {
+        "(hover: hover)": {
+          ":hover": {
+            backgroundColor: vars.color.gray[3],
+          },
+        },
       },
     },
   ]),

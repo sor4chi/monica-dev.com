@@ -21,8 +21,12 @@ export const styles = {
 
       transition: "box-shadow 0.2s ease-in-out",
 
-      ":hover": {
-        backgroundColor: vars.color.gray[3],
+      "@media": {
+        "(hover: hover)": {
+          ":hover": {
+            backgroundColor: vars.color.gray[3],
+          },
+        },
       },
     },
   ]),
