@@ -11,6 +11,7 @@ export default defineConfig({
     plugins: [vanillaExtractPlugin()],
   },
   markdown: {
+    syntaxHighlight: "prism",
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex, rehypeSlug, rehypeHeadLinker],
   },
