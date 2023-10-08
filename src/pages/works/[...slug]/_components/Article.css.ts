@@ -182,7 +182,7 @@ globalStyle(`${styles.article} .math-display`, {
   transform: "translateX(-50%)",
   padding: `${vars.spacing.relative[4]} ${vars.spacing.relative[8]}`,
   left: "50%",
-  zIndex: 1,
+  zIndex: vars.zIndex.forward,
   boxSizing: "border-box",
 
   "@media": {
