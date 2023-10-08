@@ -22,9 +22,9 @@ const { slug, title, description } = Astro.props;
       transition:name={`works-hero-${slug}`}
       class={styles.thumbnail}
     />
-    <div class={styles.content}>
+    <span class={styles.content}>
       <h2 class={styles.title}>{title}</h2>
       <p class={styles.description}>{description}</p>
-    </div>
+    </span>
   </a>
 </li>

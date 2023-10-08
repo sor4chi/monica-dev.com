@@ -31,7 +31,7 @@ export const styles = {
   }),
 };
 
-globalStyle(`${styles.item}:hover > ${styles.title}`, {
+globalStyle(`${styles.item}:hover ${styles.title}`, {
   "@media": {
     "(hover: hover)": {
       color: vars.color.gray[11],
