@@ -17,4 +17,13 @@ const works = defineCollection({
   }),
 });
 
-export const collections = { works };
+const timelines = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    icon: z.string().optional(),
+    link: z.string(),
+    date: z.coerce.date(),
+  }),
+});
+
+export const collections = { works, timelines };

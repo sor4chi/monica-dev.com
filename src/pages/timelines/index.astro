@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/components/layouts/Base.astro";
+import List from "./_components/List.astro";
+import Item from "./_components/Item.astro";
+import Article from "../works/[...slug]/_components/Article.astro";
+import MdContents from "@/components/document/MdContents.astro";
+
+const timelines = await getCollection("timelines");
+const sortedTimelines = await Promise.all(
+  timelines
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    .map(async (timeline) => ({
+      ...timeline,
+      content: await timeline.render(),
+    }))
+);
+---
+
+<BaseLayout>
+  <List>
+    {
+      sortedTimelines.map((timeline) => (
+        <Item
+          title={timeline.data.title}
+          slug={timeline.slug}
+          date={timeline.data.date}
+          icon={timeline.data.icon}
+          link={timeline.data.link}
+        >
+          <MdContents>
+            <timeline.content.Content />
+          </MdContents>
+        </Item>
+      ))
+    }
+  </List>
+</BaseLayout>
