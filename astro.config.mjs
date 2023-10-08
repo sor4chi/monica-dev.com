@@ -1,9 +1,10 @@
 import { defineConfig } from "astro/config";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import remarkMath from "remark-math";
+import remarkBreaks from "remark-breaks";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
-import rehypeHeadLinker from "./src/lib/rehype-head-linker";
+import rehypeHeadLinker from "./src/libs/rehype-head-linker";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +13,7 @@ export default defineConfig({
   },
   markdown: {
     syntaxHighlight: "prism",
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkMath, remarkBreaks],
     rehypePlugins: [rehypeKatex, rehypeSlug, rehypeHeadLinker],
   },
 });
