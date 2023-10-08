@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { CONTAINER_GAP, CONTENTS_MAX } from "./constants";
+import { CONTAINER_GAP, CONTENTS_MAX } from "../../../../styles/constants";
 
 export const styles = {
   container: style({

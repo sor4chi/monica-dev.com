@@ -1,9 +1,10 @@
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
-import { ARTICLE_WIDTH, CONTENTS_MAX } from "./constants";
+import { ARTICLE_WIDTH, CONTENTS_MAX, CONTENTS_WITH_TOC } from "../../../../styles/constants";
 
 export const styles = {
   article: style({
+    position: "relative",
     width: "100%",
     maxWidth: ARTICLE_WIDTH,
   }),
@@ -33,6 +34,18 @@ export const styles = {
     flexDirection: "column",
     gap: vars.spacing.absolute[4],
   }),
+  backLink: style({
+    display: "none",
+    height: "2.5rem",
+    marginBottom: vars.spacing.absolute[2],
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "inline-flex",
+        alignItems: "center",
+      },
+    },
+  }),
 };
 
 globalStyle(`${styles.contents} > *:first-child`, {
@@ -54,26 +67,94 @@ globalStyle(
     padding: vars.spacing.relative[1],
   }
 );
+globalStyle(`${styles.article} .icon-link:before`, {
+  content: "X",
+  marginRight: vars.spacing.relative[1],
+});
 
-globalStyle(`${styles.article} h2`, {
+const HEADING_H1 = `${styles.article} h1`;
+const HEADING_H2 = `${styles.article} h2`;
+const HEADING_H3 = `${styles.article} h3`;
+const HEADING_H4 = `${styles.article} h4`;
+const HEADING_H5 = `${styles.article} h5`;
+const HEADING_H6 = `${styles.article} h6`;
+const ALL_HEADINGS = [
+  HEADING_H1,
+  HEADING_H2,
+  HEADING_H3,
+  HEADING_H4,
+  HEADING_H5,
+  HEADING_H6,
+];
+
+globalStyle(HEADING_H2, {
   fontSize: vars.font.size.lg,
   fontWeight: 700,
   color: vars.color.gray[12],
   marginTop: vars.spacing.relative[8],
 });
 
-globalStyle(`${styles.article} h3`, {
+globalStyle(HEADING_H3, {
   fontSize: vars.font.size.base,
   fontWeight: 700,
   color: vars.color.gray[12],
   marginTop: vars.spacing.relative[6],
 });
 
-globalStyle(`${styles.article} h4`, {
+globalStyle(`${HEADING_H4}, ${HEADING_H5}, ${HEADING_H6}`, {
   fontSize: vars.font.size.sm,
   fontWeight: 700,
   color: vars.color.gray[12],
   marginTop: vars.spacing.relative[4],
+});
+
+globalStyle(ALL_HEADINGS.join(", "), {
+  position: "relative",
+});
+
+const ALL_HEADINGS_WITH_ANCHOR = ALL_HEADINGS.map(
+  (selector) => `${selector} > a`
+);
+
+globalStyle(ALL_HEADINGS_WITH_ANCHOR.join(", "), {
+  position: "absolute",
+  top: "50%",
+  left: "-1.5rem",
+  transform: "translateY(-50%)",
+  textDecoration: "none",
+  transition: "opacity 0.2s ease-in-out",
+  opacity: 0,
+});
+
+const ALL_HEADINGS_WITH_ANCHOR_BEFORE = ALL_HEADINGS.map(
+  (selector) => `${selector} > a:before`
+);
+
+globalStyle(ALL_HEADINGS_WITH_ANCHOR_BEFORE.join(", "), {
+  content: 'url("/images/assets/link.svg")',
+  display: "inline-block",
+  padding: vars.spacing.relative[1],
+  width: "1rem",
+  height: "1rem",
+});
+
+const ALL_HEADINGS_HOVER_WITH_ANCHOR = ALL_HEADINGS.map(
+  (selector) => `${selector}:hover > a`
+);
+
+globalStyle(ALL_HEADINGS_HOVER_WITH_ANCHOR.join(", "), {
+  "@media": {
+    "(hover: hover)": {
+      opacity: 1,
+    },
+  },
+});
+
+globalStyle(`${styles.article} h1 > a`, {
+  fontSize: vars.font.size.xl,
+  fontWeight: 700,
+  color: vars.color.gray[12],
+  marginTop: vars.spacing.relative[8],
 });
 
 globalStyle(`${styles.article} p`, {

@@ -1,11 +1,11 @@
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
-import { ASIDE_WIDTH, CONTENTS_MAX, CONTENTS_WITH_TOC } from "./constants";
+import { ASIDE_WIDTH, CONTENTS_MAX, CONTENTS_WITH_TOC } from "../../../../styles/constants";
 
 export const styles = {
   aside: style({
     position: "sticky",
-    top: vars.spacing.relative[4],
+    top: `calc(${vars.spacing.absolute[8]} + 0.25rem)`,
     height: "fit-content",
     width: ASIDE_WIDTH,
     flexShrink: 0,
