@@ -1,7 +1,6 @@
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
-
-export const ARTICLE_WIDTH = "40rem";
+import { ARTICLE_WIDTH, CONTENTS_MAX } from "./constants";
 
 export const styles = {
   article: style({
@@ -23,8 +22,10 @@ export const styles = {
     display: "inline-flex",
     alignItems: "center",
     gap: vars.spacing.relative[4],
+    margin: 0,
+  }),
+  date: style({
     fontSize: vars.font.size.sm,
-    margin: `${vars.spacing.relative[2]} 0`,
     color: vars.color.gray[11],
   }),
   contents: style({
@@ -36,6 +37,20 @@ export const styles = {
 
 globalStyle(`${styles.contents} > *:first-child`, {
   marginTop: vars.spacing[0],
+});
+
+globalStyle(`${styles.article} a`, {
+  fontSize: vars.font.size.lg,
+  color: vars.color.gray[12],
+  wordBreak: "break-word",
+  textUnderlineOffset: "0.2em",
+});
+
+globalStyle(`${styles.article} a[data-footnote-ref]`, {
+  fontSize: vars.font.size.sm,
+  color: vars.color.blue[11],
+  textDecoration: "none",
+  padding: vars.spacing.relative[1],
 });
 
 globalStyle(`${styles.article} h2`, {
@@ -168,12 +183,13 @@ globalStyle(`${styles.article} .math-display`, {
   padding: `${vars.spacing.relative[4]} ${vars.spacing.relative[8]}`,
   left: "50%",
   zIndex: 1,
+  boxSizing: "border-box",
 
   "@media": {
-    // [`screen and (max-width: ${constants.breakpoint.lg})`]: {
-    //   overflowX: "auto",
-    //   width: "100%",
-    // },
+    [`screen and (max-width: ${CONTENTS_MAX})`]: {
+      overflowX: "auto",
+      width: "100%",
+    },
   },
 });
 

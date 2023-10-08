@@ -106,4 +106,11 @@ export const vars = {
   color: colorVars,
   font: fontVars,
   spacing: spacingVars,
+  zIndex: {
+    normal: 0,
+    forward: 1,
+    float: 10,
+    windowFloat: 100,
+    modal: 1000,
+  },
 };

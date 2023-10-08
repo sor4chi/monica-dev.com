@@ -22,7 +22,7 @@ const { Content, headings } = await work.render();
 
 <BaseLayout>
   <Container>
-    <Aside>
+    <Aside position="left">
       <Link href="/works">← Back</Link>
       <Toc headings={headings} />
     </Aside>
@@ -33,6 +33,6 @@ const { Content, headings } = await work.render();
     >
       <Content />
     </Article>
-    <Aside />
+    <Aside position="right" />
   </Container>
 </BaseLayout>

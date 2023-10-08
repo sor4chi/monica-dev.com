@@ -8,7 +8,7 @@ export const styles = {
     position: "fixed",
     top: vars.spacing.absolute[8],
     right: vars.spacing.absolute[8],
-    zIndex: 1,
+    zIndex: vars.zIndex.windowFloat,
   }),
   button: style([
     focusInteraction,

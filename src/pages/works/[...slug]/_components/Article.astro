@@ -23,7 +23,7 @@ const formatDateTime = (date: Date) => {
 <article id="article" class={styles.article}>
   <h1 class={styles.title}>{title}</h1>
   <p class={styles.meta}>
-    <time datetime={createdAt.toISOString()}>
+    <time datetime={createdAt.toISOString()} class={styles.date}>
       {formatDateTime(createdAt)}
     </time>
   </p>

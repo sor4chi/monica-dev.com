@@ -1,15 +1,14 @@
 import { style } from "@vanilla-extract/css";
-import { ARTICLE_WIDTH } from "./Article.css";
-import { ASIDE_WIDTH } from "./Aside.css";
 
-const CONTAINER_GAP = "1rem";
+import { CONTAINER_GAP, CONTENTS_MAX } from "./constants";
 
 export const styles = {
   container: style({
     display: "flex",
+    justifyContent: "center",
     gap: CONTAINER_GAP,
     width: "100%",
-    maxWidth: `calc(${ARTICLE_WIDTH} + ${ASIDE_WIDTH} * 2 + ${CONTAINER_GAP} * 2)`,
+    maxWidth: CONTENTS_MAX,
     margin: "0 auto",
   }),
 };

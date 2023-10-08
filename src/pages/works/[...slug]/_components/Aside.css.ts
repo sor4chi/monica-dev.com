@@ -1,7 +1,6 @@
 import { vars } from "@/styles/theme.css";
-import { globalStyle, style } from "@vanilla-extract/css";
-
-export const ASIDE_WIDTH = "15rem";
+import { style } from "@vanilla-extract/css";
+import { ASIDE_WIDTH, CONTENTS_MAX, CONTENTS_WITH_TOC } from "./constants";
 
 export const styles = {
   aside: style({
@@ -14,5 +13,19 @@ export const styles = {
     flexDirection: "column",
     alignItems: "flex-start",
     gap: vars.spacing.absolute[8],
+  }),
+  left: style({
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "none",
+      },
+    },
+  }),
+  right: style({
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_MAX})`]: {
+        display: "none",
+      },
+    },
   }),
 };
