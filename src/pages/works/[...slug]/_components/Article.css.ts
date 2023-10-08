@@ -40,18 +40,20 @@ globalStyle(`${styles.contents} > *:first-child`, {
 });
 
 globalStyle(`${styles.article} a`, {
-  fontSize: vars.font.size.lg,
   color: vars.color.gray[12],
   wordBreak: "break-word",
   textUnderlineOffset: "0.2em",
 });
 
-globalStyle(`${styles.article} a[data-footnote-ref]`, {
-  fontSize: vars.font.size.sm,
-  color: vars.color.blue[11],
-  textDecoration: "none",
-  padding: vars.spacing.relative[1],
-});
+globalStyle(
+  `${styles.article} a[data-footnote-ref], ${styles.article} a[data-footnote-backref]`,
+  {
+    fontSize: vars.font.size.sm,
+    color: vars.color.blue[11],
+    textDecoration: "none",
+    padding: vars.spacing.relative[1],
+  }
+);
 
 globalStyle(`${styles.article} h2`, {
   fontSize: vars.font.size.lg,

@@ -1,7 +1,6 @@
 import { globalStyle } from '@vanilla-extract/css';
 
 import { colorVars } from './contract.css';
-import { vars } from './theme.css';
 
 globalStyle('body', {
   backgroundColor: colorVars.gray[1],
@@ -16,7 +15,7 @@ globalStyle('body', {
 });
 
 globalStyle('html', {
-  scrollPaddingTop: vars.spacing.absolute[8],
+  scrollPaddingTop: '50dvh',
   scrollBehavior: 'smooth',
 });
 
