@@ -18,6 +18,12 @@ export const styles = {
   }),
   title: style({
     fontSize: vars.font.size.xl,
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        marginTop: vars.spacing.absolute[2],
+      },
+    },
   }),
   meta: style({
     display: "inline-flex",
