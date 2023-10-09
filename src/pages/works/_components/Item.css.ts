@@ -35,6 +35,10 @@ export const styles = {
   description: style({
     color: vars.color.gray[11],
     fontSize: vars.font.size.sm,
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
+    overflow: "hidden",
   }),
 };
 
