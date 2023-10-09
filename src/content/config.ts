@@ -5,6 +5,7 @@ const originalBlogSchema = z.object({
   description: z.string(),
   publishedAt: z.coerce.date(),
   updatedAt: z.coerce.date().optional(),
+  url: z.undefined(),
 });
 
 const externalBlogSchema = z.object({

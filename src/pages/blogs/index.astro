@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/components/layouts/Base.astro";
+import List from "./_components/List.astro";
+import Item from "./_components/Item.astro";
+
+const blogs = await getCollection("blogs");
+const groupedBlogs = blogs.reduce(
+  (acc, blog) => {
+    const year = blog.data.publishedAt.getFullYear();
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(blog);
+    return acc;
+  },
+  {} as Record<string, typeof blogs>
+);
+const sortedGroupedBlogs = Object.entries(groupedBlogs)
+  .sort(([a], [b]) => Number(b) - Number(a))
+  .map(
+    ([year, blogs]) =>
+      [
+        year,
+        blogs.sort(
+          (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+        ),
+      ] as const
+  );
+---
+
+<BaseLayout>
+  {
+    sortedGroupedBlogs.map(([year, works]) => (
+      <List title={year}>
+        {works.map((work) => (
+          <Item title={work.data.title} slug={work.slug} url={work.data.url} />
+        ))}
+      </List>
+    ))
+  }
+</BaseLayout>

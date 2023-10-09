@@ -1,0 +1,42 @@
+---
+import BaseLayout from "@/components/layouts/Base.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+import Container from "./_components/Container.astro";
+import Aside from "./_components/Aside.astro";
+import Article from "./_components/Article.astro";
+import Toc from "@/components/document/Toc.astro";
+import Link from "@/components/ui/Link.astro";
+import MdContets from "@/components/document/MdContents.astro";
+
+export async function getStaticPaths() {
+  const blogs = await getCollection("blogs");
+  return blogs.map((blog) => ({
+    params: { slug: blog.slug },
+    props: blog,
+  }));
+}
+type Props = CollectionEntry<"blogs">;
+
+const blog = Astro.props;
+const { Content, headings } = await blog.render();
+---
+
+<BaseLayout>
+  <Container>
+    <Aside position="left">
+      <Link href="/blogs">← Back</Link>
+      <Toc headings={headings} />
+    </Aside>
+    <Article
+      slug={blog.slug}
+      title={blog.data.title}
+      publishedAt={blog.data.publishedAt}
+      updatedAt={blog.data.updatedAt}
+    >
+      <MdContets>
+        <Content />
+      </MdContets>
+    </Article>
+    <Aside position="right" />
+  </Container>
+</BaseLayout>

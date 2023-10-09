@@ -7,10 +7,11 @@ import "katex/dist/katex.css";
 interface Props {
   title: string;
   slug: string;
-  createdAt: Date;
+  publishedAt: Date;
+  updatedAt?: Date;
 }
 
-const { slug, title, createdAt } = Astro.props;
+const { title, publishedAt, updatedAt } = Astro.props;
 
 const formatDateTime = (date: Date) => {
   return date.toLocaleDateString("en-US", {
@@ -23,21 +24,23 @@ const formatDateTime = (date: Date) => {
 
 <article id="article" class={styles.article}>
   <span class={styles.backLink}>
-    <Link href="/works">← Back</Link>
+    <Link href="/blogs">← Back</Link>
   </span>
   <h1 class={styles.title}>{title}</h1>
   <p class={styles.meta}>
-    <time datetime={createdAt.toISOString()} class={styles.date}>
-      {formatDateTime(createdAt)}
+    <time datetime={publishedAt.toISOString()} class={styles.date}>
+      {formatDateTime(publishedAt)}
     </time>
+    {
+      updatedAt && (
+        <>
+          <span>/</span>
+          <time datetime={updatedAt.toISOString()} class={styles.date}>
+            {formatDateTime(updatedAt)}
+          </time>
+        </>
+      )
+    }
   </p>
-  <Image
-    width={640}
-    height={336}
-    src={`/images/works/${slug}/hero-640.webp`}
-    alt={title}
-    class={styles.heroImage}
-    transition:name={`works-hero-${slug}`}
-  />
   <slot />
 </article>
