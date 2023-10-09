@@ -150,6 +150,6 @@ ssl化やbrotil圧縮を勝手にやってくれたり、mainブランチへのg
 
 ぱずかるにデータを提供してくださっているトップランカーの[じゃぶおじさん](https://twitter.com/jab_ozzy)様が史上初のランク2000に到達したそうです、本当におめでとうございます。
 
-::tweet[1667903966196400129]
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ランク2000に到達しました❗️<a href="https://twitter.com/hashtag/%E3%83%91%E3%82%BA%E3%83%89%E3%83%A9?src=hash&amp;ref_src=twsrc%5Etfw">#パズドラ</a> <a href="https://t.co/FFx3ZOj0cE">pic.twitter.com/FFx3ZOj0cE</a></p>&mdash; じゃぶおじさん (@jab_ozzy) <a href="https://twitter.com/jab_ozzy/status/1667903966196400129?ref_src=twsrc%5Etfw">June 11, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 すごすぎますよね...自分がランク上げをやってた5年前、ランク1000になっただけで大喜びしてたのが懐かしいです。

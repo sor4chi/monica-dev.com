@@ -23,7 +23,7 @@ updatedAt: 2023/05/08
 
 ## メディア
 
-::tweet[1242813183179407363]
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">【ご報告】この度新たにパズドラ経験値計算機公式Twitterを設けました。毎度ご利用頂きありがとうございます。<br>サイトに関して最新情報を随時更新予定なので、是非フォローをよろしくお願いします。<br><br>2020/3/25 運営一同 <a href="https://t.co/YTPStk8asE">pic.twitter.com/YTPStk8asE</a></p>&mdash; 【公式】｢ぱずかる｣パズドラ経験値計算機 (@pad_calculator_) <a href="https://twitter.com/pad_calculator_/status/1242813183179407363?ref_src=twsrc%5Etfw">March 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ![Pazcal Web](https://monica-log.s3.ap-northeast-1.amazonaws.com/blog/Capture-2023-05-08-145625.png)
 
