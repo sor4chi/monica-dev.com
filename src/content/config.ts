@@ -21,7 +21,7 @@ const timelines = defineCollection({
   schema: z.object({
     title: z.string(),
     icon: z.string().optional(),
-    link: z.string(),
+    link: z.string().optional(),
     date: z.coerce.date(),
   }),
 });
