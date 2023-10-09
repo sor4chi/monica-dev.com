@@ -1,4 +1,5 @@
 ---
+import { clsx } from "clsx";
 import { styles } from "./Item.css";
 import { Image } from "astro:assets";
 
@@ -13,9 +14,12 @@ interface Props {
 const { slug, title, date, icon, link } = Astro.props;
 ---
 
-<tr>
-  <td class={styles.dateCol}>
-    <time datetime={date.toISOString()} class={styles.date}>
+<tr class={styles.row}>
+  <td class={clsx(styles.dateCol, styles.col)}>
+    <time
+      datetime={date.toISOString()}
+      class={clsx(styles.date, styles.desktopDate)}
+    >
       {
         date.toLocaleDateString("en-US", {
           year: "numeric",
@@ -24,7 +28,7 @@ const { slug, title, date, icon, link } = Astro.props;
       }
     </time>
   </td>
-  <td class={styles.iconCol}>
+  <td class={clsx(styles.iconCol, styles.col)}>
     <a href={link} target="_blank" rel="noopener noreferrer">
       {
         icon ? (
@@ -44,8 +48,21 @@ const { slug, title, date, icon, link } = Astro.props;
       }
     </a>
   </td>
-  <td>
-    <h2 class={styles.title}>{title}</h2>
+  <td class={styles.col}>
+    <span class={styles.titleWrapper}>
+      <h2 class={styles.title}>{title}</h2>
+      <time
+        datetime={date.toISOString()}
+        class={clsx(styles.date, styles.mobileDate)}
+      >
+        {
+          date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+          })
+        }
+      </time>
+    </span>
     <slot />
   </td>
 </tr>

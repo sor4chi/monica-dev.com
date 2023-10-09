@@ -5,4 +5,4 @@ link: https://abema.tv/
 date: 2023-10-04
 ---
 
-内定者バイトとして、4ヶ月間[AbemaTV](https://abema.tv/)の開発に携わる。
+内定者バイトとして、4ヶ月間 [AbemaTV](https://abema.tv/) の開発に携わる。

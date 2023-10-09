@@ -1,3 +1,4 @@
+import { CONTENTS_WITH_TOC } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
@@ -14,6 +15,12 @@ export const styles = {
     aspectRatio: "1200 / 630",
     objectFit: "cover",
     borderRadius: vars.spacing.absolute[2],
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        width: "8rem",
+      },
+    },
   }),
   content: style({
     display: "flex",

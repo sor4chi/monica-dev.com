@@ -1,13 +1,27 @@
+import { CONTENTS_WITH_TOC } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 
 const ICON_SIZE = "3rem";
 const DOT_SIZE = "0.5rem";
 
+const row = style({});
+
 export const styles = {
+  row,
+  col: style({
+    verticalAlign: "top",
+    paddingTop: vars.spacing[0],
+
+    selectors: {
+      [`${row} + ${row} &`]: {
+        paddingTop: vars.spacing.absolute[4],
+      },
+    },
+  }),
   iconCol: style({
     width: ICON_SIZE,
-    verticalAlign: "top",
+    paddingRight: vars.spacing.relative[4],
   }),
   icon: style({
     width: ICON_SIZE,
@@ -30,8 +44,22 @@ export const styles = {
   }),
   dateCol: style({
     width: ICON_SIZE,
-    verticalAlign: "top",
     textAlign: "right",
+    paddingRight: vars.spacing.relative[4],
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "none",
+      },
+    },
+  }),
+  titleWrapper: style({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    height: ICON_SIZE,
+    gap: vars.spacing.relative[4],
   }),
   date: style({
     color: vars.color.gray[11],
@@ -39,10 +67,27 @@ export const styles = {
     whiteSpace: "nowrap",
     lineHeight: ICON_SIZE,
   }),
+  desktopDate: style({
+    display: "none",
+
+    "@media": {
+      [`screen and (min-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "block",
+      },
+    },
+  }),
+  mobileDate: style({
+    display: "none",
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "block",
+      },
+    },
+  }),
   title: style({
     color: vars.color.gray[12],
     fontSize: vars.font.size.lg,
-    lineHeight: ICON_SIZE,
   }),
   description: style({
     color: vars.color.gray[11],
