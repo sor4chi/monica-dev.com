@@ -29,7 +29,7 @@ export const styles = {
     display: "inline-flex",
     alignItems: "center",
     gap: vars.spacing.relative[2],
-    marginBottom: vars.spacing.absolute[4],
+    marginBottom: vars.spacing.absolute[8],
     color: vars.color.gray[11],
   }),
   date: style({
