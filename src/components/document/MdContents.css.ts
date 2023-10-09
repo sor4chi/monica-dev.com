@@ -176,6 +176,7 @@ globalStyle(`${styles.contents} table tr + tr > td`, {
 
 globalStyle(`${styles.contents} table td`, {
   padding: vars.spacing.relative[2],
+  lineHeight: 1.8,
 });
 
 globalStyle(`${styles.contents} hr`, {
