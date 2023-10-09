@@ -240,6 +240,7 @@ globalStyle(`${styles.contents} img`, {
   height: "auto",
   borderRadius: vars.spacing.absolute[2],
   margin: `${vars.spacing.relative[4]} 0`,
+  border: `1px solid ${vars.color.gray[4]}`,
 });
 
 globalStyle(`${styles.contents} .math-display`, {

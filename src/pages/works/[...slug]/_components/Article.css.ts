@@ -15,6 +15,7 @@ export const styles = {
     objectFit: "cover",
     borderRadius: vars.spacing.absolute[2],
     margin: `${vars.spacing.relative[4]} 0`,
+    border: `1px solid ${vars.color.gray[3]}`,
   }),
   title: style({
     fontSize: vars.font.size.xl,
