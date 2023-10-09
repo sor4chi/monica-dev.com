@@ -191,6 +191,18 @@ globalStyle(`${styles.contents} blockquote`, {
   paddingLeft: vars.spacing.relative[4],
 });
 
+globalStyle(`${styles.contents} blockquote[data-annotation-type="warning"]`, {
+  borderLeft: `4px solid #f6ad55`,
+});
+
+globalStyle(`${styles.contents} blockquote[data-annotation-type="note"]`, {
+  borderLeft: `4px solid #63b3ed`,
+});
+
+globalStyle(`${styles.contents} blockquote[data-annotation-type="important"]`, {
+  borderLeft: `4px solid #fc8181`,
+});
+
 globalStyle(`${styles.contents} .contains-task-list`, {
   padding: 0,
 });

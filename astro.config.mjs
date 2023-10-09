@@ -5,6 +5,7 @@ import remarkBreaks from "remark-breaks";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
 import rehypeHeadLinker from "./src/libs/rehype-head-linker";
+import rehypeAnnotationBlock from "./src/libs/rehype-annotation-block";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,6 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: "prism",
     remarkPlugins: [remarkMath, remarkBreaks],
-    rehypePlugins: [rehypeKatex, rehypeSlug, rehypeHeadLinker],
+    rehypePlugins: [rehypeKatex, rehypeSlug, rehypeHeadLinker, rehypeAnnotationBlock],
   },
 });
