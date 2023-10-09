@@ -1,3 +1,4 @@
+import { CONTENTS_WITH_TOC } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 
@@ -32,14 +33,21 @@ export const styles = {
     fontSize: vars.font.size.base,
     fontWeight: 400,
     color: vars.color.gray[12],
+    width: "100%",
   }),
   arrow: style({
     width: "1rem",
     height: "1rem",
     flexShrink: 0,
     color: vars.color.gray[10],
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "none",
+      },
+    },
   }),
-  domain: style({
+  domainDesktop: style({
     opacity: 0,
     color: vars.color.gray[11],
     fontSize: vars.font.size.sm,
@@ -59,6 +67,26 @@ export const styles = {
       },
       [`${item}:focus-visible &`]: {
         opacity: 1,
+      },
+    },
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "none",
+      },
+    },
+  }),
+  domainMobile: style({
+    display: "none",
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "flex",
+        alignItems: "center",
+        gap: vars.spacing.absolute[2],
+        color: vars.color.gray[11],
+        fontSize: vars.font.size.sm,
+        width: "1rem",
       },
     },
   }),

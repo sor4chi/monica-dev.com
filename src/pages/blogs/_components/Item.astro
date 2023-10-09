@@ -25,6 +25,18 @@ const ICON_MAP = new Map<string, string>([
 
 <li>
   <a href={url || `/blogs/${slug}`} class={styles.item}>
+    <span class={styles.domainMobile}>
+      {
+        url && ICON_MAP.has(getDomain(url)) && (
+          <img
+            src={ICON_MAP.get(getDomain(url))}
+            alt={getDomain(url)}
+            width={16}
+            height={16}
+          />
+        )
+      }
+    </span>
     <h3 class={styles.title}>{title}</h3>
     {
       url && (
@@ -46,7 +58,7 @@ const ICON_MAP = new Map<string, string>([
               <polyline points="7 7 17 7 17 17" />
             </>
           </svg>
-          <span class={styles.domain}>
+          <span class={styles.domainDesktop}>
             {ICON_MAP.has(getDomain(url)) && (
               <img
                 src={ICON_MAP.get(getDomain(url))}

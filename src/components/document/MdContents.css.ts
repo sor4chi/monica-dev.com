@@ -112,6 +112,14 @@ globalStyle(ALL_HEADINGS_HOVER_WITH_ANCHOR.join(", "), {
   },
 });
 
+const ALL_HEADINGS_FOCUS_VISIBLE_WITH_ANCHOR = ALL_HEADINGS.map(
+  (selector) => `${selector} > a:focus-visible`
+);
+
+globalStyle(ALL_HEADINGS_FOCUS_VISIBLE_WITH_ANCHOR.join(", "), {
+  opacity: 1,
+});
+
 globalStyle(`${styles.contents} h1 > a`, {
   fontSize: vars.font.size.xl,
   fontWeight: 700,
