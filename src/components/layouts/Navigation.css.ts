@@ -18,8 +18,35 @@ export const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    gap: vars.spacing.absolute[4],
+    gap: vars.spacing.absolute[2],
     fontSize: vars.font.size.xl,
+  }),
+  line: style({
+    border: "none",
+    height: "1px",
+    width: "80%",
+    backgroundColor: vars.color.gray[4],
+    margin: `${vars.spacing.relative[4]} 0`,
+  }),
+  social: style({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: vars.spacing.absolute[2],
+  }),
+  icon: style({
+    flexShrink: 0,
+    color: vars.color.gray[11],
+    width: "1.5rem",
+    height: "1.5rem",
+
+    "@media": {
+      "(hover: hover)": {
+        ":hover": {
+          color: vars.color.blue[9],
+        },
+      },
+    },
   }),
 };
 
