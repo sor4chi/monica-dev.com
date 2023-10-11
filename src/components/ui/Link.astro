@@ -1,16 +1,18 @@
 ---
 import { styles } from "./Link.css";
+import { clsx } from "clsx";
 
-interface LinkProps {
+interface Props {
   href: string;
   newTab?: boolean;
+  exClass?: string;
 }
 
-const { href, newTab } = Astro.props;
+const { href, newTab, exClass } = Astro.props;
 ---
 
 <a
-  class={styles.link}
+  class={clsx(styles.link, exClass)}
   href={href}
   target={newTab ? "_blank" : undefined}
   rel={newTab ? "noopener noreferrer" : undefined}

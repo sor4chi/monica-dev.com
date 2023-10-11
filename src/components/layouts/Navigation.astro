@@ -4,10 +4,10 @@ import { styles } from "./Navigation.css";
 ---
 
 <div class={styles.backward} id="backward">
-  <Link href="/">Home</Link>
-  <Link href="/works">Works</Link>
-  <Link href="/timelines">Timelines</Link>
-  <Link href="/blogs">Blogs</Link>
+  <Link href="/" exClass="backward-internal-link">Home</Link>
+  <Link href="/works" exClass="backward-internal-link">Works</Link>
+  <Link href="/timelines" exClass="backward-internal-link">Timelines</Link>
+  <Link href="/blogs" exClass="backward-internal-link">Blogs</Link>
   <hr class={styles.line} />
   <div class={styles.social}>
     <Link href="https://x.com/monica18_pr">
@@ -42,6 +42,8 @@ import { styles } from "./Navigation.css";
 </div>
 
 <script>
+  import { navigate } from "astro:transitions/client";
+
   const initNavigation = () => {
     const navigationToggle = document.querySelector("#navigation-toggle");
     const main = document.querySelector("main");
@@ -59,6 +61,20 @@ import { styles } from "./Navigation.css";
       }
       navigationToggle.classList.toggle("is-active");
       main.classList.toggle("is-active");
+    });
+
+    const links = document.querySelectorAll(".backward-internal-link");
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        backward.classList.remove("is-active");
+        navigationToggle.classList.remove("is-active");
+        main.classList.remove("is-active");
+
+        setTimeout(() => {
+          navigate(link.href);
+        }, 300);
+      });
     });
   };
 
