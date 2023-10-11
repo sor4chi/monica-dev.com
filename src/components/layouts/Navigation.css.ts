@@ -13,7 +13,7 @@ export const styles = {
     padding: "1rem",
     boxSizing: "border-box",
     width: `calc(80vw - ${LAYOUT_CONTAINER_SIDE_PADDING})`,
-    height: "90dvh",
+    height: "90vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
