@@ -2,7 +2,8 @@
 import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 import { styles } from "./Base.css";
-import Switch from "./Switch.astro";
+import Navigation from "./Navigation.astro";
+import RightTopArea from "./RightTopArea.astro";
 ---
 
 <html lang="en" class="light">
@@ -17,9 +18,10 @@ import Switch from "./Switch.astro";
     <ViewTransitions />
   </head>
   <body>
-    <Switch />
+    <RightTopArea />
     <main class={styles.container}>
       <slot />
     </main>
+    <Navigation />
   </body>
 </html>

@@ -1,0 +1,39 @@
+---
+import Link from "../ui/Link.astro";
+import { styles } from "./Navigation.css";
+---
+
+<div class={styles.backward} id="backward">
+  <Link href="/">Home</Link>
+  <Link href="/works">Works</Link>
+  <Link href="/timelines">Timelines</Link>
+  <Link href="/blogs">Blogs</Link>
+</div>
+
+<script>
+  const initNavigation = () => {
+    const navigationToggle = document.querySelector("#navigation-toggle");
+    const main = document.querySelector("main");
+    const backward = document.querySelector("#backward");
+
+    if (!navigationToggle || !main || !backward) return;
+
+    navigationToggle.addEventListener("click", () => {
+      if (backward.classList.contains("is-active")) {
+        backward.classList.remove("is-active");
+      } else {
+        setTimeout(() => {
+          backward.classList.add("is-active");
+        }, 300);
+      }
+      navigationToggle.classList.toggle("is-active");
+      main.classList.toggle("is-active");
+    });
+  };
+
+  initNavigation();
+
+  document.addEventListener("astro:after-swap", () => {
+    initNavigation();
+  });
+</script>
