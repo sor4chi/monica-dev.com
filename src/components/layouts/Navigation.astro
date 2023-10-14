@@ -72,6 +72,7 @@ import { styles } from "./Navigation.css";
         main.classList.remove("is-active");
 
         setTimeout(() => {
+          // @ts-ignore
           navigate(link.href);
         }, 300);
       });
