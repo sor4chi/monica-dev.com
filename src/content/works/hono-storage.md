@@ -1,7 +1,7 @@
 ---
 title: 'Hono Storage'
 createdAt: 2023/10/13
-description: "A multi-part/form-data helper for Hono. You can handle files easily with this."
+description: "A storage helper for Hono. Support disk, memory, S3, etc."
 ---
 
 A
