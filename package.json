@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "format": "prettier --write . --plugin=prettier-plugin-astro",
     "optimize": "tsx ./scripts/optimize",
     "prebuild": "npm run optimize"
   },
@@ -33,6 +34,8 @@
     "@vanilla-extract/vite-plugin": "^3.9.0",
     "glob": "^10.3.10",
     "hastscript": "^8.0.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
     "rehype": "^13.0.1",
     "sharp": "^0.32.6",
     "tsx": "^3.13.0",
