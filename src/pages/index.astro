@@ -1,7 +1,16 @@
 ---
 import BaseLayout from "@/components/layouts/Base.astro";
+import NameCard from "./_components/NameCard.astro";
+import * as Profile from "@/content/profile/introduce.mdx";
+import MdContents from "@/components/document/MdContents.astro";
+import Container from "./_components/Container.astro";
 ---
 
 <BaseLayout>
-  <h1>Astro</h1>
+  <Container>
+    <NameCard />
+    <MdContents>
+      <Profile.Content />
+    </MdContents>
+  </Container>
 </BaseLayout>

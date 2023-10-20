@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import { styles } from "./NameCard.css";
+import Icon from "./icon.webp";
+---
+
+<div class={styles.container}>
+  <Image src={Icon} width={256} height={256} alt="icon" class={styles.image} />
+  <div>
+    <h3 class={styles.title}>Sor4chi / Monica</h3>
+    <p class={styles.subtitle}>
+      I'm a web developer and a student. I'm currently learning Astro and
+      Svelte.
+    </p>
+  </div>
+</div>
