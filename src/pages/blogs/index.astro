@@ -14,7 +14,7 @@ const groupedBlogs = blogs.reduce(
     acc[year].push(blog);
     return acc;
   },
-  {} as Record<string, typeof blogs>
+  {} as Record<string, typeof blogs>,
 );
 const sortedGroupedBlogs = Object.entries(groupedBlogs)
   .sort(([a], [b]) => Number(b) - Number(a))
@@ -23,9 +23,9 @@ const sortedGroupedBlogs = Object.entries(groupedBlogs)
       [
         year,
         blogs.sort(
-          (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+          (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
         ),
-      ] as const
+      ] as const,
   );
 ---
 

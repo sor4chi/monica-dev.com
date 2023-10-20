@@ -12,7 +12,7 @@ const plugin: Plugin = () => (tree) => {
           href: `#${id}`,
           ariaLabel: "Copy permalink to clipboard",
           title: "Copy permalink to clipboard",
-        })
+        }),
       );
     }
   });

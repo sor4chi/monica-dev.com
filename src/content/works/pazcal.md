@@ -1,9 +1,8 @@
 ---
-title: 'Pazcal'
+title: "Pazcal"
 createdAt: 2020/2/27
 description: "パズドラの経験値計算機ツール"
 ---
-
 
 ## This is a header
 
@@ -54,8 +53,8 @@ This is a horizontal rule
 This is a code block
 
 ```jsx title="This is a code block" {2,10-13}
-import React from 'react';
-import { z } from 'zod';
+import React from "react";
+import { z } from "zod";
 
 const schema = z.object({
   name: z.string(),
@@ -64,7 +63,7 @@ const schema = z.object({
 
 const Component = () => {
   const [state, setState] = React.useState({
-    name: '',
+    name: "",
     age: 0,
   });
 
@@ -89,8 +88,18 @@ const Component = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="name" value={state.name} onChange={handleChange} />
-      <input type="number" name="age" value={state.age} onChange={handleChange} />
+      <input
+        type="text"
+        name="name"
+        value={state.name}
+        onChange={handleChange}
+      />
+      <input
+        type="number"
+        name="age"
+        value={state.age}
+        onChange={handleChange}
+      />
       <button type="submit">Submit</button>
     </form>
   );

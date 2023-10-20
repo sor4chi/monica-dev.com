@@ -5,7 +5,7 @@ import { visit } from "unist-util-visit";
 const findMatchedChildren = (node: Element, match: RegExp) => {
   const findTextDeep = (
     node: ElementContent,
-    match: RegExp
+    match: RegExp,
   ): (string | null)[] | string | null => {
     if ("children" in node) {
       return node.children.map((child) => findTextDeep(child, match)).flat();

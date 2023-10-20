@@ -1,6 +1,10 @@
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
-import { ASIDE_WIDTH, CONTENTS_MAX, CONTENTS_WITH_TOC } from "../../../../styles/constants";
+import {
+  ASIDE_WIDTH,
+  CONTENTS_MAX,
+  CONTENTS_WITH_TOC,
+} from "../../../../styles/constants";
 
 export const styles = {
   aside: style({

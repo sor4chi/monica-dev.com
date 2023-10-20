@@ -27,7 +27,7 @@ globalStyle(
     color: vars.color.blue[11],
     textDecoration: "none",
     padding: vars.spacing.relative[1],
-  }
+  },
 );
 globalStyle(`${styles.contents} .icon-link:before`, {
   content: "X",
@@ -75,7 +75,7 @@ globalStyle(ALL_HEADINGS.join(", "), {
 });
 
 const ALL_HEADINGS_WITH_ANCHOR = ALL_HEADINGS.map(
-  (selector) => `${selector} > a`
+  (selector) => `${selector} > a`,
 );
 
 globalStyle(ALL_HEADINGS_WITH_ANCHOR.join(", "), {
@@ -89,7 +89,7 @@ globalStyle(ALL_HEADINGS_WITH_ANCHOR.join(", "), {
 });
 
 const ALL_HEADINGS_WITH_ANCHOR_BEFORE = ALL_HEADINGS.map(
-  (selector) => `${selector} > a:before`
+  (selector) => `${selector} > a:before`,
 );
 
 globalStyle(ALL_HEADINGS_WITH_ANCHOR_BEFORE.join(", "), {
@@ -101,7 +101,7 @@ globalStyle(ALL_HEADINGS_WITH_ANCHOR_BEFORE.join(", "), {
 });
 
 const ALL_HEADINGS_HOVER_WITH_ANCHOR = ALL_HEADINGS.map(
-  (selector) => `${selector}:hover > a`
+  (selector) => `${selector}:hover > a`,
 );
 
 globalStyle(ALL_HEADINGS_HOVER_WITH_ANCHOR.join(", "), {
@@ -113,7 +113,7 @@ globalStyle(ALL_HEADINGS_HOVER_WITH_ANCHOR.join(", "), {
 });
 
 const ALL_HEADINGS_FOCUS_VISIBLE_WITH_ANCHOR = ALL_HEADINGS.map(
-  (selector) => `${selector} > a:focus-visible`
+  (selector) => `${selector} > a:focus-visible`,
 );
 
 globalStyle(ALL_HEADINGS_FOCUS_VISIBLE_WITH_ANCHOR.join(", "), {

@@ -13,12 +13,17 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [vanillaExtractPlugin()]
+    plugins: [vanillaExtractPlugin()],
   },
   markdown: {
     syntaxHighlight: "prism",
     remarkPlugins: [remarkMath, remarkBreaks],
-    rehypePlugins: [rehypeKatex, rehypeSlug, rehypeHeadLinker, rehypeAnnotationBlock]
+    rehypePlugins: [
+      rehypeKatex,
+      rehypeSlug,
+      rehypeHeadLinker,
+      rehypeAnnotationBlock,
+    ],
   },
-  integrations: [mdx(), react()]
+  integrations: [mdx(), react()],
 });
