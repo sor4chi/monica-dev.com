@@ -4,7 +4,7 @@ createdAt: 2023/9/27
 description: "A wrapper of Cloudflare Workers's Durable Object for Hono."
 ---
 
-Hono DOは、[Hono](https://hono.dev) を使用した [Cloudflare Workers](https://workers.cloudflare.com/) の [Durable Object](https://developers.cloudflare.com/workers/learning/using-durable-objects) ラッパーライブラリです。
+[Hono DO](https://github.com/sor4chi/hono-do) は、[Hono](https://hono.dev) を使用した [Cloudflare Workers](https://workers.cloudflare.com/) の [Durable Object](https://developers.cloudflare.com/workers/learning/using-durable-objects) ラッパーライブラリです。
 
 ## 背景
 
