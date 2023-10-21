@@ -8,11 +8,11 @@ export const styles = {
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    gap: "1rem",
+    gap: "1.5rem",
     marginBottom: "2rem",
   }),
   image: style({
-    width: "8rem",
+    width: "4rem",
     height: "auto",
     borderRadius: "50%",
 
@@ -23,7 +23,7 @@ export const styles = {
     },
   }),
   title: style({
-    fontSize: "2rem",
+    fontSize: "1.25rem",
     fontWeight: "bold",
     marginBottom: "0.5rem",
 
@@ -36,7 +36,17 @@ export const styles = {
   subtitle: style({
     fontSize: "1rem",
     fontWeight: "normal",
-    marginBottom: "0.5rem",
+    color: vars.color.gray[11],
+  }),
+  socials: style({
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "0.5rem",
+  }),
+  social: style({
+    width: "1.25rem",
+    height: "1.25rem",
+    padding: "0.25rem",
     color: vars.color.gray[11],
   }),
 };
