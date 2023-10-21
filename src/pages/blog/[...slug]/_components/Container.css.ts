@@ -9,6 +9,6 @@ export const styles = {
     gap: CONTAINER_GAP,
     width: "100%",
     maxWidth: CONTENTS_MAX,
-    margin: "0 auto",
+    margin: "0 auto 3rem",
   }),
 };
