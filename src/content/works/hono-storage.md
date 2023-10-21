@@ -71,7 +71,7 @@ import { HonoDiskStorage } from "@hono-storage/node-disk";
 
 const storage = new HonoDiskStorage({
   dest: "./uploads",
-  filename: (c, file) => `${file.originalname}-${Date.now()}.${file.extension}`,
+  filename: (c, file) => `${file.originalname}-${Date.now().getTime()}.${file.extension}`,
 });
 ```
 
@@ -83,7 +83,7 @@ const storage = new HonoDiskStorage({
 import { HonoMemoryStorage } from "@hono-storage/memory";
 
 const storage = new HonoMemoryStorage({
-  key: (c, file) => `${file.originalname}-${new Date()}`,
+  key: (c, file) => `${file.originalname}-${new Date().getTime()}`,
 });
 ```
 
