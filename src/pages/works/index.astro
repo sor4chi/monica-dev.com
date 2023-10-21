@@ -14,7 +14,7 @@ const groupedWorks = works.reduce(
     acc[year].push(work);
     return acc;
   },
-  {} as Record<string, typeof works>
+  {} as Record<string, typeof works>,
 );
 const sortedGroupedWorks = Object.entries(groupedWorks)
   .sort(([a], [b]) => Number(b) - Number(a))
@@ -23,13 +23,13 @@ const sortedGroupedWorks = Object.entries(groupedWorks)
       [
         year,
         works.sort(
-          (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime()
+          (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime(),
         ),
-      ] as const
+      ] as const,
   );
 ---
 
-<BaseLayout>
+<BaseLayout title="Works">
   {
     sortedGroupedWorks.map(([year, works]) => (
       <List title={year}>

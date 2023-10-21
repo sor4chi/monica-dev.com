@@ -13,11 +13,11 @@ const sortedTimelines = await Promise.all(
     .map(async (timeline) => ({
       ...timeline,
       content: await timeline.render(),
-    }))
+    })),
 );
 ---
 
-<BaseLayout>
+<BaseLayout title="Timelines">
   <List>
     {
       sortedTimelines.map((timeline) => (

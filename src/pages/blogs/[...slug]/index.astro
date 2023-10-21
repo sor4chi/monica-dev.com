@@ -21,7 +21,7 @@ const blog = Astro.props;
 const { Content, headings } = await blog.render();
 ---
 
-<BaseLayout>
+<BaseLayout title={blog.data.title} description={blog.data.description}>
   <Container>
     <Aside position="left">
       <Link href="/blogs">← Back</Link>

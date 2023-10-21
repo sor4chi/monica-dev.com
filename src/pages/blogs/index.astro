@@ -29,7 +29,7 @@ const sortedGroupedBlogs = Object.entries(groupedBlogs)
   );
 ---
 
-<BaseLayout>
+<BaseLayout title="Blog">
   {
     sortedGroupedBlogs.map(([year, works]) => (
       <List title={year}>

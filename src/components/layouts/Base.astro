@@ -4,15 +4,33 @@ import { ViewTransitions } from "astro:transitions";
 import { styles } from "./Base.css";
 import Navigation from "./Navigation.astro";
 import RightTopArea from "./RightTopArea.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const SITE_NAME = "Monica's Portfolio";
+const SITE_DESCRIPTION =
+  "Webエンジニア Monica のポートフォリオサイトです。経歴やスキル、制作物などを掲載しています。";
+
+const getTitle = (title?: string) => {
+  if (title) {
+    return `${title} | ${SITE_NAME}`;
+  }
+  return SITE_NAME;
+};
 ---
 
-<html lang="en" class="light">
+<html lang="ja" class="light">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Portfolio</title>
+    <title>{getTitle(title)}</title>
+    <meta name="description" content={description || SITE_DESCRIPTION} />
     <meta name="robots" content="noindex" />
     <script src="/scripts/theme.js" is:inline></script>
     <ViewTransitions />

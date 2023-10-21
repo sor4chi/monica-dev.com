@@ -21,7 +21,7 @@ const work = Astro.props;
 const { Content, headings } = await work.render();
 ---
 
-<BaseLayout>
+<BaseLayout title={work.data.title} description={work.data.description}>
   <Container>
     <Aside position="left">
       <Link href="/works">← Back</Link>
