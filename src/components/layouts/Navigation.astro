@@ -51,16 +51,27 @@ import { styles } from "./Navigation.css";
 
     if (!navigationToggle || !main || !backward) return;
 
+    let isAnimating = false;
+
     navigationToggle.addEventListener("click", () => {
-      if (backward.classList.contains("is-active")) {
-        backward.classList.remove("is-active");
-      } else {
-        setTimeout(() => {
-          backward.classList.add("is-active");
-        }, 300);
+      if (!isAnimating) {
+        navigationToggle.classList.toggle("is-active");
+        main.classList.toggle("is-active");
+
+        if (backward.classList.contains("is-active")) {
+          backward.classList.remove("is-active");
+          setTimeout(() => {
+            isAnimating = false;
+          }, 300);
+        } else {
+          setTimeout(() => {
+            backward.classList.add("is-active");
+            isAnimating = false;
+          }, 300);
+        }
       }
-      navigationToggle.classList.toggle("is-active");
-      main.classList.toggle("is-active");
+
+      isAnimating = true;
     });
 
     const links = document.querySelectorAll(".backward-internal-link");
