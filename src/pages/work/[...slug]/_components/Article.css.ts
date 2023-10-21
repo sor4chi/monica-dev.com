@@ -1,6 +1,7 @@
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 import { ARTICLE_WIDTH, CONTENTS_WITH_TOC } from "../../../../styles/constants";
+import { focusInteraction } from "@/styles/common.css";
 
 export const styles = {
   article: style({
@@ -16,6 +17,34 @@ export const styles = {
     borderRadius: vars.spacing.absolute[2],
     margin: `${vars.spacing.relative[4]} 0`,
     border: `1px solid ${vars.color.gray[3]}`,
+  }),
+  header: style({
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  }),
+  links: style({
+    display: "flex",
+    alignItems: "center",
+    gap: vars.spacing.relative[4],
+  }),
+  btn: style([
+    focusInteraction,
+    {
+      display: "flex",
+      width: "2rem",
+      height: "2rem",
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: "50%",
+      backgroundColor: vars.color.gray[5],
+      cursor: "pointer",
+    },
+  ]),
+  icon: style({
+    width: "1rem",
+    height: "1rem",
+    color: vars.color.gray[12],
   }),
   title: style({
     fontSize: vars.font.size.xl,

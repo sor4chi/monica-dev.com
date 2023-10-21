@@ -2,7 +2,10 @@
 import Link from "@/components/ui/Link.astro";
 import { styles } from "./Article.css";
 import { Image } from "astro:assets";
+import X from "@/components/ui/icon/X.astro";
 import "katex/dist/katex.css";
+import Github from "@/components/ui/icon/Github.astro";
+import Copy from "@/components/ui/icon/Copy.astro";
 
 interface Props {
   title: string;
@@ -19,18 +22,46 @@ const formatDateTime = (date: Date) => {
     year: "numeric",
   });
 };
+
+const getShareXUrl = (title: string, slug: string) => {
+  return `https://x.com/intent/tweet?text=${encodeURIComponent(
+    `${title} | Works - Monica's Portfolio\n`,
+  )}&url=${encodeURIComponent(`https://monica-dev.com/work/${slug}`)}`;
+};
+
+const getArticleSourceUrl = (slug: string) => {
+  return `https://github.com/sor4chi/monica-dev.com/tree/main/src/content/works/${slug}.md`;
+};
 ---
 
 <article id="article" class={styles.article}>
   <span class={styles.backLink}>
     <Link href="/work">← Back</Link>
   </span>
-  <h1 class={styles.title}>{title}</h1>
-  <p class={styles.meta}>
-    <time datetime={createdAt.toISOString()} class={styles.date}>
-      {formatDateTime(createdAt)}
-    </time>
-  </p>
+  <div class={styles.header}>
+    <div>
+      <h1 class={styles.title}>{title}</h1>
+      <p class={styles.meta}>
+        <time datetime={createdAt.toISOString()} class={styles.date}>
+          {formatDateTime(createdAt)}
+        </time>
+      </p>
+    </div>
+    <div class={styles.links}>
+      <btn
+        class={styles.btn}
+        onclick="navigator.clipboard.writeText(window.location.href)"
+      >
+        <Copy exClass={styles.icon} />
+      </btn>
+      <a class={styles.btn} href={getArticleSourceUrl(slug)}>
+        <Github exClass={styles.icon} />
+      </a>
+      <a class={styles.btn} href={getShareXUrl(title, slug)}>
+        <X exClass={styles.icon} />
+      </a>
+    </div>
+  </div>
   <Image
     width={640}
     height={336}
