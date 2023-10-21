@@ -9,28 +9,29 @@ import Link from "@/components/ui/Link.astro";
 import MdContets from "@/components/document/MdContents.astro";
 
 export async function getStaticPaths() {
-  const works = await getCollection("works");
-  return works.map((work) => ({
-    params: { slug: work.slug },
-    props: work,
+  const blogs = await getCollection("originalBlogs");
+  return blogs.map((blog) => ({
+    params: { slug: blog.slug },
+    props: blog,
   }));
 }
-type Props = CollectionEntry<"works">;
+type Props = CollectionEntry<"originalBlogs">;
 
-const work = Astro.props;
-const { Content, headings } = await work.render();
+const blog = Astro.props;
+const { Content, headings } = await blog.render();
 ---
 
-<BaseLayout title={work.data.title} description={work.data.description}>
+<BaseLayout title={blog.data.title} description={blog.data.description}>
   <Container>
     <Aside position="left">
-      <Link href="/works">← Back</Link>
+      <Link href="/blog">← Back</Link>
       <Toc headings={headings} />
     </Aside>
     <Article
-      slug={work.slug}
-      title={work.data.title}
-      createdAt={work.data.createdAt}
+      slug={blog.slug}
+      title={blog.data.title}
+      publishedAt={blog.data.publishedAt}
+      updatedAt={blog.data.updatedAt}
     >
       <MdContets>
         <Content />

@@ -24,7 +24,7 @@ const ICON_MAP = new Map<string, string>([
 ---
 
 <li>
-  <a href={url || `/blogs/${slug}`} class={styles.item}>
+  <a href={url || `/blog/${slug}`} class={styles.item}>
     <span class={styles.domainMobile}>
       {
         url && ICON_MAP.has(getDomain(url)) && (
