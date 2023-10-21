@@ -1,4 +1,4 @@
-import { CONTENTS_MAX } from "@/styles/constants";
+import { CONTENTS_MAX, CONTENTS_WITH_TOC } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
@@ -86,6 +86,12 @@ globalStyle(ALL_HEADINGS_WITH_ANCHOR.join(", "), {
   textDecoration: "none",
   transition: "opacity 0.2s ease-in-out",
   opacity: 0,
+
+  "@media": {
+    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      display: "none",
+    },
+  },
 });
 
 const ALL_HEADINGS_WITH_ANCHOR_BEFORE = ALL_HEADINGS.map(
