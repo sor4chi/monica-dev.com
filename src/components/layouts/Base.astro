@@ -21,6 +21,12 @@ const getTitle = (title?: string) => {
   }
   return SITE_NAME;
 };
+
+const getOgImage = (title?: string) => {
+  return `https://res.cloudinary.com/dj8lujsue/image/upload/l_text:Sawarabi%20Gothic_72_bold:${
+    title || "Monica's Portfolio"
+  },co_rgb:fff,w_1000,c_fit/v1638148802/ogp.png`;
+};
 ---
 
 <html lang="ja" class="light">
@@ -31,6 +37,23 @@ const getTitle = (title?: string) => {
     <meta name="generator" content={Astro.generator} />
     <title>{getTitle(title)}</title>
     <meta name="description" content={description || SITE_DESCRIPTION} />
+
+    <meta property="og:title" content={getTitle(title)} />
+    <meta property="og:description" content={description || SITE_DESCRIPTION} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://monica-dev.com/" />
+    <meta property="og:image" content={getOgImage(title)} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@monica18_pr" />
+    <meta name="twitter:creator" content="@monica18_pr" />
+    <meta name="twitter:title" content={getTitle(title)} />
+    <meta
+      name="twitter:description"
+      content={description || SITE_DESCRIPTION}
+    />
+    <meta name="twitter:image" content={getOgImage(title)} />
+
     <meta name="robots" content="noindex" />
     <script src="/scripts/theme.js" is:inline></script>
     <ViewTransitions />
