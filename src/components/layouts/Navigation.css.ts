@@ -1,4 +1,7 @@
-import { LAYOUT_CONTAINER_SIDE_PADDING } from "@/styles/constants";
+import {
+  LAYOUT_CONTAINER_SIDE_PADDING,
+  NAVIGATION_AREA_WIDTH,
+} from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
@@ -12,7 +15,7 @@ export const styles = {
     zIndex: -1,
     padding: "1rem",
     boxSizing: "border-box",
-    width: `calc(80vw - ${LAYOUT_CONTAINER_SIDE_PADDING})`,
+    width: `calc(${NAVIGATION_AREA_WIDTH} - ${LAYOUT_CONTAINER_SIDE_PADDING})`,
     height: "90vh",
     display: "flex",
     flexDirection: "column",

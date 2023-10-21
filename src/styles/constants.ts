@@ -4,6 +4,7 @@ export const CONTAINER_GAP = "1rem";
 export const ASIDE_WIDTH = "15rem";
 export const ARTICLE_WIDTH = "40rem";
 export const LAYOUT_CONTAINER_SIDE_PADDING = "1rem";
+export const NAVIGATION_AREA_WIDTH = "20rem";
 
 export const CONTENTS_MAX = sumOfRems(
   LAYOUT_CONTAINER_SIDE_PADDING,

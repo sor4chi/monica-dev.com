@@ -1,6 +1,7 @@
 import {
   CONTENTS_WITH_TOC,
   LAYOUT_CONTAINER_SIDE_PADDING,
+  NAVIGATION_AREA_WIDTH,
 } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
@@ -28,7 +29,7 @@ export const styles = {
 };
 
 globalStyle(`${styles.container}.is-active`, {
-  transform: "translateX(-80vw)",
+  transform: `translateX(calc(-1 * ${NAVIGATION_AREA_WIDTH}))`,
   scale: 0.9,
   borderRadius: vars.spacing.absolute[4],
   boxShadow: `0 1rem 2rem ${vars.color.gray[3]}`,
