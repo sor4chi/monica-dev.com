@@ -15,10 +15,15 @@ export const styles = {
     width: "4rem",
     height: "auto",
     borderRadius: "50%",
+  }),
+  info: style({
+    display: "flex",
+    gap: "1rem",
 
     "@media": {
       [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
-        width: "6rem",
+        flexDirection: "column",
+        gap: "0.5rem",
       },
     },
   }),
@@ -26,12 +31,6 @@ export const styles = {
     fontSize: "1.25rem",
     fontWeight: "bold",
     marginBottom: "0.5rem",
-
-    "@media": {
-      [`screen and (max-width: ${CONTENTS_MAX})`]: {
-        fontSize: "1.5rem",
-      },
-    },
   }),
   subtitle: style({
     fontSize: "1rem",
