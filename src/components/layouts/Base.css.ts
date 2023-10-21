@@ -30,7 +30,7 @@ export const styles = {
 
 globalStyle(`${styles.container}.is-active`, {
   transform: `translateX(calc(-1 * ${NAVIGATION_AREA_WIDTH}))`,
-  scale: 0.9,
+  // scale: 0.9,
   borderRadius: vars.spacing.absolute[4],
   boxShadow: `0 1rem 2rem ${vars.color.gray[3]}`,
   userSelect: "none",
