@@ -9,13 +9,13 @@ import Link from "@/components/ui/Link.astro";
 import MdContets from "@/components/document/MdContents.astro";
 
 export async function getStaticPaths() {
-  const blogs = await getCollection("blogs");
+  const blogs = await getCollection("originalBlogs");
   return blogs.map((blog) => ({
     params: { slug: blog.slug },
     props: blog,
   }));
 }
-type Props = CollectionEntry<"blogs">;
+type Props = CollectionEntry<"originalBlogs">;
 
 const blog = Astro.props;
 const { Content, headings } = await blog.render();

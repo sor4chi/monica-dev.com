@@ -4,7 +4,13 @@ import BaseLayout from "@/components/layouts/Base.astro";
 import List from "./_components/List.astro";
 import Item from "./_components/Item.astro";
 
-const blogs = await getCollection("blogs");
+const [originalBlogs, externalBlogs] = await Promise.all([
+  getCollection("originalBlogs"),
+  getCollection("externalBlogs"),
+]);
+
+const blogs = [...originalBlogs, ...externalBlogs];
+
 const groupedBlogs = blogs.reduce(
   (acc, blog) => {
     const year = blog.data.publishedAt.getFullYear();
