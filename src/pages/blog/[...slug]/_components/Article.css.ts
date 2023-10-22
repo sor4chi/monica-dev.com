@@ -16,6 +16,12 @@ export const styles = {
     borderRadius: vars.spacing.absolute[2],
     margin: `${vars.spacing.relative[4]} 0`,
   }),
+  header: style({
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: vars.spacing.absolute[8],
+  }),
   title: style({
     fontSize: vars.font.size.xl,
 
@@ -29,7 +35,6 @@ export const styles = {
     display: "inline-flex",
     alignItems: "center",
     gap: vars.spacing.relative[2],
-    marginBottom: vars.spacing.absolute[8],
     color: vars.color.gray[11],
   }),
   date: style({
