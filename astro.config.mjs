@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import remarkMath from "remark-math";
 import remarkBreaks from "remark-breaks";
+import rehypeCodeBlockCopy from "./src/libs/rehype-code-block-copy";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
 import rehypeHeadLinker from "./src/libs/rehype-head-linker";
@@ -23,6 +24,7 @@ export default defineConfig({
       rehypeSlug,
       rehypeHeadLinker,
       rehypeAnnotationBlock,
+      rehypeCodeBlockCopy,
     ],
   },
   integrations: [mdx(), react()],

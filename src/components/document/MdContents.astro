@@ -8,3 +8,26 @@ import { styles } from "./MdContents.css";
 
 <link href="/one-light.css" rel="stylesheet" />
 <link href="/one-dark.css" rel="stylesheet" />
+
+<script>
+  const initCodeblock = () => {
+    const codeCopyButtons = document.querySelectorAll(".code-copy-button");
+    codeCopyButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const code = button.parentElement?.querySelector("code");
+        if (!code) return;
+        button.classList.add("copied");
+        navigator.clipboard.writeText(code.innerText);
+        setTimeout(() => {
+          button.classList.remove("copied");
+        }, 1000);
+      });
+    });
+  };
+
+  initCodeblock();
+
+  document.addEventListener("astro:after-swap", () => {
+    initCodeblock();
+  });
+</script>

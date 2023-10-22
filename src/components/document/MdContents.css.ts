@@ -235,17 +235,82 @@ globalStyle(`${styles.contents} :not(pre) > code`, {
 });
 
 globalStyle(`${styles.contents} pre:has(> code)`, {
+  position: "relative",
   border: `1px solid ${vars.color.gray[4]}`,
   background: "none !important",
   padding: vars.spacing.relative[4],
   borderRadius: vars.spacing.relative[2],
   overflowX: "auto",
+  overflowY: "hidden",
 });
 
 globalStyle(`${styles.contents} pre code`, {
   fontSize: vars.font.size.sm,
   fontFamily: "Menlo, Monaco, Consolas, 'Courier New', monospace",
   lineHeight: 1.8,
+});
+
+globalStyle(`${styles.contents} pre .code-copy-button`, {
+  position: "absolute",
+  top: `calc(${vars.spacing.relative[2]} + 1px / 2)`, // gap of code block 1 line
+  right: vars.spacing.relative[2],
+  width: "2rem",
+  height: "2rem",
+  color: vars.color.gray[9],
+  backgroundColor: vars.color.gray[3],
+  borderRadius: vars.spacing.absolute[2],
+  border: "none",
+  cursor: "pointer",
+  opacity: 0,
+  transition: "opacity 0.2s ease-in-out, background-color 0.2s ease-in-out",
+});
+
+globalStyle(`${styles.contents} pre:hover .code-copy-button`, {
+  "@media": {
+    "(hover: hover)": {
+      opacity: 1,
+    },
+  },
+});
+
+globalStyle(`${styles.contents} pre .code-copy-button svg`, {
+  position: "absolute",
+  inset: 0,
+  margin: "auto",
+  width: "1rem",
+  height: "1rem",
+});
+
+globalStyle(`${styles.contents} pre .code-copy-button .code-check-icon`, {
+  opacity: 0,
+  transition: "opacity 0.2s ease-in-out",
+});
+
+globalStyle(
+  `${styles.contents} pre .code-copy-button.copied .code-check-icon`,
+  {
+    opacity: 1,
+    color: vars.color.gray[11],
+  },
+);
+
+globalStyle(`${styles.contents} pre .code-copy-button .code-copy-icon`, {
+  opacity: 1,
+  transition: "opacity 0.2s ease-in-out",
+});
+
+globalStyle(`${styles.contents} pre .code-copy-button.copied .code-copy-icon`, {
+  opacity: 0,
+});
+
+globalStyle(`${styles.contents} pre .code-copy-button:hover`, {
+  backgroundColor: vars.color.gray[4],
+});
+
+globalStyle(`${styles.contents} pre .code-copy-button:focus-visible`, {
+  outline: "none",
+  boxShadow: `0 0 0 2px ${vars.color.blue[8]}`,
+  opacity: 1,
 });
 
 globalStyle(`${styles.contents} img`, {
