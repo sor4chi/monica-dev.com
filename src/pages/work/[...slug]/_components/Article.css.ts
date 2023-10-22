@@ -37,14 +37,23 @@ export const styles = {
       alignItems: "center",
       justifyContent: "center",
       borderRadius: "50%",
-      backgroundColor: vars.color.gray[5],
+      backgroundColor: vars.color.gray[3],
       cursor: "pointer",
+      color: vars.color.gray[11],
+
+      "@media": {
+        "(hover: hover)": {
+          ":hover": {
+            color: vars.color.gray[12],
+            backgroundColor: vars.color.gray[4],
+          },
+        },
+      },
     },
   ]),
   icon: style({
     width: "1rem",
     height: "1rem",
-    color: vars.color.gray[12],
   }),
   title: style({
     fontSize: vars.font.size.xl,
