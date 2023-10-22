@@ -38,7 +38,8 @@ export const styles = {
     left: 0,
     right: 0,
     borderRadius: vars.spacing.absolute[16],
-    transition: "transform 0.2s ease-in-out, opacity 0.2s ease-in-out",
+    transition:
+      "transform 0.2s ease-in-out, opacity 0.2s ease-in-out, left 0.2s ease-in-out",
 
     selectors: {
       "&:nth-child(1)": {
@@ -61,6 +62,7 @@ export const styles = {
 
 globalStyle(`${styles.button}.is-active ${styles.lines}:nth-child(1)`, {
   transform: "translateY(-50%) rotate(45deg)",
+  left: "0.5rem",
 });
 
 globalStyle(`${styles.button}.is-active ${styles.lines}:nth-child(2)`, {
@@ -69,4 +71,5 @@ globalStyle(`${styles.button}.is-active ${styles.lines}:nth-child(2)`, {
 
 globalStyle(`${styles.button}.is-active ${styles.lines}:nth-child(3)`, {
   transform: "translateY(-50%) rotate(-45deg)",
+  left: "0.5rem",
 });
