@@ -7,35 +7,61 @@ import Article from "./_components/Article.astro";
 import Toc from "@/components/document/Toc.astro";
 import Link from "@/components/ui/Link.astro";
 import MdContets from "@/components/document/MdContents.astro";
+import FooterNav from "@/components/document/FooterNav.astro";
+import Line from "@/components/ui/Line.astro";
 
 export async function getStaticPaths() {
   const works = await getCollection("works");
-  return works.map((work) => ({
+  const sortedWorks = works.sort((a, b) => {
+    return b.data.createdAt.getTime() - a.data.createdAt.getTime();
+  });
+  return sortedWorks.map((work, i) => ({
     params: { slug: work.slug },
-    props: work,
+    props: {
+      ...work,
+      prev: sortedWorks[i + 1] || null,
+      next: sortedWorks[i - 1] || null,
+    },
   }));
 }
-type Props = CollectionEntry<"works">;
 
-const work = Astro.props;
-const { Content, headings } = await work.render();
+type Props = CollectionEntry<"works"> & {
+  prev: CollectionEntry<"works"> | null;
+  next: CollectionEntry<"works"> | null;
+};
+
+const {
+  data: { title, description, createdAt },
+  prev,
+  next,
+  slug,
+  render,
+} = Astro.props;
+
+const { Content, headings } = await render();
+
+const makeWorksNav = (entry: CollectionEntry<"works"> | null) => {
+  if (!entry) return undefined;
+  return {
+    title: entry.data.title,
+    link: `/work/${entry.slug}`,
+  };
+};
 ---
 
-<BaseLayout title={work.data.title} description={work.data.description}>
+<BaseLayout title={title} description={description}>
   <Container>
     <Aside position="left">
       <Link href="/work">← Back</Link>
       <Toc headings={headings} />
     </Aside>
-    <Article
-      slug={work.slug}
-      title={work.data.title}
-      createdAt={work.data.createdAt}
-    >
+    <Article slug={slug} title={title} createdAt={createdAt}>
       <MdContets>
         <Content />
       </MdContets>
+      <Line />
+      <FooterNav prev={makeWorksNav(prev)} next={makeWorksNav(next)} />
+      <Aside position="right" />
     </Article>
-    <Aside position="right" />
   </Container>
 </BaseLayout>

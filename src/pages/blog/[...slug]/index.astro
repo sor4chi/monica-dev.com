@@ -7,35 +7,62 @@ import Article from "./_components/Article.astro";
 import Toc from "@/components/document/Toc.astro";
 import Link from "@/components/ui/Link.astro";
 import MdContets from "@/components/document/MdContents.astro";
+import FooterNav from "@/components/document/FooterNav.astro";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("originalBlogs");
-  return blogs.map((blog) => ({
+  const sortedBlogs = blogs.sort((a, b) => {
+    return b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
+  });
+
+  return blogs.map((blog, i) => ({
     params: { slug: blog.slug },
-    props: blog,
+    props: {
+      ...blog,
+      prev: sortedBlogs[i + 1] || null,
+      next: sortedBlogs[i - 1] || null,
+    },
   }));
 }
-type Props = CollectionEntry<"originalBlogs">;
+type Props = CollectionEntry<"originalBlogs"> & {
+  prev: CollectionEntry<"originalBlogs"> | null;
+  next: CollectionEntry<"originalBlogs"> | null;
+};
 
-const blog = Astro.props;
-const { Content, headings } = await blog.render();
+const {
+  data: { title, description, publishedAt, updatedAt },
+  slug,
+  render,
+  prev,
+  next,
+} = Astro.props;
+const { Content, headings } = await render();
+
+const makeBlogNav = (blog: CollectionEntry<"originalBlogs"> | null) => {
+  if (!blog) return undefined;
+  return {
+    title: blog.data.title,
+    link: `/blog/${blog.slug}`,
+  };
+};
 ---
 
-<BaseLayout title={blog.data.title} description={blog.data.description}>
+<BaseLayout title={title} description={description}>
   <Container>
     <Aside position="left">
       <Link href="/blog">← Back</Link>
       <Toc headings={headings} />
     </Aside>
     <Article
-      slug={blog.slug}
-      title={blog.data.title}
-      publishedAt={blog.data.publishedAt}
-      updatedAt={blog.data.updatedAt}
+      slug={slug}
+      title={title}
+      publishedAt={publishedAt}
+      updatedAt={updatedAt}
     >
       <MdContets>
         <Content />
       </MdContets>
+      <FooterNav prev={makeBlogNav(prev)} next={makeBlogNav(next)} />
     </Article>
     <Aside position="right" />
   </Container>

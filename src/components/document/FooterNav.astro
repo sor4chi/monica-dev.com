@@ -1,0 +1,25 @@
+---
+import Link from "../ui/Link.astro";
+import { styles } from "./FooterNav.css";
+
+interface Navigation {
+  link: string;
+  title: string;
+}
+
+interface Props {
+  prev?: Navigation;
+  next?: Navigation;
+}
+
+const { prev, next } = Astro.props;
+---
+
+<div class={styles.container}>
+  <div>
+    {prev && <Link href={prev.link}>← {prev.title}</Link>}
+  </div>
+  <div>
+    {next && <Link href={next.link}>{next.title} →</Link>}
+  </div>
+</div>
