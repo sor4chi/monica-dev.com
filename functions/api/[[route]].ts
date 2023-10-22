@@ -161,7 +161,7 @@ app.get("/ogp", async (c) => {
     `https://res.cloudinary.com/dj8lujsue/image/upload/l_text:Sawarabi%20Gothic_72_bold:${title},co_rgb:fff,w_1000,c_fit/v1638148802/ogp.png`,
   );
 
-  const newRes = new Response(res.body, res);
+  const newRes = new Response(res.body, { ...res, status: 200 });
   for (const [key, value] of res.headers.entries()) {
     newRes.headers.set(key, value);
   }
