@@ -145,4 +145,28 @@ app.get("/embed-link", async (c) => {
   return c.json(data, { status: 200 });
 });
 
+app.get("/ogp", async (c) => {
+  const query = new URL(c.req.url).searchParams;
+  const title = query.get("title");
+  if (!title) {
+    return c.json(
+      {
+        message: "Missing title query parameter",
+      },
+      { status: 400 },
+    );
+  }
+
+  const res = await fetch(
+    `https://res.cloudinary.com/dj8lujsue/image/upload/l_text:Sawarabi%20Gothic_72_bold:${title},co_rgb:fff,w_1000,c_fit/v1638148802/ogp.png`,
+  );
+
+  const newRes = new Response(res.body, res);
+  for (const [key, value] of res.headers.entries()) {
+    newRes.headers.set(key, value);
+  }
+
+  return newRes;
+});
+
 export const onRequest = handle(app);

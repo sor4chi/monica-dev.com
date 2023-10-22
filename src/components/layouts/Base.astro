@@ -23,9 +23,7 @@ const getTitle = (title?: string) => {
 };
 
 const getOgImage = (title?: string) => {
-  return `https://res.cloudinary.com/dj8lujsue/image/upload/l_text:Sawarabi%20Gothic_72_bold:${
-    title || "Monica's Portfolio"
-  },co_rgb:fff,w_1000,c_fit/v1638148802/ogp.png`;
+  return `https://monica-dev.com/api/ogp?title=${title || SITE_NAME}`;
 };
 ---
 
@@ -46,7 +44,6 @@ const getOgImage = (title?: string) => {
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@monica18_pr" />
-    <meta name="twitter:creator" content="@monica18_pr" />
     <meta name="twitter:title" content={getTitle(title)} />
     <meta
       name="twitter:description"
