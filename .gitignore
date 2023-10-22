@@ -21,3 +21,6 @@ pnpm-debug.log*
 
 # markdown test file
 src/content/originalBlogs/markdown.md
+
+# cloudflare wrangler
+.wrangler
