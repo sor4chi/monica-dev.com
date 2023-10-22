@@ -1,0 +1,35 @@
+---
+import Copy from "../ui/icon/Copy.astro";
+import Github from "../ui/icon/Github.astro";
+import X from "../ui/icon/X.astro";
+import { styles } from "./Share.css";
+
+interface Props {
+  url: string;
+  title: string;
+  source: string;
+}
+
+const { url, title, source } = Astro.props;
+
+const getShareXUrl = (title: string) => {
+  return `https://x.com/intent/tweet?text=${encodeURIComponent(
+    `${title}\n`,
+  )}&url=${encodeURIComponent(url)}`;
+};
+---
+
+<div class={styles.links}>
+  <btn
+    class={styles.btn}
+    onclick="navigator.clipboard.writeText(window.location.href)"
+  >
+    <Copy exClass={styles.icon} />
+  </btn>
+  <a class={styles.btn} href={source}>
+    <Github exClass={styles.icon} />
+  </a>
+  <a class={styles.btn} href={getShareXUrl(title)}>
+    <X exClass={styles.icon} />
+  </a>
+</div>
