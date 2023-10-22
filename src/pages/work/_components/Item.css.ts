@@ -1,14 +1,19 @@
+import { focusInteraction } from "@/styles/common.css";
 import { CONTENTS_WITH_TOC } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
 export const styles = {
-  item: style({
-    display: "flex",
-    alignItems: "center",
-    gap: vars.spacing.relative[4],
-    textDecoration: "none",
-  }),
+  item: style([
+    focusInteraction,
+    {
+      display: "flex",
+      alignItems: "center",
+      gap: vars.spacing.relative[4],
+      textDecoration: "none",
+      borderRadius: vars.spacing.absolute[2],
+    },
+  ]),
   thumbnail: style({
     width: "10rem",
     height: "auto",

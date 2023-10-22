@@ -20,6 +20,13 @@ globalStyle(`${styles.contents} a`, {
   textUnderlineOffset: "0.2em",
 });
 
+globalStyle(`${styles.contents} a:focus-visible`, {
+  outlineColor: vars.color.blue[8],
+  outlineOffset: "4px",
+  outlineWidth: "2px",
+  borderRadius: vars.spacing.absolute[1],
+});
+
 globalStyle(
   `${styles.contents} a[data-footnote-ref], ${styles.contents} a[data-footnote-backref]`,
   {

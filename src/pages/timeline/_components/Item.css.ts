@@ -1,3 +1,4 @@
+import { focusInteraction } from "@/styles/common.css";
 import { CONTENTS_WITH_TOC } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
@@ -32,6 +33,13 @@ export const styles = {
     objectFit: "cover",
     borderRadius: vars.spacing.full,
   }),
+  iconLink: style([
+    focusInteraction,
+    {
+      display: "block",
+      borderRadius: vars.spacing.full,
+    },
+  ]),
   dot: style({
     display: "block",
     width: DOT_SIZE,

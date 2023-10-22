@@ -29,7 +29,12 @@ const { slug, title, date, icon, link } = Astro.props;
     </time>
   </td>
   <td class={clsx(styles.iconCol, styles.col)}>
-    <a href={link} target="_blank" rel="noopener noreferrer">
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class={styles.iconLink}
+    >
       {
         icon ? (
           <Image
