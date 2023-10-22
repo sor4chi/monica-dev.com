@@ -49,6 +49,9 @@ dependencies:
     version: 5.0.0
 
 devDependencies:
+  '@cloudflare/workers-types':
+    specifier: ^4.20231016.0
+    version: 4.20231016.0
   '@types/hast':
     specifier: ^3.0.1
     version: 3.0.1
@@ -461,6 +464,10 @@ packages:
       '@babel/helper-string-parser': 7.22.5
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
+
+  /@cloudflare/workers-types@4.20231016.0:
+    resolution: {integrity: sha512-eGB0cRVyoJpeyGJx2re5sbd9R316a61sY73xwnqm4cwGpb+OxCK2gc651RxGiN7H4w6LY1RpysUgeGLmj5B3+g==}
+    dev: true
 
   /@emotion/hash@0.9.1:
     resolution: {integrity: sha512-gJB6HLm5rYwSLI6PQa+X1t5CFGrv1J1TWG+sOyMCeKz2ojaj6Fnl/rZEspogG+cvqbt4AE/2eIyD2QfLKTBNlQ==}
