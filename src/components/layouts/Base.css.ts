@@ -18,6 +18,7 @@ export const styles = {
     backgroundColor: vars.color.gray[1],
     transition:
       "transform 0.3s cubic-bezier(0.76, 0, 0.24, 1), scale 0.3s cubic-bezier(0.76, 0, 0.24, 1), border-radius 0.3s cubic-bezier(0.76, 0, 0.24, 1)",
+    position: "relative",
 
     "@media": {
       [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
@@ -35,4 +36,23 @@ globalStyle(`${styles.container}.is-active`, {
   boxShadow: `0 1rem 2rem ${vars.color.gray[3]}`,
   userSelect: "none",
   pointerEvents: "none",
+});
+
+globalStyle(`${styles.container}::before`, {
+  content: "''",
+  position: "absolute",
+  display: "block",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  backgroundColor: vars.color.gray[1],
+  zIndex: vars.zIndex.float,
+  opacity: 0,
+  transition: "opacity 0.3s cubic-bezier(0.76, 0, 0.24, 1)",
+  pointerEvents: "none",
+});
+
+globalStyle(`${styles.container}.is-active::before`, {
+  opacity: 0.7,
 });
