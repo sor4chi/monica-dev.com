@@ -8,6 +8,7 @@ import Toc from "@/components/document/Toc.astro";
 import Link from "@/components/ui/Link.astro";
 import MdContets from "@/components/document/MdContents.astro";
 import FooterNav from "@/components/document/FooterNav.astro";
+import Line from "@/components/ui/Line.astro";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("originalBlogs");
@@ -62,6 +63,7 @@ const makeBlogNav = (blog: CollectionEntry<"originalBlogs"> | null) => {
       <MdContets>
         <Content />
       </MdContets>
+      <Line />
       <FooterNav prev={makeBlogNav(prev)} next={makeBlogNav(next)} />
     </Article>
     <Aside position="right" />
