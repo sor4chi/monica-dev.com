@@ -62,7 +62,10 @@ const COPY_BUTTON = html`
 const plugin: Plugin = () => (tree) => {
   visit(tree, "raw", (node: { value: string; type: string }) => {
     if (!node.value.startsWith("<pre")) return;
-    node.value = node.value.replace(PRE_REGEX, `<pre>${COPY_BUTTON}$1</pre>`);
+    node.value = node.value.replace(
+      PRE_REGEX,
+      `<div class="code-block"><pre>${COPY_BUTTON}$1</pre></div>`,
+    );
   });
 };
 
