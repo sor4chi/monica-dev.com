@@ -273,9 +273,12 @@ globalStyle(`${styles.contents} .task-list-item::before`, {
 });
 
 globalStyle(`${styles.contents} :not(pre) > code`, {
-  backgroundColor: vars.color.gray[4],
-  padding: vars.spacing.relative[1],
+  fontFamily: "Menlo, Monaco, Consolas, 'Courier New', monospace",
+  padding: `${vars.spacing.relative[1]} ${vars.spacing.relative[2]}`,
   borderRadius: vars.spacing.relative[1],
+  backgroundColor: vars.color.gray[5],
+  color: vars.color.gray[12],
+  fontSize: vars.font.size.sm,
 });
 
 globalStyle(`${styles.contents} .code-block`, {
