@@ -1,6 +1,6 @@
 import { CONTENTS_MAX, CONTENTS_WITH_TOC } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
-import { globalStyle, style } from "@vanilla-extract/css";
+import { createVar, globalStyle, style } from "@vanilla-extract/css";
 
 export const styles = {
   contents: style({
@@ -204,17 +204,61 @@ globalStyle(`${styles.contents} blockquote`, {
   paddingLeft: vars.spacing.relative[4],
 });
 
-globalStyle(`${styles.contents} blockquote[data-annotation-type="warning"]`, {
-  borderLeft: `4px solid #f6ad55`,
+const annotationColorRGBVar = createVar();
+
+globalStyle(`${styles.contents} blockquote.annotation-block`, {
+  padding: `${vars.spacing.relative[2]} ${vars.spacing.relative[4]}`,
+  borderRadius: vars.spacing.absolute[2],
 });
 
-globalStyle(`${styles.contents} blockquote[data-annotation-type="note"]`, {
-  borderLeft: `4px solid #63b3ed`,
+globalStyle(`.dark ${styles.contents} blockquote.annotation-block`, {
+  backgroundColor: `rgba(${annotationColorRGBVar}, 0.05)`,
+  border: `1px solid rgba(${annotationColorRGBVar}, 0.125)`,
 });
 
-globalStyle(`${styles.contents} blockquote[data-annotation-type="important"]`, {
-  borderLeft: `4px solid #fc8181`,
+globalStyle(`.light ${styles.contents} blockquote.annotation-block`, {
+  backgroundColor: `rgba(${annotationColorRGBVar}, 0.1)`,
+  border: `1px solid rgba(${annotationColorRGBVar}, 0.25)`,
 });
+
+globalStyle(`${styles.contents} .annotation-block .annotation`, {
+  fontWeight: 600,
+});
+
+globalStyle(`.dark ${styles.contents} .annotation-block .annotation`, {
+  color: `rgba(${annotationColorRGBVar}, 0.75)`,
+});
+
+globalStyle(`.light ${styles.contents} .annotation-block .annotation`, {
+  color: `rgba(${annotationColorRGBVar}, 1)`,
+});
+
+globalStyle(
+  `${styles.contents} .annotation-block[data-annotation-type="warning"]`,
+  {
+    vars: {
+      [annotationColorRGBVar]: `246, 173, 85`,
+    },
+  },
+);
+
+globalStyle(
+  `${styles.contents} .annotation-block[data-annotation-type="note"]`,
+  {
+    vars: {
+      [annotationColorRGBVar]: `99, 179, 237`,
+    },
+  },
+);
+
+globalStyle(
+  `${styles.contents} .annotation-block[data-annotation-type="important"]`,
+  {
+    vars: {
+      [annotationColorRGBVar]: `252, 129, 129`,
+    },
+  },
+);
 
 globalStyle(`${styles.contents} .contains-task-list`, {
   padding: 0,

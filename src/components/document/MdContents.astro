@@ -25,9 +25,38 @@ import { styles } from "./MdContents.css";
     });
   };
 
-  initCodeblock();
+  const initAnnotationBlock = () => {
+    const annotationBlocks = document.querySelectorAll(".annotation-block");
+    annotationBlocks.forEach((block) => {
+      const findAndReplace = (node: Node) => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.textContent;
+          const match = text?.match(/\[\!(.+?)\]/);
+          if (match) {
+            const span = document.createElement("span");
+            span.classList.add("annotation");
+            span.textContent = match[1];
+            node.parentNode?.replaceChild(span, node);
+          }
+        } else {
+          node.childNodes.forEach((child) => {
+            findAndReplace(child);
+          });
+        }
+      };
+
+      findAndReplace(block);
+    });
+  };
+
+  const init = () => {
+    initCodeblock();
+    initAnnotationBlock();
+  };
+
+  init();
 
   document.addEventListener("astro:after-swap", () => {
-    initCodeblock();
+    init();
   });
 </script>
