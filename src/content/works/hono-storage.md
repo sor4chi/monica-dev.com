@@ -27,6 +27,9 @@ Hono の Universal な設計に則り、コアパッケージを Web Standard �
 
 multer の資産をなるべく流用したいため、multer が持つ `storage.single`, `storage.array`, `storage.fields` というインターフェースを実装しています。
 
+> [!WARNING]
+> multer とは異なり、Hono Storage は `storage.array` ではなく `storage.multiple` という命名を採用しています。
+
 ```ts
 import { Hono } from "hono";
 
@@ -35,13 +38,13 @@ const app = new Hono();
 const storage = // coreストレージかプラグインストレージ
 
 app.post("/upload/single", storage.single("image"), (c) => c.text("OK"));
-app.post("/upload/array", storage.array("pictures"), (c) => c.text("OK"));
+app.post("/upload/multiple", storage.multiple("pictures"), (c) => c.text("OK"));
 app.post(
   "/upload/field",
-  storage.fields([
-    { name: "image", maxCount: 1 },
-    { name: "pictures", maxCount: 2 },
-  ]),
+  storage.fields({
+    image: { maxCount: 1 },
+    pictures: { maxCount: 2 },
+  }),
   (c) => c.text("OK"),
 );
 
@@ -107,7 +110,7 @@ const client = new S3Client({
 });
 
 const storage = new HonoS3Storage({
-  key: (_, file) => `${file.originalname}-${new Date().getTime()}`,
+  key: (_, file) => `${file.originalname}-${new Date().getTime()}.${file.extension}`,
   bucket: "[your-bucket-name]",
   client,
 });
@@ -129,7 +132,7 @@ const client = new S3Client({
 });
 
 const storage = new HonoS3Storage({
-  key: (_, file) => `${file.originalname}-${new Date().getTime()}`,
+  key: (_, file) => `${file.originalname}-${new Date().getTime()}.${file.extension}`,
   bucket: "[your-bucket-name]",
   client,
 });
