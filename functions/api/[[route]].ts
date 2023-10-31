@@ -57,18 +57,6 @@ const extractTitle = (html: string) => {
   }
 };
 
-const extractDescription = (html: string) => {
-  // <meta name="description" content="..."> or <meta property="og:description" content="...">
-  const [metaDescription] = getTags(html, "meta").filter(
-    (tag) =>
-      tag.attrs.name === "description" ||
-      tag.attrs.property === "og:description",
-  );
-  if (metaDescription) {
-    return metaDescription.attrs.content;
-  }
-};
-
 const extractFavicon = (html: string, url: string) => {
   // <link rel="icon" href="..."> or <link rel="shortcut icon" href="...">
   const [favicon] = getTags(html, "link").filter(
@@ -120,13 +108,11 @@ app.get("/embed-link", async (c) => {
   }
   const html = await response.text();
   const title = extractTitle(html) || url;
-  const description = extractDescription(html);
   const favicon = extractFavicon(html, url);
   const image = extractImage(html, url);
 
   const data = {
     title,
-    description,
     favicon,
     image,
   };

@@ -133,11 +133,101 @@ globalStyle(ALL_HEADINGS_FOCUS_VISIBLE_WITH_ANCHOR.join(", "), {
   opacity: 1,
 });
 
-globalStyle(`${styles.contents} h1 > a`, {
-  fontSize: vars.font.size.xl,
-  fontWeight: 700,
-  color: vars.color.gray[12],
-  marginTop: vars.spacing.relative[8],
+globalStyle(`${styles.contents} .link-card`, {
+  display: "flex",
+  width: "100%",
+  height: "7rem",
+  borderRadius: vars.spacing.absolute[2],
+  textDecoration: "none",
+  border: `1px solid ${vars.color.gray[4]}`,
+  overflow: "hidden",
+
+  "@media": {
+    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      height: "6rem",
+    },
+  },
+});
+
+globalStyle(`${styles.contents} .link-card:hover`, {
+  "@media": {
+    "(hover: hover)": {
+      backgroundColor: vars.color.gray[2],
+    },
+  },
+});
+
+globalStyle(`${styles.contents} .link-card:focus-visible`, {
+  border: `1px solid ${vars.color.blue[8]}`,
+  outline: "none",
+});
+
+globalStyle(`${styles.contents} .link-card .link-card-image`, {
+  width: "auto",
+  height: "7rem",
+  aspectRatio: "1200 / 630",
+  overflow: "hidden",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  flexShrink: 0,
+
+  "@media": {
+    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      width: "6rem",
+      height: "6rem",
+    },
+  },
+});
+
+globalStyle(`${styles.contents} .link-card .link-card-content`, {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  flexGrow: 1,
+  gap: vars.spacing.absolute[4],
+  padding: `${vars.spacing[0]} ${vars.spacing.absolute[6]}`,
+
+  "@media": {
+    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      gap: vars.spacing.absolute[2],
+      padding: `${vars.spacing[0]} ${vars.spacing.absolute[4]}`,
+    },
+  },
+});
+
+globalStyle(`${styles.contents} .link-card .link-card-title`, {
+  fontSize: vars.font.size.base,
+  lineHeight: 1.5,
+  overflow: "hidden",
+  display: "-webkit-box",
+  WebkitBoxOrient: "vertical",
+  WebkitLineClamp: 2,
+
+  "@media": {
+    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      fontSize: vars.font.size.sm,
+    },
+  },
+});
+
+globalStyle(`${styles.contents} .link-card .link-card-meta`, {
+  display: "flex",
+  alignItems: "center",
+  gap: vars.spacing.absolute[2],
+});
+
+globalStyle(`${styles.contents} .link-card .link-card-favicon`, {
+  width: "1rem",
+  height: "1rem",
+  borderRadius: vars.spacing.absolute[1],
+  overflow: "hidden",
+  backgroundSize: "cover",
+  flexShrink: 0,
+});
+
+globalStyle(`${styles.contents} .link-card .link-card-domain`, {
+  fontSize: vars.font.size.sm,
+  color: vars.color.gray[11],
 });
 
 globalStyle(`${styles.contents} p`, {

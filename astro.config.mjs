@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import remarkMath from "remark-math";
 import remarkBreaks from "remark-breaks";
+import remarkLinkCard from "./src/libs/remark-link-card";
 import rehypeCodeBlockCopy from "./src/libs/rehype-code-block-copy";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
@@ -18,7 +19,7 @@ export default defineConfig({
   },
   markdown: {
     syntaxHighlight: "prism",
-    remarkPlugins: [remarkMath, remarkBreaks],
+    remarkPlugins: [remarkMath, remarkBreaks, remarkLinkCard],
     rehypePlugins: [
       rehypeKatex,
       rehypeSlug,

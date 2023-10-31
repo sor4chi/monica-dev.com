@@ -10,6 +10,13 @@ import { styles } from "./MdContents.css";
 <link href="/one-dark.css" rel="stylesheet" />
 
 <script>
+  const LINK_CARD_PROPERTIES = {
+    TITLE: "data-title",
+    DESCRIPTION: "data-description",
+    IMAGE: "data-image",
+    FAVICON: "data-favicon",
+  } as const;
+
   const initCodeblock = () => {
     const codeCopyButtons = document.querySelectorAll(".code-copy-button");
     codeCopyButtons.forEach((button) => {
@@ -49,9 +56,61 @@ import { styles } from "./MdContents.css";
     });
   };
 
+  const initLinkCard = () => {
+    const linkCards = document.querySelectorAll(`.link-card`);
+    linkCards.forEach((card) => {
+      const title = card.getAttribute(LINK_CARD_PROPERTIES.TITLE);
+      const description = card.getAttribute(LINK_CARD_PROPERTIES.DESCRIPTION);
+      const image = card.getAttribute(LINK_CARD_PROPERTIES.IMAGE);
+      const favicon = card.getAttribute(LINK_CARD_PROPERTIES.FAVICON);
+
+      const linkUrl = card.getAttribute("href");
+      if (!linkUrl) return;
+
+      const cardTitle = document.createElement("div");
+      cardTitle.classList.add("link-card-title");
+      cardTitle.textContent = title || linkUrl;
+
+      const cardImage = document.createElement("div");
+      cardImage.classList.add("link-card-image");
+      cardImage.style.backgroundImage = `url(${image})`;
+
+      const cardFavicon = document.createElement("div");
+      cardFavicon.classList.add("link-card-favicon");
+      cardFavicon.style.backgroundImage = `url(${favicon})`;
+
+      const cardDomain = document.createElement("div");
+      cardDomain.classList.add("link-card-domain");
+      cardDomain.textContent = new URL(linkUrl).hostname;
+
+      const cardMeta = document.createElement("div");
+      cardMeta.classList.add("link-card-meta");
+      cardMeta.appendChild(cardFavicon);
+      cardMeta.appendChild(cardDomain);
+
+      const cardContent = document.createElement("div");
+      cardContent.classList.add("link-card-content");
+      cardContent.appendChild(cardTitle);
+      cardContent.appendChild(cardMeta);
+
+      const cardLink = document.createElement("a");
+      cardLink.classList.add("link-card");
+      cardLink.setAttribute("href", linkUrl);
+      cardLink.appendChild(cardImage);
+      cardLink.appendChild(cardContent);
+
+      const parent = card.parentElement;
+      if (!parent) return;
+      const grandParent = parent.parentElement;
+      if (!grandParent) return;
+      grandParent.replaceChild(cardLink, parent);
+    });
+  };
+
   const init = () => {
     initCodeblock();
     initAnnotationBlock();
+    initLinkCard();
   };
 
   init();

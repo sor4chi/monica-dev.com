@@ -34,10 +34,12 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20231016.0",
     "@types/hast": "^3.0.1",
+    "@types/mdast": "^4.0.2",
     "@vanilla-extract/css": "^1.13.0",
     "@vanilla-extract/vite-plugin": "^3.9.0",
     "glob": "^10.3.10",
     "hastscript": "^8.0.0",
+    "mdast-util-to-hast": "^13.0.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
