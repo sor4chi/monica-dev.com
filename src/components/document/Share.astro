@@ -3,6 +3,7 @@ import Copy from "../ui/icon/Copy.astro";
 import Github from "../ui/icon/Github.astro";
 import X from "../ui/icon/X.astro";
 import { styles } from "./Share.css";
+import { clsx } from "clsx";
 
 interface Props {
   url: string;
@@ -19,7 +20,7 @@ const getShareXUrl = (title: string) => {
 };
 ---
 
-<div class={styles.links}>
+<div class={clsx(styles.links, styles.onlyPC)}>
   <btn
     class={styles.btn}
     onclick="navigator.clipboard.writeText(window.location.href)"

@@ -21,6 +21,7 @@ export const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: vars.spacing.absolute[8],
+    gap: vars.spacing.absolute[4],
   }),
   title: style({
     fontSize: vars.font.size.xl,

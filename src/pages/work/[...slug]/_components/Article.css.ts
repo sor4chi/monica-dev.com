@@ -22,6 +22,7 @@ export const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    gap: vars.spacing.absolute[4],
   }),
   title: style({
     fontSize: vars.font.size.xl,

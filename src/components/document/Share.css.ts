@@ -1,4 +1,5 @@
 import { focusInteraction } from "@/styles/common.css";
+import { CONTENTS_WITH_TOC } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 
@@ -31,6 +32,13 @@ export const styles = {
       },
     },
   ]),
+  onlyPC: style({
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "none",
+      },
+    },
+  }),
   icon: style({
     width: "1rem",
     height: "1rem",
