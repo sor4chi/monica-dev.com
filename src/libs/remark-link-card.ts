@@ -61,10 +61,6 @@ const plugin = function linkCardTrans(): Transformer {
               ...child.data,
               hProperties: {
                 ...child.data?.hProperties,
-                className: [
-                  "link-card",
-                  ...(child.data?.hProperties?.className ?? []),
-                ],
                 ["data-title"]: data.title,
                 ["data-image"]: data.image,
                 ["data-favicon"]: data.favicon,
