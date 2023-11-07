@@ -26,17 +26,22 @@ const getShareXUrl = (title: string) => {
     <button
       class={styles.btn}
       onclick="navigator.clipboard.writeText(window.location.href)"
+      aria-label="リンクをコピーする"
     >
       <Copy exClass={styles.icon} />
     </button>
   </Tooltip>
   <Tooltip text="Source">
-    <a class={styles.btn} href={source}>
+    <a class={styles.btn} href={source} aria-label="ソースを開く">
       <Github exClass={styles.icon} />
     </a>
   </Tooltip>
   <Tooltip text="Share X">
-    <a class={styles.btn} href={getShareXUrl(title)}>
+    <a
+      class={styles.btn}
+      href={getShareXUrl(title)}
+      aria-label="X でシェアする"
+    >
       <X exClass={styles.icon} />
     </a>
   </Tooltip>
