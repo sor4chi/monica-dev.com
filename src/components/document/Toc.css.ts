@@ -33,6 +33,7 @@ export const styles = {
     lineHeight: "1.25rem",
     boxSizing: "border-box",
     cursor: "pointer",
+    outline: "none",
 
     transition: "color 0.2s ease-in-out",
 
@@ -42,6 +43,10 @@ export const styles = {
           color: vars.color.blue[9],
         },
       },
+    },
+
+    ":focus-visible": {
+      color: vars.color.blue[9],
     },
   }),
 };

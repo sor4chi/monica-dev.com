@@ -21,6 +21,7 @@ export const styles = {
       backgroundColor: vars.color.gray[3],
       cursor: "pointer",
       color: vars.color.gray[11],
+      border: "none",
 
       "@media": {
         "(hover: hover)": {

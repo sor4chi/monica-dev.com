@@ -4,6 +4,7 @@ import { styles } from "./NameCard.css";
 import Icon from "./icon.webp";
 import X from "@/components/ui/icon/X.astro";
 import Github from "@/components/ui/icon/Github.astro";
+import Tooltip from "@/components/ui/Tooltip.astro";
 
 interface Props {
   title: string;
@@ -25,12 +26,26 @@ const { title, subtitle, socials } = Astro.props;
       <p class={styles.subtitle}>{subtitle}</p>
     </div>
     <div class={styles.socials}>
-      <a href={socials.github} target="_blank" rel="noopener noreferrer">
-        <Github exClass={styles.social} />
-      </a>
-      <a href={socials.x} target="_blank" rel="noopener noreferrer">
-        <X exClass={styles.social} />
-      </a>
+      <Tooltip text="Github">
+        <a
+          href={socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={styles.socialLink}
+        >
+          <Github exClass={styles.social} />
+        </a>
+      </Tooltip>
+      <Tooltip text="Twitter">
+        <a
+          href={socials.x}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={styles.socialLink}
+        >
+          <X exClass={styles.social} />
+        </a>
+      </Tooltip>
     </div>
   </div>
 </div>

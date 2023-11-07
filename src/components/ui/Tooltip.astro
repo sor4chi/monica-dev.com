@@ -1,0 +1,18 @@
+---
+import { styles } from "./Tooltip.css";
+
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class={styles.wrapper}>
+  <div class={styles.target}>
+    <slot />
+  </div>
+  <div class={styles.tooltip}>
+    {text}
+  </div>
+</div>

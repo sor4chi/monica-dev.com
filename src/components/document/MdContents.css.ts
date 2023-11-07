@@ -18,13 +18,16 @@ globalStyle(`${styles.contents} a`, {
   color: vars.color.gray[12],
   wordBreak: "break-word",
   textUnderlineOffset: "0.2em",
+  outline: "none",
+  position: "relative",
 });
 
 globalStyle(`${styles.contents} a:focus-visible`, {
+  outline: "1px solid",
   outlineColor: vars.color.blue[8],
   outlineOffset: "4px",
   outlineWidth: "2px",
-  borderRadius: vars.spacing.absolute[1],
+  borderRadius: "2px",
 });
 
 globalStyle(

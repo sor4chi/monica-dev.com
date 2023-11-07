@@ -40,12 +40,27 @@ export const styles = {
   socials: style({
     display: "inline-flex",
     alignItems: "center",
-    gap: "0.5rem",
+  }),
+  socialLink: style({
+    color: vars.color.gray[11],
+
+    transition: "color 0.2s",
+
+    "@media": {
+      "(hover: hover)": {
+        ":hover": {
+          color: vars.color.gray[12],
+        },
+      },
+    },
+
+    ":focus-visible": {
+      color: vars.color.gray[12],
+    },
   }),
   social: style({
     width: "1.25rem",
     height: "1.25rem",
-    padding: "0.25rem",
-    color: vars.color.gray[11],
+    padding: "0.5rem",
   }),
 };
