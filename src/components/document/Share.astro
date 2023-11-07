@@ -2,6 +2,7 @@
 import Tooltip from "../ui/Tooltip.astro";
 import Copy from "../ui/icon/Copy.astro";
 import Github from "../ui/icon/Github.astro";
+import Check from "../ui/icon/Check.astro";
 import X from "../ui/icon/X.astro";
 import { styles } from "./Share.css";
 import { clsx } from "clsx";
@@ -24,11 +25,12 @@ const getShareXUrl = (title: string) => {
 <div class={clsx(styles.links, styles.onlyPC)}>
   <Tooltip text="Copy">
     <button
-      class={styles.btn}
+      class={clsx(styles.btn, "link-copy-button")}
       onclick="navigator.clipboard.writeText(window.location.href)"
       aria-label="リンクをコピーする"
     >
-      <Copy exClass={styles.icon} />
+      <Copy exClass={clsx(styles.icon, styles.copyIcon)} />
+      <Check exClass={clsx(styles.icon, styles.checkIcon)} />
     </button>
   </Tooltip>
   <Tooltip text="Source">
@@ -46,3 +48,27 @@ const getShareXUrl = (title: string) => {
     </a>
   </Tooltip>
 </div>
+
+<script>
+  const initLinkBopyButton = () => {
+    const linkCopyButtons = document.querySelectorAll(".link-copy-button");
+    linkCopyButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.add("copied");
+        setTimeout(() => {
+          button.classList.remove("copied");
+        }, 1000);
+      });
+    });
+  };
+
+  const init = () => {
+    initLinkBopyButton();
+  };
+
+  init();
+
+  document.addEventListener("astro:after-swap", () => {
+    init();
+  });
+</script>
