@@ -61,9 +61,12 @@ import { styles } from "./Navigation.css";
         if (backward.classList.contains("is-active")) {
           backward.classList.remove("is-active");
           setTimeout(() => {
+            backward.classList.remove("is-visibility-active");
             isAnimating = false;
           }, 300);
         } else {
+          backward.classList.add("is-visibility-active");
+
           setTimeout(() => {
             backward.classList.add("is-active");
             isAnimating = false;

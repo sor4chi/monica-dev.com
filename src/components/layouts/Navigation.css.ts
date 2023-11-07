@@ -23,6 +23,7 @@ export const styles = {
     justifyContent: "center",
     gap: vars.spacing.absolute[2],
     fontSize: vars.font.size.xl,
+    visibility: "hidden",
   }),
   line: style({
     border: "none",
@@ -55,4 +56,8 @@ export const styles = {
 
 globalStyle(`${styles.backward}.is-active`, {
   zIndex: vars.zIndex.normal,
+});
+
+globalStyle(`${styles.backward}.is-visibility-active`, {
+  visibility: "visible",
 });
