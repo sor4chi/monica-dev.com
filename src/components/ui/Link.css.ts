@@ -19,14 +19,19 @@ export const styles = {
       boxSizing: "border-box",
       cursor: "pointer",
 
-      transition: "box-shadow 0.2s ease-in-out",
+      transition: "box-shadow 0.2s ease-in-out, color 0.2s ease-in-out",
 
       "@media": {
         "(hover: hover)": {
           ":hover": {
             backgroundColor: vars.color.gray[3],
+            color: vars.color.gray[12],
           },
         },
+      },
+
+      ":focus-visible": {
+        color: vars.color.gray[12],
       },
     },
   ]),

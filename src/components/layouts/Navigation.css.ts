@@ -40,17 +40,8 @@ export const styles = {
   }),
   icon: style({
     flexShrink: 0,
-    color: vars.color.gray[11],
     width: "1.5rem",
     height: "1.5rem",
-
-    "@media": {
-      "(hover: hover)": {
-        ":hover": {
-          color: vars.color.blue[9],
-        },
-      },
-    },
   }),
 };
 

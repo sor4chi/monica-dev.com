@@ -6,9 +6,10 @@ interface Props {
   href: string;
   newTab?: boolean;
   exClass?: string;
+  ariaLabel?: string;
 }
 
-const { href, newTab, exClass } = Astro.props;
+const { href, newTab, exClass, ariaLabel } = Astro.props;
 ---
 
 <a
@@ -16,6 +17,7 @@ const { href, newTab, exClass } = Astro.props;
   href={href}
   target={newTab ? "_blank" : undefined}
   rel={newTab ? "noopener noreferrer" : undefined}
+  aria-label={ariaLabel}
 >
   <slot />
 </a>
