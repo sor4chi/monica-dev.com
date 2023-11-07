@@ -47,7 +47,9 @@ export const styles = {
     margin: "auto",
   }),
   copyIcon: style({}),
-  checkIcon: style({}),
+  checkIcon: style({
+    color: vars.color.gray[12],
+  }),
 };
 
 globalStyle(`.link-copy-button ${styles.checkIcon}`, {
