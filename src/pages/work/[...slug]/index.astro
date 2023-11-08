@@ -4,11 +4,12 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Container from "./_components/Container.astro";
 import Aside from "./_components/Aside.astro";
 import Article from "./_components/Article.astro";
-import Toc from "@/components/document/Toc.astro";
 import Link from "@/components/ui/Link.astro";
 import MdContets from "@/components/document/MdContents.astro";
-import FooterNav from "@/components/document/FooterNav.astro";
-import Line from "@/components/ui/Line.astro";
+import Left from "./_components/Left.astro";
+import Bottom from "./_components/Bottom.astro";
+import Right from "./_components/Right.astro";
+import { getWorkSourceUrl } from "@/utils/work";
 
 export async function getStaticPaths() {
   const works = await getCollection("works");
@@ -40,28 +41,24 @@ const {
 
 const { Content, headings } = await render();
 
-const makeWorksNav = (entry: CollectionEntry<"works"> | null) => {
-  if (!entry) return undefined;
-  return {
-    title: entry.data.title,
-    link: `/work/${entry.slug}`,
-  };
-};
+const shareTitle = `${title} | Works - Monica's Portfolio`;
+const source = getWorkSourceUrl(slug);
 ---
 
 <BaseLayout title={title} description={description}>
   <Container>
     <Aside position="left">
       <Link href="/work">← Back</Link>
-      <Toc headings={headings} />
+      <Left headings={headings} shareTitle={shareTitle} source={source} />
     </Aside>
     <Article slug={slug} title={title} createdAt={createdAt}>
       <MdContets>
         <Content />
       </MdContets>
-      <Line />
-      <FooterNav prev={makeWorksNav(prev)} next={makeWorksNav(next)} />
+      <Bottom prev={prev} next={next} shareTitle={shareTitle} source={source} />
     </Article>
-    <Aside position="right" />
+    <Aside position="right">
+      <Right shareTitle={shareTitle} source={source} />
+    </Aside>
   </Container>
 </BaseLayout>

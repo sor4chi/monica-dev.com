@@ -39,11 +39,6 @@ const getArticleSourceUrl = (slug: string) => {
         </time>
       </p>
     </div>
-    <Share
-      title={`${title} | Works - Monica's Portfolio`}
-      url={Astro.url.toString()}
-      source={getArticleSourceUrl(slug)}
-    />
   </div>
   <Image
     width={640}
