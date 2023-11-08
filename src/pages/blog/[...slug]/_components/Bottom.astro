@@ -1,0 +1,36 @@
+---
+import Share from "@/components/document/Share.astro";
+import Line from "@/components/ui/Line.astro";
+import { getBlogSourceUrl } from "@/utils/blog";
+import { styles } from "./Bottom.css";
+import type { CollectionEntry } from "astro:content";
+import FooterNav from "@/components/document/FooterNav.astro";
+
+interface Props {
+  shareTitle: string;
+  source: string;
+  prev: CollectionEntry<"originalBlogs"> | null;
+  next: CollectionEntry<"originalBlogs"> | null;
+}
+
+const { shareTitle, source, prev, next } = Astro.props;
+
+const makeBlogNav = (blog: CollectionEntry<"originalBlogs"> | null) => {
+  if (!blog) return undefined;
+  return {
+    title: blog.data.title,
+    link: `/blog/${blog.slug}`,
+  };
+};
+---
+
+<div class={styles.onlySP}>
+  <Share
+    title={shareTitle}
+    url={Astro.url.toString()}
+    source={source}
+    flex
+  />
+</div>
+<Line />
+<FooterNav prev={makeBlogNav(prev)} next={makeBlogNav(next)} />

@@ -6,21 +6,39 @@ import { globalStyle, style } from "@vanilla-extract/css";
 export const styles = {
   links: style({
     display: "flex",
-    alignItems: "center",
-    gap: vars.spacing.relative[4],
+    gap: vars.spacing.absolute[6],
+    flexDirection: "column",
+    justifyContent: "center",
   }),
+  flex: style({
+    flexDirection: "row",
+    gap: vars.spacing.absolute[2],
+    width: "100%",
+  }),
+  btnWrapper: style([
+    focusInteraction,
+    {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "column",
+      gap: vars.spacing.absolute[2],
+      width: vars.spacing.absolute[16],
+    },
+  ]),
   btn: style([
     focusInteraction,
     {
       display: "block",
       position: "relative",
-      width: "2rem",
-      height: "2rem",
+      width: vars.spacing.absolute[10],
+      height: vars.spacing.absolute[10],
       borderRadius: "50%",
-      backgroundColor: vars.color.gray[3],
       cursor: "pointer",
       color: vars.color.gray[11],
       border: "none",
+      background: "none",
+      boxSizing: "border-box",
 
       "@media": {
         "(hover: hover)": {
@@ -32,16 +50,15 @@ export const styles = {
       },
     },
   ]),
-  onlyPC: style({
-    "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
-        display: "none",
-      },
-    },
+  btnDescription: style({
+    fontSize: "0.75rem",
+    marginTop: vars.spacing.relative[1],
+    textAlign: "center",
+    color: vars.color.gray[9],
   }),
   icon: style({
-    width: "1rem",
-    height: "1rem",
+    width: vars.font.size.xl,
+    height: vars.font.size.xl,
     position: "absolute",
     inset: "0",
     margin: "auto",
@@ -69,4 +86,8 @@ globalStyle(`.link-copy-button ${styles.copyIcon}`, {
 
 globalStyle(`.link-copy-button.copied ${styles.copyIcon}`, {
   opacity: 0,
+});
+
+globalStyle(`${styles.flex} ${styles.btnWrapper}`, {
+  gap: vars.spacing[0],
 });

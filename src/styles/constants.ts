@@ -1,6 +1,6 @@
 import { sumOfRems } from "@/styles/utils";
 
-export const CONTAINER_GAP = "1rem";
+export const CONTAINER_GAP = "1.5rem";
 export const ASIDE_WIDTH = "15rem";
 export const ARTICLE_WIDTH = "40rem";
 export const LAYOUT_CONTAINER_SIDE_PADDING = "1rem";
@@ -15,6 +15,7 @@ export const CONTENTS_MAX = sumOfRems(
   ASIDE_WIDTH,
   LAYOUT_CONTAINER_SIDE_PADDING,
 );
+
 export const CONTENTS_WITH_TOC = sumOfRems(
   LAYOUT_CONTAINER_SIDE_PADDING,
   ASIDE_WIDTH,

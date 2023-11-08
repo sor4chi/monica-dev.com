@@ -1,9 +1,7 @@
 ---
 import Link from "@/components/ui/Link.astro";
 import { styles } from "./Article.css";
-import { Image } from "astro:assets";
 import "katex/dist/katex.css";
-import Share from "@/components/document/Share.astro";
 
 interface Props {
   title: string;
@@ -12,7 +10,7 @@ interface Props {
   updatedAt?: Date;
 }
 
-const { title, slug, publishedAt, updatedAt } = Astro.props;
+const { title, publishedAt, updatedAt } = Astro.props;
 
 const formatDateTime = (date: Date) => {
   return date.toLocaleDateString("en-US", {
@@ -20,10 +18,6 @@ const formatDateTime = (date: Date) => {
     month: "short",
     year: "numeric",
   });
-};
-
-const getArticleSourceUrl = (slug: string) => {
-  return `https://github.com/sor4chi/monica-dev.com/tree/main/src/content/originalBlogs/${slug}.md`;
 };
 ---
 
@@ -50,11 +44,6 @@ const getArticleSourceUrl = (slug: string) => {
         }
       </p>
     </div>
-    <Share
-      title={`${title} | Works - Monica's Portfolio`}
-      url={Astro.url.toString()}
-      source={getArticleSourceUrl(slug)}
-    />
   </div>
   <slot />
 </article>

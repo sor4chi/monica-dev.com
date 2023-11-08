@@ -4,11 +4,15 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Container from "./_components/Container.astro";
 import Aside from "./_components/Aside.astro";
 import Article from "./_components/Article.astro";
-import Toc from "@/components/document/Toc.astro";
 import Link from "@/components/ui/Link.astro";
 import MdContets from "@/components/document/MdContents.astro";
 import FooterNav from "@/components/document/FooterNav.astro";
 import Line from "@/components/ui/Line.astro";
+import Share from "@/components/document/Share.astro";
+import Left from "./_components/Left.astro";
+import Right from "./_components/Right.astro";
+import { getBlogSourceUrl } from "@/utils/blog";
+import Bottom from "./_components/Bottom.astro";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("originalBlogs");
@@ -39,20 +43,15 @@ const {
 } = Astro.props;
 const { Content, headings } = await render();
 
-const makeBlogNav = (blog: CollectionEntry<"originalBlogs"> | null) => {
-  if (!blog) return undefined;
-  return {
-    title: blog.data.title,
-    link: `/blog/${blog.slug}`,
-  };
-};
+const shareTitle = `${title} | Blogs - Monica's Portfolio`;
+const source = getBlogSourceUrl(slug);
 ---
 
 <BaseLayout title={title} description={description}>
   <Container>
     <Aside position="left">
       <Link href="/blog">← Back</Link>
-      <Toc headings={headings} />
+      <Left headings={headings} source={source} shareTitle={shareTitle} />
     </Aside>
     <Article
       slug={slug}
@@ -63,9 +62,10 @@ const makeBlogNav = (blog: CollectionEntry<"originalBlogs"> | null) => {
       <MdContets>
         <Content />
       </MdContets>
-      <Line />
-      <FooterNav prev={makeBlogNav(prev)} next={makeBlogNav(next)} />
+      <Bottom shareTitle={shareTitle} source={source} prev={prev} next={next} />
     </Article>
-    <Aside position="right" />
+    <Aside position="right">
+      <Right source={source} shareTitle={shareTitle} />
+    </Aside>
   </Container>
 </BaseLayout>

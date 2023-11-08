@@ -1,0 +1,24 @@
+---
+import Share from "@/components/document/Share.astro";
+import Toc from "@/components/document/Toc.astro";
+import Line from "@/components/ui/Line.astro";
+import type { MarkdownHeading } from "astro";
+import { getBlogSourceUrl } from "@/utils/blog";
+import { styles } from "./Left.css";
+
+interface Props {
+  shareTitle: string;
+  headings: MarkdownHeading[];
+  source: string;
+}
+
+const { headings, shareTitle, source } = Astro.props;
+---
+
+<div class={styles.container}>
+  <Toc headings={headings} />
+  <div class={styles.notPC}>
+    <Line />
+    <Share title={shareTitle} url={Astro.url.toString()} source={source} flex />
+  </div>
+</div>

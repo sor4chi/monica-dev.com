@@ -15,8 +15,6 @@ export const styles = {
     flexShrink: 0,
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
-    gap: vars.spacing.absolute[8],
   }),
   left: style({
     "@media": {

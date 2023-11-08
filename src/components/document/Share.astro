@@ -1,5 +1,4 @@
 ---
-import Tooltip from "../ui/Tooltip.astro";
 import Copy from "../ui/icon/Copy.astro";
 import Github from "../ui/icon/Github.astro";
 import Check from "../ui/icon/Check.astro";
@@ -11,9 +10,10 @@ interface Props {
   url: string;
   title: string;
   source: string;
+  flex?: boolean;
 }
 
-const { url, title, source } = Astro.props;
+const { url, title, source, flex } = Astro.props;
 
 const getShareXUrl = (title: string) => {
   return `https://x.com/intent/tweet?text=${encodeURIComponent(
@@ -22,8 +22,8 @@ const getShareXUrl = (title: string) => {
 };
 ---
 
-<div class={clsx(styles.links, styles.onlyPC)}>
-  <Tooltip text="Copy">
+<div class={clsx(styles.links, flex && styles.flex)}>
+  <div class={styles.btnWrapper}>
     <button
       class={clsx(styles.btn, "link-copy-button")}
       onclick="navigator.clipboard.writeText(window.location.href)"
@@ -32,13 +32,15 @@ const getShareXUrl = (title: string) => {
       <Copy exClass={clsx(styles.icon, styles.copyIcon)} />
       <Check exClass={clsx(styles.icon, styles.checkIcon)} />
     </button>
-  </Tooltip>
-  <Tooltip text="Source">
+    <span class={styles.btnDescription}>Copy URL</span>
+  </div>
+  <div class={styles.btnWrapper}>
     <a class={styles.btn} href={source} aria-label="ソースを開く">
       <Github exClass={styles.icon} />
     </a>
-  </Tooltip>
-  <Tooltip text="Share X">
+    <span class={styles.btnDescription}>Source</span>
+  </div>
+  <div class={styles.btnWrapper}>
     <a
       class={styles.btn}
       href={getShareXUrl(title)}
@@ -46,7 +48,8 @@ const getShareXUrl = (title: string) => {
     >
       <X exClass={styles.icon} />
     </a>
-  </Tooltip>
+    <span class={styles.btnDescription}>Share X</span>
+  </div>
 </div>
 
 <script>
