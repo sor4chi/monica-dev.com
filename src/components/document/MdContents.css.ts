@@ -7,6 +7,7 @@ export const styles = {
     display: "flex",
     flexDirection: "column",
     gap: vars.spacing.absolute[4],
+    marginBottom: vars.spacing.absolute[8],
   }),
 };
 
@@ -495,4 +496,8 @@ globalStyle(`${styles.contents} .math-display`, {
 globalStyle(`${styles.contents} .katex-display`, {
   background: vars.color.gray[1],
   boxShadow: `0 0 1rem 2rem ${vars.color.gray[1]}`,
+});
+
+globalStyle(`${styles.contents} .footnotes`, {
+  display: "contents",
 });
