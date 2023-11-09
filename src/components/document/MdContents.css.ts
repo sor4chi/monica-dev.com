@@ -7,7 +7,6 @@ export const styles = {
     display: "flex",
     flexDirection: "column",
     gap: vars.spacing.absolute[4],
-    marginBottom: vars.spacing.absolute[8],
   }),
 };
 
