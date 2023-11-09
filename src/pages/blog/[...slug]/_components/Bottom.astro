@@ -26,7 +26,7 @@ const makeBlogNav = (blog: CollectionEntry<"originalBlogs"> | null) => {
 <div class={styles.onlySP}>
   <Share
     title={shareTitle}
-    url={Astro.url.toString()}
+    pathname={Astro.url.pathname}
     source={source}
     flex
   />

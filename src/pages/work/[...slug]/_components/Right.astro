@@ -9,4 +9,4 @@ interface Props {
 const { shareTitle, source } = Astro.props;
 ---
 
-<Share title={shareTitle} url={Astro.url.toString()} source={source} />
+<Share title={shareTitle} pathname={Astro.url.pathname} source={source} />

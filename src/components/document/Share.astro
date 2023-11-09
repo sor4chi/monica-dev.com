@@ -5,20 +5,21 @@ import Check from "../ui/icon/Check.astro";
 import X from "../ui/icon/X.astro";
 import { styles } from "./Share.css";
 import { clsx } from "clsx";
+import { SITE_BASE_URL } from "@/config";
 
 interface Props {
-  url: string;
+  pathname: string;
   title: string;
   source: string;
   flex?: boolean;
 }
 
-const { url, title, source, flex } = Astro.props;
+const { pathname, title, source, flex } = Astro.props;
 
 const getShareXUrl = (title: string) => {
   return `https://x.com/intent/tweet?text=${encodeURIComponent(
     `${title}\n`,
-  )}&url=${encodeURIComponent(url)}`;
+  )}&url=${encodeURIComponent(SITE_BASE_URL + pathname)}`;
 };
 ---
 

@@ -18,6 +18,6 @@ const { headings, shareTitle, source } = Astro.props;
   <Toc headings={headings} />
   <div class={styles.notPC}>
     <Line />
-    <Share title={shareTitle} url={Astro.url.toString()} source={source} flex />
+    <Share title={shareTitle} pathname={Astro.url.pathname} source={source} flex />
   </div>
 </div>
