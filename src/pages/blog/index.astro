@@ -43,7 +43,7 @@ const sortedGroupedBlogs = Object.entries(groupedBlogs)
     {
       sortedGroupedBlogs.map(([year, works], i) => (
         <>
-          <List title={year}>
+          <List title={year} first={i === 0}>
             {works.map((work) => (
               <Item
                 title={work.data.title}

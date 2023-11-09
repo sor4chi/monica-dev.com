@@ -1,14 +1,16 @@
 ---
+import { clsx } from "clsx";
 import { styles } from "./List.css";
 interface Props {
   title: string;
+  first: boolean;
 }
 
-const { title } = Astro.props;
+const { title, first } = Astro.props;
 ---
 
 <div class={styles.container}>
-  <h2 class={styles.title}>{title}</h2>
+  <h2 class={clsx(styles.title, first && styles.hideOnSP)}>{title}</h2>
   <ul class={styles.listContainer}>
     <slot />
   </ul>

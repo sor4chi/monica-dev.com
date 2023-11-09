@@ -33,6 +33,13 @@ export const styles = {
       },
     },
   }),
+  hideOnSP: style({
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        display: "none",
+      },
+    },
+  }),
   listContainer: style({
     display: "flex",
     flexDirection: "column",
