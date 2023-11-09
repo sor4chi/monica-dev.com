@@ -22,7 +22,6 @@ export const styles = {
       alignItems: "center",
       justifyContent: "center",
       flexDirection: "column",
-      gap: vars.spacing.absolute[2],
       width: vars.spacing.absolute[16],
     },
   ]),
