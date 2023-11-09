@@ -4,6 +4,7 @@ import { ViewTransitions } from "astro:transitions";
 import { styles } from "./Base.css";
 import Navigation from "./Navigation.astro";
 import RightTopArea from "./RightTopArea.astro";
+import { SITE_NAME, SITE_DESCRIPTION } from "@/config";
 
 interface Props {
   title?: string;
@@ -11,9 +12,6 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const SITE_NAME = "Monica's Portfolio";
-const SITE_DESCRIPTION =
-  "Webエンジニア Monica のポートフォリオサイトです。経歴やスキル、制作物などを掲載しています。";
 
 const getTitle = (title?: string) => {
   if (title) {
@@ -50,6 +48,7 @@ const getOgImage = (title?: string) => {
       content={description || SITE_DESCRIPTION}
     />
     <meta name="twitter:image" content={getOgImage(title)} />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 
     <script src="/scripts/theme.js" is:inline></script>
     <ViewTransitions />

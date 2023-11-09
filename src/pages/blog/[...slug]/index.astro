@@ -29,6 +29,7 @@ export async function getStaticPaths() {
     },
   }));
 }
+
 type Props = CollectionEntry<"originalBlogs"> & {
   prev: CollectionEntry<"originalBlogs"> | null;
   next: CollectionEntry<"originalBlogs"> | null;
