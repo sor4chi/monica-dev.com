@@ -60,6 +60,7 @@ export const styles = {
     gap: vars.spacing.absolute[2],
     padding: `${vars.spacing[0]} ${vars.spacing.absolute[4]}`,
     transition: "opacity 0.2s ease-in-out",
+    pointerEvents: "none",
 
     selectors: {
       [`${item}:hover &`]: {

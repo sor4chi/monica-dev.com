@@ -17,6 +17,7 @@ export const styles = {
       borderRadius: vars.spacing.relative[2],
       padding: `${vars.spacing.relative[2]} ${vars.spacing.relative[2]}`,
       boxSizing: "border-box",
+      width: "fit-content",
       cursor: "pointer",
 
       transition: "box-shadow 0.2s ease-in-out, color 0.2s ease-in-out",

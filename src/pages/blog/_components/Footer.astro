@@ -1,0 +1,9 @@
+---
+import Link from "@/components/ui/Link.astro";
+import RSS from "@/components/ui/icon/RSS.astro";
+import { styles } from "./Footer.css";
+---
+
+<div class={styles.footer}>
+  <Link href="/feed.xml" exClass={styles.link}><RSS /> Get Feed</Link>
+</div>
