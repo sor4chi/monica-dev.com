@@ -8,7 +8,6 @@ export const styles = {
     margin: "0 auto",
     display: "flex",
     flexDirection: "column",
-    gap: vars.spacing.absolute[8],
     marginBottom: vars.spacing.absolute[8],
   }),
 };

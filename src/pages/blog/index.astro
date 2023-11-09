@@ -5,6 +5,7 @@ import List from "./_components/List.astro";
 import Item from "./_components/Item.astro";
 import Container from "./_components/Container.astro";
 import Footer from "./_components/Footer.astro";
+import Line from "@/components/ui/Line.astro";
 
 const [originalBlogs, externalBlogs] = await Promise.all([
   getCollection("originalBlogs"),
@@ -40,16 +41,19 @@ const sortedGroupedBlogs = Object.entries(groupedBlogs)
 <BaseLayout title="Blog">
   <Container>
     {
-      sortedGroupedBlogs.map(([year, works]) => (
-        <List title={year}>
-          {works.map((work) => (
-            <Item
-              title={work.data.title}
-              slug={work.slug}
-              url={work.data.url}
-            />
-          ))}
-        </List>
+      sortedGroupedBlogs.map(([year, works], i) => (
+        <>
+          <List title={year}>
+            {works.map((work) => (
+              <Item
+                title={work.data.title}
+                slug={work.slug}
+                url={work.data.url}
+              />
+            ))}
+          </List>
+          {i < works.length && <Line />}
+        </>
       ))
     }
     <Footer />
