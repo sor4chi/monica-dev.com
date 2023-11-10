@@ -1,5 +1,5 @@
 import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/config";
-import rss, { pagesGlobToRssItems } from "@astrojs/rss";
+import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
 export async function GET() {
@@ -12,10 +12,10 @@ export async function GET() {
     items: blogs.map(({ slug, data }) => ({
       title: data.title,
       description: data.description,
-      date: data.publishedAt,
       link: `${SITE_BASE_URL}/blog/${slug}`,
       pubDate: data.publishedAt,
     })),
-    customData: `<language>ja</language>`,
+    customData: "<language>ja</language>",
+    stylesheet: "/feed.xsl",
   });
 }
