@@ -4,14 +4,15 @@ import { ViewTransitions } from "astro:transitions";
 import { styles } from "./Base.css";
 import Navigation from "./Navigation.astro";
 import RightTopArea from "./RightTopArea.astro";
-import { SITE_NAME, SITE_DESCRIPTION } from "@/config";
+import { SITE_NAME, SITE_DESCRIPTION, SITE_BASE_URL } from "@/config";
 
 interface Props {
   title?: string;
   description?: string;
+  canonical: `/${string}`;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonical } = Astro.props;
 
 const getTitle = (title?: string) => {
   if (title) {
@@ -49,6 +50,7 @@ const getOgImage = (title?: string) => {
     />
     <meta name="twitter:image" content={getOgImage(title)} />
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <link rel="canonical" href={SITE_BASE_URL + canonical} />
 
     <script src="/scripts/theme.js" is:inline></script>
     <ViewTransitions />
