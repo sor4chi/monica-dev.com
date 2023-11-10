@@ -15,9 +15,9 @@ const { headings, shareTitle, source } = Astro.props;
 ---
 
 <div class={styles.container}>
-  <Toc headings={headings} />
+  {headings.length > 0 && <Toc headings={headings} />}
   <div class={styles.notPC}>
-    <Line />
+    {headings.length > 0 && <Line />}
     <Share
       title={shareTitle}
       pathname={Astro.url.pathname}
