@@ -45,12 +45,13 @@ const getOgImage = (title?: string) => {
     <meta name="twitter:site" content="@monica18_pr" />
     <meta name="twitter:title" content={getTitle(title)} />
     <meta
-      name="twitter:description"
-      content={description || SITE_DESCRIPTION}
+    name="twitter:description"
+    content={description || SITE_DESCRIPTION}
     />
     <meta name="twitter:image" content={getOgImage(title)} />
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     <link rel="canonical" href={SITE_BASE_URL + canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <script src="/scripts/theme.js" is:inline></script>
     <ViewTransitions />
