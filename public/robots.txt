@@ -1,0 +1,3 @@
+User-Agent:*
+Disallow:
+Sitemap:https://monica-dev.com/sitemap-index.xml
