@@ -5,7 +5,7 @@ import { colorVars } from "./contract.css";
 globalStyle("body", {
   backgroundColor: colorVars.gray[2],
   fontFamily:
-    '"Zen Kaku Gothic New", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif',
+    'X, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
   margin: 0,
   padding: 0,
   color: colorVars.gray[12],
