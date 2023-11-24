@@ -96,6 +96,12 @@ export const styles = {
   title: style({
     color: vars.color.gray[12],
     fontSize: vars.font.size.lg,
+    
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        fontSize: vars.font.size.base,
+      },
+    },
   }),
   description: style({
     color: vars.color.gray[11],
