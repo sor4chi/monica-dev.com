@@ -6,7 +6,7 @@ import {
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
-const TOP_PADDING_LG = "10dvh";
+export const TOP_PADDING_LG = "10dvh";
 const TOP_PADDING_SM = "1rem";
 const BOTTOM_PADDING = "1rem";
 

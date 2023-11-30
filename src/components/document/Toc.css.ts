@@ -1,5 +1,6 @@
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
+import { TOP_PADDING_LG } from "../layouts/Base.css";
 
 export const styles = {
   toc: style({
@@ -10,6 +11,8 @@ export const styles = {
     width: vars.spacing.full,
     boxSizing: "border-box",
     marginTop: vars.spacing.relative[2],
+    maxHeight: `calc(100vh - ${TOP_PADDING_LG} - 256px)`,
+    overflowY: "auto",
 
     "@container": {
       "(max-width: 768px)": {
