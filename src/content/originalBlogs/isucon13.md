@@ -1,7 +1,7 @@
 ---
 title: ISUCON13に参加してきました
 description: 2023/11/25に開催された ISUCON13 に参加してきました。対策や参加した感想をまとめました。
-publishedAt: 2023/11/26
+publishedAt: 2023/11/30
 ---
 
 今回、[@a01sa01to](https://twitter.com/a01sa01to) (以降@Asa) と [@Ryoga_exe](https://twitter.com/ryoga_exe) (以降@Ryoga) と私 @Monica の3人で **Maxif.** というチーム名で参加してきました。
