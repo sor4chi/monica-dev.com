@@ -3,10 +3,28 @@ import type { Element } from "hast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
+const unescape = (str: string) => {
+  const MAP: Record<string, string> = {
+    "&lt;": "<",
+    "&#60;": "<",
+    "&gt;": ">",
+    "&#62;": ">",
+    "&quot;": '"',
+    "&#34;": '"',
+    "&#39;": "'",
+    "&amp;": "&",
+    "&#38;": "&",
+    "&nbsp;": " ",
+    "&#174;": " ®",
+  };
+
+  return str.replace(/&[^;]+;/g, (match) => MAP[match]);
+};
+
 const plugin: Plugin = () => (tree) => {
   visit(tree, "element", (node: Element, index, parent) => {
     if (node.tagName === "a") {
-      const title = node.properties["data-title"] as string;
+      let title = node.properties["data-title"] as string;
       const image = node.properties["data-image"] as string;
       const favicon = node.properties["data-favicon"] as string;
       const url = node.properties.href as string;
@@ -14,6 +32,8 @@ const plugin: Plugin = () => (tree) => {
       if (!title || !url) {
         return;
       }
+
+      title = unescape(title);
 
       const isInternal =
         url.startsWith("/") || url.startsWith("https://monica-dev.com");
