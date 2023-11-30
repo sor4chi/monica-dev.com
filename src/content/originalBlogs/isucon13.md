@@ -184,7 +184,9 @@ DNS何もわからんなのでとても助かりました。
 @Monica が `fillLivestreamResponse` の N+1 を解消しました。
 
 [ownerのN+1解消](https://github.com/sor4chi/isucon13/commit/ebff290be52b5273ebb5ae192d5e6f81a3b496b5)
+
 [livestreamのN+1解消](https://github.com/sor4chi/isucon13/commit/52d70320992e3e2309ff0a2b813c37ccc10c0c1d)
+
 [livestreamTagModels解消](https://github.com/sor4chi/isucon13/commit/7e32ae3c93e546bf0fa460f3e5f374948a39fd82)
 
 ### 17:37 `fillUserResponse` の N+1 解消 52872
@@ -192,6 +194,7 @@ DNS何もわからんなのでとても助かりました。
 @Monica が `fillUserResponse` の N+1 を解消しました。
 
 [themeのN+1解消](https://github.com/sor4chi/isucon13/commit/aa5d8704bd970f1d12729cd18881325dc5b055ec)
+
 [userIconのN+1解消](https://github.com/sor4chi/isucon13/commit/5cff267d99599363247c0b569b3f68d7ff29bca0)
 
 ### 17:51 整合性エラー 0
