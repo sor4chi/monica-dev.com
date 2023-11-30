@@ -11,7 +11,7 @@ const plugin: Plugin = () => (tree) => {
       const favicon = node.properties["data-favicon"] as string;
       const url = node.properties.href as string;
 
-      if (!title || !image || !favicon || !url) {
+      if (!title || !url) {
         return;
       }
 
@@ -27,22 +27,27 @@ const plugin: Plugin = () => (tree) => {
             : { target: "_blank", rel: "noopener noreferrer" }),
         },
         [
-          h("img.link-card__image", {
-            src: image,
-            alt: title,
-          }),
+          image &&
+            h("img.link-card__image", {
+              src: image,
+              alt: title,
+            }),
           h("span.link-card__content", [
             h("span.link-card__title", title),
-            h("span.link-card__meta", [
-              h("span.link-card__favicon", {
-                style: {
-                  "background-image": `url(${favicon})`,
-                },
-              }),
-              h("span.link-card__domain", new URL(url).hostname),
-            ]),
+            h(
+              "span.link-card__meta",
+              [
+                favicon &&
+                  h("span.link-card__favicon", {
+                    style: {
+                      "background-image": `url(${favicon})`,
+                    },
+                  }),
+                h("span.link-card__domain", new URL(url).hostname),
+              ].filter(Boolean),
+            ),
           ]),
-        ],
+        ].filter(Boolean),
       );
 
       // @ts-expect-error
