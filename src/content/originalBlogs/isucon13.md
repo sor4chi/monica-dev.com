@@ -138,6 +138,7 @@ DNS何もわからんなのでとても助かりました。
 ### 15:00 INDEXを正しく貼る 22687
 
 開始から5時間経って、@Asa がやっぱりINDEXが効いてないんじゃないかと言い出して、実際にMySQLにログインして `EXPLAIN` してみると、 `livestream_tags` に `livestream_id` に対するINDEXが貼られていないことに気づきました。
+
 じゃあもうわからんから `10_schema.sql` に書くのやめようということで `Index Already Exists` にならないようにアプリ側でキャッチしながら `CREATE INDEX` するようにしました。
 
 
