@@ -38,15 +38,15 @@ const getOgImage = (title?: string) => {
     <meta property="og:title" content={getTitle(title)} />
     <meta property="og:description" content={description || SITE_DESCRIPTION} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://monica-dev.com/" />
+    <meta property="og:url" content={SITE_BASE_URL + canonical} />
     <meta property="og:image" content={getOgImage(title)} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@monica18_pr" />
     <meta name="twitter:title" content={getTitle(title)} />
     <meta
-    name="twitter:description"
-    content={description || SITE_DESCRIPTION}
+      name="twitter:description"
+      content={description || SITE_DESCRIPTION}
     />
     <meta name="twitter:image" content={getOgImage(title)} />
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
