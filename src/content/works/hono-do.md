@@ -14,6 +14,7 @@ description: "A wrapper of Cloudflare Workers's Durable Object for Hono."
 
 <https://github.com/honojs/hono/issues/1173>
 
+そのため「この需要を叶えたい！」と思い、このライブラリを作ることにしました。
 私は開発当初その存在を知らなかったためとても異なるインターフェースにはなってしまいましたが、 Durable Object のポータブルさと Hono の洗練されたインターフェースを両立させたとても開発者体験の良いライブラリが提供できたと思っています。
 
 ## 従来の Durable Object
