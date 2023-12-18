@@ -30,6 +30,7 @@
     "rehype-katex": "^6.0.3",
     "rehype-slug": "^6.0.0",
     "remark-breaks": "^4.0.0",
+    "remark-directive": "^3.0.0",
     "remark-math": "^5.1.1",
     "unist-util-visit": "^5.0.0"
   },
@@ -41,6 +42,7 @@
     "@vanilla-extract/vite-plugin": "^3.9.0",
     "glob": "^10.3.10",
     "hastscript": "^8.0.0",
+    "mdast-util-directive": "^3.0.0",
     "mdast-util-to-hast": "^13.0.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",

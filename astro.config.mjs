@@ -6,6 +6,8 @@ import remarkLinkCard from "./src/libs/remark-link-card";
 import rehypeCodeBlockCopy from "./src/libs/rehype-code-block-copy";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
+import remarkDirective from "remark-directive";
+import remarkFlexBlock from "./src/libs/remark-flex-block";
 import rehypeHeadLinker from "./src/libs/rehype-head-linker";
 import rehypeAnnotationBlock from "./src/libs/rehype-annotation-block";
 import rehypeLinkCard from "./src/libs/rehype-link-card";
@@ -23,7 +25,7 @@ export default defineConfig({
   site: SITE_BASE_URL,
   markdown: {
     syntaxHighlight: "prism",
-    remarkPlugins: [remarkMath, remarkBreaks, remarkLinkCard],
+    remarkPlugins: [remarkMath, remarkBreaks, remarkLinkCard, remarkDirective, remarkFlexBlock],
     rehypePlugins: [rehypeKatex, rehypeSlug, rehypeHeadLinker, rehypeAnnotationBlock, rehypeCodeBlockCopy, rehypeLinkCard]
   },
   integrations: [mdx(), react(), sitemap()]

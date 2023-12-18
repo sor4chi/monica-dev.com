@@ -501,3 +501,17 @@ globalStyle(`${styles.contents} .katex-display`, {
 globalStyle(`${styles.contents} .footnotes`, {
   display: "contents",
 });
+
+globalStyle(`${styles.contents} .flex-block`, {
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  alignItems: "center",
+  gap: vars.spacing.absolute[4],
+});
+
+globalStyle(`${styles.contents} .flex-block > *`, {
+  flexGrow: 1,
+  flexBasis: 0,
+  minWidth: 0,
+});
