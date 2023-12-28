@@ -1,5 +1,5 @@
 ---
-title: 「ぱずかる」をリリースしました 🎉
+title: 「ぱずかる」をリリースしました
 description: 人気ソーシャルゲーム Puzzle & Dragons 通常「パズドラ」の計算機「ぱずかる」を作りました。ランク経験値を計算するWebアプリケーションです。
 publishedAt: 2020/03/08
 updatedAt: 2023/05/08
