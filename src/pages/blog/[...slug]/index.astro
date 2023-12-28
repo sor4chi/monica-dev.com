@@ -48,7 +48,12 @@ const shareTitle = `${title} | Blogs - Monica's Portfolio`;
 const source = getBlogSourceUrl(slug);
 ---
 
-<BaseLayout title={title} description={description} canonical={`/blog/${slug}`}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={`/blog/${slug}`}
+  ogImageUrl={`/images/ogp/blogs/${slug}.png`}
+>
   <Container>
     <Aside position="left">
       <Link href="/blog">← Back</Link>

@@ -10,9 +10,10 @@ interface Props {
   title?: string;
   description?: string;
   canonical: `/${string}`;
+  ogImageUrl?: string;
 }
 
-const { title, description, canonical } = Astro.props;
+const { title, description, canonical, ogImageUrl } = Astro.props;
 
 const getTitle = (title?: string) => {
   if (title) {
@@ -21,9 +22,9 @@ const getTitle = (title?: string) => {
   return SITE_NAME;
 };
 
-const getOgImage = (title?: string) => {
-  return `https://monica-dev.com/api/ogp?title=${title || SITE_NAME}`;
-};
+const finalOgImageUrl = ogImageUrl
+  ? `${SITE_BASE_URL}${ogImageUrl}`
+  : `${SITE_BASE_URL}/images/ogp/default.png`;
 ---
 
 <html lang="ja" class="light">
@@ -39,7 +40,7 @@ const getOgImage = (title?: string) => {
     <meta property="og:description" content={description || SITE_DESCRIPTION} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={SITE_BASE_URL + canonical} />
-    <meta property="og:image" content={getOgImage(title)} />
+    <meta property="og:image" content={finalOgImageUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@sor4chi" />
@@ -48,7 +49,7 @@ const getOgImage = (title?: string) => {
       name="twitter:description"
       content={description || SITE_DESCRIPTION}
     />
-    <meta name="twitter:image" content={getOgImage(title)} />
+    <meta name="twitter:image" content={finalOgImageUrl} />
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     <link rel="canonical" href={SITE_BASE_URL + canonical} />
     <link rel="sitemap" href="/sitemap-index.xml" />

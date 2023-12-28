@@ -24,3 +24,4 @@ src/content/originalBlogs/markdown.md
 
 # cloudflare wrangler
 .wrangler
+.cache
