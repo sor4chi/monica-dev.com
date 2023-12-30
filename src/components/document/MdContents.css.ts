@@ -237,7 +237,7 @@ globalStyle(`${styles.contents} .link-card .link-card__domain`, {
 
 globalStyle(`${styles.contents} p`, {
   fontSize: vars.font.size.base,
-  color: vars.color.gray[12],
+  color: "inherit",
   lineHeight: 1.8,
 });
 
@@ -297,6 +297,7 @@ globalStyle(`${styles.contents} hr`, {
 globalStyle(`${styles.contents} blockquote`, {
   borderLeft: `4px solid ${vars.color.gray[4]}`,
   paddingLeft: vars.spacing.relative[4],
+  color: vars.color.gray[11],
 });
 
 const annotationColorRGBVar = createVar();
