@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { createCanvas, loadImage } from "canvas";
+import { registerFont, createCanvas, loadImage } from "canvas";
 import { load } from "js-yaml";
 import pico from "picocolors";
 import { md5 } from "js-md5";
@@ -40,6 +40,14 @@ const stateLabel = (state: State) => {
   }
 };
 
+registerFont(path.join(process.cwd(), "public/fonts/NotoSans-Regular.ttf"), {
+  family: "Noto Sans",
+});
+
+registerFont(path.join(process.cwd(), "public/fonts/NotoSansJP-Regular.ttf"), {
+  family: "Noto Sans JP",
+});
+
 const createOgp = async (
   state: Exclude<State, "delete">,
   title: string,
@@ -49,7 +57,7 @@ const createOgp = async (
   const ctx = canvas.getContext("2d");
   const baseImage = await loadImage(PATH_OGP_BASE_IMAGE_FILE);
   ctx.drawImage(baseImage, 0, 0, OGP_WIDTH, OGP_HEIGHT);
-  ctx.font = `${FONT_SIZE}px "Noto Sans JP"`;
+  ctx.font = `${FONT_SIZE}px "Noto Sans", "Noto Sans JP", sans-serif`;
   ctx.fillStyle = "#FFFFFF";
   ctx.textAlign = "center";
 
