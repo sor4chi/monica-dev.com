@@ -6,6 +6,7 @@
     "dev": "run-p dev:*",
     "dev:pages": "wrangler pages dev functions",
     "dev:astro": "astro dev",
+    "test": "vitest",
     "start": "astro dev",
     "build": "npm run generate:ogp && astro build",
     "preview": "astro preview",
@@ -54,9 +55,13 @@
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
     "rehype": "^13.0.1",
+    "rehype-stringify": "^10.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.0.0",
     "sharp": "^0.32.6",
     "tsx": "^3.13.0",
     "unified": "^11.0.3",
+    "vitest": "^1.1.0",
     "wrangler": "^3.14.0"
   }
 }
