@@ -1,13 +1,14 @@
 ---
+import clsx from "clsx";
 import Link from "../ui/Link.astro";
 import { styles } from "./Navigation.css";
 ---
 
 <div class={styles.backward} id="backward">
-  <Link href="/" exClass="backward-internal-link">Home</Link>
-  <Link href="/work" exClass="backward-internal-link">Works</Link>
-  <Link href="/timeline" exClass="backward-internal-link">Timelines</Link>
-  <Link href="/blog" exClass="backward-internal-link">Blogs</Link>
+  <Link href="/" exClass={clsx("backward-internal-link", styles.link)}>Home</Link>
+  <Link href="/work" exClass={clsx("backward-internal-link", styles.link)}>Works</Link>
+  <Link href="/timeline" exClass={clsx("backward-internal-link", styles.link)}>Timelines</Link>
+  <Link href="/blog" exClass={clsx("backward-internal-link", styles.link)}>Blogs</Link>
   <hr class={styles.line} />
   <div class={styles.social}>
     <Link href="https://x.com/sor4chi" ariaLabel="Twitter / X を開く">

@@ -43,6 +43,11 @@ export const styles = {
     width: "1.5rem",
     height: "1.5rem",
   }),
+  link: style({
+    width: "100% !important",
+    justifyContent: "center !important",
+    maxWidth: "160px",
+  }),
 };
 
 globalStyle(`${styles.backward}.is-active`, {
