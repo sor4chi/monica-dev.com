@@ -11,7 +11,6 @@ import remarkFlexBlock from "./src/libs/remark-flex-block";
 import rehypeHeadLinker from "./src/libs/rehype-head-linker";
 import rehypeAnnotationBlock from "./src/libs/rehype-annotation-block";
 import rehypeLinkCard from "./src/libs/rehype-link-card";
-import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 
 import sitemap from "@astrojs/sitemap";
@@ -20,13 +19,26 @@ import { SITE_BASE_URL } from "./src/config";
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [vanillaExtractPlugin()]
+    plugins: [vanillaExtractPlugin()],
   },
   site: SITE_BASE_URL,
   markdown: {
     syntaxHighlight: "prism",
-    remarkPlugins: [remarkMath, remarkBreaks, remarkLinkCard, remarkDirective, remarkFlexBlock],
-    rehypePlugins: [rehypeKatex, rehypeSlug, rehypeHeadLinker, rehypeAnnotationBlock, rehypeCodeBlockCopy, rehypeLinkCard]
+    remarkPlugins: [
+      remarkMath,
+      remarkBreaks,
+      remarkLinkCard,
+      remarkDirective,
+      remarkFlexBlock,
+    ],
+    rehypePlugins: [
+      rehypeKatex,
+      rehypeSlug,
+      rehypeHeadLinker,
+      rehypeAnnotationBlock,
+      rehypeCodeBlockCopy,
+      rehypeLinkCard,
+    ],
   },
-  integrations: [mdx(), react(), sitemap()]
+  integrations: [react(), sitemap()],
 });
