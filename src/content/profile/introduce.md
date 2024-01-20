@@ -6,13 +6,11 @@ socials:
   x: https://x.com/sor4chi
 ---
 
-import { RelativeDate } from "@/components/mdx/RelativeDate";
-
 ## About Me
 
-- <RelativeDate date="2003-02-18" format="year" add={-1} /> 歳
+- 20 歳
 - 日本・北海道出身
-- [埼玉大学](http://www.saitama-u.ac.jp/)・情報工学科・<RelativeDate date="2021-04-01" format="year" add={1} /> 年
+- [埼玉大学](http://www.saitama-u.ac.jp/)・情報工学科・3 年
 
 現在は [Sor4chi](https://github.com/sor4chi) (Github) や [Monica](https://x.com/sor4chi) (X) という名前で活動しています。
 
