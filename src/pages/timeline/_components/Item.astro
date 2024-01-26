@@ -29,29 +29,30 @@ const { slug, title, date, icon, link } = Astro.props;
     </time>
   </td>
   <td class={clsx(styles.iconCol, styles.col)}>
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      class={styles.iconLink}
-    >
+    <div class={styles.pointContainer}>
       {
         icon ? (
-          <Image
-            width={120}
-            height={63}
-            src={icon}
-            alt={title}
-            transition:name={`works-hero-${slug}`}
-            class={styles.icon}
-          />
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={styles.iconLink}
+          >
+            <Image
+              width={120}
+              height={63}
+              src={icon}
+              alt={title}
+              transition:name={`works-hero-${slug}`}
+              class={styles.icon}
+            />
+          </a>
         ) : (
-          <span class={styles.icon}>
-            <span class={styles.dot} />
-          </span>
+          <span class={styles.dot} />
         )
       }
-    </a>
+    </div>
+    <span class={styles.line}></span>
   </td>
   <td class={styles.col}>
     <span class={styles.titleWrapper}>
