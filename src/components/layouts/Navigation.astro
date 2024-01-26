@@ -5,10 +5,18 @@ import { styles } from "./Navigation.css";
 ---
 
 <div class={styles.backward} id="backward">
-  <Link href="/" exClass={clsx("backward-internal-link", styles.link)}>Home</Link>
-  <Link href="/work" exClass={clsx("backward-internal-link", styles.link)}>Works</Link>
-  <Link href="/timeline" exClass={clsx("backward-internal-link", styles.link)}>Timelines</Link>
-  <Link href="/blog" exClass={clsx("backward-internal-link", styles.link)}>Blogs</Link>
+  <Link href="/" exClass={clsx("backward-internal-link", styles.link)}>
+    Home
+  </Link>
+  <Link href="/work" exClass={clsx("backward-internal-link", styles.link)}>
+    Works
+  </Link>
+  <Link href="/timeline" exClass={clsx("backward-internal-link", styles.link)}>
+    Timeline
+  </Link>
+  <Link href="/blog" exClass={clsx("backward-internal-link", styles.link)}>
+    Blogs
+  </Link>
   <hr class={styles.line} />
   <div class={styles.social}>
     <Link href="https://x.com/sor4chi" ariaLabel="Twitter / X を開く">
