@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import { styles } from "./NameCard.css";
-import Icon from "./icon.webp";
 import X from "@/components/ui/icon/X.astro";
 import Github from "@/components/ui/icon/Github.astro";
 import Tooltip from "@/components/ui/Tooltip.astro";
@@ -19,7 +18,7 @@ const { title, subtitle, socials } = Astro.props;
 ---
 
 <div class={styles.container}>
-  <Image src={Icon} width={128} height={128} alt="icon" class={styles.image} />
+  <img src="/images/assets/icon.webp" width={64} height={64} alt="icon" class={styles.image} />
   <div class={styles.info}>
     <div>
       <h3 class={styles.title}>{title}</h3>
