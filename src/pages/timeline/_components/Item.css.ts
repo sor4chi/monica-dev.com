@@ -107,13 +107,30 @@ export const styles = {
     justifyContent: "space-between",
     width: "100%",
     height: ICON_SIZE,
-    gap: vars.spacing.relative[4],
+    gap: vars.spacing.absolute[4],
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        flexDirection: "column",
+        gap: vars.spacing[0],
+        alignItems: "flex-start",
+        height: "auto",
+        marginBottom: vars.spacing.absolute[4],
+      },
+    },
   }),
   date: style({
     color: vars.color.gray[11],
     fontSize: vars.font.size.sm,
     whiteSpace: "nowrap",
     lineHeight: ICON_SIZE,
+
+    "@media": {
+      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+        lineHeight: vars.font.size.base,
+        marginTop: `calc(-1 * ${vars.spacing.absolute[1]})`,
+      },
+    },
   }),
   desktopDate: style({
     display: "none",
@@ -136,10 +153,12 @@ export const styles = {
   title: style({
     color: vars.color.gray[12],
     fontSize: vars.font.size.lg,
+    wordBreak: "auto-phrase" as any,
 
     "@media": {
       [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
-        fontSize: vars.font.size.base,
+        lineHeight: vars.spacing.absolute[8],
+        margin: `calc((${ICON_SIZE} - ${vars.spacing.absolute[8]}) / 2) 0`,
       },
     },
   }),
