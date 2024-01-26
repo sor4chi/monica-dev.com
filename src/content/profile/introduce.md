@@ -15,7 +15,9 @@ socials:
 現在は [Sor4chi](https://github.com/sor4chi) (Github) や [Monica](https://x.com/sor4chi) (X) という名前で活動しています。
 
 Web フロントエンド・バックエンド・インフラなどを触っています。
-また、大学のプログラミングサークル [Maximum](https://maximum.vc) でWeb研究会の講師として毎週の講義を担当しています。
+また、大学のプログラミングサークル Maximum でWeb研究会の講師として毎週の講義を担当しています。
+
+<https://maximum.vc>
 
 ## Works
 
