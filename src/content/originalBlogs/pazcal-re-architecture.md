@@ -106,10 +106,13 @@ const BLUES = {
 
 今回、機能として計算結果の表示をUniversal式と日本語式で切り替えられるような機能をつけたのですが、ここでもレイアウトシフトがないようにあらかじめ高さを確保する工夫を施しています。
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
-  <img src="https://monica-log.s3.ap-northeast-1.amazonaws.com/blog/ScreenCapture_2023-06-22_21.02.22.png" alt="Universal式の計算結果表示" style="width: 49%;" />
-  <img src="https://monica-log.s3.ap-northeast-1.amazonaws.com/blog/ScreenCapture_2023-06-22_21.02.28.png" alt="日本語式の計算結果表示" style="width: 49%;" />
-</div>
+:::flex
+
+![Universal式の計算結果表示](https://monica-log.s3.ap-northeast-1.amazonaws.com/blog/ScreenCapture_2023-06-22_21.02.22.png)
+
+![日本語式の計算結果表示](https://monica-log.s3.ap-northeast-1.amazonaws.com/blog/ScreenCapture_2023-06-22_21.02.28.png)
+
+:::
 
 <!-- ![Universal式の計算結果表示](https://monica-log.s3.ap-northeast-1.amazonaws.com/blog/ScreenCapture_2023-06-22_21.02.22.png) -->
 
