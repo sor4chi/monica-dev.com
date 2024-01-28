@@ -20,6 +20,7 @@ export const styles = {
     aspectRatio: "1200 / 630",
     objectFit: "cover",
     borderRadius: vars.spacing.absolute[2],
+    flexShrink: 0,
 
     "@media": {
       [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {

@@ -39,11 +39,10 @@ const { slug, title, date, icon, link } = Astro.props;
             class={styles.iconLink}
           >
             <Image
-              width={120}
-              height={63}
+              width={48}
+              height={48}
               src={icon}
               alt={title}
-              transition:name={`works-hero-${slug}`}
               class={styles.icon}
             />
           </a>
