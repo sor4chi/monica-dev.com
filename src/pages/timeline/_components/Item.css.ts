@@ -48,7 +48,7 @@ export const styles = {
 
     ":focus-visible": {
       outline: `2px solid ${vars.color.blue[8]}`,
-      outlineOffset: "2px",
+      outlineOffset: "-4px",
     },
   }),
   dot: style({

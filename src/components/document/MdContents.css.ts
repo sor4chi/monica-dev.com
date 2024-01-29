@@ -161,8 +161,9 @@ globalStyle(`${styles.contents} .link-card:hover`, {
 });
 
 globalStyle(`${styles.contents} .link-card:focus-visible`, {
-  border: `1px solid ${vars.color.blue[8]}`,
-  outline: "none",
+  borderRadius: vars.spacing.absolute[2],
+  outline: `2px solid ${vars.color.blue[8]}`,
+  outlineOffset: "2px",
 });
 
 globalStyle(`${styles.contents} .link-card .link-card__image`, {
