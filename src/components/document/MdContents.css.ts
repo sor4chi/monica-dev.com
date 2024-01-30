@@ -474,12 +474,19 @@ globalStyle(`${styles.contents} .code-block .code-copy-button:focus-visible`, {
   opacity: 1,
 });
 
-globalStyle(`${styles.contents} img`, {
+globalStyle(`${styles.contents} .block-image > img`, {
   width: vars.spacing.full,
   height: "auto",
   borderRadius: vars.spacing.absolute[2],
   margin: `${vars.spacing.relative[4]} 0`,
   border: `1px solid ${vars.color.gray[4]}`,
+});
+
+globalStyle(`${styles.contents} :not(.block-image) > img`, {
+  margin: `0 ${vars.spacing.relative[1]}`,
+  width: "auto",
+  height: "1.25em",
+  verticalAlign: "middle",
 });
 
 globalStyle(`${styles.contents} .math-display`, {
