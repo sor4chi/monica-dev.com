@@ -234,6 +234,10 @@ globalStyle(`${styles.contents} .link-card .link-card__favicon`, {
 globalStyle(`${styles.contents} .link-card .link-card__domain`, {
   fontSize: vars.font.size.sm,
   color: vars.color.gray[11],
+  overflow: "hidden",
+  display: "-webkit-box",
+  WebkitBoxOrient: "vertical",
+  WebkitLineClamp: 1,
 });
 
 globalStyle(`${styles.contents} p`, {
