@@ -8,7 +8,7 @@ socials:
 
 ## About Me
 
-20 歳の Web Developer です。
+21 歳の Web Developer です。
 北海道出身で、現在は [埼玉大学](http://www.saitama-u.ac.jp/)・情報工学科の 3 年生です。
 
 現在は [Sor4chi](https://github.com/sor4chi) (Github) や [Monica](https://x.com/sor4chi) (X) という名前で活動しています。
