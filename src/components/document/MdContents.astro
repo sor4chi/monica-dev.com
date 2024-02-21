@@ -1,8 +1,9 @@
 ---
 import { styles } from "./MdContents.css";
+import clsx from "clsx";
 ---
 
-<div class={styles.contents}>
+<div class={clsx(styles.contents, "markdown-contents")}>
   <slot />
 </div>
 
@@ -10,13 +11,6 @@ import { styles } from "./MdContents.css";
 <link href="/one-dark.css" rel="stylesheet" />
 
 <script>
-  const LINK_CARD_PROPERTIES = {
-    TITLE: "data-title",
-    DESCRIPTION: "data-description",
-    IMAGE: "data-image",
-    FAVICON: "data-favicon",
-  } as const;
-
   const initCodeblock = () => {
     const codeCopyButtons = document.querySelectorAll(".code-copy-button");
     codeCopyButtons.forEach((button) => {

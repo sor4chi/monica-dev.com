@@ -3,12 +3,14 @@ import { vars } from "@/styles/theme.css";
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
 
 export const styles = {
-  contents: style({
-    display: "flex",
-    flexDirection: "column",
-    gap: vars.spacing.absolute[4],
-  }),
+  contents: style({}),
 };
+
+globalStyle(".markdown-contents", {
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.spacing.absolute[4],
+});
 
 globalStyle(`${styles.contents} > *:first-child`, {
   marginTop: vars.spacing[0],
@@ -105,7 +107,7 @@ globalStyle(ALL_HEADINGS_WITH_ANCHOR.join(", "), {
 });
 
 const ALL_HEADINGS_WITH_ANCHOR_BEFORE = ALL_HEADINGS.map(
-  (selector) => `${selector} > a:before`,
+  (selector) => `:not(.timeline-title >) ${selector} > a:before`,
 );
 
 globalStyle(ALL_HEADINGS_WITH_ANCHOR_BEFORE.join(", "), {
@@ -527,4 +529,60 @@ globalStyle(`${styles.contents} .flex-block > *`, {
   flexGrow: 1,
   flexBasis: 0,
   minWidth: 0,
+});
+
+const timelineLeftPadding = createVar();
+const titleLineHeight = createVar();
+
+globalStyle(`${styles.contents} .timeline`, {
+  display: "flex",
+  flexDirection: "column",
+  paddingLeft: timelineLeftPadding,
+  vars: {
+    [timelineLeftPadding]: vars.spacing.absolute[16],
+    [titleLineHeight]: vars.spacing.absolute[6],
+  },
+});
+
+globalStyle(`${styles.contents} .timeline-item`, {
+  display: "flex",
+  flexDirection: "column",
+  position: "relative",
+});
+
+globalStyle(`${styles.contents} .timeline-title`, {
+  position: "relative",
+  marginTop: 0,
+  lineHeight: titleLineHeight,
+});
+
+globalStyle(`${styles.contents} .timeline-title::before`, {
+  // contentは[data-time]から取得する
+  content: "attr(data-time)",
+  position: "absolute",
+  top: `calc(${titleLineHeight} / 2)`,
+  left: `calc(-1 * ${timelineLeftPadding} / 2)`,
+  transform: "translate(-50%, -50%)",
+  fontSize: vars.font.size.xs,
+  fontWeight: 400,
+  color: vars.color.gray[11],
+  whiteSpace: "nowrap",
+  zIndex: vars.zIndex.forward,
+  padding: `${vars.spacing.absolute[3]} 0`,
+  backgroundColor: vars.color.gray[1],
+  lineHeight: 1,
+});
+
+globalStyle(`${styles.contents} .timeline-item:has(+ .timeline-item)::before`, {
+  content: '""',
+  position: "absolute",
+  top: `calc(${titleLineHeight} / 2)`,
+  left: `calc(-1 * ${timelineLeftPadding} / 2)`,
+  width: "1px",
+  height: "100%",
+  backgroundColor: vars.color.gray[4],
+});
+
+globalStyle(`${styles.contents} .timeline-item:has(+ .timeline-item)`, {
+  paddingBottom: vars.spacing.absolute[8],
 });
