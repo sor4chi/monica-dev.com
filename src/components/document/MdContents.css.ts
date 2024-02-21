@@ -543,6 +543,13 @@ globalStyle(`${styles.contents} .timeline`, {
     [timelineLeftPadding]: vars.spacing.absolute[16],
     [titleLineHeight]: vars.spacing.absolute[6],
   },
+  "@media": {
+    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      vars: {
+        [timelineLeftPadding]: vars.spacing.absolute[12],
+      },
+    },
+  },
 });
 
 globalStyle(`${styles.contents} .timeline-item`, {
