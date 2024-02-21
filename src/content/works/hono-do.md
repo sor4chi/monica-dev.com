@@ -8,7 +8,7 @@ description: "A wrapper of Cloudflare Workers's Durable Object for Hono."
 
 ## 背景
 
-[Itty Router](https://github.com/kwhitley/itty-router) という、Hono と同じ Web Standard を謳っている Web フレームワークの作者 [Kevin R. Whitley](https://github.com/kwhitley) が、Itty RouterをDurable Objectで使う [Itty Durable](https://github.com/kwhitley/itty-durable) というOSSを開発しており、Hono コミュニティでも Hono を Durable Objectで使いたいという要望がありました。
+[Itty Router](https://github.com/kwhitley/itty-router) という、Hono と同じ Web Standard を謳っている Web フレームワークの作者 [Kevin R. Whitley](https://github.com/kwhitley) が、Itty Router を Durable Object で使う [Itty Durable](https://github.com/kwhitley/itty-durable) という OSS を開発しており、Hono コミュニティでも Hono を Durable Object で使いたいという要望がありました。
 
 <https://github.com/honojs/examples/issues/86>
 

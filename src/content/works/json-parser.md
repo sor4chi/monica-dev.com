@@ -4,7 +4,7 @@ createdAt: 2022/12/22
 description: "A JSON parser written in Rust for learning."
 ---
 
-RustでJSONパーサーを作りました。
+Rust で JSON パーサーを作りました。
 
 大学の講義で学んだプログラミング言語論のアウトプットの一環として、構文解析を独自実装する練習として作りました。
 

@@ -4,18 +4,18 @@ description: 2023/11/25に開催された ISUCON13 に参加してきました�
 publishedAt: 2023/11/30
 ---
 
-今回、[@a01sa01to](https://twitter.com/a01sa01to) (以降@Asa) と [@Ryoga_exe](https://twitter.com/ryoga_exe) (以降@Ryoga) と私 @Monica の3人で **Maxif.** というチーム名で参加してきました。
+今回、[@a01sa01to](https://twitter.com/a01sa01to) (以降@Asa) と [@Ryoga_exe](https://twitter.com/ryoga_exe) (以降@Ryoga) と私 @Monica の 3 人で **Maxif.** というチーム名で参加してきました。
 去年の予選 (ISUCON12q) 開催時に Twitter で知り、今年は絶対に参加したいと思っていたので、参加できてとても嬉しかったです。
 結果は **58960** 点くらい、総チーム数 694 中 **25** 位で学生 **5** 位でした！
 初参加にしては健闘できたと思います。
 
 ## 練習
 
-今回は弊学のプログラミングサークル [Maximum](https://maximum.vc) から8人と助っ人の筑波大学の1人から3チーム (Maxif.、maximum-baby、maximum.mum)を結成し、それぞれのチームで練習をしていました。
+今回は弊学のプログラミングサークル [Maximum](https://maximum.vc) から 8 人と助っ人の筑波大学の 1 人から 3 チーム (Maxif.、maximum-baby、maximum.mum)を結成し、それぞれのチームで練習をしていました。
 
 練習では全員が同じスペックで環境を構築して対策できるように、さくらのクラウドさんで [Terafform Provider SakuraCloud](https://github.com/sacloud/terraform-provider-sakuracloud) と [Cloud Init ISUCON](https://github.com/matsuu/cloud-init-isucon) を使って IaC で環境を構築しました。
 
-また、本戦同様に得点推移を確認できるように簡易的な リーダーボード も内製しました。
+また、本戦同様に得点推移を確認できるように簡易的なリーダーボードも内製しました。
 
 https://leaderboard.maximum.vc
 
@@ -57,7 +57,7 @@ Nginx / MySQL 構成であること、Go 言語で立っていること、`sysmt
 
 #### [10:35] DNSのTTLを設定 (3255)
 
-@Asa が DNS キャッシュの TTL が0になっていることに気づき、TTL を 3600 に設定しました。
+@Asa が DNS キャッシュの TTL が 0 になっていることに気づき、TTL を 3600 に設定しました。
 
 [DNSレコードのTTLを3600に](https://github.com/sor4chi/isucon13/commit/b4bab59ec70627c53f1bc208996f6cc24450a830)
 
@@ -65,7 +65,7 @@ Nginx / MySQL 構成であること、Go 言語で立っていること、`sysmt
 
 ベンチマークを走らせてみると、やはりスロークエリが多いようでした。
 
-ptを見ると上位に `Rows examine (avg) 10.88k` に対して `Rows sent (avg) 3.69` というトンデモクエリがあったので、これに対してインデックスを貼りました。
+pt を見ると上位に `Rows examine (avg) 10.88k` に対して `Rows sent (avg) 3.69` というトンデモクエリがあったので、これに対してインデックスを貼りました。
 
 ```sql
 SELECT * FROM livestream_tags WHERE livestream_id = 7494\G
@@ -81,7 +81,7 @@ SELECT * FROM livestream_tags WHERE livestream_id = 7494\G
 
 #### [11:15] `fillLivestreamResponse` の tags に関するN+1を解消 (3141)
 
-@Monica が `fillLivestreamResponse` 内の tags に関するN+1を解消しました。ほとんど誤差な気がします。
+@Monica が `fillLivestreamResponse` 内の tags に関する N+1 を解消しました。ほとんど誤差な気がします。
 
 [fillLivestreamResponseのtagsに関するN+1を解消](https://github.com/sor4chi/isucon13/commit/fb404854bc846e5c4d5b1af9b9c9939d593fbe5f)
 
@@ -93,8 +93,8 @@ SELECT * FROM livestream_tags WHERE livestream_id = 7494\G
 
 #### [12:35] user icon の hash をキャッシュ (3543)
 
-ユーザーのアイコンのハッシュをキャッシュすることで、DBの負荷を下げました。
-この時同時に `If-None-Match` を使って、キャッシュが有効な場合は `304 Not Modified` を返すようにしたつもりだったのですが、実際はリクエストの `If-None-Match` ヘッダはダブルクォーテーションで囲まれていたため、そのHash文字列と素のHashが一致しないためキャッシュが効いていませんでした。
+ユーザーのアイコンのハッシュをキャッシュすることで、DB の負荷を下げました。
+この時同時に `If-None-Match` を使って、キャッシュが有効な場合は `304 Not Modified` を返すようにしたつもりだったのですが、実際はリクエストの `If-None-Match` ヘッダはダブルクォーテーションで囲まれていたため、その Hash 文字列と素の Hash が一致しないためキャッシュが効いていませんでした。
 (これは最後まで気づきませんでした)
 
 それから、キャッシュヒットせずにハッシュを生成したあと、`ETag` ヘッダに入れないといけないことを知らず、フロントエンドエンジニアとしてとても恥ずかしいことをしました。
@@ -105,7 +105,7 @@ SELECT * FROM livestream_tags WHERE livestream_id = 7494\G
 #### [13:27] サーバー分割 (4504)
 
 @Asa がサーバー分割を行いました。
-ついでにベンチ開始後のDNS追加設定にもTTLを設定するようにここで変更してくれたようです。
+ついでにベンチ開始後の DNS 追加設定にも TTL を設定するようにここで変更してくれたようです。
 
 | サーバー名 | 役割                 |
 | ---------- | -------------------- |
@@ -113,8 +113,8 @@ SELECT * FROM livestream_tags WHERE livestream_id = 7494\G
 | S2         | Nginx + App (Web)    |
 | S3         | MySQL (App DB)       |
 
-のようにすることで、水責めの負荷がAppやApp DBに影響しないようにしました。この分割の判断はかなり早かったと思います。
-さらに、DNS DBにもLookup負荷がかかることに気づき、INDEXを貼っていくれたそうです。
+のようにすることで、水責めの負荷が App や App DB に影響しないようにしました。この分割の判断はかなり早かったと思います。
+さらに、DNS DB にも Lookup 負荷がかかることに気づき、INDEX を貼っていくれたそうです。
 
 @Asa が表現してくれたフローがこちら。わかりやすい。
 
@@ -123,7 +123,7 @@ SELECT * FROM livestream_tags WHERE livestream_id = 7494\G
 ベンチ -[global]-> nginx (s2) -[local]-> App (s2) -[private]-> DB (s3)
 ```
 
-DNS何もわからんなのでとても助かりました。
+DNS 何もわからんなのでとても助かりました。
 
 [サーバー分割](https://github.com/sor4chi/isucon13/pull/12)
 
@@ -141,11 +141,11 @@ DNS何もわからんなのでとても助かりました。
 
 #### [15:00] INDEXを正しく貼る (22687)
 
-開始から5時間経って、@Asa がやっぱりINDEXが効いてないんじゃないかと言い出して、実際にMySQLにログインして `EXPLAIN` してみると、 `livestream_tags` に `livestream_id` に対するINDEXが貼られていないことに気づきました。
+開始から 5 時間経って、@Asa がやっぱり INDEX が効いてないんじゃないかと言い出して、実際に MySQL にログインして `EXPLAIN` してみると、 `livestream_tags` に `livestream_id` に対する INDEX が貼られていないことに気づきました。
 
 じゃあもうわからんから `10_schema.sql` に書くのやめようということで `Index Already Exists` にならないようにアプリ側でキャッチしながら `CREATE INDEX` するようにしました。
 
-ついでに `pt-query-digest` 上位だったSELECTの `Rows examine / sent` 比が高いクエリ全てにINDEXを貼りました。
+ついでに `pt-query-digest` 上位だった SELECT の `Rows examine / sent` 比が高いクエリ全てに INDEX を貼りました。
 
 | テーブル名          | カラム名                   |
 | ------------------- | -------------------------- |
@@ -161,25 +161,25 @@ DNS何もわからんなのでとても助かりました。
 
 [Indexふやし](https://github.com/sor4chi/isucon13/commit/4f807132ce945f5040aef3e16f6be6ce147c236d)
 
-ここで点数が **22687** と一気に4倍近くまで上がりました。
+ここで点数が **22687** と一気に 4 倍近くまで上がりました。
 
 @Monica「本当にごめん、あとで土下座させていただきます」
 
 #### [16:19] `getReactionsHandler` の N+1 解消 (28638)
 
-@Ryogaが `getReactionsHandler` の N+1 を解消しました。
+@Ryoga が `getReactionsHandler` の N+1 を解消しました。
 
 [getReactionsHandlerのN+1解消](https://github.com/sor4chi/isucon13/commit/d231b0ba9dae26dc906117a8ce0ed59aa7a07212)
 
 #### [17:00] (リーダーボード凍結)
 
-最後の1時間はリーダーボードが凍結します。凍結直前の時点で23位だったので、「30位圏内には入れそうだねー」という話をしていました。
+最後の 1 時間はリーダーボードが凍結します。凍結直前の時点で 23 位だったので、「30 位圏内には入れそうだねー」という話をしていました。
 
 ![1時間前のYoutube配信画面](/images/blogs/isucon13/1-hour-left.webp)
 
 #### [17:15] user icon の hash の余分な計算を削減 (38578)
 
-キャッシュヒットした後でもにDBにimageを取りにいくような実装になっていることに気づき、@Asa がキャッシュヒットした後はDBにいかないようにしました。
+キャッシュヒットした後でもに DB に image を取りにいくような実装になっていることに気づき、@Asa がキャッシュヒットした後は DB にいかないようにしました。
 
 [userIconの余分なDBアクセスを削減](https://github.com/sor4chi/isucon13/commit/292a16e521cf29ed839534466d4c3b1ebf76eebe)
 
@@ -203,13 +203,13 @@ DNS何もわからんなのでとても助かりました。
 
 #### [17:51] 整合性エラー (0)
 
-最後の9分で整合性エラーが出てしまいました。その時ちょうど `systemctl disable` 作業をしていたので、一度 `systemctl enable` して戻したのですが治らず...。
+最後の 9 分で整合性エラーが出てしまいました。その時ちょうど `systemctl disable` 作業をしていたので、一度 `systemctl enable` して戻したのですが治らず...。
 全員で急いで確認したところ、`isupipe-go.service` がおそらく前のベンチマークの負荷で途中で異常終了していたことが原因でした。
-仕方ないですが、最終チェックでエラーにならないことを祈りつつ`systemctl enable`してベンチマークを再開しました。
+仕方ないですが、最終チェックでエラーにならないことを祈りつつ `systemctl enable` してベンチマークを再開しました。
 
 #### [17:58] ログ閉じ (58960)
 
-最後の2分でLogger Middlewareを消したり、Access LogとSlow Query Log、pprofを閉じて最後のベンチマークを走らせました。
+最後の 2 分で Logger Middleware を消したり、Access Log と Slow Query Log、pprof を閉じて最後のベンチマークを走らせました。
 
 以上、とりあえず影響がありそうだったやつをピックアップして時系列で紹介してみました。他にも色々やってるのでこれが全てではないです！
 
@@ -217,17 +217,17 @@ DNS何もわからんなのでとても助かりました。
 
 ## できなかったけどやりたかったこと
 
-- DBのMax Connection数を増やす (最後の5分くらいで10に制限されていることに気づいた)
+- DB の Max Connection 数を増やす (最後の 5 分くらいで 10 に制限されていることに気づいた)
 - `interpolateParams=true` にする (気付いてましたがやるのを忘れてました)
 
 他にもあった気がしますが、大会で相当焦っていたので忘れてしまいました。
 
 ## 感想
 
-INDEXが効いてない間、点数が上がらなくても極端に下がらなければ積極的にマージするような方針で動いてました。
-「どこかにボトルネックがあり、そこが解消すると点数が一気に上がるはず」と信じていたので、実際INDEXを貼って点数が4倍になった時はこれまでの努力が報われた気持ちになりました。
+INDEX が効いてない間、点数が上がらなくても極端に下がらなければ積極的にマージするような方針で動いてました。
+「どこかにボトルネックがあり、そこが解消すると点数が一気に上がるはず」と信じていたので、実際 INDEX を貼って点数が 4 倍になった時はこれまでの努力が報われた気持ちになりました。
 
-ただ、ちゃんとINDEX貼れているかの確認を怠っていたのは反省点です。ちゃんとSlow Logを監視していれば `examine / sent` 比が依然として高いクエリがあることに気づいていたと思います。これに気づけていれば10万点いけてたかもしれないので本当に悔しいです。
+ただ、ちゃんと INDEX 貼れているかの確認を怠っていたのは反省点です。ちゃんと Slow Log を監視していれば `examine / sent` 比が依然として高いクエリがあることに気づいていたと思います。これに気づけていれば 10 万点いけてたかもしれないので本当に悔しいです。
 
 来年は計測力を強化してもっと根拠を持った改善をしていきたいです。
 
@@ -235,5 +235,5 @@ INDEXが効いてない間、点数が上がらなくても極端に下がらな
 
 ![Score](/images/blogs/isucon13/score-transition.webp)
 
-目標の30位圏内に入れて、とても嬉しかったです。
-Go未経験の3人で初参加ということで色々苦労した点はありましたが、ISUCON上位入賞という目標に全力で取り組めて、とてもいい経験になりました！
+目標の 30 位圏内に入れて、とても嬉しかったです。
+Go 未経験の 3 人で初参加ということで色々苦労した点はありましたが、ISUCON 上位入賞という目標に全力で取り組めて、とてもいい経験になりました！

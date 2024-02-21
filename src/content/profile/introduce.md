@@ -17,16 +17,16 @@ Web フロントエンド・バックエンド・インフラなどを触って�
 
 趣味は![Honoのロゴ](https://hono.dev/images/logo.png)[Hono](https://hono.dev) など自分が好きな OSS への Contribute や、自作の OSS 開発などです。 Hono の周辺ライブラリを開発しています。
 
-Web関連の大会が好きで、 [ISUCON](https://isucon.net) や [Web Speed Hackathon](https://cyberagent.connpass.com/event/270424/) などによく参加しています。
+Web 関連の大会が好きで、 [ISUCON](https://isucon.net) や [Web Speed Hackathon](https://cyberagent.connpass.com/event/270424/) などによく参加しています。
 
 ## Career
 
-大学1年生の頃から2社で長期のインターンシップを経験し、直近では内定先の **CyberAgent Inc.** 傘下の **Abema TV Inc.** でフロントエンドエンジニアとして働いていました。
+大学 1 年生の頃から 2 社で長期のインターンシップを経験し、直近では内定先の **CyberAgent Inc.** 傘下の **Abema TV Inc.** でフロントエンドエンジニアとして働いていました。
 詳しくは [Timeline](/timeline) をご覧ください。
 
-バックエンドやインフラなども触ることがあり、DX改善やCI/CDの整備などSRE方面での業務が好きで、もし自分のまだ経験したことない分野の技術職でインターンや業務委託があればやりたいです。
+バックエンドやインフラなども触ることがあり、DX 改善や CI/CD の整備など SRE 方面での業務が好きで、もし自分のまだ経験したことない分野の技術職でインターンや業務委託があればやりたいです。
 
-大学のプログラミングサークル Maximum でWeb研究会の講師として毎週の講義を担当しています。
+大学のプログラミングサークル Maximum で Web 研究会の講師として毎週の講義を担当しています。
 
 <https://maximum.vc>
 
