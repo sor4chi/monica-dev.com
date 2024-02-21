@@ -1,5 +1,5 @@
 import { focusInteraction } from "@/styles/common.css";
-import { CONTENTS_WITH_TOC } from "@/styles/constants";
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
@@ -96,7 +96,7 @@ export const styles = {
     paddingRight: vars.spacing.relative[4],
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         display: "none",
       },
     },
@@ -110,7 +110,7 @@ export const styles = {
     gap: vars.spacing.absolute[4],
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         flexDirection: "column",
         gap: vars.spacing[0],
         alignItems: "flex-start",
@@ -126,7 +126,7 @@ export const styles = {
     lineHeight: ICON_SIZE,
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         lineHeight: vars.font.size.base,
         marginTop: `calc(-1 * ${vars.spacing.absolute[1]})`,
       },
@@ -136,7 +136,7 @@ export const styles = {
     display: "none",
 
     "@media": {
-      [`screen and (min-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (min-width: ${BREAKPOINT_MOBILE})`]: {
         display: "block",
       },
     },
@@ -145,7 +145,7 @@ export const styles = {
     display: "none",
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         display: "block",
       },
     },
@@ -156,7 +156,7 @@ export const styles = {
     wordBreak: "auto-phrase" as any,
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         lineHeight: vars.spacing.absolute[8],
         margin: `calc((${ICON_SIZE} - ${vars.spacing.absolute[8]}) / 2) 0`,
       },

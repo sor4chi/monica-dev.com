@@ -1,4 +1,4 @@
-import { CONTENTS_WITH_TOC } from "@/styles/constants";
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 
@@ -42,7 +42,7 @@ export const styles = {
     color: vars.color.gray[10],
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         display: "none",
       },
     },
@@ -72,7 +72,7 @@ export const styles = {
     },
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         display: "none",
       },
     },
@@ -81,7 +81,7 @@ export const styles = {
     display: "none",
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         display: "flex",
         alignItems: "center",
         gap: vars.spacing.absolute[2],

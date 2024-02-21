@@ -2,8 +2,8 @@ import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 import {
   ASIDE_WIDTH,
-  CONTENTS_MAX,
-  CONTENTS_WITH_TOC,
+  BREAKPOINT_TABLET,
+  BREAKPOINT_MOBILE,
 } from "../../../../styles/constants";
 
 export const styles = {
@@ -20,14 +20,14 @@ export const styles = {
   }),
   left: style({
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         display: "none",
       },
     },
   }),
   right: style({
     "@media": {
-      [`screen and (max-width: ${CONTENTS_MAX})`]: {
+      [`screen and (max-width: ${BREAKPOINT_TABLET})`]: {
         display: "none",
       },
     },

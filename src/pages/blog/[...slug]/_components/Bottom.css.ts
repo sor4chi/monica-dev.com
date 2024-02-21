@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { CONTENTS_WITH_TOC } from "@/styles/constants";
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 
 export const styles = {
@@ -9,7 +9,7 @@ export const styles = {
     display: "none",
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         display: "block",
       },
     },

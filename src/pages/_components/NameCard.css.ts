@@ -1,4 +1,4 @@
-import { CONTENTS_MAX, CONTENTS_WITH_TOC } from "@/styles/constants";
+import { BREAKPOINT_TABLET, BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 
@@ -21,7 +21,7 @@ export const styles = {
     gap: "1rem",
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         flexDirection: "column",
         gap: "0.5rem",
       },

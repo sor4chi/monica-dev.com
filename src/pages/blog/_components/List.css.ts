@@ -1,4 +1,4 @@
-import { CONTENTS_WITH_TOC } from "@/styles/constants";
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 
@@ -20,7 +20,7 @@ export const styles = {
     marginBottom: vars.spacing.absolute[1],
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         rotate: "0deg",
         top: "0",
         left: "50%",
@@ -35,7 +35,7 @@ export const styles = {
   }),
   hideOnSP: style({
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         display: "none",
       },
     },

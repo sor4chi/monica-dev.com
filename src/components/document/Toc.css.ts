@@ -1,7 +1,7 @@
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 import { TOP_PADDING_LG } from "../layouts/Base.css";
-import { CONTENTS_MAX, CONTENTS_WITH_TOC } from "@/styles/constants";
+import { BREAKPOINT_TABLET, BREAKPOINT_MOBILE } from "@/styles/constants";
 
 export const styles = {
   toc: style({
@@ -16,7 +16,7 @@ export const styles = {
     overflowY: "auto",
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_MAX})`]: {
+      [`screen and (max-width: ${BREAKPOINT_TABLET})`]: {
         maxHeight: `calc(100vh - ${TOP_PADDING_LG} - 160px)`,
       },
     },

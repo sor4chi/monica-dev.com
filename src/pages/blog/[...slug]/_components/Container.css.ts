@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { CONTAINER_GAP, CONTENTS_MAX } from "../../../../styles/constants";
+import { CONTAINER_GAP, BREAKPOINT_TABLET } from "../../../../styles/constants";
 
 export const styles = {
   container: style({
@@ -8,7 +8,7 @@ export const styles = {
     justifyContent: "center",
     gap: CONTAINER_GAP,
     width: "100%",
-    maxWidth: CONTENTS_MAX,
+    maxWidth: BREAKPOINT_TABLET,
     margin: "0 auto 3rem",
   }),
 };

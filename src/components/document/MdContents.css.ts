@@ -1,4 +1,4 @@
-import { CONTENTS_MAX, CONTENTS_WITH_TOC } from "@/styles/constants";
+import { BREAKPOINT_TABLET, BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
 
@@ -100,7 +100,7 @@ globalStyle(ALL_HEADINGS_WITH_ANCHOR.join(", "), {
   opacity: 0,
 
   "@media": {
-    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+    [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
       display: "none",
     },
   },
@@ -148,7 +148,7 @@ globalStyle(`${styles.contents} .link-card`, {
   overflow: "hidden",
 
   "@media": {
-    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+    [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
       height: "6rem",
     },
   },
@@ -180,7 +180,7 @@ globalStyle(`${styles.contents} .link-card .link-card__image`, {
   borderRadius: 0,
 
   "@media": {
-    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+    [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
       width: "6rem",
       height: "6rem",
     },
@@ -196,7 +196,7 @@ globalStyle(`${styles.contents} .link-card .link-card__content`, {
   padding: `${vars.spacing[0]} ${vars.spacing.absolute[6]}`,
 
   "@media": {
-    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+    [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
       gap: vars.spacing.absolute[2],
       padding: `${vars.spacing[0]} ${vars.spacing.absolute[4]}`,
     },
@@ -212,7 +212,7 @@ globalStyle(`${styles.contents} .link-card .link-card__title`, {
   WebkitLineClamp: 2,
 
   "@media": {
-    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+    [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
       fontSize: vars.font.size.sm,
     },
   },
@@ -502,7 +502,7 @@ globalStyle(`${styles.contents} .math-display`, {
   boxSizing: "border-box",
 
   "@media": {
-    [`screen and (max-width: ${CONTENTS_MAX})`]: {
+    [`screen and (max-width: ${BREAKPOINT_TABLET})`]: {
       overflowX: "auto",
       width: "100%",
     },
@@ -544,7 +544,7 @@ globalStyle(`${styles.contents} .timeline`, {
     [titleLineHeight]: vars.spacing.absolute[6],
   },
   "@media": {
-    [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+    [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
       vars: {
         [timelineLeftPadding]: vars.spacing.absolute[12],
       },

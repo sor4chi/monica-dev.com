@@ -6,7 +6,7 @@ export const ARTICLE_WIDTH = "40rem";
 export const LAYOUT_CONTAINER_SIDE_PADDING = "1rem";
 export const NAVIGATION_AREA_WIDTH = "20rem";
 
-export const CONTENTS_MAX = sumOfRems(
+export const BREAKPOINT_TABLET = sumOfRems(
   LAYOUT_CONTAINER_SIDE_PADDING,
   ASIDE_WIDTH,
   CONTAINER_GAP,
@@ -16,7 +16,7 @@ export const CONTENTS_MAX = sumOfRems(
   LAYOUT_CONTAINER_SIDE_PADDING,
 );
 
-export const CONTENTS_WITH_TOC = sumOfRems(
+export const BREAKPOINT_MOBILE = sumOfRems(
   LAYOUT_CONTAINER_SIDE_PADDING,
   ASIDE_WIDTH,
   CONTAINER_GAP,

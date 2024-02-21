@@ -1,4 +1,4 @@
-import { CONTENTS_WITH_TOC } from "@/styles/constants";
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 
@@ -12,7 +12,7 @@ export const styles = {
     marginBottom: vars.spacing.absolute[8],
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         paddingTop: vars.spacing.absolute[12],
       },
     },

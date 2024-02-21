@@ -1,5 +1,5 @@
 import {
-  CONTENTS_WITH_TOC,
+  BREAKPOINT_MOBILE,
   LAYOUT_CONTAINER_SIDE_PADDING,
   NAVIGATION_AREA_WIDTH,
 } from "@/styles/constants";
@@ -21,7 +21,7 @@ export const styles = {
     position: "relative",
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         minHeight: `calc(100dvh - ${TOP_PADDING_SM} - ${BOTTOM_PADDING})`,
         padding: `${TOP_PADDING_SM} ${LAYOUT_CONTAINER_SIDE_PADDING} ${BOTTOM_PADDING}`,
       },

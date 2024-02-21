@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { CONTAINER_GAP, CONTENTS_MAX } from "../../../../styles/constants";
+import { CONTAINER_GAP, BREAKPOINT_TABLET } from "../../../../styles/constants";
 import { vars } from "@/styles/theme.css";
 
 export const styles = {
@@ -11,7 +11,7 @@ export const styles = {
     display: "none",
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_MAX})`]: {
+      [`screen and (max-width: ${BREAKPOINT_TABLET})`]: {
         display: "contents",
       },
     },

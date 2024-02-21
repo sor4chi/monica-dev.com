@@ -1,6 +1,6 @@
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
-import { ARTICLE_WIDTH, CONTENTS_WITH_TOC } from "../../../../styles/constants";
+import { ARTICLE_WIDTH, BREAKPOINT_MOBILE } from "../../../../styles/constants";
 import { focusInteraction } from "@/styles/common.css";
 
 export const styles = {
@@ -43,7 +43,7 @@ export const styles = {
     marginBottom: vars.spacing.absolute[2],
 
     "@media": {
-      [`screen and (max-width: ${CONTENTS_WITH_TOC})`]: {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         display: "inline-flex",
         alignItems: "center",
       },
