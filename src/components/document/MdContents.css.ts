@@ -383,6 +383,7 @@ globalStyle(`${styles.contents} :not(pre) > code`, {
   backgroundColor: vars.color.gray[2],
   color: vars.color.gray[12],
   fontSize: vars.font.size.sm,
+  wordBreak: "break-word",
 });
 
 globalStyle(`${styles.contents} .code-block`, {
