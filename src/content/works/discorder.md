@@ -14,7 +14,6 @@ Rust で書かれており、CLIから Discord の Webhook をさまざまな形
 
 ### テキストを送る
 
-
 ```bash
 $ discorder -w https://discordapp.com/api/webhooks/xxx/yyy -t "Hello, World!"
 ```
@@ -37,4 +36,3 @@ $ discorder -w https://discordapp.com/api/webhooks/xxx/yyy -t "Hello, World!" -f
 $ echo "Hello, World!" | discorder -w https://discordapp.com/api/webhooks/xxx/yyy
 $ cat ./hello.txt | discorder -w https://discordapp.com/api/webhooks/xxx/yyy
 ```
-

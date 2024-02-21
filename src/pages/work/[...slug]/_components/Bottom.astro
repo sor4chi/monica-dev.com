@@ -24,7 +24,12 @@ const makeWorkNav = (entry: CollectionEntry<"works"> | null) => {
 ---
 
 <div class={styles.onlySP}>
-  <Share title={shareTitle} pathname={Astro.url.pathname} source={source} flex />
+  <Share
+    title={shareTitle}
+    pathname={Astro.url.pathname}
+    source={source}
+    flex
+  />
 </div>
 <Line />
 <FooterNav prev={makeWorkNav(prev)} next={makeWorkNav(next)} />

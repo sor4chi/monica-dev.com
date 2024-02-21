@@ -57,23 +57,26 @@ export class Counter {
 Hono DO では `prototype` を使って動的にオブジェクトを生成し、それぞれのエンドポイントをコールバックで受け取れる `Hono` オブジェクトでハンドルすることができます。
 
 ```ts
-export const Counter = generateHonoObject("/counter", async (app, { storage }) => {
-  let value = (await storage.get<number>("value")) ?? 0;
+export const Counter = generateHonoObject(
+  "/counter",
+  async (app, { storage }) => {
+    let value = (await storage.get<number>("value")) ?? 0;
 
-  app.post("/increment", (c) => {
-    storage.put("value", value++);
-    return c.text(value.toString());
-  });
+    app.post("/increment", (c) => {
+      storage.put("value", value++);
+      return c.text(value.toString());
+    });
 
-  app.post("/decrement", (c) => {
-    storage.put("value", value--);
-    return c.text(value.toString());
-  });
+    app.post("/decrement", (c) => {
+      storage.put("value", value--);
+      return c.text(value.toString());
+    });
 
-  app.get("/", (c) => {
-    return c.text(value.toString());
-  });
-});
+    app.get("/", (c) => {
+      return c.text(value.toString());
+    });
+  },
+);
 ```
 
 ## 発展的な使い方
@@ -87,8 +90,14 @@ Hono DO では `State Helper` という機能を提供しています。これ�
 import { generateHonoObject } from "hono-do";
 import { defineStorage } from "hono-do/storage";
 
-export const Counter = generateHonoObject("/counter", async (app, { storage }) => {
-    const [getValue, setValue, delValue] = await defineStorage(storage, "value", 0);
+export const Counter = generateHonoObject(
+  "/counter",
+  async (app, { storage }) => {
+    const [getValue, setValue, delValue] = await defineStorage(
+      storage,
+      "value",
+      0,
+    );
 
     app.post("/increment", async (c) => {
       setValue((value) => value++);

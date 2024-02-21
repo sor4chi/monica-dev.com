@@ -18,7 +18,13 @@ const { title, subtitle, socials } = Astro.props;
 ---
 
 <div class={styles.container}>
-  <img src="/images/assets/icon.webp" width={64} height={64} alt="icon" class={styles.image} />
+  <img
+    src="/images/assets/icon.webp"
+    width={64}
+    height={64}
+    alt="icon"
+    class={styles.image}
+  />
   <div class={styles.info}>
     <div>
       <h3 class={styles.title}>{title}</h3>

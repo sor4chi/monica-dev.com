@@ -145,7 +145,6 @@ DNS何もわからんなのでとても助かりました。
 
 じゃあもうわからんから `10_schema.sql` に書くのやめようということで `Index Already Exists` にならないようにアプリ側でキャッチしながら `CREATE INDEX` するようにしました。
 
-
 ついでに `pt-query-digest` 上位だったSELECTの `Rows examine / sent` 比が高いクエリ全てにINDEXを貼りました。
 
 | テーブル名          | カラム名                   |

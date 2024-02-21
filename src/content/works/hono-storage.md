@@ -36,8 +36,7 @@ import { Hono } from "hono";
 const app = new Hono();
 
 const storage = // coreストレージかプラグインストレージ
-
-app.post("/upload/single", storage.single("image"), (c) => c.text("OK"));
+  app.post("/upload/single", storage.single("image"), (c) => c.text("OK"));
 app.post("/upload/multiple", storage.multiple("pictures"), (c) => c.text("OK"));
 app.post(
   "/upload/field",
@@ -74,7 +73,8 @@ import { HonoDiskStorage } from "@hono-storage/node-disk";
 
 const storage = new HonoDiskStorage({
   dest: "./uploads",
-  filename: (c, file) => `${file.originalname}-${new Date().getTime()}.${file.extension}`,
+  filename: (c, file) =>
+    `${file.originalname}-${new Date().getTime()}.${file.extension}`,
 });
 ```
 
@@ -110,7 +110,8 @@ const client = new S3Client({
 });
 
 const storage = new HonoS3Storage({
-  key: (_, file) => `${file.originalname}-${new Date().getTime()}.${file.extension}`,
+  key: (_, file) =>
+    `${file.originalname}-${new Date().getTime()}.${file.extension}`,
   bucket: "[your-bucket-name]",
   client,
 });
@@ -132,7 +133,8 @@ const client = new S3Client({
 });
 
 const storage = new HonoS3Storage({
-  key: (_, file) => `${file.originalname}-${new Date().getTime()}.${file.extension}`,
+  key: (_, file) =>
+    `${file.originalname}-${new Date().getTime()}.${file.extension}`,
   bucket: "[your-bucket-name]",
   client,
 });

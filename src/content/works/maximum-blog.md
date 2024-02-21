@@ -16,4 +16,3 @@ description: "埼玉大学プログラミングサークル「Maximum」の技�
 - [Github Pages](https://pages.github.com/)
 
 単純なな SSG 目的で Next.js を使っていますが、Github Pages でホストするために `next export` ではなく `next build` でビルドしています。
-
