@@ -40,12 +40,8 @@ const stateLabel = (state: State) => {
   }
 };
 
-registerFont(path.join(process.cwd(), "public/fonts/NotoSans-Regular.ttf"), {
-  family: "Noto Sans",
-});
-
-registerFont(path.join(process.cwd(), "public/fonts/NotoSansJP-Regular.ttf"), {
-  family: "Noto Sans JP",
+registerFont(path.join(process.cwd(), "public/fonts/ZenKakuGothicNew-Regular.ttf"), {
+  family: "Zen Kaku Gothic New",
 });
 
 const createOgp = async (
@@ -57,7 +53,7 @@ const createOgp = async (
   const ctx = canvas.getContext("2d");
   const baseImage = await loadImage(PATH_OGP_BASE_IMAGE_FILE);
   ctx.drawImage(baseImage, 0, 0, OGP_WIDTH, OGP_HEIGHT);
-  ctx.font = `${FONT_SIZE}px "Noto Sans", "Noto Sans JP", sans-serif`;
+  ctx.font = `${FONT_SIZE}px "Zen Kaku Gothic New", sans-serif`;
   ctx.fillStyle = "#FFFFFF";
   ctx.textAlign = "center";
 
