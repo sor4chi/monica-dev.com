@@ -15,7 +15,7 @@ globalStyle("body", {
 });
 
 globalStyle("html", {
-  scrollPaddingTop: "50dvh",
+  scrollPaddingTop: "30dvh",
   scrollBehavior: "smooth",
 });
 
