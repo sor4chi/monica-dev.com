@@ -4,7 +4,7 @@ import { colorVars } from "./contract.css";
 
 globalStyle("body", {
   backgroundColor: colorVars.gray[2],
-  fontFamily: '"Zen Kaku Gothic New", sans-serif',
+  fontFamily: '"Nunito", "Zen Kaku Gothic New", sans-serif',
   margin: 0,
   padding: 0,
   color: colorVars.gray[12],
