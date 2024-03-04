@@ -41,18 +41,18 @@ const sortedGroupedBlogs = Object.entries(groupedBlogs)
 <BaseLayout title="Blog" canonical="/blog">
   <Container>
     {
-      sortedGroupedBlogs.map(([year, works], i) => (
+      sortedGroupedBlogs.map(([year, blogs], i) => (
         <>
           <List title={year} first={i === 0}>
-            {works.map((work) => (
+            {blogs.map((blog) => (
               <Item
-                title={work.data.title}
-                slug={work.slug}
-                url={work.data.url}
+                title={blog.data.title}
+                slug={blog.slug}
+                url={blog.data.url}
               />
             ))}
           </List>
-          {i < works.length && <Line />}
+          {i < sortedGroupedBlogs.length-1 && <Line />}
         </>
       ))
     }
