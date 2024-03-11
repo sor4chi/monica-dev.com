@@ -19,9 +19,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# markdown test file
-src/content/originalBlogs/markdown.md
-
 # cloudflare wrangler
 .wrangler
 .cache
