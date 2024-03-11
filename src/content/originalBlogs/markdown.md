@@ -295,10 +295,6 @@ This is a timeline content
 
 You can insert any content you like.
 
-Eg. Images, Videos, etc.
-
-![Cool Image](/images/blogs/markdown/image.webp)
-
 ### [12/03] timeline 3
 
 This feature is useful for displaying a list of items in chronological order.
@@ -319,10 +315,6 @@ This is a timeline content
 ### [12/02] timeline 2
 
 You can insert any content you like.
-
-Eg. Images, Videos, etc.
-
-![Cool Image](/images/blogs/markdown/image.webp)
 
 ### [12/03] timeline 3
 
