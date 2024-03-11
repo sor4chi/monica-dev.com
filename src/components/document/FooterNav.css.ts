@@ -1,3 +1,4 @@
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { style } from "@vanilla-extract/css";
 
 export const styles = {
@@ -8,5 +9,20 @@ export const styles = {
     width: "100%",
     margin: "1rem auto",
     fontSize: "0.875rem",
+    gap: "1rem",
+
+    "@media": {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
+        flexDirection: "column",
+      },
+    },
+  }),
+  navPrev: style({
+    width: "100%",
+    textAlign: "left",
+  }),
+  navNext: style({
+    width: "100%",
+    textAlign: "right",
   }),
 };

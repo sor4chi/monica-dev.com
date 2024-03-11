@@ -16,10 +16,10 @@ const { prev, next } = Astro.props;
 ---
 
 <div class={styles.container}>
-  <div>
+  <div class={styles.navPrev}>
     {prev && <Link href={prev.link}>← {prev.title}</Link>}
   </div>
-  <div>
+  <div class={styles.navNext}>
     {next && <Link href={next.link}>{next.title} →</Link>}
   </div>
 </div>
