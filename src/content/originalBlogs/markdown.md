@@ -1,8 +1,7 @@
 ---
 title: monica-dev.comがサポートしているMarkdownの記法
 description: デザイン確認の意味も込めてmonica-dev.comがサポートしているMarkdownの記法をまとめてみました。
-publishedAt: 2023/06/13
-updatedAt: 2023/06/23
+publishedAt: 2024/03/11
 ---
 
 デザイン確認の意味も込めて当サイト(monica-dev.com)がサポートしているMarkdownの記法をまとめてみました。
