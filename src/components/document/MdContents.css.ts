@@ -594,3 +594,8 @@ globalStyle(`${styles.contents} .timeline-item:has(+ .timeline-item)::before`, {
 globalStyle(`${styles.contents} .timeline-item:has(+ .timeline-item)`, {
   paddingBottom: vars.spacing.absolute[8],
 });
+
+globalStyle(`${styles.contents} .scrollable-table`, {
+  overflowX: "auto",
+  width: "100%",
+});

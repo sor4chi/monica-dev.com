@@ -10,6 +10,7 @@ import remarkDirective from "remark-directive";
 import remarkFlexBlock from "./src/libs/remark-flex-block";
 import remarkBlockImage from "./src/libs/remark-block-image";
 import remarkTimeline from "./src/libs/remark-timeline";
+import rehypeScrollableTable from "./src/libs/rehype-scrollable-table";
 import rehypeHeadLinker from "./src/libs/rehype-head-linker";
 import rehypeAnnotationBlock from "./src/libs/rehype-annotation-block";
 import rehypeLinkCard from "./src/libs/rehype-link-card";
@@ -42,6 +43,7 @@ export default defineConfig({
       rehypeAnnotationBlock,
       rehypeCodeBlockCopy,
       rehypeLinkCard,
+      rehypeScrollableTable,
     ],
   },
   integrations: [react(), sitemap()],
