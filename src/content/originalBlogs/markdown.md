@@ -192,14 +192,6 @@ This is a paragraph with a footnote[^1]
 [^1]: This is a footnote.
 ```
 
-## Strikethrough
-
-This is ~~strikethrough~~.
-
-```markdown
-This is ~~strikethrough~~.
-```
-
 ## Task Lists
 
 - [x] Task 1
