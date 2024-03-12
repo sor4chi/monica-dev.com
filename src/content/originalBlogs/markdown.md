@@ -4,11 +4,11 @@ description: デザイン確認の意味も込めてmonica-dev.comがサポー�
 publishedAt: 2024/03/11
 ---
 
-デザイン確認の意味も込めて当サイト(monica-dev.com)がサポートしているMarkdownの記法をまとめてみました。
+デザイン確認の意味も込めて当サイト(monica-dev.com)がサポートしている Markdown の記法をまとめてみました。
 
 ## Paragraphs
 
-日本は北緯35度から45度の範囲に位置し、東経122度から153度の範囲に位置しています。日本列島は、北海道、本州、四国、九州などの大小の島々からなり、その総面積は約37万8千平方キロメートルです。
+日本は北緯 35 度から 45 度の範囲に位置し、東経 122 度から 153 度の範囲に位置しています。日本列島は、北海道、本州、四国、九州などの大小の島々からなり、その総面積は約 37 万 8 千平方キロメートルです。
 
 Japan is located in the range of 35 to 45 degrees north latitude and 122 to 153 degrees east longitude. The Japanese archipelago consists of large and small islands such as Hokkaido, Honshu, Shikoku, and Kyushu, with a total area of about 378,000 square kilometers.
 
@@ -174,10 +174,10 @@ function mandelbrot(c, maxIterations) {
 
 ## Text Modifiers
 
-This is **bold** and this is *italic* and this is `code` and this is ~~strikethrough~~.
+This is **bold** and this is _italic_ and this is `code` and this is ~~strikethrough~~.
 
 ```markdown
-This is **bold** and this is *italic* and this is `code` and this is ~~strikethrough~~.
+This is **bold** and this is _italic_ and this is `code` and this is ~~strikethrough~~.
 ```
 
 ## Footnotes
@@ -214,8 +214,8 @@ This is a paragraph with a footnote[^1]
 
 $$
 \begin{aligned}
-\mathcal{L}(\theta) &= \mathbb{E}_{s_t, a_t \sim \mathcal{D}} \left[ \frac{1}{2} \left( Q_{\phi}(s_t, a_t) - (r_t + \gamma (1 - d_t) \mathbb{E}_{a_{t+1} \sim \pi_{\theta}}[Q_{\phi'}(s_{t+1}, a_{t+1}) - \alpha \log \pi_{\theta}(a_{t+1} | s_{t+1})]) \right)^2 \right] \\
-&+ \mathbb{E}_{s_t \sim \mathcal{D}} \left[ \mathbb{E}_{a_t \sim \pi_{\theta}}[-Q_{\phi}(s_t, a_t) + \alpha \log \pi_{\theta}(a_t | s_t)] \right]
+\mathcal{L}(\theta) &= \mathbb{E}_{s_t, a_t \sim \mathcal{D}} \left[ \frac{1}{2} \left( Q_{\phi}(s_t, a_t) - (r_t + \gamma (1 - d_t) \mathbb{E}_{a_{t+1} \sim \pi_{\theta}}[Q_{\phi'}(s_{t+1}, a_{t+1}) - \alpha \log \pi_{\theta}(a_{t+1} | s_{t+1})]) \right)^2 \right]\\
+&+ \mathbb{E}_{s_t \sim \mathcal{D}} \left[ \mathbb{E}_{a_t \sim \pi_{\theta}}[-Q_{\phi}(s_t, a_t) + \alpha \log \pi_{\theta}(a_t | s_t)]\right]
 \end{aligned}
 $$
 
