@@ -6,7 +6,6 @@ const blogs = defineCollection({
     description: z.string(),
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
-    url: z.undefined(),
   }),
 });
 
@@ -14,7 +13,6 @@ const externalBlogs = defineCollection({
   schema: z.object({
     title: z.string(),
     publishedAt: z.coerce.date(),
-    updatedAt: z.coerce.date().optional(),
     url: z.string(),
   }),
 });

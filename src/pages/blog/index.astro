@@ -6,11 +6,16 @@ import Item from "./_components/Item.astro";
 import Container from "./_components/Container.astro";
 import Footer from "./_components/Footer.astro";
 import Line from "@/components/ui/Line.astro";
+import type { CollectionEntry } from "astro:content";
 
 const [originalBlogs, externalBlogs] = await Promise.all([
   getCollection("blogs"),
   getCollection("externalBlogs"),
 ]);
+
+const isExternalBlog = (blog: any): blog is CollectionEntry<"externalBlogs"> => {
+  return "url" in blog.data;
+};
 
 const blogs = [...originalBlogs, ...externalBlogs];
 
@@ -48,7 +53,7 @@ const sortedGroupedBlogs = Object.entries(groupedBlogs)
               <Item
                 title={blog.data.title}
                 slug={blog.slug}
-                url={blog.data.url}
+                url={isExternalBlog(blog) ? blog.data.url : undefined}
               />
             ))}
           </List>
