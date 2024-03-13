@@ -15,7 +15,7 @@ import { getBlogSourceUrl } from "@/utils/blog";
 import Bottom from "./_components/Bottom.astro";
 
 export async function getStaticPaths() {
-  const blogs = await getCollection("originalBlogs");
+  const blogs = await getCollection("blogs");
   const sortedBlogs = blogs.sort((a, b) => {
     return b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
   });
@@ -30,9 +30,9 @@ export async function getStaticPaths() {
   }));
 }
 
-type Props = CollectionEntry<"originalBlogs"> & {
-  prev: CollectionEntry<"originalBlogs"> | null;
-  next: CollectionEntry<"originalBlogs"> | null;
+type Props = CollectionEntry<"blogs"> & {
+  prev: CollectionEntry<"blogs"> | null;
+  next: CollectionEntry<"blogs"> | null;
 };
 
 const {

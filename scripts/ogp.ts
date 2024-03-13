@@ -23,10 +23,7 @@ const PATH_OGP_IMAGE_FILE = (slug: string[]) =>
 const PATH_OGP_BASE_IMAGE_FILE = path.join(PATH_OGP_DIR, "base.png");
 
 const PATH_TARGET_WORKS_DIR = path.join(process.cwd(), "src/content/works");
-const PATH_TARGET_BLOGS_DIR = path.join(
-  process.cwd(),
-  "src/content/originalBlogs",
-);
+const PATH_TARGET_BLOGS_DIR = path.join(process.cwd(), "src/content/blogs");
 
 type State = "new" | "update" | "delete";
 const stateLabel = (state: State) => {

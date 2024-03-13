@@ -8,13 +8,13 @@ import FooterNav from "@/components/document/FooterNav.astro";
 interface Props {
   shareTitle: string;
   source: string;
-  prev: CollectionEntry<"originalBlogs"> | null;
-  next: CollectionEntry<"originalBlogs"> | null;
+  prev: CollectionEntry<"blogs"> | null;
+  next: CollectionEntry<"blogs"> | null;
 }
 
 const { shareTitle, source, prev, next } = Astro.props;
 
-const makeBlogNav = (blog: CollectionEntry<"originalBlogs"> | null) => {
+const makeBlogNav = (blog: CollectionEntry<"blogs"> | null) => {
   if (!blog) return undefined;
   return {
     title: blog.data.title,

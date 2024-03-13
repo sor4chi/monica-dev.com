@@ -3,7 +3,7 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
 export async function GET() {
-  const blogs = await getCollection("originalBlogs");
+  const blogs = await getCollection("blogs");
 
   return rss({
     title: SITE_NAME,
