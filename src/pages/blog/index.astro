@@ -13,7 +13,9 @@ const [originalBlogs, externalBlogs] = await Promise.all([
   getCollection("externalBlogs"),
 ]);
 
-const isExternalBlog = (blog: any): blog is CollectionEntry<"externalBlogs"> => {
+const isExternalBlog = (
+  blog: any,
+): blog is CollectionEntry<"externalBlogs"> => {
   return "url" in blog.data;
 };
 
