@@ -3,39 +3,41 @@ import { glob } from "glob";
 import sharp from "sharp";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { rm } from "fs/promises";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const root = join(__dirname, "..");
-const imagePath = join(root, "public/images");
 const ext = ["jpg", "jpeg", "png", "webp"];
 
 const resize = async (image: string, size: number) => {
-  const input = join(imagePath, image);
+  const input = join(process.cwd(), image);
   const filename = image.split(".")[0];
-  const output = join(imagePath, `${filename}-${size}.webp`);
+  const output = join(process.cwd(), `${filename}-${size}.webp`);
   await sharp(input)
+    .webp({ quality: 80 })
     .resize({
       width: size,
-      height: (size / 1200) * 630,
-      fit: "cover",
     })
     .toFile(output);
 };
 
-const globImages = async () => {
-  const images = glob
-    .sync(`${imagePath}/**/*.{${ext.join(",")}}`)
-    .filter((image) => image.match(/-\d+\.webp$/) === null);
-  return images.map((image) => image.replace(`${imagePath}/`, ""));
+const globImages = async (dir: string) => {
+  const images = glob.sync(`${process.cwd()}/${dir}/**/*.{${ext.join(",")}}`);
+  return images.map((image) => image.replace(`${process.cwd()}/`, ""));
 };
 
+const optimizedImageRegex = /-\d+\.webp$/;
+const isOptimizedPath = (path: string) => optimizedImageRegex.test(path);
+
 const main = async () => {
-  const images = await globImages();
-  for (const image of images) {
-    await resize(image, 640);
-  }
+  const images = await globImages("public/images/works");
+  const optimizedImages = images.filter(isOptimizedPath);
+  const originalImages = images.filter((image) => !isOptimizedPath(image));
+  await Promise.all(optimizedImages.map((image) => rm(image)));
+  await Promise.all(originalImages.map((image) => resize(image, 800)));
+  await Promise.all(originalImages.map((image) => resize(image, 160)));
 };
 
 main();

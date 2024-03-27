@@ -15,9 +15,9 @@ const { slug, title, description } = Astro.props;
   <a href={`/work/${slug}`} class={styles.item}>
     <!-- For View Transition, have to use same size image with hero image -->
     <Image
-      width={120}
-      height={63}
-      src={`/images/works/${slug}/hero-640.webp`}
+      width={160}
+      height={84}
+      src={`/images/works/${slug}/hero-160.webp`}
       alt={title}
       transition:name={`works-hero-${slug}`}
       class={styles.thumbnail}
