@@ -494,25 +494,15 @@ globalStyle(`${styles.contents} :not(.block-image) > img`, {
 });
 
 globalStyle(`${styles.contents} .math-display`, {
-  width: "fit-content",
-  position: "relative",
-  transform: "translateX(-50%)",
-  padding: `${vars.spacing.relative[4]} ${vars.spacing.relative[8]}`,
-  left: "50%",
-  zIndex: vars.zIndex.forward,
   boxSizing: "border-box",
-
-  "@media": {
-    [`screen and (max-width: ${BREAKPOINT_TABLET})`]: {
-      overflowX: "auto",
-      width: "100%",
-    },
-  },
+  overflowX: "auto",
+  width: "100%",
 });
 
 globalStyle(`${styles.contents} .katex-display`, {
-  background: vars.color.gray[1],
-  boxShadow: `0 0 1rem 2rem ${vars.color.gray[1]}`,
+  padding: `${vars.spacing.relative[4]} ${vars.spacing.relative[8]}`,
+  width: "fit-content",
+  margin: "0 auto",
 });
 
 globalStyle(`${styles.contents} .footnotes`, {
