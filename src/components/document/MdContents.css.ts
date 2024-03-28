@@ -392,7 +392,7 @@ globalStyle(`${styles.contents} .code-block`, {
 
 globalStyle(`${styles.contents} .code-block pre`, {
   border: `1px solid ${vars.color.gray[4]}`,
-  background: "none !important",
+  backgroundColor: `${vars.color.gray[2]} !important`,
   padding: vars.spacing.relative[4],
   borderRadius: vars.spacing.relative[2],
   overflowX: "auto",
@@ -482,7 +482,8 @@ globalStyle(`${styles.contents} .block-image > img`, {
   height: "auto",
   borderRadius: vars.spacing.absolute[2],
   margin: `${vars.spacing.relative[4]} 0`,
-  border: `1px solid ${vars.color.gray[4]}`,
+  border: `1px solid ${vars.color.gray[6]}`,
+  backgroundColor: vars.color.gray[4],
 });
 
 globalStyle(`${styles.contents} :not(.block-image) > img`, {
