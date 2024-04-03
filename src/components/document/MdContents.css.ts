@@ -298,7 +298,11 @@ globalStyle(`${styles.contents} hr`, {
   border: "none",
   height: "1px",
   backgroundColor: vars.color.gray[4],
-  margin: `${vars.spacing.relative[4]} 0`,
+  margin: `${vars.spacing.absolute[8]} 0`,
+});
+
+globalStyle(`${styles.contents} hr + *`, {
+  marginTop: 0,
 });
 
 globalStyle(`${styles.contents} blockquote`, {
