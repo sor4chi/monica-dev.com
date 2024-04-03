@@ -15,6 +15,7 @@ import rehypeHeadLinker from "./src/libs/rehype-head-linker";
 import rehypeAnnotationBlock from "./src/libs/rehype-annotation-block";
 import rehypeLinkCard from "./src/libs/rehype-link-card";
 import react from "@astrojs/react";
+import partytown from "@astrojs/partytown";
 
 import sitemap from "@astrojs/sitemap";
 import { SITE_BASE_URL } from "./src/config";
@@ -46,5 +47,13 @@ export default defineConfig({
       rehypeScrollableTable,
     ],
   },
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
 });
