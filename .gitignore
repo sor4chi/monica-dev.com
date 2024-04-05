@@ -22,3 +22,7 @@ pnpm-debug.log*
 # cloudflare wrangler
 .wrangler
 .cache
+
+# generated ogp
+!public/images/ogp/base.png
+public/images/ogp/*

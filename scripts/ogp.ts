@@ -62,29 +62,32 @@ const createOgp = async (
   ctx.textAlign = "center";
 
   const titleWidth = ctx.measureText(title).width;
-  if (titleWidth > MAX_TITLE_WIDTH) {
-    const titleArray = title.split("");
-    const TITLE_HEIGHT = FONT_SIZE * Math.ceil(titleWidth / MAX_TITLE_WIDTH);
-    let titleLine = "";
-    let titleLines = [];
-    titleArray.forEach((char) => {
-      if (ctx.measureText(titleLine + char).width > MAX_TITLE_WIDTH) {
-        titleLines.push(titleLine);
-        titleLine = "";
-      }
-      titleLine += char;
-    });
-    titleLines.push(titleLine);
-    titleLines.forEach((line, index) => {
-      ctx.fillText(
-        line,
-        OGP_WIDTH / 2,
-        OGP_HEIGHT / 2 - TITLE_HEIGHT / 2 + FONT_SIZE * 1.5 * index,
-      );
-    });
-  } else {
-    ctx.fillText(title, OGP_WIDTH / 2, OGP_HEIGHT / 2);
+  const TITLE_HEIGHT = FONT_SIZE * Math.ceil(titleWidth / MAX_TITLE_WIDTH);
+  let titleLine = "";
+  let titleLines = [];
+  const segmenterFr = new Intl.Segmenter("ja", { granularity: "word" });
+  const titleChunksIter = segmenterFr.segment(title)[Symbol.iterator]();
+  const titleChunks = [];
+  for (const chunk of titleChunksIter) {
+    titleChunks.push(chunk.segment);
   }
+  titleChunks.forEach((chunk) => {
+    if (ctx.measureText(titleLine + chunk).width > MAX_TITLE_WIDTH) {
+      titleLines.push(titleLine);
+      titleLine = "";
+    }
+    titleLine += chunk;
+  });
+  titleLines.push(titleLine);
+  titleLines.forEach((line, index) => {
+    ctx.fillText(
+      line,
+      OGP_WIDTH / 2,
+      OGP_HEIGHT / 2 +
+        FONT_SIZE / 2 +
+        FONT_SIZE * 1.5 * (index - titleLines.length / 2),
+    );
+  });
 
   const imgDir = PATH_OGP_IMAGE_DIR(slug);
   const imgPath = PATH_OGP_IMAGE_FILE(slug);
