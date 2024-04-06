@@ -70,7 +70,7 @@ $$
 モデルのフローは以下の通り
 
 $$
-\mathbb{R}^{V} \times 2C \xrightarrow{W_I (D \times V)} \mathbb{R}^{h} \times 2C \xrightarrow{AVG} \mathbb{R}^{h} \xrightarrow{W_O (V \times D)} \mathbb{R}^{V} \xrightarrow{Softmax} \mathbb{R}^{V}
+\mathbb{R}^{V} \times 2C \xrightarrow{W_I (D \times V)} \mathbb{R}^{D} \times 2C \xrightarrow{AVG} \mathbb{R}^{D} \xrightarrow{W_O (V \times D)} \mathbb{R}^{V} \xrightarrow{Softmax} \mathbb{R}^{V}
 $$
 
 ここで、$C$ は前後の単語の範囲を表す。例えば論文の場合は $C = 4$ である。
@@ -106,7 +106,7 @@ $$
 モデルのフローは以下の通り
 
 $$
-\mathbb{R}^{V} \xrightarrow{W_I (D \times V)} \mathbb{R}^{h} \xrightarrow{W_O (V \times D)} \mathbb{R}^{V} \times 2C \xrightarrow{Softmax} \mathbb{R}^{V} \times 2C
+\mathbb{R}^{V} \xrightarrow{W_I (D \times V)} \mathbb{R}^{D} \xrightarrow{W_O (V \times D)} \mathbb{R}^{V} \times 2R \xrightarrow{Softmax} \mathbb{R}^{V} \times 2R
 $$
 
 この時、idが $n$ の One-Hot ベクトルを $e_n$ とすると、単語分散表現は以下のように計算される。
