@@ -500,13 +500,19 @@ globalStyle(`${styles.contents} :not(.block-image) > img`, {
 globalStyle(`${styles.contents} .math-display`, {
   boxSizing: "border-box",
   overflowX: "auto",
+  overflowY: "hidden",
   width: "100%",
 });
 
 globalStyle(`${styles.contents} .katex-display`, {
   padding: `${vars.spacing.relative[4]} ${vars.spacing.relative[8]}`,
-  width: "fit-content",
   margin: "0 auto",
+
+  "@media": {
+    [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
+      padding: 0,
+    },
+  },
 });
 
 globalStyle(`${styles.contents} .footnotes`, {
