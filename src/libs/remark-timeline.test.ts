@@ -5,7 +5,7 @@ import rehypeStringify from "rehype-stringify";
 import { describe, expect, it } from "vitest";
 import { format } from "prettier";
 import { unified } from "unified";
-import remarkTimeline from "./remark-timeline";
+import remarkTimeline, { remarkTimelineHandler } from "./remark-timeline";
 
 describe("remarkTimeline", () => {
   it("should convert timeline syntax to valid html", async () => {
@@ -40,12 +40,17 @@ This is a timeline item 2
       .use(remarkParse)
       .use(remarkDirective)
       .use(remarkTimeline)
-      .use(remarkRehype)
+      .use(remarkRehype, {
+        handlers: {
+          timeline: remarkTimelineHandler,
+        },
+      })
       .use(rehypeStringify)
-      .process(input)
-      .then((file) => file.toString());
+      .process(input);
 
-    const formattedResult = await format(result, { parser: "html" });
+    const formattedResult = await format(result.value.toString(), {
+      parser: "html",
+    });
     const formattedExpectedOutput = await format(expectedOutput, {
       parser: "html",
     });
