@@ -42,6 +42,10 @@ const plugin = function linkCardTrans(): Transformer {
         return;
       }
 
+      if (parent.type !== "listItem") {
+        return;
+      }
+
       // @ts-expect-error
       const child = node.children[0];
 
