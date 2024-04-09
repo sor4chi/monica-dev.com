@@ -1,5 +1,6 @@
 {
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "textlint.autoFixOnSave": true
 }
