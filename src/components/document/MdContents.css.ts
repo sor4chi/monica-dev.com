@@ -107,7 +107,7 @@ globalStyle(ALL_HEADINGS_WITH_ANCHOR.join(", "), {
 });
 
 const ALL_HEADINGS_WITH_ANCHOR_BEFORE = ALL_HEADINGS.map(
-  (selector) => `:not(.timeline-title >) ${selector} > a:before`,
+  (selector) => `${selector}:not(.timeline-title) > a:before`,
 );
 
 globalStyle(ALL_HEADINGS_WITH_ANCHOR_BEFORE.join(", "), {
