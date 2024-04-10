@@ -69,14 +69,14 @@ globalStyle(HEADING_H2, {
 });
 
 globalStyle(HEADING_H3, {
-  fontSize: vars.font.size.base,
+  fontSize: vars.font.size.lg,
   fontWeight: 700,
   color: vars.color.gray[12],
   marginTop: vars.spacing.relative[6],
 });
 
 globalStyle(`${HEADING_H4}, ${HEADING_H5}, ${HEADING_H6}`, {
-  fontSize: vars.font.size.sm,
+  fontSize: vars.font.size.base,
   fontWeight: 700,
   color: vars.color.gray[12],
   marginTop: vars.spacing.relative[4],
