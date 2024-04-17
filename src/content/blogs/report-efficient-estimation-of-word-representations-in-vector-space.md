@@ -171,35 +171,38 @@ $C$ は一般に window size と呼ばれる
 - Skip-gram は $W_O$ に対して $2C$ 回の予測と Backpropagation 操作をするため、計算複雑度の増加は大きい
 - 適切な window size はリソースとのトレードオフになる
 
-Google の Word2Vec の論文[^4]によると、
+係り受けに基づく単語埋め込みについて調査した論文[^5]によると、
 
-- 精度向上を目的として文脈全体を考慮するために文全体を使って学習したと述べている
-- しかし、一方で論文内では $C = 2$ としても実験を行ったと述べられており、その場合類推評価(Semantic-Syntactic Word Relationship)での精度は最も高いスコアが得られたと述べられている
-- つまり window size が小さいほど単語そのものの情報をより多くとらえ、逆に大きいほどトピックやドメイン的な知識を補足しやすい
+- 論文内では $C = 2$ として実験を行ったところ、その場合類推評価(Semantic-Syntactic Word Relationship)での精度は最も高いスコアが得られたと述べられている
+- WordSim353 や Chiarello などのデータセットを使って単語間の「類似性」と「関連性」の 2 タイプでの評価を行っている
+
+> A window size of 5 is commonly used to capture broad topical content, whereas smaller windows contain more focused information about the target word.
+
+- ターゲットとなる単語に関する詳細な情報が必要な場合は小さな window size を、トピックやドメイン的な情報が必要な場合はデータセットの文章のサイズに合わせて大きな window size を選択するのが良い
 
 タスクによって評価を変え、ケースバイケースで実験的に決めるのが良さそう
 
 ### 「NNLM や RNNLM からどうやって単語分散表現を得ているのか？」
 
 - NNLM
-  - この論文[^5]で提案された、隠れ層を持つ FFNN を使って単語分散表現を学習するモデル
+  - この論文[^6]で提案された、隠れ層を持つ FFNN を使って単語分散表現を学習するモデル
   - 単語分散表現は CBOW のように入力の One-Hot ベクトルを低次元な連続ベクトルに変換するための重み行列から得られる
 - RNNLM
-  - この論文[^6]で提案された、RNN を使って単語分散表現を学習するモデルである
+  - この論文[^7]で提案された、RNN を使って単語分散表現を学習するモデルである
   - RNNLM は次の単語を予測するために引き継がれた隠れ層の重み行列を使って単語分散表現を得る
 
 こうすることで NNLM や RNNLM と CBOW, Skip-gram を比較することができる
 
 ### 「Semantic / Syntactic Accuracy のデータセットはどうやって用意したのか？」
 
-論文[^7]のテストセットを使用したと記載されている
+論文[^8]のテストセットを使用したと記載されている
 この論文は「単語の連続ベクトルを使って単語間の類似性を評価する」という目的で書かれているが、この論文中でデータセットの作り方について言及されている
 
 #### Semantic
 
 - SemEval 2012 Task 2 というデータセットを使って、単語間の意味的な類似性を評価している
-- モントリオールで開催された SemEval 2012[^8] という国際ワークショップで行われたタスクの一つで、単語間の意味的な類似性を評価するタスクである
-- データはこちらの論文[^9] によると手作業でカテゴライズされたそう
+- モントリオールで開催された SemEval 2012[^9] という国際ワークショップで行われたタスクの一つで、単語間の意味的な類似性を評価するタスクである
+- データはこちらの論文[^10] によると手作業でカテゴライズされたそう
 
 #### Syntactic
 
@@ -209,8 +212,9 @@ Google の Word2Vec の論文[^4]によると、
 [^2]: [Jeffrey Pennington, Richard Socher, Christopher Manning, "GloVe: Global Vectors for Word Representation", 2014](https://aclanthology.org/D14-1162)
 [^3]: [nlp - How is the window size affect word2vec and how do we choose window size according to different tasks? - Stack Overflow](https://stackoverflow.com/questions/65422312/how-is-the-window-size-affect-word2vec-and-how-do-we-choose-window-size-accordin)
 [^4]: [Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, Jeffrey Dean, "Distributed Representations of Words and Phrases and their Compositionality", 2013](https://arxiv.org/abs/1310.4546)
-[^5]: [Yoshua Bengio, Réjean Ducharme, Pascal Vincent, Christian Jauvin, "A Neural Probabilistic Language Model", 2003](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
-[^6]: [Tomas Mikolov, Martin Karafiát, Lukáš Burget, Jan Černocký, Sanjeev Khudanpur, "Recurrent Neural Network based Language Model", 2010](https://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf)
-[^7]: [Tomas Mikolov, Wen-tau Yih, Geoffrey Zweig, "Linguistic Regularities in Continuous Space Word Representations", 2013](https://www.aclweb.org/anthology/N13-1090/)
-[^8]: [SemEval 2012](https://ja.wikipedia.org/wiki/SemEval)
-[^9]: [SemEval 2012 Task 2](https://aclanthology.org/S12-1047/)
+[^5]: [Omer Levy, and Yoav Goldberg, "Dependency-Based Word Embeddings"](https://levyomer.files.wordpress.com/2014/04/dependency-based-word-embeddings-acl-2014.pdf)
+[^6]: [Yoshua Bengio, Réjean Ducharme, Pascal Vincent, Christian Jauvin, "A Neural Probabilistic Language Model", 2003](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
+[^7]: [Tomas Mikolov, Martin Karafiát, Lukáš Burget, Jan Černocký, Sanjeev Khudanpur, "Recurrent Neural Network based Language Model", 2010](https://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf)
+[^8]: [Tomas Mikolov, Wen-tau Yih, Geoffrey Zweig, "Linguistic Regularities in Continuous Space Word Representations", 2013](https://www.aclweb.org/anthology/N13-1090/)
+[^9]: [SemEval 2012](https://ja.wikipedia.org/wiki/SemEval)
+[^10]: [SemEval 2012 Task 2](https://aclanthology.org/S12-1047/)
