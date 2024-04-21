@@ -7,12 +7,17 @@ import { describe, expect, it } from "vitest";
 import { format } from "prettier";
 import { unified } from "unified";
 
+const mdProcessor = unified()
+  .use(remarkParse)
+  .use(remarkDirective)
+  .use(remarkLinkCard)
+  .use(remarkRehype)
+  .use(rehypeStringify);
+
 describe("remarkLinkCard", () => {
   it("should convert flex directives to flex blocks", async () => {
     const input = /* md */ `
-
 <https://monica-dev.com>
-
 `.trim();
 
     const expectedOutput = /* html */ `
@@ -27,12 +32,30 @@ describe("remarkLinkCard", () => {
 </p>
 `.trim();
 
-    const result = await unified()
-      .use(remarkParse)
-      .use(remarkDirective)
-      .use(remarkLinkCard)
-      .use(remarkRehype)
-      .use(rehypeStringify)
+    const result = await mdProcessor
+      .process(input)
+      .then((file) => file.toString());
+
+    const formattedResult = await format(result, { parser: "html" });
+    const formattedExpectedOutput = await format(expectedOutput, {
+      parser: "html",
+    });
+
+    expect(formattedResult).toBe(formattedExpectedOutput);
+  });
+
+  it("should not convert links in list items", async () => {
+    const input = /* md */ `
+- <https://monica-dev.com>
+`.trim();
+
+    const expectedOutput = /* html */ `
+<ul>
+  <li><a href="https://monica-dev.com">https://monica-dev.com</a></li>
+</ul>
+`.trim();
+
+    const result = await mdProcessor
       .process(input)
       .then((file) => file.toString());
 

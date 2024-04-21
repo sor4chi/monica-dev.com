@@ -1,23 +1,31 @@
 import { visit } from "unist-util-visit";
 
-import type { Parent } from "mdast";
+import type { Parent, Node } from "mdast";
 import type { Transformer } from "unified";
 
+const isNode = (node: unknown): node is Node => {
+  if (node === null || typeof node !== "object") {
+    return false;
+  }
+
+  return "type" in node;
+};
+
 const isParent = (node: unknown): node is Parent => {
-  return node !== undefined;
+  return isNode(node) && Array.isArray((node as Parent).children);
 };
 
 const isBlockLink = (node: unknown, _index: unknown, parent: unknown) => {
-  if (!isParent(node)) {
+  if (!isParent(node) || !isParent(parent)) {
+    return false;
+  }
+
+  if (["footnoteDefinition", "listItem"].includes(parent.type)) {
     return false;
   }
 
   if (node.type !== "paragraph") {
     return false;
-  }
-
-  if ((parent as Parent).type === "listItem") {
-    return;
   }
 
   if (node.children.length !== 1) {
@@ -37,15 +45,7 @@ const plugin = function linkCardTrans(): Transformer {
   return async (tree) => {
     const promises: Promise<void>[] = [];
 
-    visit(tree, isBlockLink, (node, _index, parent: Parent | undefined) => {
-      if (!isParent(parent)) {
-        return;
-      }
-
-      if (parent.type !== "listItem") {
-        return;
-      }
-
+    visit(tree, isBlockLink, (node, _index) => {
       // @ts-expect-error
       const child = node.children[0];
 
