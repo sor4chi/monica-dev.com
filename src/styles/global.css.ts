@@ -7,7 +7,7 @@ globalStyle("body", {
   fontFamily: '"Inter", "Noto Sans JP", sans-serif',
   margin: 0,
   padding: 0,
-  color: colorVars.gray[12],
+  color: colorVars.gray[11],
 
   minHeight: "100dvh",
   height: "100%",
@@ -22,4 +22,8 @@ globalStyle("*", {
   margin: 0,
   fontSmooth: "always",
   WebkitFontSmoothing: "antialiased",
+});
+
+globalStyle("::selection", {
+  backgroundColor: colorVars.gray[5],
 });

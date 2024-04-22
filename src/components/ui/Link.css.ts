@@ -12,7 +12,7 @@ export const styles = {
       gap: vars.spacing.relative[2],
       textDecoration: "none",
 
-      color: vars.color.gray[11],
+      color: vars.color.gray[10],
       border: "none",
       borderRadius: vars.spacing.relative[2],
       padding: `${vars.spacing.relative[2]} ${vars.spacing.relative[2]}`,

@@ -29,7 +29,7 @@ const sortedGroupedWorks = Object.entries(groupedWorks)
   );
 ---
 
-<BaseLayout title="Works" canonical="/work">
+<BaseLayout title="Works" canonical="/work" active="/work">
   {
     sortedGroupedWorks.map(([year, works]) => (
       <List title={year}>

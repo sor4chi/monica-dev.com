@@ -120,7 +120,7 @@ export const styles = {
     },
   }),
   date: style({
-    color: vars.color.gray[11],
+    color: vars.color.gray[10],
     fontSize: vars.font.size.sm,
     whiteSpace: "nowrap",
     lineHeight: ICON_SIZE,
@@ -153,6 +153,7 @@ export const styles = {
   title: style({
     color: vars.color.gray[12],
     fontSize: vars.font.size.lg,
+    fontWeight: vars.font.weight.bold,
     wordBreak: "auto-phrase" as any,
 
     "@media": {

@@ -16,7 +16,7 @@ const sortedTimelines = await Promise.all(
 );
 ---
 
-<BaseLayout title="Timelines" canonical="/timeline">
+<BaseLayout title="Timelines" canonical="/timeline" active="/timeline">
   <List>
     {
       sortedTimelines.map((timeline) => (

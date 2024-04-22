@@ -12,6 +12,7 @@ export const styles = {
       gap: vars.spacing.relative[4],
       textDecoration: "none",
       borderRadius: vars.spacing.absolute[2],
+      transition: "filter 0.2s ease-in-out",
     },
   ]),
   thumbnail: style({
@@ -35,8 +36,8 @@ export const styles = {
   }),
   title: style({
     color: vars.color.gray[12],
-    transition: "color 0.2s ease-in-out",
     fontSize: vars.font.size.lg,
+    fontWeight: vars.font.weight.bold,
   }),
   description: style({
     color: vars.color.gray[11],
@@ -48,10 +49,10 @@ export const styles = {
   }),
 };
 
-globalStyle(`${styles.item}:hover ${styles.title}`, {
+globalStyle(`${styles.item}:hover`, {
   "@media": {
     "(hover: hover)": {
-      color: vars.color.gray[11],
+      filter: "brightness(0.8)",
     },
   },
 });

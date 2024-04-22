@@ -55,7 +55,7 @@ const { slug, title, date, icon, link } = Astro.props;
   </td>
   <td class={styles.col}>
     <span class={styles.titleWrapper}>
-      <h2 class={styles.title}>{title}</h2>
+      <strong class={styles.title}>{title}</strong>
       <time
         datetime={date.toISOString()}
         class={clsx(styles.date, styles.mobileDate)}

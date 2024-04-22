@@ -2,7 +2,7 @@
 import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 import { styles } from "./Base.css";
-import Navigation from "./Navigation.astro";
+import Navigation, { type NavKinds } from "./Navigation.astro";
 import RightTopArea from "./RightTopArea.astro";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_BASE_URL } from "@/config";
 
@@ -11,9 +11,10 @@ interface Props {
   description?: string;
   canonical: `/${string}`;
   ogImageUrl?: string;
+  active: NavKinds;
 }
 
-const { title, description, canonical, ogImageUrl } = Astro.props;
+const { title, description, canonical, ogImageUrl, active } = Astro.props;
 
 const getTitle = (title?: string) => {
   if (title) {
@@ -69,7 +70,7 @@ const finalOgImageUrl = ogImageUrl
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -84,6 +85,6 @@ const finalOgImageUrl = ogImageUrl
     <main class={styles.container}>
       <slot />
     </main>
-    <Navigation />
+    <Navigation active={active} />
   </body>
 </html>

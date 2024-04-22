@@ -31,7 +31,7 @@ export const styles = {
   item,
   title: style({
     fontSize: vars.font.size.base,
-    fontWeight: 400,
+    fontWeight: vars.font.weight.normal,
     color: vars.color.gray[12],
     width: "100%",
   }),
@@ -49,7 +49,7 @@ export const styles = {
   }),
   domainDesktop: style({
     opacity: 0,
-    color: vars.color.gray[11],
+    color: vars.color.gray[10],
     fontSize: vars.font.size.sm,
     position: "absolute",
     top: "50%",
@@ -85,7 +85,7 @@ export const styles = {
         display: "flex",
         alignItems: "center",
         gap: vars.spacing.absolute[2],
-        color: vars.color.gray[11],
+        color: vars.color.gray[10],
         fontSize: vars.font.size.sm,
         width: "1rem",
       },

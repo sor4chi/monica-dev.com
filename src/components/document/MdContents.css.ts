@@ -18,10 +18,18 @@ globalStyle(`${styles.contents} > *:first-child`, {
 
 globalStyle(`${styles.contents} a`, {
   color: vars.color.gray[12],
+  fontWeight: vars.font.weight.medium,
   wordBreak: "break-word",
-  textUnderlineOffset: "0.2em",
+  textUnderlineOffset: "0.3em",
+  textDecorationColor: vars.color.gray[7],
+  textDecorationThickness: "1px",
   outline: "none",
   position: "relative",
+  transition: "text-decoration-color 0.2s",
+});
+
+globalStyle(`${styles.contents} a:hover`, {
+  textDecorationColor: vars.color.gray[11],
 });
 
 globalStyle(`${styles.contents} a:focus-visible`, {
@@ -36,7 +44,7 @@ globalStyle(
   `${styles.contents} a[data-footnote-ref], ${styles.contents} a[data-footnote-backref]`,
   {
     fontSize: vars.font.size.sm,
-    color: vars.color.blue[11],
+    color: vars.color.blue[9],
     textDecoration: "none",
     padding: vars.spacing.relative[1],
   },
@@ -63,21 +71,21 @@ const ALL_HEADINGS = [
 
 globalStyle(HEADING_H2, {
   fontSize: vars.font.size.lg,
-  fontWeight: 700,
+  fontWeight: vars.font.weight.bold,
   color: vars.color.gray[12],
   marginTop: vars.spacing.relative[8],
 });
 
 globalStyle(HEADING_H3, {
   fontSize: vars.font.size.lg,
-  fontWeight: 700,
+  fontWeight: vars.font.weight.bold,
   color: vars.color.gray[12],
   marginTop: vars.spacing.relative[6],
 });
 
 globalStyle(`${HEADING_H4}, ${HEADING_H5}, ${HEADING_H6}`, {
   fontSize: vars.font.size.base,
-  fontWeight: 700,
+  fontWeight: vars.font.weight.bold,
   color: vars.color.gray[12],
   marginTop: vars.spacing.relative[4],
 });
@@ -146,6 +154,7 @@ globalStyle(`${styles.contents} .link-card`, {
   textDecoration: "none",
   border: `1px solid ${vars.color.gray[4]}`,
   overflow: "hidden",
+  backgroundColor: vars.color.gray[1],
 
   "@media": {
     [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
@@ -244,12 +253,16 @@ globalStyle(`${styles.contents} .link-card .link-card__domain`, {
 
 globalStyle(`${styles.contents} p`, {
   fontSize: vars.font.size.base,
-  color: "inherit",
   lineHeight: 1.8,
 });
 
+globalStyle(`${styles.contents} strong`, {
+  color: vars.color.gray[12],
+  fontWeight: vars.font.weight.bold,
+});
+
 globalStyle(`${styles.contents} ul`, {
-  paddingLeft: vars.spacing.relative[4],
+  paddingLeft: vars.spacing.relative[6],
 });
 
 globalStyle(`${styles.contents} ol`, {
@@ -266,11 +279,20 @@ globalStyle(`${styles.contents} li`, {
   lineHeight: 1.8,
 });
 
+globalStyle(`${styles.contents} li`, {
+  position: "relative",
+  lineHeight: 1.8,
+});
+
 globalStyle(`${styles.contents} ul li::before`, {
   content: '"-"',
   position: "absolute",
   left: `calc(-1 * ${vars.spacing.relative[4]})`,
-  color: vars.color.gray[12],
+  color: vars.color.gray[10],
+});
+
+globalStyle(`${styles.contents} ol li::marker`, {
+  color: vars.color.gray[10],
 });
 
 globalStyle(`${styles.contents} table`, {
@@ -280,7 +302,7 @@ globalStyle(`${styles.contents} table`, {
 
 globalStyle(`${styles.contents} table th`, {
   padding: vars.spacing.relative[2],
-  fontWeight: 700,
+  fontWeight: vars.font.weight.bold,
   color: vars.color.gray[12],
   borderBottom: `1px solid ${vars.color.gray[4]}`,
 });
@@ -308,7 +330,7 @@ globalStyle(`${styles.contents} hr + *`, {
 globalStyle(`${styles.contents} blockquote`, {
   borderLeft: `4px solid ${vars.color.gray[4]}`,
   paddingLeft: vars.spacing.relative[4],
-  color: vars.color.gray[11],
+  color: vars.color.gray[10],
 });
 
 const annotationColorRGBVar = createVar();
@@ -330,7 +352,7 @@ globalStyle(`.light ${styles.contents} blockquote.annotation-block`, {
 });
 
 globalStyle(`${styles.contents} .annotation-block .annotation`, {
-  fontWeight: 600,
+  fontWeight: vars.font.weight.bold,
 });
 
 globalStyle(`.dark ${styles.contents} .annotation-block .annotation`, {
@@ -453,7 +475,7 @@ globalStyle(
   `${styles.contents} .code-block .code-copy-button.copied .code-check-icon`,
   {
     opacity: 1,
-    color: vars.color.gray[11],
+    color: vars.color.gray[10],
   },
 );
 
@@ -503,6 +525,10 @@ globalStyle(`${styles.contents} .math-display`, {
   overflowX: "auto",
   overflowY: "hidden",
   width: "100%",
+});
+
+globalStyle(`${styles.contents} .math`, {
+  color: vars.color.gray[12],
 });
 
 globalStyle(`${styles.contents} .katex-display`, {
@@ -575,7 +601,7 @@ globalStyle(`${styles.contents} .timeline-title::before`, {
   transform: "translate(-50%, -50%)",
   fontSize: vars.font.size.xs,
   fontWeight: 400,
-  color: vars.color.gray[11],
+  color: vars.color.gray[10],
   whiteSpace: "nowrap",
   zIndex: vars.zIndex.forward,
   padding: `${vars.spacing.absolute[3]} 0`,

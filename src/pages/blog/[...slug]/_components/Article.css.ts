@@ -36,7 +36,7 @@ export const styles = {
     display: "inline-flex",
     alignItems: "center",
     gap: vars.spacing.relative[2],
-    color: vars.color.gray[11],
+    color: vars.color.gray[10],
   }),
   date: style({
     fontSize: vars.font.size.sm,

@@ -34,7 +34,7 @@ export const styles = {
       height: vars.spacing.absolute[10],
       borderRadius: "50%",
       cursor: "pointer",
-      color: vars.color.gray[11],
+      color: vars.color.gray[10],
       border: "none",
       background: "none",
       boxSizing: "border-box",
@@ -75,7 +75,7 @@ globalStyle(`.link-copy-button ${styles.checkIcon}`, {
 
 globalStyle(`.link-copy-button.copied ${styles.checkIcon}`, {
   opacity: 1,
-  color: vars.color.gray[11],
+  color: vars.color.gray[10],
 });
 
 globalStyle(`.link-copy-button ${styles.copyIcon}`, {

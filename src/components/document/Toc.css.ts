@@ -31,7 +31,7 @@ export const styles = {
     justifyContent: "space-between",
     textDecoration: "none",
 
-    color: vars.color.gray[11],
+    color: vars.color.gray[10],
     border: "none",
     padding: vars.spacing.relative[2],
     lineHeight: "1.25rem",

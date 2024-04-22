@@ -17,7 +17,7 @@ export const styles = {
     border: `1px solid ${vars.color.gray[4]}`,
     color: vars.color.gray[11],
     fontSize: "0.75rem",
-    fontWeight: "bold",
+    fontWeight: vars.font.weight.medium,
     opacity: 0,
     transition: "opacity 0.2s",
     pointerEvents: "none",

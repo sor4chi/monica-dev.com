@@ -47,6 +47,20 @@ export const styles = {
     width: "100% !important",
     justifyContent: "center !important",
     maxWidth: "160px",
+    position: "relative",
+  }),
+  active: style({
+    color: vars.color.gray[11],
+  }),
+  activeDot: style({
+    position: "absolute",
+    top: "50%",
+    left: vars.spacing.absolute[4],
+    transform: "translateY(-50%)",
+    width: "0.5rem",
+    height: "0.5rem",
+    borderRadius: "50%",
+    backgroundColor: vars.color.gray[9],
   }),
 };
 

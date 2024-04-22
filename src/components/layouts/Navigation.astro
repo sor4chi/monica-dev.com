@@ -2,21 +2,37 @@
 import clsx from "clsx";
 import Link from "../ui/Link.astro";
 import { styles } from "./Navigation.css";
+
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/work", label: "Works" },
+  { href: "/timeline", label: "Timeline" },
+  { href: "/blog", label: "Blogs" },
+] as const;
+
+export type NavKinds = (typeof NAV_LINKS)[number]["href"];
+
+interface Props {
+  active: NavKinds;
+}
+
+const { active } = Astro.props;
 ---
 
 <div class={styles.backward} id="backward">
-  <Link href="/" exClass={clsx("backward-internal-link", styles.link)}>
-    Home
-  </Link>
-  <Link href="/work" exClass={clsx("backward-internal-link", styles.link)}>
-    Works
-  </Link>
-  <Link href="/timeline" exClass={clsx("backward-internal-link", styles.link)}>
-    Timeline
-  </Link>
-  <Link href="/blog" exClass={clsx("backward-internal-link", styles.link)}>
-    Blogs
-  </Link>
+  {
+    NAV_LINKS.map(({ href, label }) => (
+      <Link
+        href={href}
+        exClass={clsx("backward-internal-link", styles.link, {
+          [styles.active]: href === active,
+        })}
+      >
+        {href === active && <span class={styles.activeDot} />}
+        {label}
+      </Link>
+    ))
+  }
   <hr class={styles.line} />
   <div class={styles.social}>
     <Link href="https://x.com/sor4chi" ariaLabel="Twitter / X を開く">

@@ -16,7 +16,7 @@ export const styles = {
       boxSizing: "border-box",
       cursor: "pointer",
       fill: "none",
-      stroke: vars.color.gray[11],
+      stroke: vars.color.gray[10],
       overflow: "hidden",
       "@media": {
         "(hover: hover)": {

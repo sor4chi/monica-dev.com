@@ -29,12 +29,12 @@ export const styles = {
   }),
   title: style({
     fontSize: "1.25rem",
-    fontWeight: "bold",
+    fontWeight: vars.font.weight.bold,
     marginBottom: "0.5rem",
   }),
   subtitle: style({
     fontSize: "1rem",
-    fontWeight: "normal",
+    fontWeight: vars.font.weight.normal,
     color: vars.color.gray[11],
   }),
   socials: style({

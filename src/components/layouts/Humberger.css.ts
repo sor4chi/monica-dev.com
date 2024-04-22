@@ -15,8 +15,6 @@ export const styles = {
       borderRadius: vars.spacing.relative[2],
       boxSizing: "border-box",
       cursor: "pointer",
-      fill: "none",
-      stroke: vars.color.gray[11],
       overflow: "hidden",
       "@media": {
         "(hover: hover)": {
@@ -33,7 +31,7 @@ export const styles = {
     display: "block",
     width: "1.5rem",
     height: "0.125rem",
-    backgroundColor: vars.color.gray[11],
+    backgroundColor: vars.color.gray[10],
     transform: "translateY(-50%)",
     left: 0,
     right: 0,
