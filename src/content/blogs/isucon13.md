@@ -4,7 +4,7 @@ description: 2023/11/25に開催された ISUCON13 に参加してきました�
 publishedAt: 2023/11/30
 ---
 
-今回、[@a01sa01to](https://twitter.com/a01sa01to) (以降@Asa) と [@Ryoga_exe](https://twitter.com/ryoga_exe) (以降@Ryoga) と私 @Monica の 3 人で **Maxif.** というチーム名で参加してきました。
+今回、 t@a01sa01to と t@Ryoga_exe と私 t@sor4chi の 3 人で **Maxif.** というチーム名で参加してきました。
 去年の予選 (ISUCON12q) 開催時に Twitter で知り、今年は絶対に参加したいと思っていたので、参加できてとても嬉しかったです。
 結果は **58960** 点くらい、総チーム数 694 中 **25** 位で学生 **5** 位でした！
 初参加にしては健闘できたと思います。
@@ -31,11 +31,11 @@ https://github.com/sor4chi/isucon13
 
 ### チーム分担
 
-| 名前    | 担当の流れ                                                    |
-| ------- | ------------------------------------------------------------- |
-| @Monica | セットアップ → App のチューニング → Nginx/MySQLのチューニング |
-| @Asa    | 仕様書読む → DNS関連 → サーバー分割 → App のチューニング      |
-| @Ryoga  | 仕様書読む → App のチューニング                               |
+| 名前        | 担当の流れ                                                    |
+| ----------- | ------------------------------------------------------------- |
+| t@sor4chi   | セットアップ → App のチューニング → Nginx/MySQLのチューニング |
+| t@a01sa01to | 仕様書読む → DNS関連 → サーバー分割 → App のチューニング      |
+| t@Ryoga_exe | 仕様書読む → App のチューニング                               |
 
 ### 作業ログ
 
@@ -57,7 +57,7 @@ Nginx / MySQL 構成であること、Go 言語で立っていること、`sysmt
 
 #### [10:35] DNSのTTLを設定 (3255)
 
-@Asa が DNS キャッシュの TTL が 0 になっていることに気づき、TTL を 3600 に設定しました。
+t@a01sa01to が DNS キャッシュの TTL が 0 になっていることに気づき、TTL を 3600 に設定しました。
 
 [DNSレコードのTTLを3600に](https://github.com/sor4chi/isucon13/commit/b4bab59ec70627c53f1bc208996f6cc24450a830)
 
@@ -81,13 +81,13 @@ SELECT * FROM livestream_tags WHERE livestream_id = 7494\G
 
 #### [11:15] `fillLivestreamResponse` の tags に関するN+1を解消 (3141)
 
-@Monica が `fillLivestreamResponse` 内の tags に関する N+1 を解消しました。ほとんど誤差な気がします。
+t@sor4chi が `fillLivestreamResponse` 内の tags に関する N+1 を解消しました。ほとんど誤差な気がします。
 
 [fillLivestreamResponseのtagsに関するN+1を解消](https://github.com/sor4chi/isucon13/commit/fb404854bc846e5c4d5b1af9b9c9939d593fbe5f)
 
 #### [11:30] themes をキャッシュ (3650)
 
-@Monica が themes テーブルへのクエリが `SELECT` と `INSERT` しかないことに気づき、 `SELECT` した結果をキャッシュするようにしました。
+t@sor4chi が themes テーブルへのクエリが `SELECT` と `INSERT` しかないことに気づき、 `SELECT` した結果をキャッシュするようにしました。
 
 [themesをcacheするように](https://github.com/sor4chi/isucon13/commit/0e65b2d4856dc3018fde6badb12e27991fdd95cb)
 
@@ -104,7 +104,7 @@ SELECT * FROM livestream_tags WHERE livestream_id = 7494\G
 
 #### [13:27] サーバー分割 (4504)
 
-@Asa がサーバー分割を行いました。
+t@a01sa01to がサーバー分割を行いました。
 ついでにベンチ開始後の DNS 追加設定にも TTL を設定するようにここで変更してくれたようです。
 
 | サーバー名 | 役割                 |
@@ -116,7 +116,7 @@ SELECT * FROM livestream_tags WHERE livestream_id = 7494\G
 のようにすることで、水責めの負荷が App や App DB に影響しないようにしました。この分割の判断はかなり早かったと思います。
 さらに、DNS DB にも Lookup 負荷がかかることに気づき、INDEX を貼っていくれたそうです。
 
-@Asa が表現してくれたフローがこちら。わかりやすい。
+t@a01sa01to が表現してくれたフローがこちら。わかりやすい。
 
 ```txt
 ベンチ -[global]-> DNS (s1) -[local]-> DB (s1)
@@ -129,19 +129,19 @@ DNS 何もわからんなのでとても助かりました。
 
 #### [13:39] `moderateHandler` のN+1解消 (4763)
 
-@Monica が `moderateHandler` の N+1 を解消しました。
+t@sor4chi が `moderateHandler` の N+1 を解消しました。
 
 [moderateHandlerのN+1解消](https://github.com/sor4chi/isucon13/commit/2eb1e3d2b3da5ccc57f4fe1aa2ba0a9dcd9c5514)
 
 #### [14:27] `getUserStatisticsHandler` のN+1解消 (6409)
 
-@Ryoga が `getUserStatisticsHandler` の N+1 を解消しました。
+t@Ryoga_exe が `getUserStatisticsHandler` の N+1 を解消しました。
 
 [getUserStatisticsHandlerのN+1解消](https://github.com/sor4chi/isucon13/commit/0b389466652a66a7ee22f8555b89b5de1a4138c4)
 
 #### [15:00] INDEXを正しく貼る (22687)
 
-開始から 5 時間経って、@Asa がやっぱり INDEX が効いてないんじゃないかと言い出して、実際に MySQL にログインして `EXPLAIN` してみると、 `livestream_tags` に `livestream_id` に対する INDEX が貼られていないことに気づきました。
+開始から 5 時間経って、t@a01sa01to がやっぱり INDEX が効いてないんじゃないかと言い出して、実際に MySQL にログインして `EXPLAIN` してみると、 `livestream_tags` に `livestream_id` に対する INDEX が貼られていないことに気づきました。
 
 じゃあもうわからんから `10_schema.sql` に書くのやめようということで `Index Already Exists` にならないようにアプリ側でキャッチしながら `CREATE INDEX` するようにしました。
 
@@ -163,11 +163,11 @@ DNS 何もわからんなのでとても助かりました。
 
 ここで点数が **22687** と一気に 4 倍近くまで上がりました。
 
-@Monica「本当にごめん、あとで土下座させていただきます」
+t@sor4chi「本当にごめん、あとで土下座させていただきます」
 
 #### [16:19] `getReactionsHandler` の N+1 解消 (28638)
 
-@Ryoga が `getReactionsHandler` の N+1 を解消しました。
+t@Ryoga_exe が `getReactionsHandler` の N+1 を解消しました。
 
 [getReactionsHandlerのN+1解消](https://github.com/sor4chi/isucon13/commit/d231b0ba9dae26dc906117a8ce0ed59aa7a07212)
 
@@ -179,13 +179,13 @@ DNS 何もわからんなのでとても助かりました。
 
 #### [17:15] user icon の hash の余分な計算を削減 (38578)
 
-キャッシュヒットした後でもに DB に image を取りにいくような実装になっていることに気づき、@Asa がキャッシュヒットした後は DB にいかないようにしました。
+キャッシュヒットした後でもに DB に image を取りにいくような実装になっていることに気づき、t@a01sa01to がキャッシュヒットした後は DB にいかないようにしました。
 
 [userIconの余分なDBアクセスを削減](https://github.com/sor4chi/isucon13/commit/292a16e521cf29ed839534466d4c3b1ebf76eebe)
 
 #### [17:24] `fillLivestreamResponse` の N+1 解消 (45116)
 
-@Monica が `fillLivestreamResponse` の N+1 を解消しました。
+t@sor4chi が `fillLivestreamResponse` の N+1 を解消しました。
 
 [ownerのN+1解消](https://github.com/sor4chi/isucon13/commit/ebff290be52b5273ebb5ae192d5e6f81a3b496b5)
 
@@ -195,7 +195,7 @@ DNS 何もわからんなのでとても助かりました。
 
 #### [17:37] `fillUserResponse` の N+1 解消 (52872)
 
-@Monica が `fillUserResponse` の N+1 を解消しました。
+t@sor4chi が `fillUserResponse` の N+1 を解消しました。
 
 [themeのN+1解消](https://github.com/sor4chi/isucon13/commit/aa5d8704bd970f1d12729cd18881325dc5b055ec)
 

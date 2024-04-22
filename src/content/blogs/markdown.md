@@ -318,3 +318,17 @@ For example, competition logs, progress reports, etc.
 
 ::::
 ```
+
+## Mentions
+
+t@sor4chi
+twitter@sor4chi
+g@sor4chi
+github@sor4chi
+
+```markdown
+t@sor4chi
+twitter@sor4chi
+g@sor4chi
+github@sor4chi
+```

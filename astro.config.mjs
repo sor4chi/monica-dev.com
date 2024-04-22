@@ -13,6 +13,7 @@ import remarkTimeline, {
   remarkTimelineHandler,
 } from "./src/libs/remark-timeline";
 import remarkSection, { remarkSectionHandler } from "./src/libs/remark-section";
+import remarkMention from "./src/libs/remark-mention";
 import rehypeScrollableTable from "./src/libs/rehype-scrollable-table";
 import rehypeHeadLinker from "./src/libs/rehype-head-linker";
 import rehypeAnnotationBlock from "./src/libs/rehype-annotation-block";
@@ -40,6 +41,7 @@ export default defineConfig({
       remarkBlockImage,
       remarkTimeline,
       remarkSection,
+      remarkMention,
     ],
     rehypePlugins: [
       rehypeKatex,
