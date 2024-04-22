@@ -1,3 +1,4 @@
+import { slideIn } from "@/styles/animation.css";
 import { BREAKPOINT_TABLET, BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
@@ -10,6 +11,11 @@ globalStyle(".markdown-contents", {
   display: "flex",
   flexDirection: "column",
   gap: vars.spacing.absolute[4],
+});
+
+globalStyle(".markdown-section", {
+  opacity: 0,
+  animation: `${slideIn} 0.7s ease-in-out forwards`,
 });
 
 globalStyle(`${styles.contents} > *:first-child`, {
