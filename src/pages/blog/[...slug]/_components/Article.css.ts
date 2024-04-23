@@ -25,12 +25,9 @@ export const styles = {
   }),
   title: style({
     fontSize: vars.font.size.xl,
-
-    "@media": {
-      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        marginTop: vars.spacing.absolute[2],
-      },
-    },
+  }),
+  word: style({
+    display: "inline-block",
   }),
   meta: style({
     display: "inline-flex",

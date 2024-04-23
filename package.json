@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:pages": "wrangler pages dev functions",
-    "dev:astro": "astro dev",
+    "dev:astro": "astro dev --host 0.0.0.0",
     "test": "vitest",
     "start": "astro dev",
     "build": "npm run generate:ogp && astro build",
@@ -26,6 +26,7 @@
     "clsx": "^2.0.0",
     "hono": "^3.8.3",
     "katex": "^0.16.9",
+    "mikanjs": "^1.0.14",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "rehype-katex": "^6.0.3",

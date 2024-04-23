@@ -1,0 +1,76 @@
+---
+import Tooltip from "@/components/ui/Tooltip.astro";
+import { styles } from "./Header.css";
+import Mikan from "mikanjs";
+
+interface Props {
+  title: string;
+  createdAt: Date;
+  updatedAt?: Date;
+  authors?: string[];
+}
+
+const { title, createdAt, updatedAt, authors } = Astro.props;
+
+const formatDateTime = (date: Date) => {
+  return date.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+};
+const githubAvatar = (author: string) => `https://github.com/${author}`;
+const githubProfile = (author: string) =>
+  `https://github.com/${author}.png?s=32`;
+---
+
+<div class={styles.header}>
+  <div>
+    <h1
+      class={styles.title}
+      set:html={Mikan(title, {
+        style: "",
+        className: styles.titleWord,
+      })}
+    />
+    <p class={styles.meta}>
+      <time datetime={createdAt.toISOString()} class={styles.date}>
+        {formatDateTime(createdAt)}
+      </time>
+      {
+        updatedAt && (
+          <>
+            <span>/</span>
+            <time datetime={updatedAt.toISOString()} class={styles.date}>
+              {formatDateTime(updatedAt)}
+            </time>
+          </>
+        )
+      }
+    </p>
+  </div>
+  {
+    authors && authors.length > 0 && (
+      <div class={styles.authors}>
+        {authors.map((author) => (
+          <a
+            href={githubAvatar(author)}
+            class={styles.author}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Tooltip text={author}>
+              <img
+                src={githubProfile(author)}
+                alt={author}
+                width={32}
+                height={32}
+                class={styles.avatar}
+              />
+            </Tooltip>
+          </a>
+        ))}
+      </div>
+    )
+  }
+</div>

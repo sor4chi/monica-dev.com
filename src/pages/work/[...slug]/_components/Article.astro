@@ -2,39 +2,24 @@
 import Link from "@/components/ui/Link.astro";
 import { styles } from "./Article.css";
 import { Image } from "astro:assets";
+import Header from "@/components/document/Header.astro";
 import "katex/dist/katex.css";
 
 interface Props {
   title: string;
   slug: string;
   createdAt: Date;
+  authors?: string[];
 }
 
-const { slug, title, createdAt } = Astro.props;
-
-const formatDateTime = (date: Date) => {
-  return date.toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-};
+const { slug, title, createdAt, authors } = Astro.props;
 ---
 
 <article id="article" class={styles.article}>
   <span class={styles.backLink}>
     <Link href="/work">← Back</Link>
   </span>
-  <div class={styles.header}>
-    <div>
-      <h1 class={styles.title}>{title}</h1>
-      <p class={styles.meta}>
-        <time datetime={createdAt.toISOString()} class={styles.date}>
-          {formatDateTime(createdAt)}
-        </time>
-      </p>
-    </div>
-  </div>
+  <Header title={title} createdAt={createdAt} authors={authors} />
   <Image
     width={800}
     height={420}

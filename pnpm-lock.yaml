@@ -32,6 +32,9 @@ dependencies:
   katex:
     specifier: ^0.16.9
     version: 0.16.9
+  mikanjs:
+    specifier: ^1.0.14
+    version: 1.0.14
   react:
     specifier: ^18.0.0
     version: 18.2.0
@@ -4729,6 +4732,10 @@ packages:
     dependencies:
       braces: 3.0.2
       picomatch: 2.3.1
+    dev: false
+
+  /mikanjs@1.0.14:
+    resolution: {integrity: sha512-PdTkPUIPhTfumBRHaXmbU9b7TIjDS/6rAK7yrFjOJnW89SEUpxQv5KRp1iaU39frq8nHBYiu4EympS2X3idIlQ==}
     dev: false
 
   /mime@3.0.0:

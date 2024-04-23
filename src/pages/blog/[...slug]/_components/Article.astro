@@ -1,6 +1,7 @@
 ---
 import Link from "@/components/ui/Link.astro";
 import { styles } from "./Article.css";
+import Header from "@/components/document/Header.astro";
 import "katex/dist/katex.css";
 
 interface Props {
@@ -8,43 +9,22 @@ interface Props {
   slug: string;
   publishedAt: Date;
   updatedAt?: Date;
+  authors?: string[];
 }
 
-const { title, publishedAt, updatedAt } = Astro.props;
-
-const formatDateTime = (date: Date) => {
-  return date.toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-};
+const { title, publishedAt, updatedAt, authors } = Astro.props;
 ---
 
 <article id="article" class={styles.article}>
   <span class={styles.backLink}>
     <Link href="/blog">← Back</Link>
   </span>
-  <div class={styles.header}>
-    <div>
-      <h1 class={styles.title}>{title}</h1>
-      <p class={styles.meta}>
-        <time datetime={publishedAt.toISOString()} class={styles.date}>
-          {formatDateTime(publishedAt)}
-        </time>
-        {
-          updatedAt && (
-            <>
-              <span>/</span>
-              <time datetime={updatedAt.toISOString()} class={styles.date}>
-                {formatDateTime(updatedAt)}
-              </time>
-            </>
-          )
-        }
-      </p>
-    </div>
-  </div>
+  <Header
+    title={title}
+    createdAt={publishedAt}
+    updatedAt={updatedAt}
+    authors={authors}
+  />
   <slot />
 </article>
 

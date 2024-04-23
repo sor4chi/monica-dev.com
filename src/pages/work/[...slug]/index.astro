@@ -32,7 +32,7 @@ type Props = CollectionEntry<"works"> & {
 };
 
 const {
-  data: { title, description, createdAt },
+  data: { title, description, createdAt, authors },
   prev,
   next,
   slug,
@@ -57,7 +57,7 @@ const source = getWorkSourceUrl(slug);
       <Link href="/work">← Back</Link>
       <Left headings={headings} shareTitle={shareTitle} source={source} />
     </Aside>
-    <Article slug={slug} title={title} createdAt={createdAt}>
+    <Article slug={slug} title={title} createdAt={createdAt} authors={authors}>
       <MdContets>
         <Content />
       </MdContets>

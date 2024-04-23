@@ -36,7 +36,7 @@ type Props = CollectionEntry<"blogs"> & {
 };
 
 const {
-  data: { title, description, publishedAt, updatedAt },
+  data: { title, description, publishedAt, updatedAt, authors },
   slug,
   render,
   prev,
@@ -65,6 +65,7 @@ const source = getBlogSourceUrl(slug);
       title={title}
       publishedAt={publishedAt}
       updatedAt={updatedAt}
+      authors={authors}
     >
       <MdContets>
         <Content />

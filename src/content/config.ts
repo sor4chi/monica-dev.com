@@ -6,6 +6,7 @@ const blogs = defineCollection({
     description: z.string(),
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
+    authors: z.array(z.string()).optional(),
   }),
 });
 
@@ -22,6 +23,7 @@ const works = defineCollection({
     title: z.string(),
     description: z.string(),
     createdAt: z.coerce.date(),
+    authors: z.array(z.string()).optional(),
   }),
 });
 
