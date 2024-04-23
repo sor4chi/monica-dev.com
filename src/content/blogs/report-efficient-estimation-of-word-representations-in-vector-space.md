@@ -1,10 +1,10 @@
 ---
 title: 論文読み - Efficient Estimation of Word Representations in Vector Space
-description: Efficient Estimation of Word Representations in Vector Space というWord2Vecのもととなる論文を読んだので、その内容をアウトプットします。
+description: Efficient Estimation of Word Representations in Vector Space というWord2Vecのもととなる論文を読みました。
 publishedAt: 2024/03/29
 ---
 
-今回は "Efficient Estimation of Word Representations in Vector Space"[^1]という論文を読んだので、その内容をアウトプットします。
+今回は "Efficient Estimation of Word Representations in Vector Space"[^1]という論文を読みました。
 
 [^1]: [Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean, "Efficient Estimation of Word Representations in Vector Space", 2013](https://arxiv.org/abs/1301.3781)
 

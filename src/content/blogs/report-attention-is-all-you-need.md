@@ -1,10 +1,10 @@
 ---
 title: 論文読み - Attention Is All You Need
-description: Attention Is All You Need というTransformerの論文を読んだので、その内容をアウトプットします。
+description: Attention Is All You Need というTransformerの論文を読みました。
 publishedAt: 2024/03/29
 ---
 
-今回は "Attention Is All You Need"[^1]という論文を読んだので、その内容をアウトプットします。
+今回は "Attention Is All You Need"[^1]という論文を読みました。
 
 [^1]: [Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin, "Attention Is All You Need", 2017](https://arxiv.org/abs/1706.03762)
 
