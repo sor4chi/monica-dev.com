@@ -332,3 +332,27 @@ twitter@sor4chi
 g@sor4chi
 github@sor4chi
 ```
+
+## Embed
+
+### Youtube
+
+::youtube[FmZQF8BpEhc]
+
+```markdown
+::youtube[FmZQF8BpEhc]
+```
+
+## Details
+
+:::details[This is a details block]
+
+You can put any content you like here.
+
+:::
+
+```markdown
+:::details[This is a details block]
+You can put any content you like here.
+:::
+```

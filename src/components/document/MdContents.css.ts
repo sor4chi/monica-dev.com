@@ -339,6 +339,33 @@ globalStyle(`${styles.contents} blockquote`, {
   color: vars.color.gray[10],
 });
 
+globalStyle(`${styles.contents} details`, {
+  lineHeight: 1,
+  border: `1px solid ${vars.color.gray[4]}`,
+  borderRadius: vars.spacing.absolute[2],
+});
+
+globalStyle(`${styles.contents} details > summary`, {
+  padding: vars.spacing.absolute[4],
+  fontWeight: vars.font.weight.medium,
+  color: vars.color.gray[12],
+  cursor: "pointer",
+});
+
+globalStyle(`${styles.contents} details > summary:hover`, {
+  backgroundColor: vars.color.gray[2],
+});
+
+globalStyle(`${styles.contents} details > summary:focus-visible`, {
+  outline: "none",
+  boxShadow: `0 0 0 2px ${vars.color.blue[8]}`,
+  borderRadius: vars.spacing.absolute[2],
+});
+
+globalStyle(`${styles.contents} details > .details-contents`, {
+  padding: vars.spacing.absolute[4],
+});
+
 const annotationColorRGBVar = createVar();
 
 globalStyle(`${styles.contents} blockquote.annotation-block`, {

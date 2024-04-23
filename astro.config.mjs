@@ -12,6 +12,8 @@ import remarkBlockImage from "./src/libs/remark-block-image";
 import remarkTimeline, {
   remarkTimelineHandler,
 } from "./src/libs/remark-timeline";
+import remarkEmbed, { remarkEmbedHandlers } from "./src/libs/remark-embed";
+import remarkDetails, { remarkDetailsHandler } from "./src/libs/remark-details";
 import remarkSection, { remarkSectionHandler } from "./src/libs/remark-section";
 import remarkMention from "./src/libs/remark-mention";
 import rehypeScrollableTable from "./src/libs/rehype-scrollable-table";
@@ -42,6 +44,8 @@ export default defineConfig({
       remarkTimeline,
       remarkSection,
       remarkMention,
+      remarkEmbed,
+      remarkDetails,
     ],
     rehypePlugins: [
       rehypeKatex,
@@ -56,6 +60,8 @@ export default defineConfig({
       handlers: {
         timeline: remarkTimelineHandler,
         section: remarkSectionHandler,
+        details: remarkDetailsHandler,
+        ...remarkEmbedHandlers,
       },
     },
   },
