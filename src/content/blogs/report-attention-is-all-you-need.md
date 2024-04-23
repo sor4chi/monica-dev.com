@@ -202,4 +202,46 @@ Wall Street Journal の Penn Treebank で 40,000 文の訓練データを用い�
 
 ## 議論
 
-Positional Encoding の必要性について
+### Positional Encoding の必要性について
+
+:::details[考察]
+Positional Encoding がなければ、 **どんな入力系列も同じ内部状態を持つ** ことになるため、単なる Bag-of-Words モデルと同じような振る舞いをしそう。
+
+Positional Encoding は入力系列に位置に敏感な逐次的な依存性を注入させることで、Transformer モデルが系列データの順序情報を理解できるようにしている。
+
+トークンが生成されると、入力は位置情報が変わることで生成前とは異なる内部状態を持つようになるが、もし Positional Encoding がない場合、トークンが生成され次に進んでも同じ内部状態を持つことになるために **系列情報の順序を理解できなくなる** のではないか。
+:::
+
+直接的な Positional Encoding の効果に関する研究を見つけることができなかったが、Decoder-Only Transformer モデルにおいて Positional Encoding を使わないという選択が有効であることを示し、Transformer 全体への課題として位置関係表現の改善が今後有望であると述べている論文を見つけた。
+
+#### Positional Encoding の効果に関する研究
+
+Positional Encoding が Decoder-Only Transformer モデルの課題である **コンテキスト長の汎化** にどのように影響を与えるかを調査した論文[^4]によると、Positional Encoding はコンテキスト長が長いほど性能が向上することが示されている。
+
+Transformer では再帰的な構造をやめたために、 **入出力が長くなるにつれて性能が低下する** という問題は解決したものの、 **小さいコンテキスト長で学習したモデルがそれ以上の大きな入力に対しては性能が低下する** という新たな問題が発生している。
+
+Positional Encoding はこの問題を解決するために導入されたが、その効果については議論が分かれおり、この論文では
+
+- APE (Absolute Positional Encoding)
+- RPE (Relative PE)
+- ALiBi (Attention with Learned Biases)
+- Rotary
+- No PE (Positional Encoding を適用しない場合)
+
+のような手法を比較し、以下画像のタスクを使い、デコーダーのみの Transformer モデルを使って、さまざまな Positional Encoding の効果を調査している。
+
+![The Impact of Positional Encoding on Length Generalization in Transformers, Figure 1](/images/blogs/report-attention-is-all-you-need/the-impact-of-positional-encoding-on-length-generalization-in-transformers-figure-1.webp)
+
+以下画像はそれぞれのタスクでの単純な精度による比較である。
+
+![The Impact of Positional Encoding on Length Generalization in Transformers, Figure 3](/images/blogs/report-attention-is-all-you-need/the-impact-of-positional-encoding-on-length-generalization-in-transformers-figure-3.webp)
+
+特に Copy と Reverse, Summation のタスクにおいて、NoPE が明らかに問題長に対する精度の低下が緩やかで、その他の Positional Encoding を採用したモデルよりも性能が高いことが示されている。
+
+定量評価より NoPE は暗黙的に絶対位置と相対位置を両方学習することができていることがわかった。
+（長いのでなぜそうなるのかは省略。[^4]の 5.1 節 "NoPE can theoretically represent both absolute and relative PEs" を参照）
+
+最後に、この論文では Positional Encoding が Transformer のコンテキスト長の汎化の課題をもたらしている一因である証拠であることを指摘しており、改善方法として除去または別の方法での位置関係表現が今後有望であると述べている。
+また、特に Decoder-Only Transformer モデルにおいては、Positional Encoding を使わないという選択が有効であることが示された。
+
+[^4]: [Amirhossein Kazemnejad, Inkit Padhi, Karthikeyan Natesan Ramamurthy, Payel Das, Siva Reddy, "The Impact of Positional Encoding on Length Generalization in Transformers", 2023](https://arxiv.org/abs/2305.19466)
