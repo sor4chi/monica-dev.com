@@ -13,9 +13,14 @@ globalStyle("body", {
   height: "100%",
 });
 
+if (process.env.NODE_ENV === "production") {
+  globalStyle("html", {
+    scrollBehavior: "smooth",
+  });
+}
+
 globalStyle("html", {
   scrollPaddingTop: "30dvh",
-  scrollBehavior: "smooth",
 });
 
 globalStyle("*", {
