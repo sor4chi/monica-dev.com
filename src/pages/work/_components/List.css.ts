@@ -1,6 +1,4 @@
 import { slideIn } from "@/styles/animation.css";
-import { focusInteraction } from "@/styles/common.css";
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
@@ -13,20 +11,21 @@ export const styles = {
     gap: vars.spacing.absolute[8],
     gridTemplateColumns: "repeat(auto-fill, minmax(20rem, 1fr))",
   }),
-  item: style([
-    focusInteraction,
-    {
-      opacity: 0,
-      width: "100%",
-      display: "flex",
-      flexDirection: "column",
-      gap: vars.spacing.absolute[4],
-      textDecoration: "none",
-      borderRadius: vars.spacing.absolute[2],
-      animation: `${slideIn} 0.5s ease-out forwards`,
-      transition: "filter 0.3s ease",
+  item: style({
+    opacity: 0,
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: vars.spacing.absolute[4],
+    textDecoration: "none",
+    borderRadius: vars.spacing.absolute[1],
+    animation: `${slideIn} 0.5s ease-out forwards`,
+
+    ":focus-visible": {
+      outline: `2px solid ${vars.color.blue[8]}`,
+      outlineOffset: vars.spacing.absolute[2],
     },
-  ]),
+  }),
   thumbnail: style({
     width: "100%",
     height: "auto",
@@ -34,6 +33,7 @@ export const styles = {
     objectFit: "cover",
     borderRadius: vars.spacing.absolute[2],
     flexShrink: 0,
+    transition: "filter 0.3s ease",
   }),
   content: style({
     display: "flex",
@@ -50,6 +50,7 @@ export const styles = {
     color: vars.color.gray[12],
     fontSize: vars.font.size.lg,
     fontWeight: vars.font.weight.bold,
+    transition: "color 0.3s ease",
   }),
   description: style({
     color: vars.color.gray[11],
@@ -61,10 +62,22 @@ export const styles = {
   }),
 };
 
-globalStyle(`${styles.item}:hover`, {
+globalStyle(`.dark ${styles.item}:hover ${styles.thumbnail}`, {
   "@media": {
     "(hover: hover)": {
       filter: "brightness(0.8)",
     },
   },
+});
+
+globalStyle(`.light ${styles.item}:hover ${styles.thumbnail}`, {
+  "@media": {
+    "(hover: hover)": {
+      filter: "brightness(0.95)",
+    },
+  },
+});
+
+globalStyle(`${styles.item}:hover ${styles.title}`, {
+  color: vars.color.gray[10],
 });
