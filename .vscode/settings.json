@@ -2,5 +2,9 @@
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "textlint.autoFixOnSave": true
+  "textlint.autoFixOnSave": true,
+  "markdown.copyFiles.destination": {
+    "/src/content/blogs/**/*": "/public/images/blogs/${documentBaseName}/",
+    "/src/content/works/**/*": "/public/images/works/${documentBaseName}/"
+  }
 }
