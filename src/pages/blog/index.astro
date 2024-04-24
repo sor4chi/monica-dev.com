@@ -6,7 +6,9 @@ import Item from "./_components/Item.astro";
 import Container from "./_components/Container.astro";
 import Footer from "./_components/Footer.astro";
 import Line from "@/components/ui/Line.astro";
+import { slideIn } from "@/styles/animation.css";
 import type { CollectionEntry } from "astro:content";
+import Section from "./_components/Section.astro";
 
 const [originalBlogs, externalBlogs] = await Promise.all([
   getCollection("blogs"),
@@ -43,13 +45,14 @@ const sortedGroupedBlogs = Object.entries(groupedBlogs)
         ),
       ] as const,
   );
+const animationDelay = 0.1;
 ---
 
 <BaseLayout title="Blog" canonical="/blog" active="/blog">
   <Container>
     {
       sortedGroupedBlogs.map(([year, blogs], i) => (
-        <>
+        <Section index={i}>
           <List title={year} first={i === 0}>
             {blogs.map((blog) => (
               <Item
@@ -60,7 +63,7 @@ const sortedGroupedBlogs = Object.entries(groupedBlogs)
             ))}
           </List>
           {i < sortedGroupedBlogs.length - 1 && <Line />}
-        </>
+        </Section>
       ))
     }
     <Footer />

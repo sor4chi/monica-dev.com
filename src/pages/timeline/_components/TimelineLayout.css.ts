@@ -1,21 +1,11 @@
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const styles = {
   container: style({
     width: "100%",
-    maxWidth: "40rem",
-    margin: "0 auto",
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: vars.spacing.absolute[8],
-
-    "@media": {
-      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        paddingTop: vars.spacing.absolute[12],
-      },
-    },
+    maxWidth: "50rem",
+    margin: `${vars.spacing.relative[8]} auto`,
   }),
   title: style({
     color: vars.color.gray[12],

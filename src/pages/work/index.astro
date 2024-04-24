@@ -2,18 +2,21 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@/components/layouts/Base.astro";
 import List from "./_components/List.astro";
+import WorksLayout from "./_components/WorksLayout.astro";
 
 const works = await getCollection("works");
 ---
 
 <BaseLayout title="Works" canonical="/work" active="/work">
-  <List
-    items={works
-      .sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime())
-      .map((work) => ({
-        title: work.data.title,
-        description: work.data.description,
-        slug: work.slug,
-      }))}
-  />
+  <WorksLayout>
+    <List
+      items={works
+        .sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime())
+        .map((work) => ({
+          title: work.data.title,
+          description: work.data.description,
+          slug: work.slug,
+        }))}
+    />
+  </WorksLayout>
 </BaseLayout>

@@ -1,21 +1,12 @@
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
+import { slideIn } from "@/styles/animation.css";
 import { vars } from "@/styles/theme.css";
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 export const styles = {
   container: style({
     width: "100%",
-    maxWidth: "40rem",
-    margin: "0 auto",
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: vars.spacing.absolute[8],
-
-    "@media": {
-      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        paddingTop: vars.spacing.absolute[12],
-      },
-    },
+    maxWidth: "64rem",
+    margin: `${vars.spacing.absolute[12]} auto`,
   }),
   title: style({
     color: vars.color.gray[12],

@@ -1,0 +1,20 @@
+---
+import { styles } from "./Section.css";
+
+interface Props {
+  index: number;
+}
+
+const { index } = Astro.props;
+
+const animationDelay = 0.1;
+---
+
+<section
+  class={styles.section}
+  style={{
+    animationDelay: `${animationDelay * index}s`,
+  }}
+>
+  <slot />
+</section>

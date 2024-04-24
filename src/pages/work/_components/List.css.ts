@@ -5,8 +5,6 @@ import { globalStyle, style } from "@vanilla-extract/css";
 export const styles = {
   container: style({
     width: "100%",
-    maxWidth: "64rem",
-    margin: `${vars.spacing.absolute[12]} auto`,
     display: "grid",
     gap: vars.spacing.absolute[8],
     gridTemplateColumns: "repeat(auto-fill, minmax(20rem, 1fr))",
