@@ -192,6 +192,7 @@ export const styles = {
         border: `1px solid ${vars.color.gray[4]}`,
         padding: vars.spacing.absolute[4],
         boxSizing: "border-box",
+        fontSize: vars.font.size.sm,
       },
     },
   }),

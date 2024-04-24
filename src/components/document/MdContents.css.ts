@@ -258,7 +258,6 @@ globalStyle(`${styles.contents} .link-card .link-card__domain`, {
 });
 
 globalStyle(`${styles.contents} p`, {
-  fontSize: vars.font.size.base,
   lineHeight: 1.8,
 });
 

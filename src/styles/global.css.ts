@@ -1,13 +1,14 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import { colorVars } from "./contract.css";
+import { vars } from "./theme.css";
 
 globalStyle("body", {
-  backgroundColor: colorVars.gray[2],
+  backgroundColor: vars.color.gray[2],
   fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+  fontSize: vars.font.size.base,
   margin: 0,
   padding: 0,
-  color: colorVars.gray[11],
+  color: vars.color.gray[11],
 
   minHeight: "100dvh",
   height: "100%",
@@ -30,5 +31,5 @@ globalStyle("*", {
 });
 
 globalStyle("::selection", {
-  backgroundColor: colorVars.gray[5],
+  backgroundColor: vars.color.gray[5],
 });
