@@ -6,6 +6,6 @@ date: 2021-04-01
 ---
 
 埼玉大学の工学部情報工学科に進学
-[Maximum](https://maximum.vc/) というサークルでWebの開発と講師を担当
+[Maximum](https://maximum.vc/) というサークルで Web の開発と講師を担当
 
 https://maximum.vc/

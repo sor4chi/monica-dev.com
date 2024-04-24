@@ -34,7 +34,7 @@ npm install twrangler # local install
 
 ```ts
 // wrangler.config.ts
-import { defineConfig } from 'twrangler'
+import { defineConfig } from "twrangler";
 
 import { defineConfig } from "twrangler";
 
