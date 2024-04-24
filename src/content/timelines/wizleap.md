@@ -5,9 +5,5 @@ link: https://wizleap.co.jp/
 date: 2022-01-27
 ---
 
-インターンとして 1 年半程度、フロントエンドを中心に [保険代理店向けSaaS](https://wizleap.co.jp/service/) の開発に携わる。
-他、TypeScript 化や社内 UI ライブラリ [Wiz UI](https://github.com/Wizleap-Inc/wiz-ui) による開発効率化、CI/CD、エッジサーバー環境の構築などを行った。
-
-https://github.com/Wizleap-Inc/wiz-ui
-
-<!-- ![Wiz UIのGithub](https://opengraph.githubassets.com/bb0e9bede55202ff77d814f196094724a2592b4b9b8cb12bf6b422d7dae41c03/Wizleap-Inc/wiz-ui) -->
+フルスタックで 1年半 新規開発・インフラ構築・UI基盤構築に携わる
+(インターン)
