@@ -26,7 +26,6 @@ const { slug, title, createdAt, authors } = Astro.props;
     src={`/images/works/${slug}/hero-800.webp`}
     alt={title}
     class={styles.heroImage}
-    transition:name={`works-hero-${slug}`}
     loading="eager"
   />
   <slot />

@@ -1,16 +1,40 @@
 ---
+import { Image } from "astro:assets";
 import { styles } from "./List.css";
 interface Props {
-  title: string;
+  items: {
+    slug: string;
+    title: string;
+    description: string;
+  }[];
 }
 
-const { title } = Astro.props;
+const { items } = Astro.props;
+const animationDelay = 0.1;
 ---
 
-<div class={styles.container}>
-  <h2 class={styles.title}>{title}</h2>
-  <ul class={styles.listContainer}>
-    <slot />
-  </ul>
+<div class={styles.container} transition:persist>
+  {
+    items.map(({ slug, title, description }, i) => (
+      <a
+        href={`/work/${slug}`}
+        class={styles.item}
+        style={{
+          animationDelay: `${animationDelay * i}s`,
+        }}
+      >
+        <Image
+          width={320}
+          height={168}
+          src={`/images/works/${slug}/hero-640.webp`}
+          alt={title}
+          class={styles.thumbnail}
+        />
+        <span class={styles.content}>
+          <strong class={styles.title}>{title}</strong>
+          <p class={styles.description}>{description}</p>
+        </span>
+      </a>
+    ))
+  }
 </div>
-

@@ -37,7 +37,7 @@ const main = async () => {
   const originalImages = images.filter((image) => !isOptimizedPath(image));
   await Promise.all(optimizedImages.map((image) => rm(image)));
   await Promise.all(originalImages.map((image) => resize(image, 800)));
-  await Promise.all(originalImages.map((image) => resize(image, 160)));
+  await Promise.all(originalImages.map((image) => resize(image, 640)));
 };
 
 main();
