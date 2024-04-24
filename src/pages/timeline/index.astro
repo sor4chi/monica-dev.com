@@ -11,6 +11,7 @@ const sortedTimelines = await Promise.all(
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
     .map(async (timeline) => ({
       ...timeline,
+      isBodyExist: !!timeline.body,
       content: await timeline.render(),
     })),
 );
@@ -19,19 +20,29 @@ const sortedTimelines = await Promise.all(
 <BaseLayout title="Timelines" canonical="/timeline" active="/timeline">
   <List>
     {
-      sortedTimelines.map((timeline) => (
-        <Item
-          title={timeline.data.title}
-          slug={timeline.slug}
-          date={timeline.data.date}
-          icon={timeline.data.icon}
-          link={timeline.data.link}
-        >
-          <MdContents>
-            <timeline.content.Content />
-          </MdContents>
-        </Item>
-      ))
+      sortedTimelines.map((timeline) =>
+        timeline.isBodyExist ? (
+          <Item
+            title={timeline.data.title}
+            slug={timeline.slug}
+            date={timeline.data.date}
+            icon={timeline.data.icon}
+            link={timeline.data.link}
+          >
+            <MdContents>
+              <timeline.content.Content />
+            </MdContents>
+          </Item>
+        ) : (
+          <Item
+            title={timeline.data.title}
+            slug={timeline.slug}
+            date={timeline.data.date}
+            icon={timeline.data.icon}
+            link={timeline.data.link}
+          />
+        ),
+      )
     }
   </List>
 </BaseLayout>

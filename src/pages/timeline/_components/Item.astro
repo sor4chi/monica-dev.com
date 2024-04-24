@@ -68,6 +68,12 @@ const { slug, title, date, icon, link } = Astro.props;
         }
       </time>
     </span>
-    <slot />
+    {
+      Astro.slots.has("default") && (
+        <div class={styles.content}>
+          <slot />
+        </div>
+      )
+    }
   </td>
 </tr>

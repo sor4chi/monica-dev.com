@@ -1,31 +1,46 @@
 import { focusInteraction } from "@/styles/common.css";
 import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { vars } from "@/styles/theme.css";
-import { globalStyle, style } from "@vanilla-extract/css";
+import { createVar, globalStyle, style } from "@vanilla-extract/css";
 
-const ICON_SIZE = "3rem";
+const iconSize = createVar();
+const tableHGap = createVar();
+const tableVGap = createVar();
 const DOT_SIZE = "0.5rem";
 const LINE_WIDTH = "2px";
 
-const row = style({});
-
 export const styles = {
-  row,
+  row: style({
+    vars: {
+      [iconSize]: "3rem",
+      [tableHGap]: vars.spacing.absolute[4],
+      [tableVGap]: vars.spacing.absolute[6],
+    },
+
+    "@media": {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
+        vars: {
+          [iconSize]: "2rem",
+          [tableHGap]: vars.spacing.absolute[3],
+        },
+      },
+    },
+  }),
   col: style({
     verticalAlign: "top",
     paddingLeft: vars.spacing[0],
-    paddingBottom: vars.spacing.absolute[4],
+    paddingBottom: tableVGap,
     paddingTop: vars.spacing[0],
   }),
   iconCol: style({
-    width: ICON_SIZE,
-    paddingRight: vars.spacing.relative[4],
+    width: iconSize,
+    paddingRight: tableHGap,
     position: "relative",
   }),
   pointContainer: style({
     position: "relative",
-    width: "3rem",
-    height: "3rem",
+    width: iconSize,
+    height: iconSize,
   }),
   icon: style({
     width: "100%",
@@ -40,8 +55,8 @@ export const styles = {
     transform: "translate(-50%, -50%)",
     display: "block",
     borderRadius: vars.spacing.full,
-    width: ICON_SIZE,
-    height: ICON_SIZE,
+    width: iconSize,
+    height: iconSize,
     padding: vars.spacing.absolute[2],
     zIndex: 1,
     backgroundColor: vars.color.gray[1],
@@ -79,8 +94,8 @@ export const styles = {
   }),
   line: style({
     position: "absolute",
-    top: `calc(${ICON_SIZE} / 2)`,
-    left: `calc(${ICON_SIZE} / 2 - ${LINE_WIDTH} / 2)`,
+    top: `calc(${iconSize} / 2)`,
+    left: `calc(${iconSize} / 2 - ${LINE_WIDTH} / 2)`,
     display: "block",
     width: LINE_WIDTH,
     height: "100%",
@@ -91,7 +106,7 @@ export const styles = {
     width: "100%",
   }),
   dateCol: style({
-    width: ICON_SIZE,
+    width: iconSize,
     textAlign: "right",
     paddingRight: vars.spacing.relative[4],
 
@@ -106,7 +121,7 @@ export const styles = {
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
-    height: ICON_SIZE,
+    height: iconSize,
     gap: vars.spacing.absolute[4],
 
     "@media": {
@@ -123,7 +138,7 @@ export const styles = {
     color: vars.color.gray[10],
     fontSize: vars.font.size.sm,
     whiteSpace: "nowrap",
-    lineHeight: ICON_SIZE,
+    lineHeight: iconSize,
 
     "@media": {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
@@ -158,14 +173,27 @@ export const styles = {
 
     "@media": {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        lineHeight: vars.spacing.absolute[8],
-        margin: `calc((${ICON_SIZE} - ${vars.spacing.absolute[8]}) / 2) 0`,
+        lineHeight: 1,
+        marginBottom: vars.spacing.absolute[2],
       },
     },
   }),
   description: style({
     color: vars.color.gray[11],
     fontSize: vars.font.size.sm,
+  }),
+  content: style({
+    "@media": {
+      [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
+        transform: `translateX(calc(-1 * (${iconSize} + ${tableHGap})))`,
+        width: `calc(100% + ${iconSize} + ${tableHGap})`,
+        backgroundColor: vars.color.gray[2],
+        borderRadius: vars.spacing.absolute[2],
+        border: `1px solid ${vars.color.gray[4]}`,
+        padding: vars.spacing.absolute[4],
+        boxSizing: "border-box",
+      },
+    },
   }),
 };
 
