@@ -17,4 +17,7 @@ export const styles = {
     color: vars.color.gray[11],
     marginBottom: vars.spacing.absolute[8],
   }),
+  timelineTable: style({
+    width: "100%",
+  }),
 };
