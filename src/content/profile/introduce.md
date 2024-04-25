@@ -11,13 +11,7 @@ socials:
 21 歳の Web Developer です。
 北海道出身で、現在は [埼玉大学](http://www.saitama-u.ac.jp/)・情報工学科の 4 年生です。
 
-現在は [Sor4chi](https://github.com/sor4chi) (Github) や [Monica](https://x.com/sor4chi) (X) という名前で活動しています。
-
-Web フロントエンド・バックエンド・インフラなどを触っており、最近は Edge Workers と言語設計、k8s、DS に興味がありま
-
-趣味は![Honoのロゴ](https://hono.dev/images/logo.png)[Hono](https://hono.dev) など自分が好きな OSS への Contribute や、自作の OSS 開発などです。 Hono の周辺ライブラリを開発しています。
-
-Web 関連の大会が好きで、 [ISUCON](https://isucon.net) や [Web Speed Hackathon](https://cyberagent.connpass.com/event/270424/) などによく参加しています。
+[Sor4chi](https://github.com/sor4chi) (Github) や [Monica](https://x.com/sor4chi) (X) という名前で活動しています。
 
 :::
 
