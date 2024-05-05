@@ -28,3 +28,7 @@ g@sor4chi , g@thirofoo , g@seiei-n の３人で、深層強化学習を用いて
 技術的な解説は以下のスライドや g@thirofoo のブログ記事にまとめています。もし興味があればそちらもご覧ください。
 
 <https://zenn.dev/through/articles/ebe77ac5d02f2d>
+
+また、最終発表に使用したスライドは以下になります。
+
+<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/712caed0a4844905a2dd69741dda05a1" title="深層強化学習を用いたテトリスBotの作成の試行" allowfullscreen="true" style="border: 0px; background: padding-box padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 315;" data-ratio="1.7777777777777777"></iframe>
