@@ -14,6 +14,11 @@ export async function GET() {
       description: data.description,
       link: `${SITE_BASE_URL}/blog/${slug}`,
       pubDate: data.publishedAt,
+      enclosure: {
+        url: `${SITE_BASE_URL}/images/ogp/blogs/${slug}.png`,
+        type: "image/png",
+        length: 1,
+      },
     })),
     customData: "<language>ja</language>",
     stylesheet: "/feed.xsl",
