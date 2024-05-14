@@ -98,3 +98,113 @@ Figure 1 に示されているように、GPT (GPT-1)時代の 117M パラメー
 
 GPT-2 は結果として、教師なしで学習した言語モデルが勝手に多様なタスクに対して適応できることを示すことができた。
 また、パラメータの数が増えるにつれて性能が向上することが示された。しかし GPT-2 の 1.5B パラメータでさえも Web Text(今回作成されたデータセット)に対してはまだアンダーフィットしていることが Figure 4 で示されており、さらにパラメータを増やすことで性能が向上する可能性があることが示唆されている。
+
+## 議論
+
+### BPB と BPC の計算方法
+
+BPB (Bits per Byte) は **1Byte をエンコードするのに必要な平均ビット数** であり、BPC (Bits per Character) は **1文字をエンコードするのに必要な平均ビット数** である。
+
+- 圧縮前の文字列のバイト長: $\text{unCompressedBytes}$
+- 圧縮前の文字列の文字数: $\text{unCompressedChars}$
+- 圧縮後のバイト長を $\text{compressedBytes}$
+
+とすると、$\text{compressedBits} = \text{compressedBytes} \times 8$ となるため
+
+BPB と BPC は以下のように計算される。
+
+$$
+\text{BPB} = \frac{\text{compressedBits}}{\text{unCompressedBytes}}
+$$
+
+$$
+\text{BPC} = \frac{\text{compressedBits}}{\text{unCompressedChars}}
+$$
+
+この時 Character は ASCII Extended における 1 文字を指す。
+
+<https://vaclavkosar.com/ml/bits-per-byte-and-bits-per-character>
+
+### enwik8 text8 について
+
+論文中に登場する enwik8 と text8 はどのようなデータセットなのか調査したい。
+
+#### enwik8
+
+> The enwik8 dataset is the first 100,000,000 (100M) bytes of the English Wikipedia XML dump on Mar. 3, 2006 and is typically used to measure a model's ability to compress data.
+
+つまり、enwik8 は 2006 年 3 月 3 日の英語版 Wikipedia の XML ダンプの最初の 100,000,000 バイトを指し、データ圧縮の能力を測定するために使用されるデータセットである。
+そのままの XML タグや Wiki 記法などが含まれている。
+
+<https://huggingface.co/datasets/enwik8>
+
+#### text8
+
+> The test data for the Large Text Compression Benchmark is the first 10^9 bytes of the English Wikipedia dump on Mar. 3, 2006.
+
+text8 は 2006 年 3 月 3 日の英語版 Wikipedia のダンプの最初の 10^9 バイトを指す。
+XML などの構造をクリーニング等の処理により取り除き、純粋なテキストデータとして処理されたデータセットである。
+
+<https://mattmahoney.net/dc/textdata.html>
+
+<!-- - WebText(データセット)をどう使って学習したかの工夫を探す（あるかわからないので調べて欲しい） -->
+
+### WebTextをどうやって学習させたか
+
+初代 GPT と同じアーキテクチャで学習させたとあるため、おそらくは GPT と同じように予測以前のコンテキスト（トークン列）を与えて次のトークンを予測するように学習させたのではないかと考える。
+(読んだ限り具体的な学習方法の工夫に関する記述はなかったように思う)
+
+### Appendix
+
+論文末びの Appendix には、GPT-2 のモデルで生成された文章の例が掲載されている。
+
+#### WebTextの継続文章生成
+
+学習に使われていない未知の WebText 文章の冒頭を与えると、その文章の続きを生成することができることが示されている。
+左側の文章は最小のモデル（おそらく 117M パラメータ）で生成されたもので、右側の文章は最大のモデル（1.5B パラメータ）で生成されたものである。
+英語に関してネイティブではないのでどれくらいナチュラルな文章が生成されているのか評価するのは難しかった...
+
+### 人間が書いた文章の継続文章生成
+
+人間が書いた文章の冒頭を与えると、その文章の続きを生成することができることが示されている。
+これは学習したテキストの分布外の文章に対しても適切に生成できることを示している。
+（ユニコーンの話では途中から文脈が破綻してはいるが、それでもなんとなく話が続いている）
+
+### 文章要約生成
+
+完全に意味を履き違えた要約を生成していそう。あまり精度が高いとは言えない感じがした。
+（要約の生成例が掲載されているが、読んでいる限りでは要約の生成方法に関する記述はなかった）
+
+### 文章翻訳生成
+
+固有名詞の欠落や文章のそもそもの意味違いが散見されあまり精度が良いとは言えない感じがした。
+（翻訳の生成例が掲載されているが、読んでいる限りでは翻訳の生成方法に関する記述はなかった）
+
+### QA生成
+
+このテストは CoQA (A Conversational Question Answering Challenge) データセット[^3]を用いて行われた。
+
+[^3]: [CoQA: A Conversational Question Answering Challenge](https://arxiv.org/abs/1808.07042)
+
+複数の質問のうち、ある質問が過去の質問のコンテキストに依存する場合が多く難しいタスクである。
+
+冒頭に文章があり、その文章の QA を複数列挙した後、Q を与えて A を生成することができることが示されている。(Few-shot)
+
+**Given context:**
+
+```txt
+[Topic Context]
+
+Q: ~
+A: ~
+
+... x 5 ...
+
+Q: ~
+A:
+```
+
+実験では最後「そして彼らは山を登りましたか？」という質問に対して、人間は「はい」や「わかりません」といった答えを期待するが、モデルは「エベレスト」という答えを生成している。
+また、別の実験では「彼女はどこに住んでいますか？」という質問に対して、人間は文章中に出てくる「スウェーデン」という答えを期待するが、モデルは「ストックホルム」と、文章中には出てこない情報を生成している。
+
+このように、モデルは文章中の情報を適切に理解しているとは言い難い結果となっている。
