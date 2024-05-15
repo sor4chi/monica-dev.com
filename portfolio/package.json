@@ -11,7 +11,7 @@
     "build": "npm run generate:ogp && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write ./src && textlint --fix ./src/**/*.md",
+    "fix": "prettier --write ./src && textlint --fix ./src/**/*.md",
     "optimize": "tsx ./scripts/optimize",
     "generate:ogp": "tsx ./scripts/ogp",
     "prebuild": "npm run optimize"

@@ -1,35 +1,40 @@
 import { visit } from "unist-util-visit";
 
+import type { Node, Paragraph } from "mdast";
 import { createRemarkPlugin } from "../utils/remark-factory";
 
-const isBlockImage = (node: any) => {
-  if (node.type !== "paragraph") {
-    return false;
-  }
+const isParagraph = (node: Node): node is Paragraph => {
+	return node.type === "paragraph";
+};
 
-  if (node.children.length !== 1) {
-    return false;
-  }
+const isBlockImage = (node: Node) => {
+	if (!isParagraph(node)) {
+		return false;
+	}
 
-  const child = node.children[0];
+	if (node.children.length !== 1) {
+		return false;
+	}
 
-  if (child.type !== "image") {
-    return false;
-  }
+	const child = node.children[0];
 
-  return true;
+	if (child.type !== "image") {
+		return false;
+	}
+
+	return true;
 };
 
 export const remarkBlockImage = createRemarkPlugin(() => {
-  return (tree) => {
-    visit(tree, isBlockImage, (node) => {
-      node.data = {
-        ...node.data,
-        hProperties: {
-          ...node.data?.hProperties,
-          className: ["block-image"],
-        },
-      };
-    });
-  };
+	return (tree) => {
+		visit(tree, isBlockImage, (node) => {
+			node.data = {
+				...node.data,
+				hProperties: {
+					...node.data?.hProperties,
+					className: ["block-image"],
+				},
+			};
+		});
+	};
 });

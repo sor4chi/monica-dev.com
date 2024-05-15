@@ -1,6 +1,11 @@
 {
-  "name": "website",
-  "devDependencies": {
-    "@biomejs/biome": "^1.7.3"
-  }
+	"name": "website",
+	"scripts": {
+		"fix:unified-plugins": "pnpm --filter unified-plugins run fix",
+		"fix:portfolio": "pnpm --filter portfolio run fix",
+		"fix": "pnpm run fix:unified-plugins && pnpm run fix:portfolio"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.7.3"
+	}
 }

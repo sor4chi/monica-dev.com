@@ -3,19 +3,19 @@ import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
 export const rehypeScrollableTable: Plugin<[], Root> = () => {
-  return (tree) => {
-    visit(tree, "element", (node, index, parent) => {
-      if (!parent) return;
-      if (!index) return;
-      if (node.tagName !== "table") return;
-      parent.children[index] = {
-        type: "element",
-        tagName: "div",
-        properties: {
-          className: ["scrollable-table"],
-        },
-        children: [node],
-      };
-    });
-  };
+	return (tree) => {
+		visit(tree, "element", (node, index, parent) => {
+			if (!parent) return;
+			if (!index) return;
+			if (node.tagName !== "table") return;
+			parent.children[index] = {
+				type: "element",
+				tagName: "div",
+				properties: {
+					className: ["scrollable-table"],
+				},
+				children: [node],
+			};
+		});
+	};
 };
