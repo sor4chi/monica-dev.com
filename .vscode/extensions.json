@@ -1,8 +1,8 @@
 {
-  "recommendations": [
-    "astro-build.astro-vscode",
-    "esbenp.prettier-vscode",
-    "taichi.vscode-textlint"
-  ],
-  "unwantedRecommendations": []
+	"recommendations": [
+		"astro-build.astro-vscode",
+		"esbenp.prettier-vscode",
+		"taichi.vscode-textlint"
+	],
+	"unwantedRecommendations": []
 }

@@ -1,0 +1,8 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# cloudflare wrangler
+.wrangler
+.cache

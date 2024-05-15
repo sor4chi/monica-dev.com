@@ -1,10 +1,12 @@
 {
-  "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "textlint.autoFixOnSave": true,
-  "markdown.copyFiles.destination": {
-    "/src/content/blogs/**/*": "/public/images/blogs/${documentBaseName}/",
-    "/src/content/works/**/*": "/public/images/works/${documentBaseName}/"
-  }
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"textlint.autoFixOnSave": true,
+	"markdown.copyFiles.destination": {
+		"/src/content/blogs/**/*": "/public/images/blogs/${documentBaseName}/",
+		"/src/content/works/**/*": "/public/images/works/${documentBaseName}/"
+	},
+	"prettier.enable": false,
+	"biome.enabled": true
 }
