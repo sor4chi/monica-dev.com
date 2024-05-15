@@ -1,6 +1,6 @@
 import remarkDirective from "remark-directive";
 import remarkParse from "remark-parse";
-import remarkFlexBlock from "./remark-flex-block";
+import { remarkFlexBlock } from "./remark-flex-block";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import { describe, expect, it } from "vitest";

@@ -9,9 +9,12 @@ import type {
   Parent,
   Root,
 } from "mdast";
-import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
-import type { Handler } from "mdast-util-to-hast";
+import {
+  createRehypeHandlers,
+  createRemarkPlugin,
+  createRemarkRehypePlugin,
+} from "../utils/remark-factory";
 
 export interface Details extends Parent {
   type: "details";
@@ -29,10 +32,10 @@ declare module "mdast" {
 }
 
 const isParagraph = (
-  node: BlockContent | DefinitionContent,
+  node: BlockContent | DefinitionContent
 ): node is Paragraph => node.type === "paragraph";
 
-const remarkDetails: Plugin<[], Root> = () => {
+const plugin = createRemarkPlugin(() => {
   return (tree: Root) => {
     visit(tree, (node, index, parent) => {
       if (node.type !== "containerDirective") return;
@@ -58,21 +61,23 @@ const remarkDetails: Plugin<[], Root> = () => {
       parent?.children?.splice(index, 1, details);
     });
   };
-};
+});
 
-export default remarkDetails;
+const handlers = createRehypeHandlers({
+  details: (state, node: Details) => {
+    const hastElement = h(
+      "details",
+      h("summary", state.all(node.summary)),
+      h(
+        "div",
+        {
+          className: "details-contents markdown-contents",
+        },
+        state.all(node)
+      )
+    );
+    return hastElement;
+  },
+});
 
-export const remarkDetailsHandler: Handler = (state, node: Details, parent) => {
-  const hastElement = h(
-    "details",
-    h("summary", state.all(node.summary)),
-    h(
-      "div",
-      {
-        className: "details-contents markdown-contents",
-      },
-      state.all(node),
-    ),
-  );
-  return hastElement;
-};
+export const remarkDetails = createRemarkRehypePlugin(plugin, handlers);

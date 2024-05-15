@@ -5,7 +5,7 @@ import rehypeStringify from "rehype-stringify";
 import { describe, expect, it } from "vitest";
 import { format } from "prettier";
 import { unified } from "unified";
-import remarkTimeline, { remarkTimelineHandler } from "./remark-timeline";
+import { remarkTimeline } from "./remark-timeline";
 
 describe("remarkTimeline", () => {
   it("should convert timeline syntax to valid html", async () => {
@@ -42,7 +42,7 @@ This is a timeline item 2
       .use(remarkTimeline)
       .use(remarkRehype, {
         handlers: {
-          timeline: remarkTimelineHandler,
+          ...remarkTimeline.handlers,
         },
       })
       .use(rehypeStringify)

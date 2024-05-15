@@ -1,6 +1,6 @@
 import remarkDirective from "remark-directive";
 import remarkParse from "remark-parse";
-import remarkLinkCard from "./remark-link-card";
+import { remarkLinkCard } from "./remark-link-card";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import { describe, expect, it } from "vitest";

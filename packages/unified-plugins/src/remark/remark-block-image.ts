@@ -1,7 +1,6 @@
-import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
-import type { Root } from "mdast";
+import { createRemarkPlugin } from "../utils/remark-factory";
 
 const isBlockImage = (node: any) => {
   if (node.type !== "paragraph") {
@@ -21,7 +20,7 @@ const isBlockImage = (node: any) => {
   return true;
 };
 
-const remarkBlockImage: Plugin<[], Root> = () => {
+export const remarkBlockImage = createRemarkPlugin(() => {
   return (tree) => {
     visit(tree, isBlockImage, (node) => {
       node.data = {
@@ -33,6 +32,4 @@ const remarkBlockImage: Plugin<[], Root> = () => {
       };
     });
   };
-};
-
-export default remarkBlockImage;
+});

@@ -2,6 +2,7 @@ import { visit } from "unist-util-visit";
 
 import type { Parent, Node } from "mdast";
 import type { Transformer } from "unified";
+import { createRemarkPlugin } from "../utils/remark-factory";
 
 const isNode = (node: unknown): node is Node => {
   if (node === null || typeof node !== "object") {
@@ -41,7 +42,7 @@ const isBlockLink = (node: unknown, _index: unknown, parent: unknown) => {
   return true;
 };
 
-const plugin = function linkCardTrans(): Transformer {
+export const remarkLinkCard = createRemarkPlugin(() => {
   return async (tree) => {
     const promises: Promise<void>[] = [];
 
@@ -70,12 +71,10 @@ const plugin = function linkCardTrans(): Transformer {
                 ["data-favicon"]: data.favicon,
               },
             };
-          }),
+          })
       );
     });
 
     await Promise.all(promises);
   };
-};
-
-export default plugin;
+});

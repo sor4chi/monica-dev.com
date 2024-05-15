@@ -1,3 +1,4 @@
+import { Root } from "hast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
@@ -59,14 +60,12 @@ const COPY_BUTTON = html`
   </button>
 `;
 
-const plugin: Plugin = () => (tree) => {
-  visit(tree, "raw", (node: { value: string; type: string }) => {
+export const rehypeCodeBlockCopy: Plugin<[], Root> = () => (tree) => {
+  visit(tree, "raw", (node) => {
     if (!node.value.startsWith("<pre")) return;
     node.value = node.value.replace(
       PRE_REGEX,
-      `<div class="code-block"><pre>${COPY_BUTTON}$1</pre></div>`,
+      `<div class="code-block"><pre>${COPY_BUTTON}$1</pre></div>`
     );
   });
 };
-
-export default plugin;

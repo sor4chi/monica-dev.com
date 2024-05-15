@@ -4,6 +4,7 @@ import { visit } from "unist-util-visit";
 
 import type { Root } from "mdast";
 import type { ContainerDirective } from "mdast-util-directive";
+import { createRemarkPlugin } from "../utils/remark-factory";
 
 const isFlexBlock = (node: any): node is ContainerDirective => {
   if (node.type !== "containerDirective") {
@@ -17,7 +18,7 @@ const isFlexBlock = (node: any): node is ContainerDirective => {
   return true;
 };
 
-const remarkFlexBlock: Plugin<[], Root> = () => {
+export const remarkFlexBlock = createRemarkPlugin(() => {
   return (tree) => {
     visit(tree, isFlexBlock, (node) => {
       node.data = {
@@ -28,6 +29,4 @@ const remarkFlexBlock: Plugin<[], Root> = () => {
       };
     });
   };
-};
-
-export default remarkFlexBlock;
+});

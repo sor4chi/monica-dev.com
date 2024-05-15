@@ -1,25 +1,27 @@
 import { defineConfig } from "astro/config";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
-import remarkMath from "remark-math";
-import remarkBreaks from "remark-breaks";
-import remarkLinkCard from "./src/libs/remark-link-card";
-import rehypeCodeBlockCopy from "./src/libs/rehype-code-block-copy";
-import rehypeKatex from "rehype-katex";
-import rehypeSlug from "rehype-slug";
-import remarkDirective from "remark-directive";
-import remarkFlexBlock from "./src/libs/remark-flex-block";
-import remarkBlockImage from "./src/libs/remark-block-image";
-import remarkTimeline, {
-  remarkTimelineHandler,
-} from "./src/libs/remark-timeline";
-import remarkEmbed, { remarkEmbedHandlers } from "./src/libs/remark-embed";
-import remarkDetails, { remarkDetailsHandler } from "./src/libs/remark-details";
-import remarkSection, { remarkSectionHandler } from "./src/libs/remark-section";
-import remarkMention from "./src/libs/remark-mention";
-import rehypeScrollableTable from "./src/libs/rehype-scrollable-table";
-import rehypeHeadLinker from "./src/libs/rehype-head-linker";
-import rehypeAnnotationBlock from "./src/libs/rehype-annotation-block";
-import rehypeLinkCard from "./src/libs/rehype-link-card";
+import {
+  rehypeCodeBlockCopy,
+  rehypeScrollableTable,
+  rehypeHeadLinker,
+  rehypeAnnotationBlock,
+  rehypeLinkCard,
+  rehypeKatex,
+  rehypeSlug,
+} from "unified-plugins/rehype";
+import {
+  remarkLinkCard,
+  remarkFlexBlock,
+  remarkBlockImage,
+  remarkTimeline,
+  remarkEmbed,
+  remarkDetails,
+  remarkSection,
+  remarkMention,
+  remarkBreaks,
+  remarkMath,
+  remarkDirective,
+} from "unified-plugins/remark";
 import react from "@astrojs/react";
 import partytown from "@astrojs/partytown";
 
@@ -58,10 +60,10 @@ export default defineConfig({
     ],
     remarkRehype: {
       handlers: {
-        timeline: remarkTimelineHandler,
-        section: remarkSectionHandler,
-        details: remarkDetailsHandler,
-        ...remarkEmbedHandlers,
+        ...remarkTimeline.handlers,
+        ...remarkSection.handlers,
+        ...remarkDetails.handlers,
+        ...remarkEmbed.handlers,
       },
     },
   },

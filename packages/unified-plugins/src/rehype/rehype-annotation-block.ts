@@ -1,11 +1,12 @@
 import type { Element, ElementContent } from "hast";
+import { Root } from "hast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
 const findMatchedChildren = (node: Element, match: RegExp) => {
   const findTextDeep = (
     node: ElementContent,
-    match: RegExp,
+    match: RegExp
   ): (string | null)[] | string | null => {
     if ("children" in node) {
       return node.children.map((child) => findTextDeep(child, match)).flat();
@@ -24,8 +25,8 @@ const findMatchedChildren = (node: Element, match: RegExp) => {
 
 const ANNOTATION_REGEX = /\[!(WARNING|IMPORTANT|NOTE)\]/;
 
-const plugin: Plugin = () => (tree) => {
-  visit(tree, "element", (node: Element) => {
+export const rehypeAnnotationBlock: Plugin<[], Root> = () => (tree) => {
+  visit(tree, "element", (node) => {
     if (["blockquote"].includes(node.tagName)) {
       const [matches] = findMatchedChildren(node, ANNOTATION_REGEX);
       if (matches) {
@@ -42,5 +43,3 @@ const plugin: Plugin = () => (tree) => {
     }
   });
 };
-
-export default plugin;

@@ -3,9 +3,12 @@
 
 import { h } from "hastscript";
 import type { Parent, Root } from "mdast";
-import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
-import type { Handler } from "mdast-util-to-hast";
+import {
+  createRehypeHandlers,
+  createRemarkPlugin,
+  createRemarkRehypePlugin,
+} from "../utils/remark-factory";
 
 export interface Youtube extends Parent {
   type: "youtube";
@@ -21,7 +24,7 @@ declare module "mdast" {
   }
 }
 
-const remarkEmbed: Plugin<[], Root> = () => {
+const plugin = createRemarkPlugin(() => {
   return (tree: Root) => {
     visit(tree, (node, index, parent) => {
       if (node.type !== "leafDirective") return;
@@ -40,12 +43,10 @@ const remarkEmbed: Plugin<[], Root> = () => {
       parent?.children?.splice(index, 1, youtube);
     });
   };
-};
+});
 
-export default remarkEmbed;
-
-export const remarkEmbedHandlers: Record<string, Handler> = {
-  youtube: (state, node: Youtube, parent) => {
+const handlers = createRehypeHandlers({
+  youtube: (_, node: Youtube) => {
     const hastElement = h(
       "iframe",
       {
@@ -64,8 +65,10 @@ export const remarkEmbedHandlers: Record<string, Handler> = {
           height: "auto",
         },
       },
-      [],
+      []
     );
     return hastElement;
   },
-};
+});
+
+export const remarkEmbed = createRemarkRehypePlugin(plugin, handlers);

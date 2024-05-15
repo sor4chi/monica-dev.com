@@ -2,7 +2,7 @@ import type { Root } from "hast";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
-const rehypeScrollableTable: Plugin<[], Root> = () => {
+export const rehypeScrollableTable: Plugin<[], Root> = () => {
   return (tree) => {
     visit(tree, "element", (node, index, parent) => {
       if (!parent) return;
@@ -19,5 +19,3 @@ const rehypeScrollableTable: Plugin<[], Root> = () => {
     });
   };
 };
-
-export default rehypeScrollableTable;
