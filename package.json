@@ -1,0 +1,6 @@
+{
+  "name": "website",
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.3"
+  }
+}
