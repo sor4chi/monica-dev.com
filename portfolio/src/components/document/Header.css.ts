@@ -1,6 +1,6 @@
 import { BREAKPOINT_MOBILE } from "@/styles/constants";
-import { vars } from "@/styles/theme.css";
 import { style } from "@vanilla-extract/css";
+import { vars } from "design-system/theme.css";
 
 export const styles = {
   header: style({

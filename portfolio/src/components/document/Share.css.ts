@@ -1,7 +1,6 @@
-import { focusInteraction } from "@/styles/common.css";
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
-import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
+import { focusInteraction } from "design-system/common.css";
+import { vars } from "design-system/theme.css";
 
 export const styles = {
   links: style({

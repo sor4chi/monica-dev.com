@@ -1,7 +1,6 @@
-import { focusInteraction } from "@/styles/common.css";
 import { BREAKPOINT_MOBILE } from "@/styles/constants";
-import { vars } from "@/styles/theme.css";
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
+import { vars } from "design-system/theme.css";
 
 const iconSize = createVar();
 const tableHGap = createVar();

@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { CONTAINER_GAP, BREAKPOINT_TABLET } from "../../../../styles/constants";
+import { BREAKPOINT_TABLET, CONTAINER_GAP } from "@/styles/constants";
 
 export const styles = {
   container: style({

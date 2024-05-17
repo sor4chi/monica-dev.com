@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 import { BREAKPOINT_MOBILE } from "@/styles/constants";
-import { vars } from "@/styles/theme.css";
+import { vars } from "design-system/theme.css";
 
 export const styles = {
   onlySP: style({

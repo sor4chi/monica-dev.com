@@ -1,4 +1,4 @@
-import { sumOfRems } from "@/styles/utils";
+import { sumOfRems } from "./utils";
 
 export const CONTAINER_GAP = "1.5rem";
 export const ASIDE_WIDTH = "15rem";

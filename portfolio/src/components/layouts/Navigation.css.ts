@@ -2,8 +2,8 @@ import {
   LAYOUT_CONTAINER_SIDE_PADDING,
   NAVIGATION_AREA_WIDTH,
 } from "@/styles/constants";
-import { vars } from "@/styles/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
+import { vars } from "design-system/theme.css";
 
 export const styles = {
   backward: style({

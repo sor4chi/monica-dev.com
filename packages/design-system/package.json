@@ -1,0 +1,17 @@
+{
+	"name": "design-system",
+	"type": "module",
+	"scripts": {
+		"check": "biome check .",
+		"fix": "biome check --apply ."
+	},
+	"exports": {
+		"./*": "./src/*.ts"
+	},
+	"dependencies": {
+		"@vanilla-extract/css": "^1.13.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.12.12"
+	}
+}

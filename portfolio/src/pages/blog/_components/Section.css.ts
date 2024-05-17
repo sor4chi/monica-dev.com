@@ -1,4 +1,4 @@
-import { slideIn } from "@/styles/animation.css";
+import { slideIn } from "design-system/animation.css";
 import { style } from "@vanilla-extract/css";
 
 export const styles = {

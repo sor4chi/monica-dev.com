@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
-import { CONTAINER_GAP, BREAKPOINT_TABLET } from "../../../../styles/constants";
-import { vars } from "@/styles/theme.css";
+import { BREAKPOINT_TABLET } from "@/styles/constants";
+import { vars } from "design-system/theme.css";
 
 export const styles = {
   container: style({

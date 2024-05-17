@@ -1,6 +1,6 @@
-import { vars } from "@/styles/theme.css";
+import { ARTICLE_WIDTH, BREAKPOINT_MOBILE } from "@/styles/constants";
 import { style } from "@vanilla-extract/css";
-import { ARTICLE_WIDTH, BREAKPOINT_MOBILE } from "../../../../styles/constants";
+import { vars } from "design-system/theme.css";
 
 export const styles = {
   article: style({

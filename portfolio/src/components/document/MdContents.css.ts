@@ -1,7 +1,7 @@
-import { slideIn } from "@/styles/animation.css";
-import { BREAKPOINT_TABLET, BREAKPOINT_MOBILE } from "@/styles/constants";
-import { vars } from "@/styles/theme.css";
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
+import { slideIn } from "design-system/animation.css";
+import { vars } from "design-system/theme.css";
 
 export const styles = {
   contents: style({}),
