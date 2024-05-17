@@ -1,7 +1,8 @@
 {
 	"textlint.autoFixOnSave": true,
 	"markdown.copyFiles.destination": {
-		"/src/content/blogs/**/*": "/public/images/blogs/${documentBaseName}/",
-		"/src/content/works/**/*": "/public/images/works/${documentBaseName}/"
-	}
+		"/portfolio/src/content/blogs/**/*": "/portfolio/public/images/blogs/${documentBaseName}/",
+		"/portfolio/src/content/works/**/*": "/portfolio/public/images/works/${documentBaseName}/"
+	},
+	"biome.enabled": true
 }
