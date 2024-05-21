@@ -372,7 +372,7 @@ const annotationColorRGBVar = createVar();
 globalStyle(`${styles.contents} blockquote.annotation-block`, {
 	padding: `${vars.spacing.relative[2]} ${vars.spacing.relative[4]}`,
 	borderRadius: vars.spacing.absolute[2],
-	color: vars.color.gray[12],
+	color: vars.color.gray[11],
 });
 
 globalStyle(`.dark ${styles.contents} blockquote.annotation-block`, {
