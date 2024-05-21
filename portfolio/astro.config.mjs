@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import {
   rehypeCodeBlockCopy,
-  rehypeScrollableTable,
   rehypeHeadLinker,
   rehypeAnnotationBlock,
   rehypeKatex,
@@ -54,7 +53,6 @@ export default defineConfig({
       rehypeHeadLinker,
       rehypeAnnotationBlock,
       rehypeCodeBlockCopy,
-      rehypeScrollableTable,
     ],
     remarkRehype: {
       handlers: {
