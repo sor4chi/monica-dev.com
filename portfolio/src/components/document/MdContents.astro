@@ -8,6 +8,11 @@ import clsx from "clsx";
 </div>
 
 <script>
+  import { SITE_BASE_URL } from "@/config";
+  import van from "vanjs-core";
+
+  const { div, img, span, a } = van.tags;
+
   const initCodeblock = () => {
     const codeCopyButtons = document.querySelectorAll(".code-copy-button");
     codeCopyButtons.forEach((button) => {
@@ -47,9 +52,73 @@ import clsx from "clsx";
     });
   };
 
+  const LinkCardComponent = ({ url }) => {
+    const isInternalLink = url.startsWith("/");
+    const fullUrl = isInternalLink ? SITE_BASE_URL + url : url;
+    const linkInfo = van.state({
+      title: "Loading...",
+      description: "",
+      imageUrl: "",
+      faviconUrl: "",
+    });
+
+    fetch(`https://embed.monica-dev.com/meta?url=${fullUrl}`)
+      .then((res) => res.json())
+      .then((data) => {
+        linkInfo.val = data;
+      })
+      .catch(() => {
+        linkInfo.val = {
+          title: url,
+          description: "",
+          imageUrl: "",
+          faviconUrl: "",
+        };
+      });
+
+    return a(
+      {
+        class: "link-card",
+        href: url || "",
+        target: isInternalLink ? "" : "_blank",
+        rel: isInternalLink ? "" : "noopener noreferrer",
+      },
+      [
+        () =>
+          linkInfo.val.imageUrl &&
+          img({
+            class: "link-card__image",
+            src: linkInfo.val.imageUrl,
+            alt: linkInfo.val.title,
+          }),
+        div({ class: "link-card__content" }, [
+          span({ class: "link-card__title" }, () => linkInfo.val.title),
+          div({ class: "link-card__meta" }, [
+            () =>
+              linkInfo.val.faviconUrl &&
+              span({
+                class: "link-card__favicon",
+                style: `background-image: url(${linkInfo.val.faviconUrl});`,
+              }),
+            div({ class: "link-card__domain" }, new URL(fullUrl).hostname),
+          ]),
+        ]),
+      ]
+    );
+  };
+
+  const initLinkCard = () => {
+    const links = document.querySelectorAll(".markdown-contents a.link-card");
+    links.forEach((link) => {
+      const url = link.getAttribute("href");
+      link.replaceWith(LinkCardComponent({ url }));
+    });
+  };
+
   const init = () => {
     initCodeblock();
     initAnnotationBlock();
+    initLinkCard();
   };
 
   init();

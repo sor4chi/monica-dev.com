@@ -140,6 +140,9 @@ importers:
       unified-plugins:
         specifier: workspace:^
         version: link:../packages/unified-plugins
+      vanjs-core:
+        specifier: ^1.5.0
+        version: 1.5.0
     devDependencies:
       '@astrojs/partytown':
         specifier: ^2.0.4
@@ -7474,6 +7477,10 @@ packages:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
     dev: true
+
+  /vanjs-core@1.5.0:
+    resolution: {integrity: sha512-kOM9XVOciL9Q3Ihn3ruycTL5NCvuR5Ub7wwQIU9sZJdMBWSxesbeyN3+PWceLz57ImgHTF0eOVvhkoKJLlE3hw==}
+    dev: false
 
   /vfile-location@4.1.0:
     resolution: {integrity: sha512-YF23YMyASIIJXpktBa4vIGLJ5Gs88UB/XePgqPmTa7cDA+JeO3yclbpheQYCHjVHBn/yePzrXuygIL+xbvRYHw==}

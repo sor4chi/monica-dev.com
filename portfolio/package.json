@@ -30,7 +30,8 @@
     "mikanjs": "^1.0.14",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "unified-plugins": "workspace:^"
+    "unified-plugins": "workspace:^",
+    "vanjs-core": "^1.5.0"
   },
   "devDependencies": {
     "@astrojs/partytown": "^2.0.4",

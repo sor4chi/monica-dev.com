@@ -1,7 +1,12 @@
 import { visit } from "unist-util-visit";
 
-import type { Node, Parent } from "mdast";
-import { createRemarkPlugin } from "../utils/remark-factory";
+import type { Link, LinkData, Node, Parent, PhrasingContent } from "mdast";
+import {
+	createRehypeHandlers,
+	createRemarkPlugin,
+	createRemarkRehypePlugin,
+} from "../utils/remark-factory";
+import { h } from "hastscript";
 
 const isNode = (node: unknown): node is Node => {
 	if (node === null || typeof node !== "object") {
@@ -15,65 +20,55 @@ const isParent = (node: unknown): node is Parent => {
 	return isNode(node) && Array.isArray((node as Parent).children);
 };
 
-const isBlockLink = (node: unknown, _index: unknown, parent: unknown) => {
-	if (!isParent(node) || !isParent(parent)) {
-		return false;
+export interface BlockLink extends Omit<Link, "type"> {
+	type: "blockLink";
+	children: PhrasingContent[];
+	data?: LinkData | undefined;
+}
+
+declare module "mdast" {
+	interface BlockContentMap {
+		blockLink: BlockLink;
 	}
-
-	if (["footnoteDefinition", "listItem"].includes(parent.type)) {
-		return false;
+	interface RootContentMap {
+		blockLink: BlockLink;
 	}
+}
 
-	if (node.type !== "paragraph") {
-		return false;
-	}
-
-	if (node.children.length !== 1) {
-		return false;
-	}
-
-	const child = node.children[0];
-
-	if (child.type !== "link") {
-		return false;
-	}
-
-	return true;
-};
-
-export const remarkLinkCard = createRemarkPlugin(() => {
+const plugin = createRemarkPlugin(() => {
 	return async (tree) => {
-		const promises: Promise<void>[] = [];
+		visit(tree, (node, index, parent) => {
+			if (index === undefined) return;
+			if (!isNode(node) || !isParent(parent)) return;
+			if (["footnoteDefinition", "listItem"].includes(parent.type)) return;
+			if (node.type !== "paragraph") return;
+			if (node.children.length !== 1) return;
 
-		visit(tree, isBlockLink, (node, _index) => {
-			// @ts-expect-error
 			const child = node.children[0];
 
-			if (!child.url.startsWith("http")) {
-				return;
-			}
+			if (child.type !== "link") return;
 
-			promises.push(
-				fetch(`https://monica-dev.com/api/embed-link?url=${child.url}`)
-					.then((res) => res.json())
-					.then((data) => {
-						if (data.error) {
-							return;
-						}
+			const newNode: BlockLink = {
+				...child,
+				type: "blockLink",
+			};
 
-						child.data = {
-							...child.data,
-							hProperties: {
-								...child.data?.hProperties,
-								"data-title": data.title,
-								"data-image": data.image,
-								"data-favicon": data.favicon,
-							},
-						};
-					}),
-			);
+			parent.children.splice(index, 1, newNode);
 		});
-
-		await Promise.all(promises);
 	};
 });
+
+const handlers = createRehypeHandlers({
+	blockLink: (state, node: BlockLink) => {
+		const hastElement = h(
+			"a.link-card",
+			{
+				href: node.url,
+			},
+			state.all(node),
+		);
+		return hastElement;
+	},
+});
+
+export const remarkLinkCard = createRemarkRehypePlugin(plugin, handlers);

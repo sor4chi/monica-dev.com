@@ -5,7 +5,6 @@ import {
   rehypeScrollableTable,
   rehypeHeadLinker,
   rehypeAnnotationBlock,
-  rehypeLinkCard,
   rehypeKatex,
   rehypeSlug,
 } from "unified-plugins/rehype";
@@ -55,11 +54,11 @@ export default defineConfig({
       rehypeHeadLinker,
       rehypeAnnotationBlock,
       rehypeCodeBlockCopy,
-      rehypeLinkCard,
       rehypeScrollableTable,
     ],
     remarkRehype: {
       handlers: {
+        ...remarkLinkCard.handlers,
         ...remarkTimeline.handlers,
         ...remarkSection.handlers,
         ...remarkDetails.handlers,
