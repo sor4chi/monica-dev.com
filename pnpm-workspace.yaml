@@ -1,4 +1,3 @@
 packages:
-  - portfolio
-  - embed
+  - apps/*
   - packages/*
