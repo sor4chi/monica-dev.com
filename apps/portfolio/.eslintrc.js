@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["../../.eslintrc.base.js", "plugin:astro/recommended"],
+  extends: ["../../.eslintrc.js", "plugin:astro/recommended"],
   settings: {
     "import/core-modules": [
       "astro:content",
