@@ -1,34 +1,33 @@
 {
-	"name": "unified-plugins",
-	"type": "module",
-	"scripts": {
-		"check": "biome check .",
-		"fix": "biome check --apply ."
-	},
-	"exports": {
-		"./remark": "./src/remark/index.ts",
-		"./rehype": "./src/rehype/index.ts"
-	},
-	"devDependencies": {
-		"@types/hast": "^3.0.1",
-		"@types/mdast": "^4.0.2",
-		"prettier": "^3.0.3",
-		"rehype-stringify": "^10.0.0",
-		"remark-directive": "^3.0.0",
-		"remark-parse": "^11.0.0",
-		"remark-rehype": "^11.0.0",
-		"unified": "^11.0.3",
-		"unist-util-visit": "^5.0.0",
-		"vitest": "^1.6.0"
-	},
-	"dependencies": {
-		"hastscript": "^8.0.0",
-		"mdast-util-directive": "^3.0.0",
-		"mdast-util-to-hast": "^13.0.2",
-		"rehype-katex": "^6.0.3",
-		"rehype-slug": "^6.0.0",
-		"remark-breaks": "^4.0.0",
-		"remark-directive": "^3.0.0",
-		"remark-math": "^5.1.1"
-	}
+  "name": "unified-plugins",
+  "scripts": {
+    "check": "biome check .",
+    "fix": "prettier --write ./src && eslint --fix ./src"
+  },
+  "exports": {
+    "./remark": "./src/remark/index.ts",
+    "./rehype": "./src/rehype/index.ts"
+  },
+  "devDependencies": {
+    "@types/hast": "^3.0.1",
+    "@types/mdast": "^4.0.2",
+    "prettier": "^3.0.3",
+    "rehype-stringify": "^10.0.0",
+    "remark-directive": "^3.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.0.0",
+    "unified": "^11.0.3",
+    "unist-util-visit": "^5.0.0",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "hastscript": "^8.0.0",
+    "mdast-util-directive": "^3.0.0",
+    "mdast-util-to-hast": "^13.0.2",
+    "rehype-katex": "^6.0.3",
+    "rehype-slug": "^6.0.0",
+    "remark-breaks": "^4.0.0",
+    "remark-directive": "^3.0.0",
+    "remark-math": "^5.1.1"
+  }
 }
