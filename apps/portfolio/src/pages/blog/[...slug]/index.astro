@@ -1,18 +1,20 @@
 ---
-import BaseLayout from "@/components/layouts/Base.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
-import Container from "./_components/Container.astro";
-import Aside from "./_components/Aside.astro";
-import Article from "./_components/Article.astro";
-import Link from "@/components/ui/Link.astro";
-import MdContets from "@/components/document/MdContents.astro";
+
 import FooterNav from "@/components/document/FooterNav.astro";
-import Line from "@/components/ui/Line.astro";
+import MdContets from "@/components/document/MdContents.astro";
 import Share from "@/components/document/Share.astro";
+import BaseLayout from "@/components/layouts/Base.astro";
+import Line from "@/components/ui/Line.astro";
+import Link from "@/components/ui/Link.astro";
+import { getBlogSourceUrl } from "@/utils/blog";
+
+import Article from "./_components/Article.astro";
+import Aside from "./_components/Aside.astro";
+import Bottom from "./_components/Bottom.astro";
+import Container from "./_components/Container.astro";
 import Left from "./_components/Left.astro";
 import Right from "./_components/Right.astro";
-import { getBlogSourceUrl } from "@/utils/blog";
-import Bottom from "./_components/Bottom.astro";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("blogs");

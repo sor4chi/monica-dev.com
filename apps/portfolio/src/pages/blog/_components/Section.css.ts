@@ -1,5 +1,5 @@
-import { slideIn } from "design-system/animation.css";
 import { style } from "@vanilla-extract/css";
+import { slideIn } from "design-system/animation.css";
 
 export const styles = {
   section: style({

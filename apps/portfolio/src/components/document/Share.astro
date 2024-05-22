@@ -1,11 +1,14 @@
 ---
+import { clsx } from "clsx";
+
+import { SITE_BASE_URL } from "@/config";
+
+import Check from "../ui/icon/Check.astro";
 import Copy from "../ui/icon/Copy.astro";
 import Github from "../ui/icon/Github.astro";
-import Check from "../ui/icon/Check.astro";
 import X from "../ui/icon/X.astro";
+
 import { styles } from "./Share.css";
-import { clsx } from "clsx";
-import { SITE_BASE_URL } from "@/config";
 
 interface Props {
   pathname: string;

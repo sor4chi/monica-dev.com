@@ -1,7 +1,8 @@
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
 import { slideIn } from "design-system/animation.css";
 import { vars } from "design-system/theme.css";
+
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 
 export const styles = {
   contents: style({}),

@@ -1,11 +1,14 @@
 ---
 import "@/styles/global.css";
-import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/config";
-import type { NavKinds } from "./Navigation.astro";
 import { ViewTransitions } from "astro:transitions";
-import RightTopArea from "./RightTopArea.astro";
-import Navigation from "./Navigation.astro";
+
+import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/config";
+
 import { styles } from "./Base.css";
+import Navigation from "./Navigation.astro";
+import RightTopArea from "./RightTopArea.astro";
+
+import type { NavKinds } from "./Navigation.astro";
 
 interface Props {
   title?: string;

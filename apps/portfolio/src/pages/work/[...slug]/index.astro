@@ -1,15 +1,17 @@
 ---
-import BaseLayout from "@/components/layouts/Base.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
-import Container from "./_components/Container.astro";
-import Aside from "./_components/Aside.astro";
-import Article from "./_components/Article.astro";
-import Link from "@/components/ui/Link.astro";
+
 import MdContets from "@/components/document/MdContents.astro";
-import Left from "./_components/Left.astro";
-import Bottom from "./_components/Bottom.astro";
-import Right from "./_components/Right.astro";
+import BaseLayout from "@/components/layouts/Base.astro";
+import Link from "@/components/ui/Link.astro";
 import { getWorkSourceUrl } from "@/utils/work";
+
+import Article from "./_components/Article.astro";
+import Aside from "./_components/Aside.astro";
+import Bottom from "./_components/Bottom.astro";
+import Container from "./_components/Container.astro";
+import Left from "./_components/Left.astro";
+import Right from "./_components/Right.astro";
 
 export async function getStaticPaths() {
   const works = await getCollection("works");

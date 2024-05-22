@@ -1,5 +1,6 @@
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { style } from "@vanilla-extract/css";
+
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 
 export const styles = {
   container: style({

@@ -1,6 +1,8 @@
-import { BREAKPOINT_TABLET } from "@/styles/constants";
 import { globalStyle, style } from "@vanilla-extract/css";
 import { vars } from "design-system/theme.css";
+
+import { BREAKPOINT_TABLET } from "@/styles/constants";
+
 import { TOP_PADDING_LG } from "../layouts/Base.css";
 
 export const styles = {

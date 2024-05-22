@@ -1,5 +1,6 @@
-import { ARTICLE_WIDTH } from "@/styles/constants";
 import { style } from "@vanilla-extract/css";
+
+import { ARTICLE_WIDTH } from "@/styles/constants";
 
 export const styles = {
   container: style({

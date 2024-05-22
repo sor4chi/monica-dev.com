@@ -1,6 +1,7 @@
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
 import { vars } from "design-system/theme.css";
+
+import { BREAKPOINT_MOBILE } from "@/styles/constants";
 
 const iconSize = createVar();
 const tableHGap = createVar();
@@ -168,7 +169,9 @@ export const styles = {
     color: vars.color.gray[12],
     fontSize: vars.font.size.lg,
     fontWeight: vars.font.weight.bold,
-    wordBreak: "auto-phrase" as any,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    wordBreak: "auto-phrase",
 
     "@media": {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {

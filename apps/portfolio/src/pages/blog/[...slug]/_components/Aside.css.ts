@@ -1,10 +1,11 @@
+import { style } from "@vanilla-extract/css";
+import { vars } from "design-system/theme.css";
+
 import {
   ASIDE_WIDTH,
   BREAKPOINT_MOBILE,
   BREAKPOINT_TABLET,
 } from "@/styles/constants";
-import { style } from "@vanilla-extract/css";
-import { vars } from "design-system/theme.css";
 
 export const styles = {
   aside: style({

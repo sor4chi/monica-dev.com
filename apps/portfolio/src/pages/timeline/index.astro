@@ -1,9 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "@/components/layouts/Base.astro";
-import TimelineLayout from "./_components/TimelineLayout.astro";
-import Item from "./_components/Item.astro";
+
 import MdContents from "@/components/document/MdContents.astro";
+import BaseLayout from "@/components/layouts/Base.astro";
+
+import Item from "./_components/Item.astro";
+import TimelineLayout from "./_components/TimelineLayout.astro";
 
 const timelines = await getCollection("timelines");
 const sortedTimelines = await Promise.all(

@@ -1,5 +1,4 @@
 import { globalStyle } from "@vanilla-extract/css";
-
 import { vars } from "design-system/theme.css";
 
 globalStyle("body", {

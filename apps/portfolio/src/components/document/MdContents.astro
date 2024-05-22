@@ -1,6 +1,7 @@
 ---
-import { styles } from "./MdContents.css";
 import clsx from "clsx";
+
+import { styles } from "./MdContents.css";
 ---
 
 <div class={clsx(styles.contents, "markdown-contents")}>
@@ -8,8 +9,9 @@ import clsx from "clsx";
 </div>
 
 <script>
-  import { SITE_BASE_URL } from "@/config";
   import van from "vanjs-core";
+
+  import { SITE_BASE_URL } from "@/config";
 
   const { div, img, span, a } = van.tags;
 

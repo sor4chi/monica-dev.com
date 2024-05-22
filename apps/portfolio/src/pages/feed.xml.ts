@@ -1,6 +1,8 @@
-import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/config";
-import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+
+import rss from "@astrojs/rss";
+
+import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/config";
 
 export async function GET() {
   const blogs = await getCollection("blogs");

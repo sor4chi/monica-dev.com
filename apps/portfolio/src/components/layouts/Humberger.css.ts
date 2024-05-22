@@ -1,7 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-
-import { vars } from "design-system/theme.css";
 import { focusInteraction } from "design-system/common.css";
+import { vars } from "design-system/theme.css";
 
 export const styles = {
   button: style([

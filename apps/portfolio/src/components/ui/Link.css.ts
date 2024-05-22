@@ -1,6 +1,6 @@
+import { globalStyle, style } from "@vanilla-extract/css";
 import { focusInteraction } from "design-system/common.css";
 import { vars } from "design-system/theme.css";
-import { globalStyle, style } from "@vanilla-extract/css";
 
 export const styles = {
   link: style([

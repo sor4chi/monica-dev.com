@@ -1,14 +1,18 @@
 ---
 import { getCollection } from "astro:content";
+
+import { slideIn } from "design-system/animation.css";
+
 import BaseLayout from "@/components/layouts/Base.astro";
-import List from "./_components/List.astro";
-import Item from "./_components/Item.astro";
+import Line from "@/components/ui/Line.astro";
+
 import Container from "./_components/Container.astro";
 import Footer from "./_components/Footer.astro";
-import Line from "@/components/ui/Line.astro";
-import { slideIn } from "design-system/animation.css";
-import type { CollectionEntry } from "astro:content";
+import Item from "./_components/Item.astro";
+import List from "./_components/List.astro";
 import Section from "./_components/Section.astro";
+
+import type { CollectionEntry } from "astro:content";
 
 const [originalBlogs, externalBlogs] = await Promise.all([
   getCollection("blogs"),
@@ -16,7 +20,7 @@ const [originalBlogs, externalBlogs] = await Promise.all([
 ]);
 
 const isExternalBlog = (
-  blog: any,
+  blog: unknown,
 ): blog is CollectionEntry<"externalBlogs"> => {
   return "url" in blog.data;
 };
