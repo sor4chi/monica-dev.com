@@ -3,7 +3,6 @@ export * from "./remark-details";
 export * from "./remark-embed";
 export * from "./remark-flex-block";
 export * from "./remark-link-card";
-export * from "./remark-block-image";
 export * from "./remark-mention";
 export * from "./remark-section";
 export * from "./remark-timeline";
