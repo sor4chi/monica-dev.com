@@ -2,7 +2,7 @@
   "name": "unified-plugins",
   "scripts": {
     "check": "biome check .",
-    "fix": "prettier --write ./src && eslint --fix ./src"
+    "fix": "eslint --fix ./src && prettier --write ./src"
   },
   "exports": {
     "./remark": "./src/remark/index.ts",

@@ -3,7 +3,7 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "fix": "prettier --write ./src && eslint --fix ./src",
+    "fix": "eslint --fix ./src && prettier --write ./src",
     "test": "vitest"
   },
   "devDependencies": {

@@ -10,7 +10,7 @@
     "build": "npm run generate:ogp && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fix": "prettier --write ./src && textlint --fix ./src/**/*.md",
+    "fix": "eslint --fix ./src && prettier --write ./src && textlint --fix ./src/**/*.md",
     "optimize": "tsx ./scripts/optimize",
     "generate:ogp": "tsx ./scripts/ogp",
     "prebuild": "npm run optimize"
@@ -39,6 +39,7 @@
     "@vanilla-extract/css": "^1.13.0",
     "@vanilla-extract/vite-plugin": "^3.9.0",
     "canvas": "^2.11.2",
+    "eslint-plugin-astro": "^1.2.0",
     "glob": "^10.3.10",
     "js-md5": "^0.8.3",
     "js-yaml": "^4.1.0",
