@@ -5,7 +5,7 @@ import { BREAKPOINT_TABLET } from "@/styles/constants";
 
 export const styles = {
   container: style({
-    marginTop: vars.spacing.absolute[8],
+    marginTop: vars.spacing.absolute[4],
   }),
   notPC: style({
     display: "none",
