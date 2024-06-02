@@ -1,6 +1,10 @@
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+} from "@shikijs/transformers";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { defineConfig } from "astro/config";
 import {
@@ -31,7 +35,22 @@ export default defineConfig({
   },
   site: SITE_BASE_URL,
   markdown: {
-    syntaxHighlight: "prism",
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      themes: {
+        dark: "one-dark-pro",
+        light: "one-light",
+      },
+      transformers: [
+        transformerNotationDiff(),
+        transformerNotationHighlight(),
+        // ref: https://github.com/shikijs/shiki/issues/690
+        {
+          name: "shiki:remove-escape",
+          postprocess: (c) => c.replace(/\[\\!code/g, "[!code"),
+        },
+      ],
+    },
     remarkPlugins: [
       remarkMath,
       remarkBreaks,

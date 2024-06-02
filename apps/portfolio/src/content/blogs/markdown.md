@@ -112,6 +112,10 @@ This is a [link](https://www.google.com). The format is below.
 
 ## Code Blocks
 
+This renderer supports [Shiki](https://shiki.matsu.io/) for syntax highlighting.
+
+### Language Specified
+
 ```javascript
 function mandelbrot(c, maxIterations) {
   let z = 0;
@@ -143,6 +147,74 @@ function mandelbrot(c, maxIterations) {
   }
   return n + 1 - Math.log(Math.log2(Math.abs(z)));
 }
+```
+````
+
+### Highlight Line Notation
+
+```ts
+import { Hono } from 'hono';
+import { compress } from 'hono/compress'; // [!code highlight]
+
+const app = new Hono();
+
+app.use(compress()); // [!code highlight]
+
+app.get('/', (c) => c.json({ message: 'Hello, World!' }));
+
+export default hono;
+```
+
+This is a code block.
+
+````markdown
+```ts
+import { Hono } from 'hono';
+import { compress } from 'hono/compress'; // [\!code highlight]
+
+const app = new Hono();
+
+app.use(compress()); // [\!code highlight]
+
+app.get('/', (c) => c.json({ message: 'Hello, World!' }));
+
+export default hono;
+```
+````
+
+### Diff Line Notation
+
+```ts
+import { Hono } from 'hono';
+import { compress } from 'hono/compress'; // [!code --]
+import { etag } from 'hono/etag'; // [!code ++]
+
+const app = new Hono();
+
+app.use(compress()); // [!code --]
+app.use(etag()); // [!code ++]
+
+app.get('/', (c) => c.json({ message: 'Hello, World!' }));
+
+export default hono;
+```
+
+This is a code block.
+
+````markdown
+```ts
+import { Hono } from 'hono';
+import { compress } from 'hono/compress'; // [\!code --]
+import { etag } from 'hono/etag'; // [\!code ++]
+
+const app = new Hono();
+
+app.use(compress()); // [\!code --]
+app.use(etag()); // [\!code ++]
+
+app.get('/', (c) => c.json({ message: 'Hello, World!' }));
+
+export default hono;
 ```
 ````
 

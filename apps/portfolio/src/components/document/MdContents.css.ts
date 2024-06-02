@@ -457,11 +457,13 @@ globalStyle(`${styles.contents} :not(pre) > code`, {
   wordBreak: "break-word",
 });
 
+const CODEBLOCK_PADDING = vars.spacing.absolute[4];
+
 globalStyle(`${styles.contents} pre`, {
   border: `1px solid ${vars.color.gray[4]}`,
   backgroundColor: `${vars.color.gray[2]} !important`,
-  padding: vars.spacing.relative[4],
-  borderRadius: vars.spacing.relative[2],
+  padding: CODEBLOCK_PADDING,
+  borderRadius: vars.spacing.absolute[2],
   overflowX: "auto",
   overflowY: "hidden",
 });
@@ -584,4 +586,66 @@ globalStyle(`${styles.contents} .timeline-item:has(+ .timeline-item)::before`, {
 
 globalStyle(`${styles.contents} .timeline-item:has(+ .timeline-item)`, {
   paddingBottom: vars.spacing.absolute[8],
+});
+
+// ref: https://docs.astro.build/en/guides/markdown-content/#shiki-configuration
+globalStyle(
+  `.dark ${styles.contents} .astro-code, .dark ${styles.contents} .astro-code span`,
+  {
+    color: "var(--shiki-dark) !important",
+    fontStyle: "var(--shiki-dark-font-style) !important",
+    fontWeight: "var(--shiki-dark-font-weight) !important",
+    textDecoration: "var(--shiki-dark-text-decoration) !important",
+  },
+);
+
+globalStyle(`${styles.contents} .astro-code .line.highlighted`, {
+  width: `calc(100% + ${CODEBLOCK_PADDING} * 2)`,
+  margin: `0 calc(-1 * ${CODEBLOCK_PADDING})`,
+  padding: `0 ${CODEBLOCK_PADDING}`,
+  display: "inline-block",
+  backgroundColor: `${vars.color.gray[4]} !important`,
+});
+
+globalStyle(`${styles.contents} .astro-code .line.highlighted`, {
+  display: "inline-block",
+  backgroundColor: `${vars.color.gray[4]} !important`,
+});
+
+const diffColorVars = createVar();
+
+globalStyle(`${styles.contents} .astro-code .line.diff.add`, {
+  vars: {
+    [diffColorVars]: `16, 185, 129`,
+  },
+});
+
+globalStyle(`${styles.contents} .astro-code .line.diff.remove`, {
+  vars: {
+    [diffColorVars]: `244, 63, 94`,
+  },
+});
+
+globalStyle(`${styles.contents} .astro-code .line.diff`, {
+  position: "relative",
+  width: `calc(100% + ${CODEBLOCK_PADDING} * 2)`,
+  margin: `0 calc(-1 * ${CODEBLOCK_PADDING})`,
+  padding: `0 ${CODEBLOCK_PADDING}`,
+  display: "inline-block",
+  backgroundColor: `rgba(${diffColorVars}, .08)`,
+});
+
+globalStyle(`${styles.contents} .astro-code .line.diff:before`, {
+  content: '"+"',
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "1rem",
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: `rgba(${diffColorVars}, .8)`,
+  fontWeight: vars.font.weight.normal,
+  fontSize: vars.font.size.xs,
 });

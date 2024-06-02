@@ -106,6 +106,9 @@ importers:
       '@cloudflare/workers-types':
         specifier: ^4.20231016.0
         version: 4.20240512.0
+      '@shikijs/transformers':
+        specifier: ^1.6.1
+        version: 1.6.1
       '@types/js-yaml':
         specifier: ^4.0.9
         version: 4.0.9
@@ -1427,6 +1430,9 @@ packages:
 
   '@shikijs/core@1.6.1':
     resolution: {integrity: sha512-CqYyepN4SnBopaoXYwng4NO8riB5ask/LTCkhOFq+GNGtr2X+aKeD767eYdqYukeixEUvv4bXdyTYVaogj7KBw==}
+
+  '@shikijs/transformers@1.6.1':
+    resolution: {integrity: sha512-m/h2Dh99XWvTzHL8MUQmEnrB+/gxDljIfgDNR00Zg941KENqORx8Hi9sKpGYjCgXoEJKASZlEMQdPnkHj9/8aQ==}
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
@@ -5626,6 +5632,10 @@ snapshots:
     optional: true
 
   '@shikijs/core@1.6.1': {}
+
+  '@shikijs/transformers@1.6.1':
+    dependencies:
+      shiki: 1.6.1
 
   '@sinclair/typebox@0.27.8': {}
 
