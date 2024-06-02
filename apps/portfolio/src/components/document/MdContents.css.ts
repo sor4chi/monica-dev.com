@@ -345,6 +345,7 @@ globalStyle(`${styles.contents} details`, {
   lineHeight: 1,
   border: `1px solid ${vars.color.gray[4]}`,
   borderRadius: vars.spacing.absolute[2],
+  overflow: "hidden",
 });
 
 globalStyle(`${styles.contents} details > summary`, {
