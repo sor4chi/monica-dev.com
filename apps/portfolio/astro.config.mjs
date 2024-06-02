@@ -1,5 +1,8 @@
-import { defineConfig } from "astro/config";
+import partytown from "@astrojs/partytown";
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import { defineConfig } from "astro/config";
 import {
   rehypeCodeBlockCopy,
   rehypeHeadLinker,
@@ -10,7 +13,6 @@ import {
 import {
   remarkLinkCard,
   remarkFlexBlock,
-  remarkBlockImage,
   remarkTimeline,
   remarkEmbed,
   remarkDetails,
@@ -20,10 +22,7 @@ import {
   remarkMath,
   remarkDirective,
 } from "unified-plugins/remark";
-import react from "@astrojs/react";
-import partytown from "@astrojs/partytown";
 
-import sitemap from "@astrojs/sitemap";
 import { SITE_BASE_URL } from "./src/config";
 
 // https://astro.build/config
@@ -40,7 +39,6 @@ export default defineConfig({
       remarkLinkCard,
       remarkDirective,
       remarkFlexBlock,
-      remarkBlockImage,
       remarkTimeline,
       remarkSection,
       remarkMention,

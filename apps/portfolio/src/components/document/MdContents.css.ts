@@ -448,11 +448,7 @@ globalStyle(`${styles.contents} :not(pre) > code`, {
   wordBreak: "break-word",
 });
 
-globalStyle(`${styles.contents} .code-block`, {
-  position: "relative",
-});
-
-globalStyle(`${styles.contents} .code-block pre`, {
+globalStyle(`${styles.contents} pre`, {
   border: `1px solid ${vars.color.gray[4]}`,
   backgroundColor: `${vars.color.gray[2]} !important`,
   padding: vars.spacing.relative[4],
@@ -461,98 +457,19 @@ globalStyle(`${styles.contents} .code-block pre`, {
   overflowY: "hidden",
 });
 
-globalStyle(`${styles.contents} .code-block code`, {
+globalStyle(`${styles.contents} pre > code`, {
   fontSize: vars.font.size.sm,
   fontFamily: "Menlo, Monaco, Consolas, 'Courier New', monospace",
   lineHeight: 1.8,
 });
 
-globalStyle(`${styles.contents} .code-block .code-copy-button`, {
-  position: "absolute",
-  top: `calc(${vars.spacing.relative[2]} + 1px / 2)`, // gap of code block 1 line
-  right: vars.spacing.relative[2],
-  width: "2rem",
-  height: "2rem",
-  color: vars.color.gray[9],
-  backgroundColor: vars.color.gray[3],
-  borderRadius: vars.spacing.absolute[2],
-  border: "none",
-  cursor: "pointer",
-  opacity: 0,
-  transition: "opacity 0.2s ease-in-out, background-color 0.2s ease-in-out",
-});
-
-globalStyle(`${styles.contents} .code-block:hover .code-copy-button`, {
-  "@media": {
-    "(hover: hover)": {
-      opacity: 1,
-    },
-  },
-});
-
-globalStyle(`${styles.contents} .code-block .code-copy-button svg`, {
-  position: "absolute",
-  inset: 0,
-  margin: "auto",
-  width: "1rem",
-  height: "1rem",
-});
-
-globalStyle(
-  `${styles.contents} .code-block .code-copy-button .code-check-icon`,
-  {
-    opacity: 0,
-    transition: "opacity 0.2s ease-in-out",
-  },
-);
-
-globalStyle(
-  `${styles.contents} .code-block .code-copy-button.copied .code-check-icon`,
-  {
-    opacity: 1,
-    color: vars.color.gray[10],
-  },
-);
-
-globalStyle(
-  `${styles.contents} .code-block .code-copy-button .code-copy-icon`,
-  {
-    opacity: 1,
-    transition: "opacity 0.2s ease-in-out",
-  },
-);
-
-globalStyle(
-  `${styles.contents} .code-block .code-copy-button.copied .code-copy-icon`,
-  {
-    opacity: 0,
-  },
-);
-
-globalStyle(`${styles.contents} .code-block .code-copy-button:hover`, {
-  backgroundColor: vars.color.gray[4],
-});
-
-globalStyle(`${styles.contents} .code-block .code-copy-button:focus-visible`, {
-  outline: "none",
-  boxShadow: `0 0 0 2px ${vars.color.blue[8]}`,
-  opacity: 1,
-});
-
-globalStyle(`${styles.contents} .block-image > img`, {
+globalStyle(`${styles.contents} img`, {
   width: vars.spacing.full,
   height: "auto",
   borderRadius: vars.spacing.absolute[2],
   margin: `${vars.spacing.relative[4]} 0`,
   border: `1px solid ${vars.color.gray[6]}`,
   backgroundColor: vars.color.gray[4],
-});
-
-globalStyle(`${styles.contents} :not(.block-image) > img`, {
-  margin: `0 ${vars.spacing.relative[1]}`,
-  width: "auto",
-  height: "1.25em",
-  verticalAlign: "middle",
 });
 
 globalStyle(`${styles.contents} .math-display`, {

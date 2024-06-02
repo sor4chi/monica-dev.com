@@ -1,4 +1,3 @@
-export * from "./remark-block-image";
 export * from "./remark-details";
 export * from "./remark-embed";
 export * from "./remark-flex-block";
