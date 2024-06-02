@@ -58,6 +58,20 @@ import { styles } from "./Switch.css";
     if (html && button) {
       button.addEventListener("click", () => {
         const before = localStorage.getItem("theme");
+
+        const style = document.createElement("style");
+        style.textContent = `
+           * {
+            -ms-transition: none!important;
+            -webkit-transition: none!important;
+            -moz-transition: none!important;
+            -o-transition: none!important;
+            transition: none!important
+          }
+        `;
+
+        document.head.appendChild(style);
+
         if (before === "dark") {
           html.classList.remove("dark");
           html.classList.add("light");
@@ -67,6 +81,10 @@ import { styles } from "./Switch.css";
           html.classList.remove("light");
           localStorage.setItem("theme", "dark");
         }
+
+        setTimeout(() => {
+          document.head.removeChild(style);
+        }, 1);
       });
     }
   };
