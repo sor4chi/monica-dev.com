@@ -391,13 +391,21 @@ globalStyle(`${styles.contents} .annotation-block .annotation`, {
   fontWeight: vars.font.weight.bold,
 });
 
-globalStyle(`.dark ${styles.contents} .annotation-block .annotation`, {
-  color: `rgba(${annotationColorRGBVar}, 0.75)`,
-});
+globalStyle(
+  `.dark ${styles.contents} .annotation-block .annotation-block__label`,
+  {
+    color: `rgba(${annotationColorRGBVar}, 0.75)`,
+    fontWeight: vars.font.weight.bold,
+  },
+);
 
-globalStyle(`.light ${styles.contents} .annotation-block .annotation`, {
-  color: `rgba(${annotationColorRGBVar}, 1)`,
-});
+globalStyle(
+  `.light ${styles.contents} .annotation-block .annotation-block__label`,
+  {
+    color: `rgba(${annotationColorRGBVar}, 1)`,
+    fontWeight: vars.font.weight.bold,
+  },
+);
 
 globalStyle(
   `${styles.contents} .annotation-block[data-annotation-type="warning"]`,
