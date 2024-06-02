@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { defineConfig } from "astro/config";
 import {
-  rehypeCodeBlockCopy,
   rehypeHeadLinker,
   rehypeAnnotationBlock,
   rehypeKatex,
@@ -50,7 +49,6 @@ export default defineConfig({
       rehypeSlug,
       rehypeHeadLinker,
       rehypeAnnotationBlock,
-      rehypeCodeBlockCopy,
     ],
     remarkRehype: {
       handlers: {
