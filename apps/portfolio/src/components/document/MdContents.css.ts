@@ -481,19 +481,17 @@ globalStyle(`${styles.contents} img`, {
   backgroundColor: vars.color.gray[4],
 });
 
-globalStyle(`${styles.contents} .math-display`, {
-  boxSizing: "border-box",
+globalStyle(`${styles.contents} .katex-display`, {
   overflowX: "auto",
   overflowY: "hidden",
   width: "100%",
+  margin: 0,
+  scrollbarGutter: "stable",
 });
 
-globalStyle(`${styles.contents} .math`, {
-  color: vars.color.gray[12],
-});
-
-globalStyle(`${styles.contents} .katex-display`, {
+globalStyle(`${styles.contents} .katex-display > .katex`, {
   padding: `${vars.spacing.relative[4]} ${vars.spacing.relative[8]}`,
+  width: "fit-content",
   margin: "0 auto",
 
   "@media": {
@@ -501,6 +499,10 @@ globalStyle(`${styles.contents} .katex-display`, {
       padding: 0,
     },
   },
+});
+
+globalStyle(`${styles.contents} :not(.katex-display) > .katex`, {
+  padding: `0 ${vars.spacing.relative[1]}`,
 });
 
 globalStyle(`${styles.contents} .footnotes`, {
