@@ -162,6 +162,7 @@ globalStyle(`${styles.contents} .link-card`, {
   border: `1px solid ${vars.color.gray[4]}`,
   overflow: "hidden",
   backgroundColor: vars.color.gray[1],
+  transition: "background-color 0.2s",
 
   "@media": {
     [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
