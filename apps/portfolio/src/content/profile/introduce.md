@@ -17,14 +17,21 @@ socials:
 
 :::section
 
+## Skills
+
+Web フロントエンドを中心に、バックエンドやインフラも幅広く経験しています。
+UI/UX デザインとパフォーマンスチューニングが大好きで大会によく参加しています。
+現在は自然言語処理と数理最適化に興味があり、大学では自然言語処理の研究室に所属しています。
+
+:::
+
+:::section
+
 ## Career
 
-大学 1 年生の頃から 3 社でフルスタックエンジニアとして長期のインターンシップを経験しました。
-詳しくは [Timeline](/timeline) をご覧ください。
+弊学のプログラミングサークル Maximum で Web 研究会の講師として2年間毎週の講義を担当しました。
 
-弊学のプログラミングサークル Maximum で Web 研究会の講師として毎週の講義を担当しています。
-
-<https://maximum.vc>
+大学 1 年生の頃から 3 社で、Web フルスタックエンジニアとしてインフラからアプリケーション分野まで幅広く長期のインターンシップを経験しました。詳しくは [Timeline](/timeline) をご覧ください。
 
 :::
 
@@ -32,7 +39,7 @@ socials:
 
 ## Awards
 
-- [ISUCON13](https://isucon.net/archives/57801192.html) Maxif. 25 位 入賞 (学生 5 位)
+- [ISUCON13](https://isucon.net/archives/57801192.html) Maxif. 25 位入賞 (学生 5 位)
 - [Web Speed Hackathon 2023](https://github.com/CyberAgentHack/web-speed-hackathon-2023) スコア 4 位 (学生 2 位)
 - [Web Speed Hackathon 2024](https://github.com/CyberAgentHack/web-speed-hackathon-2024) スコア 1 位 (学生 1 位)
 
