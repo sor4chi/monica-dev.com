@@ -10,6 +10,7 @@
     "build": "npm run generate:ogp && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "check": "eslint ./src && prettier --check ./src && textlint ./src/**/*.md",
     "fix": "eslint --fix ./src && prettier --write ./src && textlint --fix ./src/**/*.md",
     "optimize": "tsx ./scripts/optimize",
     "generate:ogp": "tsx ./scripts/ogp",

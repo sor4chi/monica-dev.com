@@ -3,6 +3,7 @@ import "@/styles/global.css";
 
 import { ViewTransitions } from "astro:transitions";
 
+import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/config";
 
 import { styles } from "./Base.css";
 import Footer from "./Footer.astro";
@@ -10,8 +11,6 @@ import Navigation from "./Navigation.astro";
 import RightTopArea from "./RightTopArea.astro";
 
 import type { NavKinds } from "./Navigation.astro";
-
-import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/config";
 
 interface Props {
   title?: string;
