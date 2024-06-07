@@ -45,7 +45,7 @@ Reformer[^3]や Longformer[^4]と同じアイデアらしい。
 >
 > Sparse Transformer の論文 "Generating Long Sequences with Sparse Transformers" の Figure 3 に視覚的な従来の Transformer と Sparse Transformer の比較が示されている。
 >
-> ![Sparse Transformer Comparison](/images/blogs/report-language-models-are-few-shot-learners/sparse-transformer.png)
+> ![Sparse Transformer Comparison](/assets/blogs/report-language-models-are-few-shot-learners/sparse-transformer.png)
 >
 > 従来の Transformer は全てのトークン間の関係を計算するため計算量が $O(n^2)$ となるが、Sparse Transformer は近傍のトークン間のみの関係を計算するため計算が枝刈りされて $O(n) + \alpha$ となる。
 

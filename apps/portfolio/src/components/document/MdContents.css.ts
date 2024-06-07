@@ -126,7 +126,7 @@ const ALL_HEADINGS_WITH_ANCHOR_BEFORE = ALL_HEADINGS.map(
 );
 
 globalStyle(ALL_HEADINGS_WITH_ANCHOR_BEFORE.join(", "), {
-  content: 'url("/images/assets/link.svg")',
+  content: 'url("/assets/link.svg")',
   display: "inline-block",
   padding: vars.spacing.relative[1],
   width: "1rem",

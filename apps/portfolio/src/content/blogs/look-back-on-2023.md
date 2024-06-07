@@ -69,7 +69,7 @@ https://yusukebe.com/posts/2022/wsh/
 ISUCON は今回が初参加でした。前の大会開催中に Twitter で流れてきたのを見て、次は絶対参加しようと思っていました。
 結果は全体 25 / 694 位、学生 5 位でした。
 
-![ISUCON13](/images/blogs/look-back-on-2023/isucon13.jpg)
+![ISUCON13](/assets/blogs/look-back-on-2023/isucon13.jpg)
 
 社会人も多く参加するとても大きな大会で、練習や対策でも自分が考えもしないようなパフォーマンスチューニング手法が出てきたり、自分の知識の浅さを痛感することが多々ありました。
 ISUCON のために Go 言語を勉強したり、MySQL のチューニングをしたりしたのですが、自分が普段やらないフロント以外の知見が増えてとても良い経験になりました。
@@ -103,7 +103,7 @@ https://abema.tv/
 また、とても優秀で優しい先輩方に出会い色々なことを教えていただいて、とても貴重で充実した時間を過ごさせていただいています。
 特にチームには WebSpeedHackathon2023 の創設者のお二人がいて、大会の話を直接聞いたりできるので自分にとって最高な環境です🥰
 
-![ABEMA TV](/images/blogs/look-back-on-2023/abema-kun.png)
+![ABEMA TV](/assets/blogs/look-back-on-2023/abema-kun.png)
 
 実は ABEMA TV の配信される HTML ソース内には **あべまくん** がいて、これを Github 上で見た時は本当に組織の一員になったんだという実感が湧いて感動しました。
 

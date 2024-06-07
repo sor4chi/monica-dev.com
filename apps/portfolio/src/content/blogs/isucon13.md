@@ -19,7 +19,7 @@ publishedAt: 2023/11/30
 
 https://leaderboard.maximum.vc
 
-![Leaderboard](/images/blogs/isucon13/leaderboard.webp)
+![Leaderboard](/assets/blogs/isucon13/leaderboard.webp)
 
 ## 本戦
 
@@ -175,7 +175,7 @@ t@Ryoga_exe が `getReactionsHandler` の N+1 を解消しました。
 
 最後の 1 時間はリーダーボードが凍結します。凍結直前の時点で 23 位だったので、「30 位圏内には入れそうだねー」という話をしていました。
 
-![1時間前のYoutube配信画面](/images/blogs/isucon13/1-hour-left.webp)
+![1時間前のYoutube配信画面](/assets/blogs/isucon13/1-hour-left.webp)
 
 #### [17:15] user icon の hash の余分な計算を削減 (38578)
 
@@ -233,7 +233,7 @@ INDEX が効いてない間、点数が上がらなくても極端に下がら�
 
 最終的なスコア遷移はこのようになりました。
 
-![Score](/images/blogs/isucon13/score-transition.webp)
+![Score](/assets/blogs/isucon13/score-transition.webp)
 
 目標の 30 位圏内に入れて、とても嬉しかったです。
 Go 未経験の 3 人で初参加ということで色々苦労した点はありましたが、ISUCON 上位入賞という目標に全力で取り組めて、とてもいい経験になりました！

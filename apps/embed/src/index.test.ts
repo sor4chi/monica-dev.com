@@ -17,7 +17,7 @@ describe("OGP Fetch Worker", () => {
       title: "Monica&#39;s Portfolio",
       description:
         "Webエンジニア Monica のポートフォリオサイトです。経歴やスキル、制作物などを掲載しています。",
-      imageUrl: "https://monica-dev.com/images/ogp/default.png",
+      imageUrl: "https://monica-dev.com/assets/ogp/default.png",
       faviconUrl: "https://monica-dev.com/favicon.ico",
     });
   });

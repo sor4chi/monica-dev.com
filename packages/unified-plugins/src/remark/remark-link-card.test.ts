@@ -26,7 +26,7 @@ describe("remarkLinkCard", () => {
   <a
     href="https://monica-dev.com"
     data-title="Monica&#x26;#39;s Portfolio"
-    data-image="https://monica-dev.com/images/ogp/default.png"
+    data-image="https://monica-dev.com/assets/ogp/default.png"
     data-favicon="https://monica-dev.com/favicon.ico"
     >https://monica-dev.com</a
   >

@@ -17,7 +17,7 @@ export async function GET() {
       link: `${SITE_BASE_URL}/blog/${slug}`,
       pubDate: data.publishedAt,
       enclosure: {
-        url: `${SITE_BASE_URL}/images/ogp/blogs/${slug}.png`,
+        url: `${SITE_BASE_URL}/assets/ogp/blogs/${slug}.png`,
         type: "image/png",
         length: 1,
       },

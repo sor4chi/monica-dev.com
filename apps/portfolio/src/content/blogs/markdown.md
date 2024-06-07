@@ -94,10 +94,10 @@ This is a [link](https://www.google.com). The format is below.
 
 ## Images
 
-![とてもかっこいい、夜の幻想的な風景画像](/images/blogs/markdown/image.webp)
+![とてもかっこいい、夜の幻想的な風景画像](/assets/blogs/markdown/image.webp)
 
 ```markdown
-![とてもかっこいい、夜の幻想的な風景画像](/images/blogs/markdown/image.webp)
+![とてもかっこいい、夜の幻想的な風景画像](/assets/blogs/markdown/image.webp)
 ```
 
 ## Blockquotes
@@ -340,7 +340,7 @@ This is a flex block
 
 :::flex
 
-![Image](/images/blogs/markdown/image.webp)
+![Image](/assets/blogs/markdown/image.webp)
 
 This is a flex default block
 The default is `center`

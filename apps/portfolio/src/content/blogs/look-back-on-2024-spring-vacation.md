@@ -44,7 +44,7 @@ Atcoder Heuristic Contest
 
 Algo +268
 
-![AtCoder Algo](/images/blogs/look-back-on-2024-spring-vacation/atcoder-algo.webp)
+![AtCoder Algo](/assets/blogs/look-back-on-2024-spring-vacation/atcoder-algo.webp)
 
 :::
 
@@ -52,7 +52,7 @@ Algo +268
 
 Heuristic +380
 
-![AtCoder Heuristic](/images/blogs/look-back-on-2024-spring-vacation/atcoder-heu.webp)
+![AtCoder Heuristic](/assets/blogs/look-back-on-2024-spring-vacation/atcoder-heu.webp)
 
 :::
 
@@ -62,7 +62,7 @@ Heuristic +380
 
 WSH 2024 1 位レギュ落ち
 
-![Web Speed Hackathon 2024](/images/blogs/look-back-on-2024-spring-vacation/wsh-2024.webp)
+![Web Speed Hackathon 2024](/assets/blogs/look-back-on-2024-spring-vacation/wsh-2024.webp)
 
 ## 感想
 

@@ -1,9 +1,10 @@
+import { rm } from "fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { join } from "path";
+
 import { glob } from "glob";
 import sharp from "sharp";
-import { fileURLToPath } from "node:url";
-import path from "node:path";
-import { rm } from "fs/promises";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,7 +33,7 @@ const optimizedImageRegex = /-\d+\.webp$/;
 const isOptimizedPath = (path: string) => optimizedImageRegex.test(path);
 
 const main = async () => {
-  const images = await globImages("public/images/works");
+  const images = await globImages("public/assets/works");
   const optimizedImages = images.filter(isOptimizedPath);
   const originalImages = images.filter((image) => !isOptimizedPath(image));
   await Promise.all(optimizedImages.map((image) => rm(image)));

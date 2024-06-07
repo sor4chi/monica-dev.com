@@ -230,11 +230,11 @@ Positional Encoding はこの問題を解決するために導入されたが、
 
 のような手法を比較し、以下画像のタスクを使い、デコーダーのみの Transformer モデルを使って、さまざまな Positional Encoding の効果を調査している。
 
-![The Impact of Positional Encoding on Length Generalization in Transformers, Figure 1](/images/blogs/report-attention-is-all-you-need/the-impact-of-positional-encoding-on-length-generalization-in-transformers-figure-1.webp)
+![The Impact of Positional Encoding on Length Generalization in Transformers, Figure 1](/assets/blogs/report-attention-is-all-you-need/the-impact-of-positional-encoding-on-length-generalization-in-transformers-figure-1.webp)
 
 以下画像はそれぞれのタスクでの単純な精度による比較である。
 
-![The Impact of Positional Encoding on Length Generalization in Transformers, Figure 3](/images/blogs/report-attention-is-all-you-need/the-impact-of-positional-encoding-on-length-generalization-in-transformers-figure-3.webp)
+![The Impact of Positional Encoding on Length Generalization in Transformers, Figure 3](/assets/blogs/report-attention-is-all-you-need/the-impact-of-positional-encoding-on-length-generalization-in-transformers-figure-3.webp)
 
 特に Copy と Reverse, Summation のタスクにおいて、NoPE が明らかに問題長に対する精度の低下が緩やかで、その他の Positional Encoding を採用したモデルよりも性能が高いことが示されている。
 

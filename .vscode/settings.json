@@ -1,7 +1,7 @@
 {
-	"textlint.autoFixOnSave": true,
-	"markdown.copyFiles.destination": {
-		"/apps/portfolio/src/content/blogs/**/*": "/apps/portfolio/public/images/blogs/${documentBaseName}/",
-		"/apps/portfolio/src/content/works/**/*": "/apps/portfolio/public/images/works/${documentBaseName}/"
-	}
+  "textlint.autoFixOnSave": true,
+  "markdown.copyFiles.destination": {
+    "/apps/portfolio/src/content/blogs/**/*": "/apps/portfolio/public/assets/blogs/${documentBaseName}/",
+    "/apps/portfolio/src/content/works/**/*": "/apps/portfolio/public/assets/works/${documentBaseName}/"
+  }
 }

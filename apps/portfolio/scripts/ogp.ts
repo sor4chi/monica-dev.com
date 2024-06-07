@@ -13,7 +13,7 @@ const FONT_SIZE = 80;
 const MAX_TITLE_WIDTH = OGP_WIDTH - FONT_SIZE * 2;
 
 const PATH_PUBLIC_DIR = path.join(process.cwd(), "public");
-const PATH_OGP_DIR = path.join(PATH_PUBLIC_DIR, "images/ogp");
+const PATH_OGP_DIR = path.join(PATH_PUBLIC_DIR, "assets/ogp");
 const PATH_OGP_CACHE_DIR = path.join(process.cwd(), ".cache");
 const PATH_OGP_CACHE_FILE = path.join(PATH_OGP_CACHE_DIR, "ogp.json");
 const PATH_OGP_IMAGE_DIR = (slug: string[]) =>
