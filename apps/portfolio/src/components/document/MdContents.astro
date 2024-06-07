@@ -15,6 +15,13 @@ import { styles } from "./MdContents.css";
 
   const { div, img, span, a } = van.tags;
 
+  const getUnescapedText = (text: string) => {
+    const div = document.createElement("div");
+    div.innerHTML = text;
+    return div.textContent || div.innerText || "";
+  };
+
+
   const initCodeblock = () => {
     const codeCopyButtons = document.querySelectorAll(".code-copy-button");
     codeCopyButtons.forEach((button) => {
@@ -43,7 +50,12 @@ import { styles } from "./MdContents.css";
     fetch(`https://embed.monica-dev.com/meta?url=${fullUrl}`)
       .then((res) => res.json())
       .then((data) => {
-        linkInfo.val = data;
+        linkInfo.val = {
+          title: getUnescapedText(data.title),
+          description: getUnescapedText(data.description),
+          imageUrl: data.imageUrl,
+          faviconUrl: data.faviconUrl,
+        };
       })
       .catch(() => {
         linkInfo.val = {
