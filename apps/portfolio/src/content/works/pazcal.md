@@ -9,4 +9,4 @@ description: "パズドラの経験値計算機ツール"
 
 詳しくはこちらの記事をご覧ください。
 
-<https://monica-dev.com/pazcal>
+[「ぱずかる」をリリースしました](/blog/pazcal)
