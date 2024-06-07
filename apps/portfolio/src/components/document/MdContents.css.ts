@@ -481,7 +481,16 @@ globalStyle(`${styles.contents} img`, {
   borderRadius: vars.spacing.absolute[2],
   margin: `${vars.spacing.relative[4]} 0`,
   border: `1px solid ${vars.color.gray[6]}`,
-  backgroundColor: vars.color.gray[4],
+  backgroundColor: vars.color.gray[2],
+});
+
+globalStyle(`${styles.contents} video`, {
+  width: vars.spacing.full,
+  height: "auto",
+  borderRadius: vars.spacing.absolute[2],
+  margin: `${vars.spacing.relative[4]} 0`,
+  border: `1px solid ${vars.color.gray[6]}`,
+  backgroundColor: vars.color.gray[2],
 });
 
 globalStyle(`${styles.contents} .katex-display`, {

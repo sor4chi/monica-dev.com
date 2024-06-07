@@ -24,6 +24,7 @@ import {
   remarkBreaks,
   remarkMath,
   remarkDirective,
+  remarkVideo
 } from "unified-plugins/remark";
 
 import { SITE_BASE_URL } from "./src/config";
@@ -62,6 +63,7 @@ export default defineConfig({
       remarkMention,
       remarkEmbed,
       remarkDetails,
+      remarkVideo,
     ],
     rehypePlugins: [
       rehypeKatex,
@@ -76,6 +78,7 @@ export default defineConfig({
         ...remarkSection.handlers,
         ...remarkDetails.handlers,
         ...remarkEmbed.handlers,
+        ...remarkVideo.handlers,
       },
     },
   },
