@@ -580,9 +580,10 @@ globalStyle(`${styles.contents} .timeline-title::before`, {
   whiteSpace: "nowrap",
   zIndex: vars.zIndex.forward,
   padding: `${vars.spacing.absolute[3]} 0`,
-  backgroundColor: vars.color.gray[1],
   lineHeight: 1,
 });
+
+const TIMELINE_LABEL_HEIGHT = "16px";
 
 globalStyle(`${styles.contents} .timeline-item:has(+ .timeline-item)::before`, {
   content: '""',
@@ -590,7 +591,8 @@ globalStyle(`${styles.contents} .timeline-item:has(+ .timeline-item)::before`, {
   top: `calc(${titleLineHeight} / 2)`,
   left: `calc(-1 * ${timelineLeftPadding} / 2)`,
   width: "1px",
-  height: "100%",
+  height: `calc(100% - ${TIMELINE_LABEL_HEIGHT} * 2)`,
+  transform: `translateY(${TIMELINE_LABEL_HEIGHT})`,
   backgroundColor: vars.color.gray[4],
 });
 
