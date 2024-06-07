@@ -100,6 +100,14 @@ This is a [link](https://www.google.com). The format is below.
 ![とてもかっこいい、夜の幻想的な風景画像](/assets/blogs/markdown/image.webp)
 ```
 
+## Video
+
+![動画](/assets/works/tetris-ai/NN6-infinity.mp4)
+
+```markdown
+![動画](/assets/works/tetris-ai/NN6-infinity.mp4)
+```
+
 ## Blockquotes
 
 > JavaScript（ジャバスクリプト）は、プログラミング言語であり、HyperText Markup Language（HTML）やCascading Style Sheets（CSS）と並ぶ World Wide Web（WWW）の中核技術の一つである。
