@@ -38,11 +38,17 @@ Web 技術が中心のエンジニアですが、自然言語処理と数理最�
 
 :::section
 
-## Awards
+## Achievements
+
+2024
+
+- Hono Conf 2024 Contributer枠 登壇
+- [Web Speed Hackathon 2024](https://github.com/CyberAgentHack/web-speed-hackathon-2024) スコア 1 位 (学生 1 位)
+
+2023
 
 - [ISUCON13](https://isucon.net/archives/57801192.html) Maxif. 25 位入賞 (学生 5 位)
 - [Web Speed Hackathon 2023](https://github.com/CyberAgentHack/web-speed-hackathon-2023) スコア 4 位 (学生 2 位)
-- [Web Speed Hackathon 2024](https://github.com/CyberAgentHack/web-speed-hackathon-2024) スコア 1 位 (学生 1 位)
 
 :::
 
