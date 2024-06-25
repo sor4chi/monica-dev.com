@@ -56,7 +56,7 @@ https://slides.monica-dev.com/hono-conf-2024
     </span>
     <span class="break-all">
        Hobby:<br/>
-      Web Dev,Competitive Programming (Hueristic), NLP
+      Web Dev, Competitive Programming (Heuristic), NLP
     </span>
   </div>
 </div>
@@ -906,13 +906,13 @@ export const Counter = generateHonoObject("/counter", async (app, state) => {
 
 I personally liked this framework very much, but it died because Cloudflare released Workers RPC 😭😭😭.
 
-But **Workers RPC is VERRRRRY COMBENIENT**.
+But **Workers RPC is VERRRRRY CONVENIENT**.
 
 ---
 
 ### Hono Storage
 
-A storage helper for Hono. Support disk, memory, S3, etc.
+A storage helper for Hono. Supports disk, memory, S3, etc.
 
 It is similar to the Express's Multer.
 
