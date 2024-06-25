@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+
+import { styles } from "./List.css";
+interface Props {
+  items: {
+    url: string;
+    title: string;
+    thumbnail: string;
+    event: string;
+  }[];
+}
+
+const { items } = Astro.props;
+const animationDelay = 0.1;
+---
+
+<div class={styles.container} transition:persist>
+  {
+    items.map(({ url, title, thumbnail, event }, i) => (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={styles.item}
+        style={{
+          animationDelay: `${animationDelay * i}s`,
+        }}
+      >
+        <Image
+          width={320}
+          height={168}
+          src={thumbnail}
+          alt={title}
+          class={styles.thumbnail}
+        />
+        <div class={styles.content}>
+          <span class={styles.event}>{event}</span>
+          <span class={styles.title}>{title}</span>
+        </div>
+      </a>
+    ))
+  }
+</div>

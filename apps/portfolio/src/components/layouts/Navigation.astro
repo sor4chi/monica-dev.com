@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: "/work", label: "Works" },
   { href: "/timeline", label: "Timeline" },
   { href: "/blog", label: "Blogs" },
+  { href: "/slide", label: "Slides" },
 ] as const;
 
 export type NavKinds = (typeof NAV_LINKS)[number]["href"];

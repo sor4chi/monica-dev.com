@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/components/layouts/Base.astro";
+
+import List from "./_components/List.astro";
+import SlideLayout from "./_components/Layout.astro";
+
+const slides = await getCollection("slides");
+---
+
+<BaseLayout title="Slide" canonical="/slide" active="/slide">
+  <SlideLayout>
+    <List
+      items={slides
+        .sort(
+          (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+        )
+        .map((slide) => ({
+          title: slide.data.title,
+          url: slide.data.url,
+          thumbnail: slide.data.thumbnail,
+          event: slide.data.event,
+        }))}
+    />
+  </SlideLayout>
+</BaseLayout>

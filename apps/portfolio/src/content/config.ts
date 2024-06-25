@@ -27,6 +27,16 @@ const works = defineCollection({
   }),
 });
 
+const slides = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    url: z.string(),
+    thumbnail: z.string(),
+    publishedAt: z.coerce.date(),
+    event: z.string(),
+  }),
+});
+
 const timelines = defineCollection({
   schema: z.object({
     title: z.string(),
@@ -41,4 +51,5 @@ export const collections = {
   timelines,
   blogs,
   externalBlogs,
+  slides,
 };
