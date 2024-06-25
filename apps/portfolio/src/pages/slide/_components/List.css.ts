@@ -5,7 +5,7 @@ export const styles = {
   container: style({
     width: "100%",
     display: "grid",
-    gap: vars.spacing.absolute[2],
+    gap: vars.spacing.absolute[4],
     gridTemplateColumns: "repeat(auto-fill, minmax(20rem, 1fr))",
   }),
   item: style({
