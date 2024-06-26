@@ -648,7 +648,6 @@ globalStyle(`${styles.contents} .astro-code .line.diff`, {
 });
 
 globalStyle(`${styles.contents} .astro-code .line.diff:before`, {
-  content: '"+"',
   position: "absolute",
   top: 0,
   left: 0,
@@ -660,4 +659,12 @@ globalStyle(`${styles.contents} .astro-code .line.diff:before`, {
   color: `rgba(${diffColorVars}, .8)`,
   fontWeight: vars.font.weight.normal,
   fontSize: vars.font.size.xs,
+});
+
+globalStyle(`${styles.contents} .astro-code .line.diff.add:before`, {
+  content: '"+"',
+});
+
+globalStyle(`${styles.contents} .astro-code .line.diff.remove:before`, {
+  content: '"-"',
 });
