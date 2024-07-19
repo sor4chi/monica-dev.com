@@ -115,6 +115,20 @@ $$
 
 モデルによってはBatch Normalizationがレイヤーに含まれている場合があるが、Fake quantizationを適用するにはBatch Normalizationによってスケールされた後の重みを量子化する必要があるため工夫が必要である。論文式(14)のようにEMA(折りたたみ結果の指数移動平均)を用いてBatch Normalizationのスケールを推定し、それに応じた量子化を行う。
 
+理解し辛いので図を用意した。
+
+![量子化のイメージ](/assets/blogs/report-quanization-and-training-of-neural-networks-for-efficient-integer-arithmetic-only-inference/quantize-image.jpg)
+
+10進整数のn桁未満を切り捨てするときの
+
+```cpp
+int x = 54321;
+int y = x / 100 * 100;
+cout << y << endl; // 54300;
+```
+
+のようなイメージで、`float32`の値を`uint8`の値に丸める操作をしている。
+
 ## Experiments
 
 ### 大規模モデルにおける量子化
@@ -169,4 +183,33 @@ Face Detectionのタスクでも、MobileNetのモデルに対して本手法で
 量子化をシミュレートして学習させる手法により、精度低下を最小限に抑えつつ、推論速度を向上させることができることがわかった。
 ARM NEONなどの整数演算ベースのハードウェアに対してとても有効であることがわかった。
 GPUの力をそこまで使えないエッジデバイスにおいて、モバイルデバイスでの推論を実現するためには、このような量子化手法が有効であることがわかった。
+
+## 面白そうだと思った論文
+
+検索などで見つけた記事[^2]やTwitterでの情報を参考に、面白そうだと思った論文をまとめた
+
+[^2]: https://horomary.hatenablog.com/entry/2023/11/24/225302
+
+[The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits](https://arxiv.org/abs/2402.17764)
+
+Microsoftの中国チームが提案した1-bit(1.58bit)のLLM量子化手法についての論文。
+重みを`{-1, 0, 1}`の3値で表現することで、重みが`log2(3) = 1.58`ビットで表現でき、同じモデルサイズ（つまり圧縮した分だけモデルを大きくできる）でFP16やBF16で学習されたTransformerモデルと同等の精度を出すことができるというもの。
+`{-1, 0, 1}`の演算は全てビット演算のみで行われるため、エネルギー効率が非常に高いらしい。(2024/02/27)
+
+[Exploiting LLM Quantization](https://arxiv.org/abs/2405.18137)
+
+量子化された時だけ悪意のある振る舞いをするLLMを作ってHFのリーダーボードなどに公開し、ユーザーがダウンロードしてはじめて量子化した時に広告や有害な思想などの出力をさせることができ、悪用の危険性があるという指摘。(2024/05/28)
+
+[Reward Design with Language Models](https://arxiv.org/abs/2303.00001)
+
+人間が強化学習の報酬を設計するのには多大な労力がかかる。LLMに代理評価関数としてプロンプトに記述された期待している行動からの評価を行わせることで、人間が報酬設計をする手間を省くことができるというもの。(2023/02/27)
+
+[Guiding Pretraining in Reinforcement Learning with Large Language Models](https://arxiv.org/abs/2302.06692)
+
+強化学習はランダム探索によってこれまで学習されてきたが明らかにサンプル効率が悪い。LLMを使ってタスクを分解させてうまくガイドすることでサンプル効率を向上させることができるというもの。(2023/02/13)
+
+[Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning](https://arxiv.org/abs/2302.02662v2)
+
+LLMが常識的な判断力を備えていることから、行動決定が可能であるといえ、確率方策モデルとして使えるのではないかという仮説を検証している。
+FLAN-T5を確率方策モデルに使ってPPOを行ってサンプル効率が向上したらしい。(2023/05/12)
 
