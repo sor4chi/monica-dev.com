@@ -42,7 +42,7 @@ Web 技術が中心のエンジニアですが、自然言語処理と数理最�
 
 2024
 
-- [Hono Conf 2024](https://hono.connpass.com/event/319062/) Contributer枠 登壇
+- [Hono Conf 2024](https://hono.connpass.com/event/319062/) Contributer 枠登壇
 - [Web Speed Hackathon 2024](https://github.com/CyberAgentHack/web-speed-hackathon-2024) スコア 1 位 (学生 1 位)
 
 2023
