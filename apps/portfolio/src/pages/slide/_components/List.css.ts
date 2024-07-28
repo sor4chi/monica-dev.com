@@ -6,7 +6,13 @@ export const styles = {
     width: "100%",
     display: "grid",
     gap: vars.spacing.absolute[4],
-    gridTemplateColumns: "repeat(auto-fill, minmax(20rem, 1fr))",
+    gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+
+    "@container": {
+      "(max-width: 400px)": {
+        gridTemplateColumns: "1fr",
+      },
+    },
   }),
   item: style({
     position: "relative",

@@ -7,6 +7,7 @@ export const styles = {
     width: "100%",
     maxWidth: "64rem",
     margin: `${vars.spacing.absolute[12]} auto`,
+    containerType: "inline-size",
   }),
   title: style({
     color: vars.color.gray[12],
