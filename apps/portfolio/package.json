@@ -11,7 +11,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "eslint ./src && prettier --check ./src && textlint ./src/**/*.md",
-    "fix": "eslint --fix ./src && prettier --write ./src && textlint --fix ./src/**/*.md",
+    "fix:eslint": "eslint --fix ./src",
+    "fix:prettier": "prettier --write ./src",
+    "fix:textlint": "textlint --fix ./src/**/*.md",
+    "fix": "run-s fix:eslint fix:prettier fix:textlint",
     "optimize": "tsx ./scripts/optimize",
     "generate:ogp": "tsx ./scripts/ogp",
     "prebuild": "npm run optimize"
