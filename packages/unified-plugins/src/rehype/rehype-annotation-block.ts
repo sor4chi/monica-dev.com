@@ -37,7 +37,10 @@ export const rehypeAnnotationBlock: Plugin<[], Root> = () => (tree) => {
             const label = (child.children[0].value.match(ANNOTATION_REGEX) ??
               [])[1];
             const className = node.properties.className || [];
-            node.properties.className = ["annotation-block"];
+            node.properties.className = [
+              "annotation-block",
+              "markdown-contents",
+            ];
             if (typeof className === "object")
               node.properties.className.push(...className);
             if (typeof className === "string")
