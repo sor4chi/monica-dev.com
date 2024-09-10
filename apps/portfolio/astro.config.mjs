@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
+  transformerRemoveNotationEscape,
 } from "@shikijs/transformers";
 import {
   rehypeHeadLinker,
@@ -45,11 +46,7 @@ export default defineConfig({
       transformers: [
         transformerNotationDiff(),
         transformerNotationHighlight(),
-        // ref: https://github.com/shikijs/shiki/issues/690
-        {
-          name: "shiki:remove-escape",
-          postprocess: (c) => c.replace(/\[\\!code/g, "[!code"),
-        },
+        transformerRemoveNotationEscape(),
       ],
     },
     remarkPlugins: [
