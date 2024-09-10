@@ -1,3 +1,5 @@
 {
-	"extends": "../../tsconfig.json"
+  "extends": "@sor4chi/tsconfig",
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

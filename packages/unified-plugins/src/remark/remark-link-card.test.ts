@@ -4,7 +4,6 @@ import remarkDirective from "remark-directive";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import { describe, expect, it } from "vitest";
 
 import { remarkLinkCard } from "./remark-link-card";
 

@@ -1,18 +1,17 @@
-// eslint-disable-next-line import/no-unresolved
 import { SELF } from "cloudflare:test";
 
 describe("OGP Fetch Worker", () => {
   it("should return 400 when url is not provided", async () => {
-    const response = await SELF.fetch("http://localhost");
+    const response = await SELF.fetch("http://localhost/meta");
     expect(response.status).toBe(400);
   });
 
   it("should return 200 when url is provided", async () => {
     const response = await SELF.fetch(
-      "http://localhost?url=https://monica-dev.com",
+      "http://localhost/meta?url=https://monica-dev.com",
     );
     expect(response.status).toBe(200);
-    expect(response.headers.get("content-type")).toBe("application/json");
+    expect(response.headers.get("content-type")).toContain("application/json");
     expect(await response.json()).toEqual({
       title: "Monica&#39;s Portfolio",
       description:

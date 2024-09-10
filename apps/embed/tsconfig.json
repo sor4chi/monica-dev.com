@@ -1,11 +1,12 @@
 {
-	"extends": "../../tsconfig.json",
-	"compilerOptions": {
-		"types": [
-			"@cloudflare/workers-types",
-			"@cloudflare/vitest-pool-workers",
-			"vitest/globals"
-		]
-	},
-	"include": ["src/**/*.ts", "src/**/*.test.ts"]
+  "extends": "@sor4chi/tsconfig",
+  "compilerOptions": {
+    "types": [
+      "vitest/globals",
+      "@cloudflare/workers-types",
+      "@cloudflare/vitest-pool-workers"
+    ]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

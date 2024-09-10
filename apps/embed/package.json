@@ -3,16 +3,17 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "fix": "eslint --fix ./src && prettier --write ./src",
+    "fix": "biome check --write ./src",
     "test": "vitest"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.2.11",
-    "@cloudflare/workers-types": "^4.20240512.0",
-    "vitest": "^1.5.3",
-    "wrangler": "^3.56.0"
+    "@cloudflare/vitest-pool-workers": "^0.4.29",
+    "@cloudflare/workers-types": "^4.20240903.0",
+    "@sor4chi/tsconfig": "workspace:*",
+    "vitest": "1.5.3",
+    "wrangler": "^3.75.0"
   },
   "dependencies": {
-    "hono": "^4.3.8"
+    "hono": "^4.5.11"
   }
 }
