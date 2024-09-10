@@ -1,6 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-import { slideIn } from "design-system/animation.css";
-import { vars } from "design-system/theme.css";
+import { slideIn } from "@sor4chi/design-system/animation.css";
+import { vars } from "@sor4chi/design-system/theme.css";
 
 export const styles = {
   container: style({

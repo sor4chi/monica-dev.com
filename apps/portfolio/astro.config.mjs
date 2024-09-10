@@ -5,14 +5,12 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
 } from "@shikijs/transformers";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
-import { defineConfig } from "astro/config";
 import {
   rehypeHeadLinker,
   rehypeAnnotationBlock,
   rehypeKatex,
   rehypeSlug,
-} from "unified-plugins/rehype";
+} from "@sor4chi/unified-plugins/rehype";
 import {
   remarkLinkCard,
   remarkFlexBlock,
@@ -24,8 +22,10 @@ import {
   remarkBreaks,
   remarkMath,
   remarkDirective,
-  remarkVideo
-} from "unified-plugins/remark";
+  remarkVideo,
+} from "@sor4chi/unified-plugins/remark";
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import { defineConfig } from "astro/config";
 
 import { SITE_BASE_URL } from "./src/config";
 

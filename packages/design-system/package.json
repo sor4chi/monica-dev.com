@@ -1,5 +1,5 @@
 {
-  "name": "design-system",
+  "name": "@sor4chi/design-system",
   "scripts": {
     "check": "eslint ./src && prettier --check ./src",
     "fix": "eslint --fix ./src && prettier --write ./src"

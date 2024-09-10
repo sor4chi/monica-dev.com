@@ -63,6 +63,12 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.1.5
         version: 3.1.5
+      '@sor4chi/design-system':
+        specifier: workspace:^
+        version: link:../../packages/design-system
+      '@sor4chi/unified-plugins':
+        specifier: workspace:^
+        version: link:../../packages/unified-plugins
       '@types/react':
         specifier: ^18.0.21
         version: 18.3.2
@@ -75,9 +81,6 @@ importers:
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
-      design-system:
-        specifier: workspace:^
-        version: link:../../packages/design-system
       hono:
         specifier: ^3.8.3
         version: 3.12.12
@@ -93,9 +96,6 @@ importers:
       react-dom:
         specifier: ^18.0.0
         version: 18.3.1(react@18.3.1)
-      unified-plugins:
-        specifier: workspace:^
-        version: link:../../packages/unified-plugins
       vanjs-core:
         specifier: ^1.5.0
         version: 1.5.0

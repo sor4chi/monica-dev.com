@@ -1,5 +1,5 @@
 {
-  "name": "unified-plugins",
+  "name": "@sor4chi/unified-plugins",
   "scripts": {
     "check": "eslint ./src && prettier --check ./src",
     "fix": "eslint --fix ./src && prettier --write ./src"

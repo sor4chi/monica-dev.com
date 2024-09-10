@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { vars } from "design-system/theme.css";
+import { vars } from "@sor4chi/design-system/theme.css";
 
 import { ARTICLE_WIDTH, BREAKPOINT_MOBILE } from "@/styles/constants";
 

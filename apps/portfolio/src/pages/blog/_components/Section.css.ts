@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { slideIn } from "design-system/animation.css";
+import { slideIn } from "@sor4chi/design-system/animation.css";
 
 export const styles = {
   section: style({
