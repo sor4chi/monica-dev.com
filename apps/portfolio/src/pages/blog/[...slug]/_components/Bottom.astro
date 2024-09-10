@@ -8,20 +8,20 @@ import { styles } from "./Bottom.css";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  shareTitle: string;
-  source: string;
-  prev: CollectionEntry<"blogs"> | null;
-  next: CollectionEntry<"blogs"> | null;
+	shareTitle: string;
+	source: string;
+	prev: CollectionEntry<"blogs"> | null;
+	next: CollectionEntry<"blogs"> | null;
 }
 
 const { shareTitle, source, prev, next } = Astro.props;
 
 const makeBlogNav = (blog: CollectionEntry<"blogs"> | null) => {
-  if (!blog) return undefined;
-  return {
-    title: blog.data.title,
-    link: `/blog/${blog.slug}`,
-  };
+	if (!blog) return undefined;
+	return {
+		title: blog.data.title,
+		link: `/blog/${blog.slug}`,
+	};
 };
 ---
 

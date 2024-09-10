@@ -9,13 +9,13 @@ import TimelineLayout from "./_components/TimelineLayout.astro";
 
 const timelines = await getCollection("timelines");
 const sortedTimelines = await Promise.all(
-  timelines
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-    .map(async (timeline) => ({
-      ...timeline,
-      isBodyExist: !!timeline.body,
-      content: await timeline.render(),
-    })),
+	timelines
+		.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+		.map(async (timeline) => ({
+			...timeline,
+			isBodyExist: !!timeline.body,
+			content: await timeline.render(),
+		})),
 );
 ---
 

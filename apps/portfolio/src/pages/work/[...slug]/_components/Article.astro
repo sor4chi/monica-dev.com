@@ -9,10 +9,10 @@ import { styles } from "./Article.css";
 import "katex/dist/katex.css";
 
 interface Props {
-  title: string;
-  slug: string;
-  createdAt: Date;
-  authors?: string[];
+	title: string;
+	slug: string;
+	createdAt: Date;
+	authors?: string[];
 }
 
 const { slug, title, createdAt, authors } = Astro.props;

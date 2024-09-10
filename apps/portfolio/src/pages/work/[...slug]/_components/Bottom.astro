@@ -8,20 +8,20 @@ import { styles } from "./Bottom.css";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  shareTitle: string;
-  source: string;
-  prev: CollectionEntry<"works"> | null;
-  next: CollectionEntry<"works"> | null;
+	shareTitle: string;
+	source: string;
+	prev: CollectionEntry<"works"> | null;
+	next: CollectionEntry<"works"> | null;
 }
 
 const { shareTitle, source, prev, next } = Astro.props;
 
 const makeWorkNav = (entry: CollectionEntry<"works"> | null) => {
-  if (!entry) return undefined;
-  return {
-    title: entry.data.title,
-    link: `/work/${entry.slug}`,
-  };
+	if (!entry) return undefined;
+	return {
+		title: entry.data.title,
+		link: `/work/${entry.slug}`,
+	};
 };
 ---
 

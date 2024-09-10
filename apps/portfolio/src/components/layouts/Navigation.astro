@@ -6,17 +6,17 @@ import Link from "../ui/Link.astro";
 import { styles } from "./Navigation.css";
 
 const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/work", label: "Works" },
-  { href: "/timeline", label: "Timeline" },
-  { href: "/blog", label: "Blogs" },
-  { href: "/slide", label: "Slides" },
+	{ href: "/", label: "Home" },
+	{ href: "/work", label: "Works" },
+	{ href: "/timeline", label: "Timeline" },
+	{ href: "/blog", label: "Blogs" },
+	{ href: "/slide", label: "Slides" },
 ] as const;
 
 export type NavKinds = (typeof NAV_LINKS)[number]["href"];
 
 interface Props {
-  active: NavKinds;
+	active: NavKinds;
 }
 
 const { active } = Astro.props;

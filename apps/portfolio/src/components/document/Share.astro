@@ -11,18 +11,18 @@ import X from "../ui/icon/X.astro";
 import { styles } from "./Share.css";
 
 interface Props {
-  pathname: string;
-  title: string;
-  source: string;
-  flex?: boolean;
+	pathname: string;
+	title: string;
+	source: string;
+	flex?: boolean;
 }
 
 const { pathname, title, source, flex } = Astro.props;
 
 const getShareXUrl = (title: string) => {
-  return `https://x.com/intent/tweet?text=${encodeURIComponent(
-    `${title}\n`,
-  )}&url=${encodeURIComponent(SITE_BASE_URL + pathname)}`;
+	return `https://x.com/intent/tweet?text=${encodeURIComponent(
+		`${title}\n`,
+	)}&url=${encodeURIComponent(SITE_BASE_URL + pathname)}`;
 };
 ---
 

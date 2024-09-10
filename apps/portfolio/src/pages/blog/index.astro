@@ -15,40 +15,40 @@ import Section from "./_components/Section.astro";
 import type { CollectionEntry } from "astro:content";
 
 const [originalBlogs, externalBlogs] = await Promise.all([
-  getCollection("blogs"),
-  getCollection("externalBlogs"),
+	getCollection("blogs"),
+	getCollection("externalBlogs"),
 ]);
 
 const isExternalBlog = (
-  blog: unknown,
+	blog: unknown,
 ): blog is CollectionEntry<"externalBlogs"> => {
-  return "url" in blog.data;
+	return "url" in blog.data;
 };
 
 const blogs = [...originalBlogs, ...externalBlogs];
 
 const groupedBlogs = blogs.reduce(
-  (acc, blog) => {
-    const year = blog.data.publishedAt.getFullYear();
-    if (!acc[year]) {
-      acc[year] = [];
-    }
-    acc[year].push(blog);
-    return acc;
-  },
-  {} as Record<string, typeof blogs>,
+	(acc, blog) => {
+		const year = blog.data.publishedAt.getFullYear();
+		if (!acc[year]) {
+			acc[year] = [];
+		}
+		acc[year].push(blog);
+		return acc;
+	},
+	{} as Record<string, typeof blogs>,
 );
 const sortedGroupedBlogs = Object.entries(groupedBlogs)
-  .sort(([a], [b]) => Number(b) - Number(a))
-  .map(
-    ([year, blogs]) =>
-      [
-        year,
-        blogs.sort(
-          (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
-        ),
-      ] as const,
-  );
+	.sort(([a], [b]) => Number(b) - Number(a))
+	.map(
+		([year, blogs]) =>
+			[
+				year,
+				blogs.sort(
+					(a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+				),
+			] as const,
+	);
 const animationDelay = 0.1;
 ---
 

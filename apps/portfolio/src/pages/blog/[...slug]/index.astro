@@ -17,32 +17,32 @@ import Left from "./_components/Left.astro";
 import Right from "./_components/Right.astro";
 
 export async function getStaticPaths() {
-  const blogs = await getCollection("blogs");
-  const sortedBlogs = blogs.sort((a, b) => {
-    return b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
-  });
+	const blogs = await getCollection("blogs");
+	const sortedBlogs = blogs.sort((a, b) => {
+		return b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
+	});
 
-  return blogs.map((blog, i) => ({
-    params: { slug: blog.slug },
-    props: {
-      ...blog,
-      prev: sortedBlogs[i + 1] || null,
-      next: sortedBlogs[i - 1] || null,
-    },
-  }));
+	return blogs.map((blog, i) => ({
+		params: { slug: blog.slug },
+		props: {
+			...blog,
+			prev: sortedBlogs[i + 1] || null,
+			next: sortedBlogs[i - 1] || null,
+		},
+	}));
 }
 
 type Props = CollectionEntry<"blogs"> & {
-  prev: CollectionEntry<"blogs"> | null;
-  next: CollectionEntry<"blogs"> | null;
+	prev: CollectionEntry<"blogs"> | null;
+	next: CollectionEntry<"blogs"> | null;
 };
 
 const {
-  data: { title, description, publishedAt, updatedAt, authors },
-  slug,
-  render,
-  prev,
-  next,
+	data: { title, description, publishedAt, updatedAt, authors },
+	slug,
+	render,
+	prev,
+	next,
 } = Astro.props;
 const { Content, headings } = await render();
 

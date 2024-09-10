@@ -8,8 +8,8 @@ import { unified } from "unified";
 import { remarkTimeline } from "./remark-timeline";
 
 describe("remarkTimeline", () => {
-  it("should convert timeline syntax to valid html", async () => {
-    const input = /* md */ `
+	it("should convert timeline syntax to valid html", async () => {
+		const input = /* md */ `
 ::::timeline
 
 ## [1234] Hello World
@@ -23,7 +23,7 @@ This is a timeline item 2
 ::::
 `.trim();
 
-    const expectedOutput = /* html */ `
+		const expectedOutput = /* html */ `
 <div class="timeline">
   <div class="timeline-item markdown-contents">
     <h2 class="timeline-title" data-time="1234">Hello World</h2>
@@ -36,25 +36,25 @@ This is a timeline item 2
 </div>
 `.trim();
 
-    const result = await unified()
-      .use(remarkParse)
-      .use(remarkDirective)
-      .use(remarkTimeline)
-      .use(remarkRehype, {
-        handlers: {
-          ...remarkTimeline.handlers,
-        },
-      })
-      .use(rehypeStringify)
-      .process(input);
+		const result = await unified()
+			.use(remarkParse)
+			.use(remarkDirective)
+			.use(remarkTimeline)
+			.use(remarkRehype, {
+				handlers: {
+					...remarkTimeline.handlers,
+				},
+			})
+			.use(rehypeStringify)
+			.process(input);
 
-    const formattedResult = await format(result.value.toString(), {
-      parser: "html",
-    });
-    const formattedExpectedOutput = await format(expectedOutput, {
-      parser: "html",
-    });
+		const formattedResult = await format(result.value.toString(), {
+			parser: "html",
+		});
+		const formattedExpectedOutput = await format(expectedOutput, {
+			parser: "html",
+		});
 
-    expect(formattedResult).toBe(formattedExpectedOutput);
-  });
+		expect(formattedResult).toBe(formattedExpectedOutput);
+	});
 });

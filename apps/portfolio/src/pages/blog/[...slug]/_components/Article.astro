@@ -6,11 +6,11 @@ import { styles } from "./Article.css";
 import "katex/dist/katex.css";
 
 interface Props {
-  title: string;
-  slug: string;
-  publishedAt: Date;
-  updatedAt?: Date;
-  authors?: string[];
+	title: string;
+	slug: string;
+	publishedAt: Date;
+	updatedAt?: Date;
+	authors?: string[];
 }
 
 const { title, publishedAt, updatedAt, authors } = Astro.props;

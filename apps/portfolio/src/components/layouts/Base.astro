@@ -13,25 +13,25 @@ import RightTopArea from "./RightTopArea.astro";
 import type { NavKinds } from "./Navigation.astro";
 
 interface Props {
-  title?: string;
-  description?: string;
-  canonical: `/${string}`;
-  ogImageUrl?: string;
-  active: NavKinds;
+	title?: string;
+	description?: string;
+	canonical: `/${string}`;
+	ogImageUrl?: string;
+	active: NavKinds;
 }
 
 const { title, description, canonical, ogImageUrl, active } = Astro.props;
 
 const getTitle = (title?: string) => {
-  if (title) {
-    return `${title} | ${SITE_NAME}`;
-  }
-  return SITE_NAME;
+	if (title) {
+		return `${title} | ${SITE_NAME}`;
+	}
+	return SITE_NAME;
 };
 
 const finalOgImageUrl = ogImageUrl
-  ? `${SITE_BASE_URL}${ogImageUrl}`
-  : `${SITE_BASE_URL}/assets/ogp/default.png`;
+	? `${SITE_BASE_URL}${ogImageUrl}`
+	: `${SITE_BASE_URL}/assets/ogp/default.png`;
 ---
 
 <html lang="ja" class="light">

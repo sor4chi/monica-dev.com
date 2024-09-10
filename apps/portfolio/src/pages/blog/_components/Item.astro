@@ -2,24 +2,24 @@
 import { styles } from "./Item.css";
 
 interface Props {
-  slug: string;
-  title: string;
-  url?: string;
+	slug: string;
+	title: string;
+	url?: string;
 }
 
 const { slug, title, url } = Astro.props;
 
 const getDomain = (url: string) => {
-  const { hostname } = new URL(url);
-  return hostname.replace(/^www\./, "");
+	const { hostname } = new URL(url);
+	return hostname.replace(/^www\./, "");
 };
 
 const ICON_MAP = new Map<string, string>([
-  ["zenn.dev", "https://static.zenn.studio/images/logo-transparent.png"],
-  [
-    "qiita.com",
-    "https://cdn.qiita.com/assets/favicons/public/production-c620d3e403342b1022967ba5e3db1aaa.ico",
-  ],
+	["zenn.dev", "https://static.zenn.studio/images/logo-transparent.png"],
+	[
+		"qiita.com",
+		"https://cdn.qiita.com/assets/favicons/public/production-c620d3e403342b1022967ba5e3db1aaa.ico",
+	],
 ]);
 ---
 

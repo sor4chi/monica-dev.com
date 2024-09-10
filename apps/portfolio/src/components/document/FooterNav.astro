@@ -4,13 +4,13 @@ import Link from "../ui/Link.astro";
 import { styles } from "./FooterNav.css";
 
 interface Navigation {
-  link: string;
-  title: string;
+	link: string;
+	title: string;
 }
 
 interface Props {
-  prev?: Navigation;
-  next?: Navigation;
+	prev?: Navigation;
+	next?: Navigation;
 }
 
 const { prev, next } = Astro.props;

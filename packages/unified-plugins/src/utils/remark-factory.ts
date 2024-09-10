@@ -6,22 +6,22 @@ type PluginFn = Plugin<[], Root>;
 type Handlers = Record<string, Handler>;
 
 export const createRemarkPlugin = (pluginFn: PluginFn): PluginFn => {
-  return pluginFn;
+	return pluginFn;
 };
 
 export const createRehypeHandlers = (handlers: Handlers): Handlers => {
-  return handlers;
+	return handlers;
 };
 
 export const createRemarkRehypePlugin = (
-  pluginFn: PluginFn,
-  handlers: Handlers,
+	pluginFn: PluginFn,
+	handlers: Handlers,
 ) => {
-  const plugin = pluginFn as PluginFn & {
-    handlers: Handlers;
-  };
+	const plugin = pluginFn as PluginFn & {
+		handlers: Handlers;
+	};
 
-  plugin.handlers = handlers;
+	plugin.handlers = handlers;
 
-  return plugin;
+	return plugin;
 };
