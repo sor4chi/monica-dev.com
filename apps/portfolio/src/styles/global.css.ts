@@ -1,3 +1,5 @@
+import "@sor4chi/design-system/global.css";
+
 import { vars } from "@sor4chi/design-system/theme.css";
 import { globalStyle } from "@vanilla-extract/css";
 
@@ -21,12 +23,6 @@ if (process.env.NODE_ENV === "production") {
 
 globalStyle("html", {
 	scrollPaddingTop: "30dvh",
-});
-
-globalStyle("*", {
-	margin: 0,
-	fontSmooth: "always",
-	WebkitFontSmoothing: "antialiased",
 });
 
 globalStyle("::selection", {
