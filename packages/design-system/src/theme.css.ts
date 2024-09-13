@@ -72,6 +72,14 @@ const fontVars = createGlobalTheme(":root", {
 		lg: "1.125rem",
 		xl: "1.25rem",
 		"2xl": "1.5rem",
+		relative: {
+			xs: "0.75em",
+			sm: "0.875em",
+			base: "1em",
+			lg: "1.125em",
+			xl: "1.25em",
+			"2xl": "1.5em",
+		},
 	},
 	weight: {
 		normal: "400",
