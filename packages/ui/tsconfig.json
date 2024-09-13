@@ -1,0 +1,5 @@
+{
+  "extends": "@sor4chi/tsconfig/react",
+  "include": ["src/**/*.ts", "src/**/*.tsx", ".storybook/**/*.ts"],
+  "exclude": ["node_modules"]
+}
