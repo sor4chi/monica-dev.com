@@ -9,7 +9,7 @@ import { md5 } from "js-md5";
 const OGP_WIDTH = 1200;
 const OGP_HEIGHT = 630;
 
-const FONT_SIZE = 80;
+const FONT_SIZE = 65;
 const MAX_TITLE_WIDTH = OGP_WIDTH - FONT_SIZE * 2;
 
 const PATH_PUBLIC_DIR = path.join(process.cwd(), "public");
