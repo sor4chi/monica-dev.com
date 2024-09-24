@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Heading } from "../heading";
 import { Link } from "../link";
-import { LinkCard } from "../link-card/link-card";
+import { LinkCard } from "../link-card";
 import { Paragraph } from "../paragraph";
 import { Article } from "./article";
 
