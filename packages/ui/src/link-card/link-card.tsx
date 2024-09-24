@@ -1,6 +1,6 @@
-import { Suspense, useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { ArticleContext } from "../article";
-import { Link } from "../link/link";
+import { Link } from "../link";
 import * as styles from "./link-card.css";
 
 interface LinkMeta {
@@ -11,11 +11,13 @@ interface LinkMeta {
 
 type LinkMetaFetcher = (url: string) => Promise<LinkMeta | null>;
 
-type Props<T extends React.ElementType> = {
-	as: T;
-	urlKey: keyof React.ComponentProps<T>;
+interface LinkCardProps<T extends React.ElementType> {
+	as?: T;
 	linkMetaFetcher: LinkMetaFetcher;
-} & React.ComponentProps<T>;
+}
+
+type Props<T extends React.ElementType> = LinkCardProps<T> &
+	Omit<React.ComponentPropsWithoutRef<T>, keyof LinkCardProps<T>>;
 
 type FetchState =
 	| {
@@ -29,9 +31,9 @@ type FetchState =
 			status: "error";
 	  };
 
-export const LinkCard = <T extends React.ElementType>({
-	as: LinkableComponent,
-	urlKey,
+export const LinkCard = <T extends React.ElementType = "a">({
+	as,
+	linkMetaFetcher,
 	...props
 }: Props<T>) => {
 	const articleContext = useContext(ArticleContext);
@@ -49,7 +51,7 @@ export const LinkCard = <T extends React.ElementType>({
 		}
 
 		try {
-			const linkMeta = await props.linkMetaFetcher(props.href);
+			const linkMeta = await linkMetaFetcher(props.href);
 			if (linkMeta) {
 				setLinkInfo({ status: "success", val: linkMeta });
 			} else {
@@ -58,20 +60,18 @@ export const LinkCard = <T extends React.ElementType>({
 		} catch {
 			setLinkInfo({ status: "error" });
 		}
-	}, [props.href, props.linkMetaFetcher]);
+	}, [props.href, linkMetaFetcher]);
 
 	useEffect(() => {
 		fetchLinkInfo();
 	}, [fetchLinkInfo]);
 
+	const LinkableComponent = as || "a";
+
 	if (linkInfo.status === "error") {
 		return (
-			<Link
-				as={LinkableComponent}
-				href={props.href}
-				newTab={isInternalLink}
-				className={styles.linkCard}
-			>
+			// @ts-ignore TODO: Fix this
+			<Link as={as} {...props} className={styles.linkCard}>
 				{props.children || props.href}
 			</Link>
 		);
