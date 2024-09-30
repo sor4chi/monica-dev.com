@@ -2,7 +2,7 @@ import { slideIn } from "@sor4chi/design-system/animation.css";
 import { vars } from "@sor4chi/design-system/theme.css";
 import { createVar, globalStyle, style } from "@vanilla-extract/css";
 
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
+import { ARTICLE_WIDTH, BREAKPOINT_MOBILE } from "@/styles/constants";
 
 export const styles = {
 	contents: style({}),
@@ -478,10 +478,12 @@ globalStyle(`${styles.contents} pre > code`, {
 globalStyle(`${styles.contents} img`, {
 	width: vars.spacing.full,
 	height: "auto",
+	maxHeight: `calc(${ARTICLE_WIDTH} * 3 / 4)`,
 	borderRadius: vars.spacing.absolute[2],
 	margin: `${vars.spacing.relative[4]} 0`,
 	border: `1px solid ${vars.color.gray[6]}`,
 	backgroundColor: vars.color.gray[2],
+	objectFit: "contain",
 });
 
 globalStyle(`${styles.contents} video`, {
