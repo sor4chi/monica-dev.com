@@ -42,6 +42,7 @@ Web 技術が中心のエンジニアですが、自然言語処理と数理最�
 
 2024
 
+- [AHC038](https://atcoder.jp/contests/ahc038) 50 位
 - [Software Design 2024年10月号](https://gihyo.jp/magazine/SD/archive/2024/202410) 「Durable Objectsが広げるCloudflare Workersの可能性」執筆
 - [AHC036](https://atcoder.jp/contests/ahc036) 61 位入賞 (学生 19 位)
 - [Hono Conf 2024](https://hono.connpass.com/event/319062/) Contributer 枠登壇
