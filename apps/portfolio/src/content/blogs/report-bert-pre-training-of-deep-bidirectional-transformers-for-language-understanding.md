@@ -2,6 +2,7 @@
 title: "論文読み - BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
 description: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding という論文を読みました。"
 publishedAt: 2024/05/22
+noindex: true
 ---
 
 今回は Google が 2018 年に発表した BERT に関する論文 "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"[^1] を読みました。

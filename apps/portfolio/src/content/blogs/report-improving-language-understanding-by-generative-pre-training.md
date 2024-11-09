@@ -2,6 +2,7 @@
 title: 論文読み - Improving Language Understanding by Generative Pre-Training
 description: Improving Language Understanding by Generative Pre-Training という論文を読みました。
 publishedAt: 2024/04/24
+noindex: true
 ---
 
 今回は "Improving Language Understanding by Generative Pre-Training"[^1] という論文を読みました。

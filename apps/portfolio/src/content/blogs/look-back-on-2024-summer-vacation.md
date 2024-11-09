@@ -52,7 +52,7 @@ publishedAt: 2024/09/29
 
 #### 技術雑誌の記事執筆
 
-Software Design 2024 年 10 月号 「Durable Objects が広げる Cloudflare Workers の可能性」を執筆した。
+Software Design 2024 年 10 月号「Durable Objects が広げる Cloudflare Workers の可能性」を執筆した。
 [Hono DO](https://github.com/sor4chi/hono-do) をはじめとした Cloudflare Workers を使った開発経験のなかで得た知見をもとに、Durable Objects がエッジでどんな動きをしどういう機能をもたらしてくれるのかを解説した。
 
 ![Software Design 2024年10月号](http://image.gihyo.co.jp/assets/images/cover/2024/642410.jpg)
@@ -136,4 +136,4 @@ AHC036 の懇親会に出席した
 - Web エンジニアじゃないかもしれない...
 - 来月から Cyber Agent で内定者バイトがあるので切り替えて頑張りたい
 - 卒業研究引き続き全力で取り組む
-- ISUCON頑張りたい。今年こそは...
+- ISUCON 頑張りたい。今年こそは...

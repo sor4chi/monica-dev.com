@@ -2,6 +2,7 @@
 title: 論文読み - Training language models to follow instructions with human feedback
 description: Training language models to follow instructions with human feedback という論文を読みました。
 publishedAt: 2024/06/19
+noindex: true
 ---
 
 今回は OpenAI が 2022 年に発表した "Training language models to follow instructions with human feedback"[^1] を読みました。

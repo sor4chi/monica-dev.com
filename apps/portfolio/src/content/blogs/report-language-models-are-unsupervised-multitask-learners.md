@@ -2,6 +2,7 @@
 title: 論文読み - Language Models are Unsupervised Multitask Learners
 description: Language Models are Unsupervised Multitask Learners という論文を読みました。
 publishedAt: 2024/05/01
+noindex: true
 ---
 
 今回は "Language Models are Unsupervised Multitask Learners"[^1] という論文を読みました。

@@ -2,6 +2,7 @@
 title: 論文読み - Language Models are Few-Shot Learners
 description: Language Models are Few-Shot Learners という論文を読みました。
 publishedAt: 2024/05/15
+noindex: true
 ---
 
 今回は OpenAI が 2020 年に発表した GPT-3 に関する論文 "Language Models are Few-Shot Learners"[^1] を読みました。

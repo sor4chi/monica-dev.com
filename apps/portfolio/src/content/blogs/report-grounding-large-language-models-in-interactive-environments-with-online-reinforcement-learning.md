@@ -2,6 +2,7 @@
 title: 論文読み - Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning
 description: Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning という論文を読みました。
 publishedAt: 2024/07/24
+noindex: true
 ---
 
 言語モデルを強化学習の方策モデルとして利用するという分野に興味を持ったので "Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning"[^1] を読みました。

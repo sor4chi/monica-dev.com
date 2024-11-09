@@ -2,6 +2,7 @@
 title: 論文読み - Efficient Estimation of Word Representations in Vector Space
 description: Efficient Estimation of Word Representations in Vector Space というWord2Vecのもととなる論文を読みました。
 publishedAt: 2024/03/29
+noindex: true
 ---
 
 今回は "Efficient Estimation of Word Representations in Vector Space"[^1]という論文を読みました。

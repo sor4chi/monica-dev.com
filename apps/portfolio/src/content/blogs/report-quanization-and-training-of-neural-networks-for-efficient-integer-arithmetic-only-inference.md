@@ -2,6 +2,7 @@
 title: 論文読み - Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference
 description: Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference という量子化の論文を読みました。
 publishedAt: 2024/07/03
+noindex: true
 ---
 
 今回は "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference"[^1]という論文を読みました。

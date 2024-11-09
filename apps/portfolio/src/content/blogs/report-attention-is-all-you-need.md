@@ -2,6 +2,7 @@
 title: 論文読み - Attention Is All You Need
 description: Attention Is All You Need というTransformerの論文を読みました。
 publishedAt: 2024/04/17
+noindex: true
 ---
 
 今回は "Attention Is All You Need"[^1]という論文を読みました。

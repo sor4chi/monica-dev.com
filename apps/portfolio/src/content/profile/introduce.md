@@ -40,7 +40,7 @@ UI/UX デザインとパフォーマンスチューニングが大好きで大�
 2024
 
 - [AHC038](https://atcoder.jp/contests/ahc038) 50 位
-- [Software Design 2024年10月号](https://gihyo.jp/magazine/SD/archive/2024/202410) 「Durable Objectsが広げるCloudflare Workersの可能性」執筆
+- [Software Design 2024年10月号](https://gihyo.jp/magazine/SD/archive/2024/202410)「Durable Objects が広げる Cloudflare Workers の可能性」執筆
 - [AHC036](https://atcoder.jp/contests/ahc036) 61 位入賞 (学生 19 位)
 - [Hono Conf 2024](https://hono.connpass.com/event/319062/) Contributer 枠登壇
 - [Web Speed Hackathon 2024](https://github.com/CyberAgentHack/web-speed-hackathon-2024) スコア 1 位 (学生 1 位)

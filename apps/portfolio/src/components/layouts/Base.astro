@@ -18,9 +18,11 @@ interface Props {
 	canonical: `/${string}`;
 	ogImageUrl?: string;
 	active: NavKinds;
+	noindex?: boolean;
 }
 
-const { title, description, canonical, ogImageUrl, active } = Astro.props;
+const { title, description, canonical, ogImageUrl, active, noindex } =
+	Astro.props;
 
 const getTitle = (title?: string) => {
 	if (title) {
@@ -41,6 +43,7 @@ const finalOgImageUrl = ogImageUrl
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{getTitle(title)}</title>
     <meta name="description" content={description || SITE_DESCRIPTION} />
+    <meta name="robots" content={noindex ? "noindex" : "index,follow"} />
 
     <meta property="og:title" content={getTitle(title)} />
     <meta property="og:description" content={description || SITE_DESCRIPTION} />
