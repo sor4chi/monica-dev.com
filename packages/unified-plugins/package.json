@@ -24,6 +24,7 @@
 		"vitest": "^1.6.0"
 	},
 	"dependencies": {
+		"@shikijs/transformers": "^1.22.2",
 		"hastscript": "^9.0.0",
 		"mdast-util-directive": "^3.0.0",
 		"mdast-util-to-hast": "^13.1.0",
@@ -33,6 +34,7 @@
 		"remark-directive": "^3.0.0",
 		"remark-gfm": "^4.0.0",
 		"remark-math": "^6.0.0",
+		"shiki": "^1.22.2",
 		"unist-util-visit": "^5.0.0"
 	}
 }

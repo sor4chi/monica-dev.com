@@ -1,4 +1,5 @@
 import { Article } from "./article";
+import { CodeBlock } from "./codeblock";
 import { Heading } from "./heading";
 import { Line } from "./line";
 import { Link } from "./link";
@@ -25,4 +26,9 @@ export {
 	Tr,
 	Th,
 	Td,
+	CodeBlock,
 };
+
+import { clsx } from "./lib/clsx";
+
+export { clsx };

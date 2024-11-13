@@ -2,7 +2,7 @@ import { vars } from "@sor4chi/design-system/theme.css";
 import { globalStyle } from "@vanilla-extract/css";
 
 globalStyle("body", {
-	backgroundColor: vars.color.gray[2],
+	backgroundColor: vars.color.gray[1],
 	fontFamily: '"Inter", "Noto Sans JP", sans-serif',
 	fontSize: vars.font.size.base,
 	margin: 0,

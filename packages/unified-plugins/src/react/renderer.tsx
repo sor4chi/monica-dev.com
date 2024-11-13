@@ -1,4 +1,5 @@
 import {
+	CodeBlock,
 	Heading,
 	Li,
 	Link,
@@ -65,6 +66,15 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 			<Link href={content.url}>
 				<Markdown contents={content.children} options={options} />
 			</Link>
+		);
+	}
+
+	if (content.type === "shikiCodeBlock") {
+		return (
+			<CodeBlock>
+				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
+				<div dangerouslySetInnerHTML={{ __html: content.html }} />
+			</CodeBlock>
 		);
 	}
 
