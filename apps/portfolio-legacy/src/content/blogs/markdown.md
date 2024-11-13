@@ -94,18 +94,18 @@ This is a [link](https://www.google.com). The format is below.
 
 ## Images
 
-![とてもかっこいい、夜の幻想的な風景画像](/assets/blogs/markdown/image.webp)
+![とてもかっこいい、夜の幻想的な風景画像](https://monica-dev.com/assets/blogs/markdown/image.webp)
 
 ```markdown
-![とてもかっこいい、夜の幻想的な風景画像](/assets/blogs/markdown/image.webp)
+![とてもかっこいい、夜の幻想的な風景画像](https://monica-dev.com/assets/blogs/markdown/image.webp)
 ```
 
 ## Video
 
-![動画](/assets/works/tetris-ai/NN6-infinity.mp4)
+![動画](https://monica-dev.com/assets/works/tetris-ai/NN6-infinity.mp4)
 
 ```markdown
-![動画](/assets/works/tetris-ai/NN6-infinity.mp4)
+![動画](https://monica-dev.com/assets/works/tetris-ai/NN6-infinity.mp4)
 ```
 
 ## Blockquotes
@@ -321,25 +321,43 @@ $Q_{\phi}(s_t, a_t)$は状態$s_t$と行動$a_t$に対する行動価値関数�
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
 
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Content that requires special attention to avoid potential issues.
+
+> [!TIP]
+> Helpful tips or recommendations that users would benefit from.
+
 ```markdown
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
 ```
 
-> [!IMPORTANT]
-> Crucial information necessary for users to succeed.
-
 ```markdown
 > [!IMPORTANT]
 > Crucial information necessary for users to succeed.
 ```
 
-> [!WARNING]
-> Critical content demanding immediate user attention due to potential risks.
-
 ```markdown
 > [!WARNING]
 > Critical content demanding immediate user attention due to potential risks.
+```
+
+
+```markdown
+> [!CAUTION]
+> Content that requires special attention to avoid potential issues.
+```
+
+
+```markdown
+> [!TIP]
+> Helpful tips or recommendations that users would benefit from.
 ```
 
 ## Flex Block

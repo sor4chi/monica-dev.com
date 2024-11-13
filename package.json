@@ -1,9 +1,10 @@
 {
-  "name": "website",
-  "scripts": {
-    "fix": "pnpm -r fix"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4"
-  }
+	"name": "website",
+	"scripts": {
+		"fix": "pnpm -r fix",
+		"dev:portfolio": "pnpm -C apps/portfolio dev"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4"
+	}
 }
