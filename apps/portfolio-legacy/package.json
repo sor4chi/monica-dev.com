@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "portfolio-legacy",
   "version": "0.0.1",
   "scripts": {
     "dev": "run-p dev:*",
