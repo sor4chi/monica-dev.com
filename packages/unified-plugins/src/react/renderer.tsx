@@ -1,9 +1,11 @@
 import {
 	Annotation,
+	BlockMath,
 	Blockquote,
 	CodeBlock,
 	Heading,
 	Img,
+	InlineMath,
 	Li,
 	Line,
 	Link,
@@ -81,6 +83,14 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 				<div dangerouslySetInnerHTML={{ __html: content.html }} />
 			</CodeBlock>
 		);
+	}
+
+	if (content.type === "inlineMath") {
+		return <InlineMath content={content.value} />;
+	}
+
+	if (content.type === "math") {
+		return <BlockMath content={content.value} />;
 	}
 
 	if (content.type === "list") {

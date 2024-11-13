@@ -12,6 +12,7 @@ import { Li, Ol, Ul } from "./list";
 import { Paragraph } from "./paragraph";
 import { Strong } from "./strong";
 import { TBody, THead, Table, Td, Th, Tr } from "./table";
+import { InlineMath, BlockMath } from "./math";
 
 export {
 	Article,
@@ -35,6 +36,8 @@ export {
 	Th,
 	Td,
 	CodeBlock,
+	InlineMath,
+	BlockMath,
 };
 
 import { clsx } from "./lib/clsx";
