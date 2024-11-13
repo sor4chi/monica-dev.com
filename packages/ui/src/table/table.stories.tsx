@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Article } from "../article";
-import { Table, Td, Th, Tr } from "./table";
+import { TBody, THead, Table, Td, Th, Tr } from "./table";
 
 const meta: Meta<typeof Table> = {
 	title: "Components/Table",
@@ -15,14 +15,14 @@ export const Overview: Story = {
 	render: () => (
 		<Article>
 			<Table>
-				<thead>
+				<THead>
 					<Tr>
 						<Th>Header 1</Th>
 						<Th>Header 2</Th>
 						<Th>Header 3</Th>
 					</Tr>
-				</thead>
-				<tbody>
+				</THead>
+				<TBody>
 					<Tr>
 						<Td>Cell 1</Td>
 						<Td>Cell 2</Td>
@@ -38,7 +38,7 @@ export const Overview: Story = {
 						<Td>Cell 8</Td>
 						<Td>Cell 9</Td>
 					</Tr>
-				</tbody>
+				</TBody>
 			</Table>
 		</Article>
 	),

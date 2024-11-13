@@ -1,1 +1,1 @@
-export { Table } from "./table";
+export { Table, TBody, THead, Td, Th, Tr } from "./table";

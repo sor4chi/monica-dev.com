@@ -8,6 +8,14 @@ export const Table = ({ children }: Props) => {
 	return <table className={styles.table}>{children}</table>;
 };
 
+export const THead = ({ children }: Props) => {
+	return <thead>{children}</thead>;
+};
+
+export const TBody = ({ children }: Props) => {
+	return <tbody>{children}</tbody>;
+};
+
 export const Th = ({ children }: Props) => {
 	return <th className={styles.th}>{children}</th>;
 };
