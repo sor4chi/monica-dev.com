@@ -36,11 +36,7 @@ export const Overview: Story = {
 			<LinkCard
 				as="a"
 				href="https://monica-dev.com"
-				linkMetaFetcher={async () => ({
-					imageUrl: "https://monica-dev.com/assets/ogp/default.png",
-					title: "Monica's Portfolio",
-					faviconUrl: "https://monica-dev.com/favicon.ico",
-				})}
+				fetcherEndpoint="https://embed.monica-dev.com/meta"
 			/>
 		</Article>
 	),

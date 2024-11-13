@@ -21,59 +21,6 @@ export const Basic: Story = {
 	args: {
 		as: "a",
 		href: "https://monica-dev.com",
-		linkMetaFetcher: async () => ({
-			imageUrl: "https://monica-dev.com/assets/ogp/default.png",
-			title: "Monica's Portfolio",
-			faviconUrl: "https://monica-dev.com/favicon.ico",
-		}),
-	},
-};
-
-export const Loading: Story = {
-	render: (args) => (
-		<Article>
-			<LinkCard {...args} />
-		</Article>
-	),
-	args: {
-		as: "a",
-		href: "https://monica-dev.com",
-		linkMetaFetcher: async () => new Promise(() => {}), // Simulate loading
-	},
-};
-
-export const FetchError: Story = {
-	render: (args) => (
-		<Article>
-			<LinkCard {...args} />
-		</Article>
-	),
-	args: {
-		as: "a",
-		href: "https://monica-dev.com",
-		linkMetaFetcher: async () => null,
-	},
-};
-
-export const Simulation: Story = {
-	render: (args) => (
-		<Article>
-			<LinkCard {...args} />
-		</Article>
-	),
-	args: {
-		as: "a",
-		href: "https://monica-dev.com",
-		linkMetaFetcher: async () => {
-			await new Promise((resolve) => setTimeout(resolve, 1000));
-			if (Math.random() < 0.5) {
-				throw new Error("Failed to fetch link meta");
-			}
-			return {
-				imageUrl: "https://monica-dev.com/assets/ogp/default.png",
-				title: "Monica's Portfolio",
-				faviconUrl: "https://monica-dev.com/favicon.ico",
-			};
-		},
+		fetcherEndpoint: "https://embed.monica-dev.com/meta",
 	},
 };

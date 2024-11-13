@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { ArticleContext } from "../article";
 import { Link } from "../link";
@@ -9,11 +10,22 @@ interface LinkMeta {
 	faviconUrl: string;
 }
 
-type LinkMetaFetcher = (url: string) => Promise<LinkMeta | null>;
-
 interface LinkCardProps<T extends React.ElementType> {
 	as?: T;
-	linkMetaFetcher: LinkMetaFetcher;
+	/** The URL to fetch the link meta data. The URL should be a GET request that returns a JSON object with the following shape:
+	 * ```json
+	 * {
+	 *   "imageUrl": string,
+	 *   "title": string,
+	 *   "faviconUrl": string
+	 * }
+	 * ```
+	 * requestURL will be appended to the fetcherEndpoint as a query parameter like
+	 * ```ts
+	 * `${fetcherEndpoint}?url=${requestURL}`
+	 * ```
+	 */
+	fetcherEndpoint: string;
 }
 
 type Props<T extends React.ElementType> = LinkCardProps<T> &
@@ -33,7 +45,7 @@ type FetchState =
 
 export const LinkCard = <T extends React.ElementType = "a">({
 	as,
-	linkMetaFetcher,
+	fetcherEndpoint,
 	...props
 }: Props<T>) => {
 	const articleContext = useContext(ArticleContext);
@@ -51,7 +63,11 @@ export const LinkCard = <T extends React.ElementType = "a">({
 		}
 
 		try {
-			const linkMeta = await linkMetaFetcher(props.href);
+			const searchParams = new URLSearchParams();
+			searchParams.set("url", props.href);
+			const linkMeta = await fetch(
+				`${fetcherEndpoint}?${searchParams.toString()}`,
+			).then((res) => res.json());
 			if (linkMeta) {
 				setLinkInfo({ status: "success", val: linkMeta });
 			} else {
@@ -60,7 +76,7 @@ export const LinkCard = <T extends React.ElementType = "a">({
 		} catch {
 			setLinkInfo({ status: "error" });
 		}
-	}, [props.href, linkMetaFetcher]);
+	}, [props.href, fetcherEndpoint]);
 
 	useEffect(() => {
 		fetchLinkInfo();
