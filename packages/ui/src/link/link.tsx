@@ -17,20 +17,3 @@ export const Link = <T extends React.ElementType = "a">({
 
 	return link;
 };
-
-interface MockLinkProps {
-	required: string;
-	children: React.ReactNode;
-}
-
-const MockLink = ({ required, children }: MockLinkProps) => {
-	return (
-		<div>
-			{required} {children}
-		</div>
-	);
-};
-
-<Link as={MockLink} required="true">
-	a
-</Link>;
