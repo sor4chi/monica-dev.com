@@ -1,6 +1,10 @@
+import { Annotation } from "./annotation";
 import { Article } from "./article";
+import { Blockquote } from "./blockquote";
 import { CodeBlock } from "./codeblock";
 import { Heading } from "./heading";
+import { Img } from "./img";
+import { Video } from "./video";
 import { Line } from "./line";
 import { Link } from "./link";
 import { LinkCard } from "./link-card";
@@ -11,7 +15,11 @@ import { TBody, THead, Table, Td, Th, Tr } from "./table";
 
 export {
 	Article,
+	Annotation,
+	Blockquote,
 	Heading,
+	Img,
+	Video,
 	Line,
 	Link,
 	LinkCard,

@@ -14,13 +14,14 @@ globalStyle(`${container} pre`, {
 	borderRadius: vars.spacing.absolute[2],
 	overflowX: "auto",
 	overflowY: "hidden",
-	transition: "box-shadow 0.5s ease-in-out",
+	transition: "box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out",
 });
 
 export const copied = style({});
 
 globalStyle(`${container}.${copied} pre`, {
-	boxShadow: `0 0 4px 4px ${vars.color.blue[4]}`,
+	boxShadow: `0 0 16px 0px ${vars.color.blue[4]}`,
+	borderColor: vars.color.blue[4],
 });
 
 globalStyle(`${container} pre > code`, {

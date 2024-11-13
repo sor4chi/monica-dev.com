@@ -1,7 +1,11 @@
 import {
+	Annotation,
+	Blockquote,
 	CodeBlock,
 	Heading,
+	Img,
 	Li,
+	Line,
 	Link,
 	LinkCard,
 	Ol,
@@ -13,6 +17,7 @@ import {
 	Td,
 	Tr,
 	Ul,
+	Video,
 } from "@sor4chi/ui";
 import type { RootContent } from "mdast";
 import type { ReactNode } from "react";
@@ -134,6 +139,20 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 		);
 	}
 
+	if (content.type === "annotation")
+		return (
+			<Annotation type={content.annotationType}>
+				<Markdown contents={content.children} options={options} />
+			</Annotation>
+		);
+
+	if (content.type === "blockquote")
+		return (
+			<Blockquote>
+				<Markdown contents={content.children} options={options} />
+			</Blockquote>
+		);
+
 	if (content.type === "heading")
 		return (
 			<Heading as={`h${content.depth}`}>
@@ -148,7 +167,30 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 			</Paragraph>
 		);
 
+	if (content.type === "emphasis")
+		return (
+			<em>
+				<Markdown contents={content.children} options={options} />
+			</em>
+		);
+
+	if (content.type === "delete")
+		return (
+			<del>
+				<Markdown contents={content.children} options={options} />
+			</del>
+		);
+
+	if (content.type === "image")
+		return <Img src={content.url} alt={content.alt ?? undefined} />;
+
+	if (content.type === "video") return <Video src={content.url} />;
+
+	if (content.type === "thematicBreak") return <Line />;
+
 	if (content.type === "text") return content.value;
+
+	if (content.type === "break") return <br />;
 
 	return null;
 };

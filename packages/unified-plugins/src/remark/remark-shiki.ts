@@ -31,7 +31,7 @@ const highlighter = await createHighlighter({
 export const remarkShiki = createRemarkPlugin(() => {
 	return async (tree) => {
 		visit(tree, (node, index, parent) => {
-			if (parent == null || index == null) return;
+			if (parent === undefined || index === undefined) return;
 			if (node.type !== "code") return;
 
 			const html = highlighter.codeToHtml(node.value, {
