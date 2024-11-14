@@ -3,6 +3,7 @@ import {
 	BlockMath,
 	Blockquote,
 	CodeBlock,
+	Detail,
 	Heading,
 	Img,
 	InlineMath,
@@ -21,7 +22,7 @@ import {
 	Ul,
 	Video,
 } from "@sor4chi/ui";
-import type { RootContent } from "mdast";
+import type { Paragraph as MdastParagraph, RootContent } from "mdast";
 import type { ReactNode } from "react";
 
 interface RenderOptions {
@@ -38,6 +39,19 @@ interface MarkdownProps {
 	contents: RootContent[];
 	options: RenderOptions;
 }
+
+const pStringify = (node: MdastParagraph): string => {
+	const _stringify = (node: RootContent): string => {
+		if (node.type === "text") return node.value;
+		if (node.type === "strong") return node.children.map(_stringify).join("");
+		if (node.type === "emphasis") return node.children.map(_stringify).join("");
+		if (node.type === "delete") return node.children.map(_stringify).join("");
+		if (node.type === "inlineMath") return node.value;
+		console.warn("unexpected node", node.type, "in paragraph");
+		return "";
+	};
+	return node.children.map(_stringify).join("");
+};
 
 // 順序に気を付ける。例えばリンクカードは特定条件のリンクを置き換えるため、リンクよりも先に処理する必要がある
 const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
@@ -148,6 +162,13 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 			</Table>
 		);
 	}
+
+	if (content.type === "details")
+		return (
+			<Detail summary={pStringify(content.summary)}>
+				<Markdown contents={content.children} options={options} />
+			</Detail>
+		);
 
 	if (content.type === "annotation")
 		return (
