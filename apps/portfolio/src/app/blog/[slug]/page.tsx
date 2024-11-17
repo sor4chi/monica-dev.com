@@ -36,7 +36,7 @@ export default async function BlogDetail({
 			<div>
 				<h1>{blog.title}</h1>
 				<Article>
-					{renderMdast(transformedMdast.children, {
+					{renderMdast(transformedMdast, {
 						link: Link,
 						fetcherEndpoint: "https://embed.monica-dev.com/meta",
 					})}

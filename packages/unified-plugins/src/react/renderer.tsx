@@ -23,8 +23,14 @@ import {
 	Ul,
 	Video,
 } from "@sor4chi/ui";
-import type { Paragraph as MdastParagraph, RootContent } from "mdast";
+import type {
+	FootnoteDefinition,
+	Paragraph as MdastParagraph,
+	Root,
+	RootContent,
+} from "mdast";
 import type { ReactNode } from "react";
+import { visit } from "unist-util-visit";
 
 interface RenderOptions {
 	link?: React.ElementType;
@@ -228,6 +234,15 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 
 	if (content.type === "break") return <br />;
 
+	if (content.type === "footnoteReference")
+		return (
+			<sup>
+				<Link href={`#fn-${content.identifier}`}>{content.identifier}</Link>
+			</sup>
+		);
+
+	if (content.type === "footnoteDefinition") return null;
+
 	console.warn("unexpected node", content.type);
 
 	return null;
@@ -235,14 +250,36 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 
 const Markdown = ({ contents, options }: MarkdownProps) => {
 	return contents.map((content, index) => {
-		// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-		return <MarkdownContent key={index} content={content} options={options} />;
+		return (
+			<MarkdownContent
+				// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+				key={index}
+				content={content}
+				options={options}
+			/>
+		);
 	});
 };
 
-export const renderMdast = (
-	nodes: RootContent[],
-	option: RenderOptions,
-): ReactNode => {
-	return <Markdown contents={nodes} options={option} />;
+export const renderMdast = (nodes: Root, option: RenderOptions): ReactNode => {
+	const footnoteDefinitions = new Set<FootnoteDefinition>();
+	visit(nodes, "footnoteDefinition", (node) => {
+		footnoteDefinitions.add(node);
+	});
+
+	return (
+		<>
+			<Markdown contents={nodes.children} options={option} />
+			<Heading as="h2">Footnotes</Heading>
+			<Ol>
+				{[...footnoteDefinitions]
+					.sort((a, b) => a.identifier.localeCompare(b.identifier))
+					.map((node) => (
+						<Li key={node.identifier} id={`fn-${node.identifier}`}>
+							<Markdown contents={node.children} options={option} />
+						</Li>
+					))}
+			</Ol>
+		</>
+	);
 };
