@@ -360,19 +360,6 @@ $Q_{\phi}(s_t, a_t)$は状態$s_t$と行動$a_t$に対する行動価値関数�
 > Helpful tips or recommendations that users would benefit from.
 ```
 
-## Flex Block
-
-This is a flex block
-
-:::flex
-
-![Image](/assets/blogs/markdown/image.webp)
-
-This is a flex default block
-The default is `center`
-
-:::
-
 ## Timeline
 
 ::::timeline

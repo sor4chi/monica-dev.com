@@ -38,25 +38,13 @@ Atcoder Heuristic Contest
 
 ### AtCoder
 
-::::flex
-
-:::details
-
 Algo +268
 
 ![AtCoder Algo](/assets/blogs/look-back-on-2024-spring-vacation/atcoder-algo.webp)
 
-:::
-
-:::details
-
 Heuristic +380
 
 ![AtCoder Heuristic](/assets/blogs/look-back-on-2024-spring-vacation/atcoder-heu.webp)
-
-:::
-
-::::
 
 ### Web Speed Hackathon 2024
 

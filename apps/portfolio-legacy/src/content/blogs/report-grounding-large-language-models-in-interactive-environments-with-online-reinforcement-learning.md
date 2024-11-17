@@ -56,22 +56,12 @@ GLAM 法では、LLM をポリシーとして利用し、オンライン RL を�
 
 パラメータは以下の通り
 
-::::flex
-
-:::left
-
 - 言語ボキャブラリー $\mathcal{V}$
 - 行動 $a \in \mathcal{A} \subset \mathcal{V}^N$
  （トークン系列としての行動）
 - 観測 $o \in \mathcal{V}^N$
 - 報酬 $r \in \mathbb{R}$
-- 報酬を条件付けるタスクや目標の記述
-  $g \in \mathcal{G} \subset \mathcal{V}^N$
-
-:::
-
-:::right
-
+- 報酬を条件付けるタスクや目標の記述 $g \in \mathcal{G} \subset \mathcal{V}^N$
 - 状態空間 $\mathcal{S}$
 - 行動空間 $\mathcal{A} \subset \mathcal{V}^N$
 - 目標空間 $\mathcal{G} \subset \mathcal{V}^N$
@@ -79,10 +69,6 @@ GLAM 法では、LLM をポリシーとして利用し、オンライン RL を�
 - 報酬関数 $\mathcal{R} : \mathcal{S} \times \mathcal{A} \times \mathcal{G} \rightarrow \mathbb{R}$
 - 観測関数 $\mathcal{O} : \mathcal{S} \rightarrow \mathcal{V}^N$
 - 割引因子 $\gamma$
-
-:::
-
-::::
 
 これらをもとに、目標拡張部分観測マルコフ決定過程（POMDP）$ \mathcal{M} = (\mathcal{S}, \mathcal{A}, \mathcal{G}, \mathcal{T}, \mathcal{R}, \mathcal{O}, \gamma) $ として環境をフレーム化する。
 

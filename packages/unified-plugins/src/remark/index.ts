@@ -1,6 +1,5 @@
 export * from "./remark-details";
 export * from "./remark-embed";
-export * from "./remark-flex-block";
 export * from "./remark-link-card";
 export * from "./remark-mention";
 export * from "./remark-section";

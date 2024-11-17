@@ -10,23 +10,11 @@ publishedAt: 2024/09/29
 
 #### AtCoder
 
-::::flex
-
-:::left
-
 945 -> 988 (+43)
 ![AtCoder Algo](/assets/blogs/look-back-on-2024-summer-vacation/atcoder-algo.webp)
 
-:::
-
-:::right
-
 1297 -> 1598 (+301)
 ![AtCoder Heuristic](/assets/blogs/look-back-on-2024-summer-vacation/atcoder-heu.webp)
-
-:::
-
-::::
 
 - [AHC036](https://atcoder.jp/contests/ahc036) 入賞 (61 位 / 1103・学生 19 位)
 - [AHC037](https://atcoder.jp/contests/ahc037) (232 位 / 985)
@@ -64,19 +52,11 @@ Youtube 配信をする形式でサークル内で夏休み講習会を開催し
 
 #### Ranking Notifier
 
-::::flex
-
-:::left
-
 AHC の順位表を 1 時間おきに取ってきて Discord に通知する Bot を作成した。
 
 Cloudflare Workers Queue と Discord Webhook を使った
 
-:::
-
 ![ランキング通知](</assets/blogs/look-back-on-2024-summer-vacation/ranking-notifier.webp>)
-
-::::
 
 #### Kalman Filter Simulator
 
@@ -104,25 +84,17 @@ Hono Storage の Star が 100 を超えた。
 
 AHC036 の懇親会に出席した
 
-::::flex
-
 ![懇親会の様子1](/assets/blogs/look-back-on-2024-summer-vacation/konshinkai-1.webp)
 
 ![懇親会の様子2](/assets/blogs/look-back-on-2024-summer-vacation/konshinkai-2.webp)
 
 ![懇親会の様子3](/assets/blogs/look-back-on-2024-summer-vacation/konshinkai-3.webp)
 
-::::
-
 実家（北海道）へ帰省した
-
-::::flex
 
 ![実家でBBQ](/assets/blogs/look-back-on-2024-summer-vacation/bbq.webp)
 
 ![麻雀](/assets/blogs/look-back-on-2024-summer-vacation/maj.webp)
-
-::::
 
 サークルのイベントでボーリング大会に参加した
 
