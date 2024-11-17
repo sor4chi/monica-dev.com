@@ -10,9 +10,9 @@ import {
 	createRemarkRehypePlugin,
 } from "../utils/remark-factory";
 
-import type { Parent, Root } from "mdast";
+import type { Node, Root } from "mdast";
 
-export interface Youtube extends Parent {
+export interface Youtube extends Node {
 	type: "youtube";
 	id: string;
 }
@@ -39,7 +39,6 @@ const plugin = createRemarkPlugin(() => {
 			const youtube: Youtube = {
 				type: "youtube",
 				id: text,
-				children: [],
 			};
 
 			parent?.children?.splice(index, 1, youtube);

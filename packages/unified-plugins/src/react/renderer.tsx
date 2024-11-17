@@ -31,6 +31,7 @@ import type {
 } from "mdast";
 import type { ReactNode } from "react";
 import { visit } from "unist-util-visit";
+import { Youtube } from "./components/youtube";
 
 interface RenderOptions {
 	link?: React.ElementType;
@@ -242,6 +243,8 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 		);
 
 	if (content.type === "footnoteDefinition") return null;
+
+	if (content.type === "youtube") return <Youtube id={content.id} />;
 
 	console.warn("unexpected node", content.type);
 
