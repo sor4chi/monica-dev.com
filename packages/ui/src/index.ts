@@ -5,6 +5,7 @@ import { CodeBlock } from "./codeblock";
 import { Detail } from "./detail";
 import { Heading } from "./heading";
 import { Img } from "./img";
+import { InlineCode } from "./inlinecode";
 import { Line } from "./line";
 import { Link } from "./link";
 import { LinkCard } from "./link-card";
@@ -38,6 +39,7 @@ export {
 	Th,
 	Td,
 	CodeBlock,
+	InlineCode,
 	InlineMath,
 	BlockMath,
 };

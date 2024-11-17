@@ -6,6 +6,7 @@ import {
 	Detail,
 	Heading,
 	Img,
+	InlineCode,
 	InlineMath,
 	Li,
 	Line,
@@ -97,6 +98,10 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 				<div dangerouslySetInnerHTML={{ __html: content.html }} />
 			</CodeBlock>
 		);
+	}
+
+	if (content.type === "inlineCode") {
+		return <InlineCode>{content.value}</InlineCode>;
 	}
 
 	if (content.type === "inlineMath") {
@@ -222,6 +227,8 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 	if (content.type === "text") return content.value;
 
 	if (content.type === "break") return <br />;
+
+	console.warn("unexpected node", content.type);
 
 	return null;
 };
