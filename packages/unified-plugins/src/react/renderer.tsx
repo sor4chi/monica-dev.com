@@ -19,12 +19,14 @@ import {
 	THead,
 	Table,
 	Td,
+	Timeline,
 	Tr,
 	Ul,
 	Video,
 } from "@sor4chi/ui";
 import type {
 	FootnoteDefinition,
+	Heading as MdastHeading,
 	Paragraph as MdastParagraph,
 	Root,
 	RootContent,
@@ -48,7 +50,7 @@ interface MarkdownProps {
 	options: RenderOptions;
 }
 
-const pStringify = (node: MdastParagraph): string => {
+const pStringify = (node: MdastParagraph | MdastHeading): string => {
 	const _stringify = (node: RootContent): string => {
 		if (node.type === "text") return node.value;
 		if (node.type === "strong") return node.children.map(_stringify).join("");
@@ -245,6 +247,23 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 	if (content.type === "footnoteDefinition") return null;
 
 	if (content.type === "youtube") return <Youtube id={content.id} />;
+
+	if (content.type === "timeline") {
+		return (
+			<Timeline.Container>
+				{content.children.map((item, index) => (
+					<Timeline.Item
+						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+						key={index}
+						time={item.time}
+						title={pStringify(item.title)}
+					>
+						<Markdown contents={item.children} options={options} />
+					</Timeline.Item>
+				))}
+			</Timeline.Container>
+		);
+	}
 
 	console.warn("unexpected node", content.type);
 
