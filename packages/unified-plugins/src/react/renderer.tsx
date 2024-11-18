@@ -33,6 +33,7 @@ import type {
 } from "mdast";
 import type { ReactNode } from "react";
 import { visit } from "unist-util-visit";
+import { Section } from "./components/section";
 import { Youtube } from "./components/youtube";
 
 interface RenderOptions {
@@ -265,6 +266,14 @@ const MarkdownContent = ({ content, options }: MarkdownContentProps) => {
 		);
 	}
 
+	if (content.type === "section") {
+		return (
+			<Section idx={content.idx}>
+				<Markdown contents={content.children} options={options} />
+			</Section>
+		);
+	}
+
 	console.warn("unexpected node", content.type);
 
 	return null;
@@ -292,16 +301,21 @@ export const renderMdast = (nodes: Root, option: RenderOptions): ReactNode => {
 	return (
 		<>
 			<Markdown contents={nodes.children} options={option} />
-			<Heading as="h2">Footnotes</Heading>
-			<Ol>
-				{[...footnoteDefinitions]
-					.sort((a, b) => a.identifier.localeCompare(b.identifier))
-					.map((node) => (
-						<Li key={node.identifier} id={`fn-${node.identifier}`}>
-							<Markdown contents={node.children} options={option} />
-						</Li>
-					))}
-			</Ol>
+			{footnoteDefinitions.size > 0 && (
+				<>
+					<Line />
+					<Heading as="h2">Footnotes</Heading>
+					<Ol>
+						{[...footnoteDefinitions]
+							.sort((a, b) => a.identifier.localeCompare(b.identifier))
+							.map((node) => (
+								<Li key={node.identifier} id={`fn-${node.identifier}`}>
+									<Markdown contents={node.children} options={option} />
+								</Li>
+							))}
+					</Ol>
+				</>
+			)}
 		</>
 	);
 };

@@ -12,6 +12,7 @@ import { LinkCard } from "./link-card";
 import { Li, Ol, Ul } from "./list";
 import { BlockMath, InlineMath } from "./math";
 import { Paragraph } from "./paragraph";
+import { SlideIn } from "./slidein";
 import { Strong } from "./strong";
 import { TBody, THead, Table, Td, Th, Tr } from "./table";
 import { Timeline } from "./timeline";
@@ -44,6 +45,7 @@ export {
 	InlineCode,
 	InlineMath,
 	BlockMath,
+	SlideIn,
 };
 
 import { clsx } from "./lib/clsx";

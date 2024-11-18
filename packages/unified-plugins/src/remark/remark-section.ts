@@ -14,7 +14,7 @@ import type { BlockContent, DefinitionContent, Parent } from "mdast";
 
 export interface Section extends Parent {
 	type: "section";
-	id?: string;
+	idx: number;
 	children: Array<BlockContent | DefinitionContent>;
 }
 
@@ -29,7 +29,7 @@ declare module "mdast" {
 
 const plugin = createRemarkPlugin(() => {
 	return (tree) => {
-		let sectionId = 0;
+		let sectionIdx = 0;
 		visit(tree, (node, index, parent) => {
 			if (node.type !== "containerDirective") return;
 			if (node.name !== "section") return;
@@ -37,13 +37,9 @@ const plugin = createRemarkPlugin(() => {
 
 			const section: Section = {
 				type: "section",
-				id: `${sectionId++}`,
-				children: [],
+				idx: sectionIdx++,
+				children: node.children,
 			};
-
-			for (const child of node.children) {
-				section.children.push(child);
-			}
 
 			parent?.children?.splice(index, 1, section);
 		});
@@ -57,7 +53,7 @@ const handlers = createRehypeHandlers({
 			{
 				className: "markdown-section markdown-contents",
 				style: {
-					"animation-delay": `${Number.parseInt(node.id || "0") * 0.2}s`,
+					"animation-delay": `${node.idx * 0.2}s`,
 				},
 			},
 			state.all(node),
