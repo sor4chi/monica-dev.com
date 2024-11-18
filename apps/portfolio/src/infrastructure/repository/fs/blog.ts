@@ -4,7 +4,8 @@ import type { IBlogRepository } from "@/domain/repository/blog";
 import matter from "gray-matter";
 import { z } from "zod";
 
-const CONTENT_DIR = path.join(process.cwd(), "../portfolio-legacy/src/content/blogs");
+const CONTENT_DIR = path.join(process.cwd(), "../portfolio-legacy/src/content");
+const BLOG_DIR = path.join(CONTENT_DIR, "blog");
 
 const FrontMatterSchema = z.object({
 	title: z.string(),
@@ -28,13 +29,10 @@ export class FSBlogRepository implements IBlogRepository {
 	}
 
 	async getBlogs() {
-		const files = await fs.readdir(CONTENT_DIR);
+		const files = await fs.readdir(BLOG_DIR);
 		const blogs = await Promise.all(
 			files.map(async (file) => {
-				const content = await fs.readFile(
-					path.join(CONTENT_DIR, file),
-					"utf-8",
-				);
+				const content = await fs.readFile(path.join(BLOG_DIR, file), "utf-8");
 				const { data } = this.parseMarkdown(content);
 				return {
 					slug: file.replace(".md", ""),
@@ -49,7 +47,7 @@ export class FSBlogRepository implements IBlogRepository {
 
 	async getBlogDetail(slug: string) {
 		const content = await fs.readFile(
-			path.join(CONTENT_DIR, `${slug}.md`),
+			path.join(BLOG_DIR, `${slug}.md`),
 			"utf-8",
 		);
 		const { data, content: markdownContent } = this.parseMarkdown(content);
