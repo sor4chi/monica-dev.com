@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "@sor4chi/design-system/global.css";
+import { Footer } from "@/components/layout/footer";
 import { clsx } from "@sor4chi/ui";
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({
 			</head>
 			<body className={clsx(notoSansJP.className, inter.className)}>
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
