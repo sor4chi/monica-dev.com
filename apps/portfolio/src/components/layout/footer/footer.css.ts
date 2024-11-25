@@ -9,4 +9,5 @@ export const footer = style({
 	display: "flex",
 	justifyContent: "center",
 	alignItems: "center",
+	fontSize: vars.font.size.sm,
 });
