@@ -6,3 +6,4 @@ dist/
 # cloudflare wrangler
 .wrangler
 .cache
+/public/assets/ogp
