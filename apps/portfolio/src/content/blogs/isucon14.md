@@ -89,7 +89,7 @@ t@a01sa01to がしきりに「**Flow流せるんじゃね？GoのACLにFlowな�
 <https://github.com/isucon-maxif/isucon14/pull/19>
 
 この頃、他のチームのベンチ状況で**1 位になる瞬間**があり、上位を走れていたんじゃないかなと思います。
-![一時的に1位になった図](/assets/blogs/isucon14/top-temporary.png)
+![一時的に1位になった図](/assets/blogs/isucon14/top-temporary.webp)
 
 #### [13:45] getLatestRideStatus 関連の N+1 解消 (14674)
 
@@ -154,6 +154,8 @@ ISUCONではそこそこの追試落ちが発生するため、安定をとっ�
 25 位スコアは出ていたのに...
 
 ::::
+
+![ISUCON14のスコア遷移](/assets/blogs/isucon14/score-transition.webp)
 
 ## 感想
 
