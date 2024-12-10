@@ -43,6 +43,8 @@ export const styles = {
 
 		transition: "color 0.2s ease-in-out",
 
+		wordBreak: "break-word",
+
 		"@media": {
 			"(hover: hover)": {
 				":hover": {
