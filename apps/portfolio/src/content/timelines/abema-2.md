@@ -5,5 +5,5 @@ link: https://abema.tv/
 date: 2024-12-01
 ---
 
-コンテンツエンジニアとして 2 ヶ月間 [AbemaTV](https://abema.tv/) でクラウド映像処理関連の開発に携わる
+メディアエンジニとして 2 ヶ月間 [AbemaTV](https://abema.tv/) でクラウド映像処理関連の開発に携わる
 (内定者バイト)
