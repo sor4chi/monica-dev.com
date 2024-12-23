@@ -39,7 +39,7 @@ UI/UX デザインとパフォーマンスチューニングが大好きで大�
 
 2024
 
-- [AHC040](https://atcoder.jp/contests/ahc040) 60 位
+- [AHC040](https://atcoder.jp/contests/ahc040) 60 位入賞
 - [ISUCON14](https://isucon.net/archives/58818382.html) Maxif. 29 位入賞 (学生 4 位)
 - [AHC038](https://atcoder.jp/contests/ahc038) 50 位
 - [Software Design 2024年10月号](https://gihyo.jp/magazine/SD/archive/2024/202410)「Durable Objects が広げる Cloudflare Workers の可能性」執筆
