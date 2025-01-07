@@ -14,7 +14,7 @@ createGlobalTheme(".light", colorVars, {
 		8: "hsl(0 0% 56.1%)",
 		9: "hsl(0 0% 52.3%)",
 		10: "hsl(0 0% 43.5%)",
-		11: "hsl(0 0% 20.0%)",
+		11: "hsl(0 0% 25.0%)",
 		12: "hsl(0 0% 9.0%)",
 	},
 	blue: {
@@ -45,7 +45,7 @@ createGlobalTheme(".dark", colorVars, {
 		8: "hsl(0 0% 43.9%)",
 		9: "hsl(0 0% 49.4%)",
 		10: "hsl(0 0% 62.8%)",
-		11: "hsl(0 0% 85.0%)",
+		11: "hsl(0 0% 78.0%)",
 		12: "hsl(0 0% 93.0%)",
 	},
 	blue: {
