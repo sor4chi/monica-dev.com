@@ -13,6 +13,7 @@ export const styles = {
 	}),
 	title: style({
 		fontSize: vars.font.size.xl,
+		color: vars.color.gray[12],
 	}),
 	titleWord: style({
 		display: "inline-block",

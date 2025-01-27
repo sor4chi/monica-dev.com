@@ -501,6 +501,7 @@ globalStyle(`${styles.contents} .katex-display`, {
 	width: "100%",
 	margin: 0,
 	scrollbarGutter: "stable",
+	color: vars.color.gray[12],
 });
 
 globalStyle(`${styles.contents} .katex-display > .katex`, {
@@ -517,6 +518,7 @@ globalStyle(`${styles.contents} .katex-display > .katex`, {
 
 globalStyle(`${styles.contents} :not(.katex-display) > .katex`, {
 	padding: `0 ${vars.spacing.relative[1]}`,
+	color: vars.color.gray[12],
 });
 
 globalStyle(`${styles.contents} .footnotes`, {

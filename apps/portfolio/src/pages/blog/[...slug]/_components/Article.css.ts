@@ -26,6 +26,7 @@ export const styles = {
 	}),
 	title: style({
 		fontSize: vars.font.size.xl,
+
 	}),
 	word: style({
 		display: "inline-block",
