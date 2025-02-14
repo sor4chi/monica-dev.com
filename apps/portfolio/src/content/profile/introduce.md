@@ -37,6 +37,10 @@ UI/UX デザインとパフォーマンスチューニングが大好きで大�
 
 ## Achievements
 
+2025
+
+- [Santa 2024](https://www.kaggle.com/competitions/santa-2024) 32位 (銀メダル)
+
 2024
 
 - [AHC040](https://atcoder.jp/contests/ahc040) 60 位入賞
