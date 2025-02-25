@@ -22,6 +22,7 @@ socials:
 Web フロントエンドを中心に、バックエンドやインフラも幅広く経験しています。
 UI/UX デザインとパフォーマンスチューニングが大好きで大会によく参加しています。
 現在は自然言語処理と数理最適化に興味があり、大学では自然言語処理の研究室に所属しています。
+AtCoder の Heuristic 部門で黄色です。[@sor4chi](https://atcoder.jp/users/sor4chi?contestType=heuristic&graph=rating)
 
 :::
 
