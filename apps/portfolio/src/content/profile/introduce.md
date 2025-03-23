@@ -22,7 +22,7 @@ socials:
 Web フロントエンドを中心に、バックエンドやインフラも幅広く経験しています。
 UI/UX デザインとパフォーマンスチューニングが大好きで大会によく参加しています。
 現在は自然言語処理と数理最適化に興味があり、大学では自然言語処理の研究室に所属しています。
-AtCoder の Heuristic 部門で黄色です。[@sor4chi](https://atcoder.jp/users/sor4chi?contestType=heuristic&graph=rating)
+AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4chi?contestType=heuristic&graph=rating), Kaggle Expert [@sor4chi](https://www.kaggle.com/sor4chi) です。
 
 :::
 
@@ -40,6 +40,7 @@ AtCoder の Heuristic 部門で黄色です。[@sor4chi](https://atcoder.jp/user
 
 2025
 
+- [Web Speed Hackathon 2025](https://github.com/CyberAgentHack/web-speed-hackathon-2025) 作問 (運営)
 - [Santa 2024](https://www.kaggle.com/competitions/santa-2024) 32位 (銀メダル)
 
 2024
