@@ -8,8 +8,7 @@ socials:
 
 :::section
 
-22 歳の Web Developer です。
-北海道出身で、[埼玉大学](http://www.saitama-u.ac.jp/)・情報工学科の 4 年生です。
+北海道出身、東京在住の 22 歳の Web Developer です。
 
 [Sor4chi](https://github.com/sor4chi) (Github) や [Monica](https://x.com/sor4chi) (X) という名前で活動しています。
 
@@ -21,7 +20,7 @@ socials:
 
 Web フロントエンドを中心に、バックエンドやインフラも幅広く経験しています。
 UI/UX デザインとパフォーマンスチューニングが大好きで大会によく参加しています。
-現在は自然言語処理と数理最適化に興味があり、大学では自然言語処理の研究室に所属しています。
+現在は自然言語処理と数理最適化に興味があり、大学では自然言語処理の研究室に所属していました。
 AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4chi?contestType=heuristic&graph=rating), Kaggle Expert [@sor4chi](https://www.kaggle.com/sor4chi) です。
 
 :::
@@ -30,7 +29,9 @@ AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4ch
 
 ## Career
 
-大学 1 年生の頃から 4 社で、Web フルスタックエンジニアとしてインフラからアプリケーション分野まで幅広く長期のインターンシップを経験しました。詳しくは [Timeline](/timeline) をご覧ください。
+大学生の頃から色々な企業でのインターンシップを経験し、特に Web 開発に興味を持ち、新卒で株式会社CyberAgentに入社しました。
+
+詳しくは [Timeline](/timeline) をご覧ください。
 
 :::
 
