@@ -5,5 +5,5 @@ link: https://abema.tv/
 date: 2023-10-04
 ---
 
-フロントエンドで 4 ヶ月間 [AbemaTV](https://abema.tv/) の開発に携わる
+フロントエンドエンジニアとして 4 ヶ月間 [AbemaTV](https://abema.tv/) Webの開発に携わる
 (内定者バイト)

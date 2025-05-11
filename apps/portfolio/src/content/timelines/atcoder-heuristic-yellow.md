@@ -5,6 +5,6 @@ link: https://atcoder.jp/users/sor4chi?contestType=heuristic&graph=rating
 date: 2025-02-26
 ---
 
-AHC043で黄色コーダーへ昇格しました。
+AHC043で黄色コーダーへ昇格
 
 [@sor4chi](https://atcoder.jp/users/sor4chi?contestType=heuristic&graph=rating)
