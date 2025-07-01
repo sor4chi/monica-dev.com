@@ -1,6 +1,6 @@
 ---
 title: "Sor4chi / Monica"
-subtitle: "A Web Developer"
+subtitle: "A Software Developer"
 socials:
   github: https://github.com/sor4chi
   x: https://x.com/sor4chi
@@ -8,7 +8,7 @@ socials:
 
 :::section
 
-北海道出身、東京在住の 22 歳の Web Developer です。
+北海道出身、東京在住の 22 歳の Software Developer です。
 
 [Sor4chi](https://github.com/sor4chi) (Github) や [Monica](https://x.com/sor4chi) (X) という名前で活動しています。
 
