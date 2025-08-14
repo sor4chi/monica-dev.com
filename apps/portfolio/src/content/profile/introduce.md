@@ -41,6 +41,7 @@ AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4ch
 
 2025
 
+- [AHC051](https://atcoder.jp/contests/ahc051) 54 位
 - [Web Speed Hackathon 2025](https://github.com/CyberAgentHack/web-speed-hackathon-2025) 作問 (運営)
 - [Santa 2024](https://www.kaggle.com/competitions/santa-2024) 32位 (銀メダル)
 
