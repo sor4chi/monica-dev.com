@@ -79,8 +79,8 @@ importers:
         specifier: ^18.0.0
         version: 18.3.1(react@18.3.1)
       vanjs-core:
-        specifier: ^1.5.0
-        version: 1.5.0
+        specifier: ^1.5.5
+        version: 1.5.5
     devDependencies:
       '@astrojs/partytown':
         specifier: ^2.1.2
@@ -6837,8 +6837,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vanjs-core@1.5.0:
-    resolution: {integrity: sha512-kOM9XVOciL9Q3Ihn3ruycTL5NCvuR5Ub7wwQIU9sZJdMBWSxesbeyN3+PWceLz57ImgHTF0eOVvhkoKJLlE3hw==}
+  vanjs-core@1.5.5:
+    resolution: {integrity: sha512-BC9MjbXYIRqnwncXfacT6upJpVmIKyrV2MjZi8NuCK+yc9RP0hfdghTpmEuYswXOfkLarDPPcYK4X6q68T9e+g==}
 
   vfile-location@5.0.2:
     resolution: {integrity: sha512-NXPYyxyBSH7zB5U6+3uDdd6Nybz6o6/od9rk8bp9H8GR3L+cm/fC0uUTbqBmUTnMCUDslAGBOIKNfvvb+gGlDg==}
@@ -15234,7 +15234,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vanjs-core@1.5.0: {}
+  vanjs-core@1.5.5: {}
 
   vfile-location@5.0.2:
     dependencies:
