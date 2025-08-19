@@ -7,13 +7,13 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.4.29",
-    "@cloudflare/workers-types": "^4.20240903.0",
+    "@cloudflare/vitest-pool-workers": "^0.8.65",
+    "@cloudflare/workers-types": "^4.20250816.0",
     "@sor4chi/tsconfig": "workspace:*",
-    "vitest": "1.5.3",
-    "wrangler": "^3.75.0"
+    "vitest": "3.2.4",
+    "wrangler": "^4.31.0"
   },
   "dependencies": {
-    "hono": "^4.5.11"
+    "hono": "^4.9.2"
   }
 }

@@ -1,49 +1,61 @@
 import { Hono } from "hono";
-import { cache } from "hono/cache";
 
 import { MetaParser } from "./meta";
+import { logger } from "hono/logger";
 
 const app = new Hono();
 
-app.get(
-	"/meta",
-	cache({
-		cacheName: "meta",
-		cacheControl: "public, max-age=3600",
-	}),
-	async (c) => {
-		const url = new URL(c.req.url);
+app.use(logger());
 
-		const paramUrl = url.searchParams.get("url");
-		if (paramUrl === null) return c.body("Bad Request", 400);
+const FETCH_INIT: RequestInit = {
+  redirect: "follow",
+  headers: {
+    "User-Agent":
+      "Mozilla/5.0 (compatible; MetaFetcher/1.0; +https://monica-dev.com)",
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+  },
+};
 
-		const decodedUrl = decodeURIComponent(paramUrl);
+app.get("/meta", async (c) => {
+  const url = new URL(c.req.url);
 
-		c.header("Access-Control-Allow-Origin", "*");
-		c.header("Access-Control-Allow-Methods", "GET");
-		c.header("Access-Control-Allow-Headers", "Content-Type");
+  const paramUrl = url.searchParams.get("url");
+  if (paramUrl === null) return c.body("Bad Request", 400);
 
-		const siteRes = await fetch(decodedUrl);
-		if (!siteRes.ok) return c.body("Not Found", 404);
+  const decodedUrl = decodeURIComponent(paramUrl);
 
-		const meta = new MetaParser();
-		const res = new HTMLRewriter()
-			.on("title", meta)
-			.on("meta", meta)
-			.on("link", meta)
-			.transform(siteRes);
+  const cache = await caches.open("meta");
+  const cachedResponse = await cache.match(decodedUrl);
+  if (cachedResponse) return cachedResponse;
 
-		await res.text();
+  c.header("Access-Control-Allow-Origin", "*");
+  c.header("Access-Control-Allow-Methods", "GET");
+  c.header("Access-Control-Allow-Headers", "Content-Type");
 
-		if (meta.imageUrl.startsWith("/")) {
-			meta.imageUrl = new URL(meta.imageUrl, decodedUrl).toString();
-		}
-		if (meta.faviconUrl.startsWith("/")) {
-			meta.faviconUrl = new URL(meta.faviconUrl, decodedUrl).toString();
-		}
+  const siteRes = await fetch(decodedUrl, FETCH_INIT);
+  if (!siteRes.ok) return c.body("Not Found", 404);
 
-		return c.json(meta);
-	},
-);
+  const meta = new MetaParser();
+  const res = new HTMLRewriter()
+    .on("title", meta)
+    .on("meta", meta)
+    .on("link", meta)
+    .transform(siteRes);
+
+  await res.text();
+
+  if (meta.imageUrl.startsWith("/")) {
+    meta.imageUrl = new URL(meta.imageUrl, decodedUrl).toString();
+  }
+  if (meta.faviconUrl.startsWith("/")) {
+    meta.faviconUrl = new URL(meta.faviconUrl, decodedUrl).toString();
+  }
+
+  const response = c.json(meta);
+
+  c.executionCtx.waitUntil(cache.put(decodedUrl, response.clone()));
+
+  return response;
+});
 
 export default app;
