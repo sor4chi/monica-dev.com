@@ -20,7 +20,7 @@ socials:
 
 Web フロントエンドを中心に、バックエンドやインフラも幅広く経験しています。
 UI/UX デザインとパフォーマンスチューニングが大好きで大会によく参加しています。
-現在は自然言語処理と数理最適化に興味があり、大学では自然言語処理の研究室に所属していました。
+現在は映像処理と数理最適化に興味があり、大学では自然言語処理の研究室に所属していました。
 AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4chi?contestType=heuristic&graph=rating), Kaggle Expert [@sor4chi](https://www.kaggle.com/sor4chi) です。
 
 :::
@@ -29,7 +29,7 @@ AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4ch
 
 ## Career
 
-大学生の頃から色々な企業でのインターンシップを経験し、特に Web 開発に興味を持ち、新卒で株式会社CyberAgentに入社しました。
+大学生の頃から色々な企業でのインターンシップを経験し、特に Web 開発に興味を持ち、新卒で株式会社CyberAgentに入社しました。現在は株式会社AbemaTVに配属され、クラウド映像処理システムの開発を担当しています。
 
 詳しくは [Timeline](/timeline) をご覧ください。
 
@@ -66,6 +66,7 @@ AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4ch
 
 ## Certification
 
+- Professional Cloud Architect (PCA) (2025/12)
 - 応用情報技術者 (2023/06)
 
 :::
