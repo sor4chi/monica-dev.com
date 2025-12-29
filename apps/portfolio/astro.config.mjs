@@ -24,6 +24,7 @@ import {
   remarkMath,
   remarkDirective,
   remarkVideo,
+  remarkTwitter,
 } from "@sor4chi/unified-plugins/remark";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { defineConfig } from "astro/config";
@@ -52,6 +53,7 @@ export default defineConfig({
     remarkPlugins: [
       remarkMath,
       remarkBreaks,
+      remarkTwitter,
       remarkLinkCard,
       remarkDirective,
       remarkFlexBlock,
@@ -70,6 +72,7 @@ export default defineConfig({
     ],
     remarkRehype: {
       handlers: {
+        ...remarkTwitter.handlers,
         ...remarkLinkCard.handlers,
         ...remarkTimeline.handlers,
         ...remarkSection.handlers,

@@ -24,14 +24,14 @@ publishedAt: 2023/12/30
 [Hono](https://github.com/honojs/hono)との出会いは[Web Speed Hackathon 2023](https://cyberagent.connpass.com/event/270424/)という大会でした。
 この大会で勝つために練習や対策を進める中で [@yusukebe](https://x.com/yusukebe) さんという方が、彼の作ったライブラリである Hono を大会内で使い、優勝したという記事を拝見しました。
 
-https://yusukebe.com/posts/2022/wsh/
+<https://yusukebe.com/posts/2022/wsh/>
 
 この記事を読んで Edge Workers というものを知り、その柔軟さやコンセプトの面白さに惹かれて気づけば色々なプログラムを作っては遊んでいました。
 その中で Hono の書きやすさや型サポートの便利さ、Web 標準準拠のコンセプトなどにとても感銘を受け、自分でも何か貢献したいと思ったのがきっかけで、今年の 7 月に初めてコントリビュートをしました。
 
 9 月に開催された[Cloudflare Meet-up Tokyo Vol.2](https://cfm-cts.connpass.com/event/291753/)で [@yusukebe](https://x.com/yusukebe) さんとお会いしました。
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">@monica18_pr いまHubいますか？おはなししましょう</p>&mdash; Yusuke Wada (@yusukebe) <a href="https://twitter.com/yusukebe/status/1699408905552683374?ref_src=twsrc%5Etfw">September 6, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<https://x.com/yusukebe/status/1699408905552683374>
 
 この時 Twitter で声をかけていただいたのが嬉しくで今でも鮮明に覚えています。この時に Hono にもっとコントリビュートしてよと言っていただき、火がついて色々な PR や Issue で積極的に開発へ参加するようになりました。
 
@@ -96,7 +96,7 @@ WizUI を始め様々な自分を成長させてくれたプロダクトの開�
 
 ABEMA TV で内定者バイトとして 4 ヶ月間働いています。（現在も働いています）
 
-https://abema.tv/
+<https://abema.tv/>
 
 フロントエンドエンジニアとして、Web サイトの UI 開発やパフォーマンス改善等の基盤系タスクを担当しています。
 これほど大きなサービスの開発に携われることはとても貴重で未開拓な分野の知見が得られてとても楽しいです。

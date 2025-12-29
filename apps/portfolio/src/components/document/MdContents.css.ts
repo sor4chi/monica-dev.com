@@ -672,3 +672,183 @@ globalStyle(`${styles.contents} .astro-code .line.diff.add:before`, {
 globalStyle(`${styles.contents} .astro-code .line.diff.remove:before`, {
 	content: '"-"',
 });
+
+// Twitter embed styles
+globalStyle(`${styles.contents} .twitter-embed`, {
+	display: "flex",
+	flexDirection: "column",
+	gap: vars.spacing.absolute[3],
+	padding: vars.spacing.absolute[4],
+	border: `1px solid ${vars.color.gray[4]}`,
+	borderRadius: vars.spacing.absolute[2],
+	boxSizing: "border-box",
+	backgroundColor: vars.color.gray[1],
+	textDecoration: "none",
+	color: vars.color.gray[11],
+	transition: "background-color 0.2s",
+	width: "100%",
+	maxWidth: "500px",
+	margin: "0 auto",
+});
+
+
+globalStyle(`${styles.contents} .twitter-embed__header`, {
+	display: "flex",
+	alignItems: "center",
+	gap: vars.spacing.absolute[3],
+	textDecoration: "none",
+	color: "inherit",
+});
+
+globalStyle(`${styles.contents} .twitter-embed__header:hover`, {
+	"@media": {
+		"(hover: hover)": {
+			opacity: 0.8,
+		},
+	},
+});
+
+globalStyle(`${styles.contents} .twitter-embed__avatar`, {
+	width: "40px",
+	height: "40px",
+	borderRadius: "50%",
+	flexShrink: 0,
+	margin: 0,
+	border: "none",
+});
+
+globalStyle(`${styles.contents} .twitter-embed__author`, {
+	display: "flex",
+	flexDirection: "column",
+	flex: 1,
+	minWidth: 0,
+});
+
+globalStyle(`${styles.contents} .twitter-embed__name`, {
+	fontWeight: vars.font.weight.bold,
+	color: vars.color.gray[12],
+	overflow: "hidden",
+	textOverflow: "ellipsis",
+	whiteSpace: "nowrap",
+});
+
+globalStyle(`${styles.contents} .twitter-embed__screen-name`, {
+	fontSize: vars.font.size.sm,
+	color: vars.color.gray[9],
+});
+
+globalStyle(`${styles.contents} .twitter-embed__logo`, {
+	color: vars.color.gray[11],
+	flexShrink: 0,
+});
+
+globalStyle(`${styles.contents} .twitter-embed__content`, {
+	lineHeight: 1.6,
+});
+
+globalStyle(`${styles.contents} .twitter-embed__text`, {
+	margin: 0,
+	whiteSpace: "pre-wrap",
+	wordBreak: "break-word",
+});
+
+globalStyle(`${styles.contents} .twitter-embed__media`, {
+	display: "grid",
+	gap: "2px",
+	borderRadius: vars.spacing.absolute[2],
+	overflow: "hidden",
+});
+
+globalStyle(`${styles.contents} .twitter-embed__media[data-count="1"]`, {
+	gridTemplateColumns: "1fr",
+	gridTemplateRows: "auto",
+});
+
+globalStyle(`${styles.contents} .twitter-embed__media[data-count="2"]`, {
+	gridTemplateColumns: "1fr 1fr",
+	gridTemplateRows: "200px",
+});
+
+globalStyle(`${styles.contents} .twitter-embed__media[data-count="3"]`, {
+	gridTemplateColumns: "1fr 1fr",
+	gridTemplateRows: "150px 150px",
+});
+
+globalStyle(
+	`${styles.contents} .twitter-embed__media[data-count="3"] .twitter-embed__photo:first-child`,
+	{
+		gridRow: "1 / 3",
+	},
+);
+
+globalStyle(`${styles.contents} .twitter-embed__media[data-count="4"]`, {
+	gridTemplateColumns: "1fr 1fr",
+	gridTemplateRows: "150px 150px",
+});
+
+globalStyle(`${styles.contents} .twitter-embed__photo`, {
+	width: "100%",
+	height: "100%",
+	objectFit: "cover",
+	margin: 0,
+	border: "none",
+	borderRadius: 0,
+});
+
+globalStyle(
+	`${styles.contents} .twitter-embed__media[data-count="1"] .twitter-embed__photo`,
+	{
+		maxHeight: "300px",
+		height: "auto",
+	},
+);
+
+globalStyle(`${styles.contents} .twitter-embed__video`, {
+	width: "100%",
+	height: "auto",
+	maxHeight: "300px",
+	borderRadius: vars.spacing.absolute[2],
+});
+
+globalStyle(`${styles.contents} .twitter-embed__footer`, {
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "space-between",
+	fontSize: vars.font.size.sm,
+	color: vars.color.gray[9],
+});
+
+globalStyle(`${styles.contents} .twitter-embed__date`, {
+	color: vars.color.gray[9],
+});
+
+globalStyle(`${styles.contents} .twitter-embed__stats`, {
+	display: "flex",
+	gap: vars.spacing.absolute[4],
+});
+
+globalStyle(`${styles.contents} .twitter-embed__stat`, {
+	display: "flex",
+	alignItems: "center",
+	gap: vars.spacing.absolute[1],
+	color: vars.color.gray[9],
+});
+
+globalStyle(`${styles.contents} .twitter-embed__stat svg`, {
+	opacity: 0.7,
+});
+
+globalStyle(
+	`${styles.contents} .twitter-embed__link, ${styles.contents} .twitter-embed__mention, ${styles.contents} .twitter-embed__hashtag`,
+	{
+		color: vars.color.blue[9],
+		textDecoration: "none",
+	},
+);
+
+globalStyle(
+	`${styles.contents} .twitter-embed__link:hover, ${styles.contents} .twitter-embed__mention:hover, ${styles.contents} .twitter-embed__hashtag:hover`,
+	{
+		textDecoration: "underline",
+	},
+);
