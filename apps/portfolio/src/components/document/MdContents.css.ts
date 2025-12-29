@@ -688,7 +688,7 @@ globalStyle(`${styles.contents} .twitter-embed`, {
 	transition: "background-color 0.2s",
 	width: "100%",
 	maxWidth: "500px",
-	margin: "0 auto",
+	margin: `${vars.spacing.relative[4]} auto`,
 });
 
 
