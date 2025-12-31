@@ -26,7 +26,7 @@ publishedAt: 2024/12/31
 ただ、記念すべき第一回の Hono Conf に Contributer 枠で登壇させていただきました。
 人生初の登壇でとても緊張しましたが、とても楽しく貴重な経験をさせていただきました。本当にありがとうございました。
 
-さらにその後、Hono Conf の打ち上げで t@__syumai さんに Cloudflare の Durable Objects の記事を雑誌に寄稿しないかと誘っていただきました。
+さらにその後、Hono Conf の打ち上げで t@\_\_syumai さんに Cloudflare の Durable Objects の記事を雑誌に寄稿しないかと誘っていただきました。
 
 そして 10 月号の Software Design の Cloudflare Workers 連載にて記事を書かせていただきました。
 貴重な機会をくださったしゅーまいさん、本当にありがとうございました。
@@ -57,7 +57,7 @@ publishedAt: 2024/12/31
 
 (これは優勝を確信しニヤニヤが止まらない僕が「優勝しました」ブログを書くことを見越してスクショした無形遺産)
 
-![Web Speed Hackathon 2024の順位表](</assets/blogs/look-back-on-2024/wsh-before.webp>)
+![Web Speed Hackathon 2024の順位表](/assets/blogs/look-back-on-2024/wsh-before.webp)
 
 ちなみにりんたろもしゅんくんも同じところでしっかりレギュ落ちしてもうね。ドリフかと。
 
@@ -68,10 +68,10 @@ publishedAt: 2024/12/31
 なぜか今年は競プロにハマりました、**絶対ハマるわけない**と思ってました。人生何があるかわからないですね。
 
 Atcoeer Heuristic Contest (AHC) にめちゃくちゃハマって沢山参加しました。
-黄コーダの学友 t@through__TH__ に AHC を布教され始めてみたところ**見事に沼に引きずり込まれて**しまい、大会開催中じゃなくても過去問を毎週のように解いた結果、青コーダーになれました。
+黄コーダの学友 t@through**TH** に AHC を布教され始めてみたところ**見事に沼に引きずり込まれて**しまい、大会開催中じゃなくても過去問を毎週のように解いた結果、青コーダーになれました。
 この後新レートに更新されるらしいですが、おそらく次の AHC で入黄できるんじゃないかなとワクワクしております。
 
-![Atcoder Heuristic レート](</assets/blogs/look-back-on-2024/heuristic.webp>)
+![Atcoder Heuristic レート](/assets/blogs/look-back-on-2024/heuristic.webp)
 
 AHC036 と AHC040 で 2 度入賞し、懇親会に招待していただきました。
 
@@ -81,7 +81,7 @@ AHC036 と AHC040 で 2 度入賞し、懇親会に招待していただきま�
 
 AHC036 / 株式会社リクルート
 
-![AHC036](</assets/blogs/look-back-on-2024/konshinkai-1.webp>)
+![AHC036](/assets/blogs/look-back-on-2024/konshinkai-1.webp)
 
 :::
 
@@ -89,7 +89,7 @@ AHC036 / 株式会社リクルート
 
 AHC040 / フューチャー株式会社
 
-![AHC040](</assets/blogs/look-back-on-2024/konshinkai-2.webp>)
+![AHC040](/assets/blogs/look-back-on-2024/konshinkai-2.webp)
 
 :::
 

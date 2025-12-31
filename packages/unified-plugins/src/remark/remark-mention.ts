@@ -1,29 +1,21 @@
-import { visit } from "unist-util-visit";
+import { visit } from 'unist-util-visit'
 
-import { createRemarkPlugin } from "../utils/remark-factory";
+import { createRemarkPlugin } from '../utils/remark-factory'
 
-import type {
-  Link,
-  Literal,
-  Paragraph,
-  Parent,
-  PhrasingContent,
-  Root,
-  Text,
-} from "mdast";
+import type { Literal, PhrasingContent, Root, Text } from 'mdast'
 
 const isLiteral = (node: unknown): node is Literal => {
-  return typeof node === "object" && node !== null && "value" in node;
-};
+  return typeof node === 'object' && node !== null && 'value' in node
+}
 
 const isText = (node: unknown): node is Text => {
-  return isLiteral(node) && node.type === "text";
-};
+  return isLiteral(node) && node.type === 'text'
+}
 
-const mentionRegex = /^([a-zA-Z0-9-_]+)@([a-zA-Z0-9-_]+)$/;
+const mentionRegex = /^([a-zA-Z0-9-_]+)@([a-zA-Z0-9-_]+)$/
 
 interface RemarkMentionOptions {
-  links: Record<string, (username: string) => string>;
+  links: Record<string, (username: string) => string>
 }
 
 export const remarkMention = createRemarkPlugin(
@@ -39,44 +31,46 @@ export const remarkMention = createRemarkPlugin(
   ) => {
     return (tree: Root) => {
       visit(tree, isText, (node, index, parent) => {
-        const chunks = node.value.split(" ");
+        const chunks = node.value.split(' ')
 
-        const tmpChildren: PhrasingContent[] = [];
+        const tmpChildren: PhrasingContent[] = []
         for (const chunk of chunks) {
-          const match = mentionRegex.exec(chunk);
+          const match = mentionRegex.exec(chunk)
           if (match) {
-            const [, provider, username] = match;
+            const [, provider, username] = match
             if (!options.links[provider]) {
-              tmpChildren.push({ type: "text", value: chunk });
-              continue;
+              tmpChildren.push({ type: 'text', value: chunk })
+              continue
             }
-            const pureChunk = chunk.replace(/.*@/, "@");
-            const link = options.links[provider]?.(username);
+            const pureChunk = chunk.replace(/.*@/, '@')
+            const link = options.links[provider]?.(username)
             tmpChildren.push({
-              type: "link",
+              type: 'link',
               url: link,
-              children: [{ type: "text", value: pureChunk }],
-            });
+              children: [{ type: 'text', value: pureChunk }],
+            })
           } else {
-            tmpChildren.push({ type: "text", value: chunk });
+            tmpChildren.push({ type: 'text', value: chunk })
           }
         }
 
         // join the children with a space
-        const newChildren: PhrasingContent[] = [];
+        const newChildren: PhrasingContent[] = []
         tmpChildren.forEach((child, index) => {
           if (index !== 0) {
             newChildren.push({
-              type: "text",
-              value: " ",
-            });
+              type: 'text',
+              value: ' ',
+            })
           }
-          if (child.type === "text" && child.value === "") return;
-          newChildren.push(child);
-        });
+          if (child.type === 'text' && child.value === '') return
+          newChildren.push(child)
+        })
 
-        parent!.children.splice(index!, 1, ...newChildren);
-      });
-    };
+        if (parent && index !== undefined) {
+          parent.children.splice(index, 1, ...newChildren)
+        }
+      })
+    }
   },
-);
+)

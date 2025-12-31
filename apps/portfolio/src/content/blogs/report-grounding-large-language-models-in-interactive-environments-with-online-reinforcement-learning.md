@@ -62,7 +62,7 @@ GLAM 法では、LLM をポリシーとして利用し、オンライン RL を�
 
 - 言語ボキャブラリー $\mathcal{V}$
 - 行動 $a \in \mathcal{A} \subset \mathcal{V}^N$
- （トークン系列としての行動）
+  （トークン系列としての行動）
 - 観測 $o \in \mathcal{V}^N$
 - 報酬 $r \in \mathbb{R}$
 - 報酬を条件付けるタスクや目標の記述
@@ -215,7 +215,7 @@ BabyAI-Text において 1.5M ステップの学習をする。
 
 もちろん環境にはタスク達成には関係ない不要な object も含まれているため、手続きを正しく理解することが求められる。
 
-![図2: 学習ステップ数に対するタスクの成功率](</assets/blogs/report-grounding-large-language-models-in-interactive-environments-with-online-reinforcement-learning/figure2.png>)
+![図2: 学習ステップ数に対するタスクの成功率](/assets/blogs/report-grounding-large-language-models-in-interactive-environments-with-online-reinforcement-learning/figure2.png)
 
 論文図 2 では、学習ステップ数に対するタスクの成功率を示している。
 
@@ -256,7 +256,7 @@ $$
 - The **augmented** action space
   - このタスクにおいて可能な全ての行動 + 余計な行動 (`sleep`, `do nothing`, `think`)を Available actions として与える
 
-![図3: 行動空間のサイズが与える影響](</public/assets/blogs/report-grounding-large-language-models-in-interactive-environments-with-online-reinforcement-learning/figure3.png>)
+![図3: 行動空間のサイズが与える影響](/public/assets/blogs/report-grounding-large-language-models-in-interactive-environments-with-online-reinforcement-learning/figure3.png)
 
 図 3 (a)はその結果を示している。ベースラインの 3 つは状態が増えるにつれてサンプル効率が低下しているのに対し、GFlan-T5 は状態が増えると逆にサンプル効率が向上していることがわかる。
 論文では **ファインチューニング時に無駄な行動を素早く捨てることができているため** ではないかと考察している。

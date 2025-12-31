@@ -6,24 +6,24 @@ import Tooltip from "@/components/ui/Tooltip.astro";
 import { styles } from "./Header.css";
 
 interface Props {
-	title: string;
-	createdAt: Date;
-	updatedAt?: Date;
-	authors?: string[];
+  title: string;
+  createdAt: Date;
+  updatedAt?: Date;
+  authors?: string[];
 }
 
 const { title, createdAt, updatedAt, authors } = Astro.props;
 
 const formatDateTime = (date: Date) => {
-	return date.toLocaleDateString("en-US", {
-		day: "numeric",
-		month: "short",
-		year: "numeric",
-	});
+  return date.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 };
 const githubAvatar = (author: string) => `https://github.com/${author}`;
 const githubProfile = (author: string) =>
-	`https://github.com/${author}.png?s=32`;
+  `https://github.com/${author}.png?s=32`;
 ---
 
 <div class={styles.header}>

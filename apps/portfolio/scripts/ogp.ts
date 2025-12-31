@@ -61,10 +61,8 @@ const createOgp = async (
   ctx.fillStyle = "#FFFFFF";
   ctx.textAlign = "center";
 
-  const titleWidth = ctx.measureText(title).width;
-  const TITLE_HEIGHT = FONT_SIZE * Math.ceil(titleWidth / MAX_TITLE_WIDTH);
   let titleLine = "";
-  let titleLines = [];
+  const titleLines = [];
   const segmenterFr = new Intl.Segmenter("ja", { granularity: "word" });
   const titleChunksIter = segmenterFr.segment(title)[Symbol.iterator]();
   const titleChunks = [];
@@ -110,10 +108,7 @@ interface OgpItem {
   hash: string;
 }
 
-interface OgpCache {
-  // joined-slug: hash
-  [key: string]: string;
-}
+type OgpCache = Record<string, string>;
 
 const createOgpAll = async () => {
   const works = fs.readdirSync(PATH_TARGET_WORKS_DIR);
@@ -131,7 +126,7 @@ const createOgpAll = async () => {
     if (cache) {
       try {
         ogpCaches = JSON.parse(cache);
-      } catch (e) {
+      } catch {
         ogpCaches = {};
       }
     }
@@ -141,7 +136,7 @@ const createOgpAll = async () => {
     const fp = path.join(PATH_TARGET_WORKS_DIR, target);
     const text = fs.readFileSync(fp, "utf8");
     const frontMatter = text.split("---")[1];
-    const work = load(frontMatter) as any;
+    const work = load(frontMatter) as { title: string };
     ogpItems.push({
       title: work.title,
       slug: ["works", target.replace(".md", ".png")],
@@ -153,7 +148,7 @@ const createOgpAll = async () => {
     const fp = path.join(PATH_TARGET_BLOGS_DIR, target);
     const text = fs.readFileSync(fp, "utf8");
     const frontMatter = text.split("---")[1];
-    const blog = load(frontMatter) as any;
+    const blog = load(frontMatter) as { title: string };
     ogpItems.push({
       title: blog.title,
       slug: ["blogs", target.replace(".md", ".png")],

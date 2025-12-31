@@ -96,7 +96,7 @@ GPUの処理最適化、離散最適化（SA、GA）、PPLの計算最適化な�
 
 <https://www.kaggle.com/competitions/santa-2024>
 
-![Santa 2024 Leaderboard](</assets/blogs/look-back-on-2025/santa-2024.webp>)
+![Santa 2024 Leaderboard](/assets/blogs/look-back-on-2025/santa-2024.webp)
 
 #### FIDE Google Efficiency Chess AI Challenge
 
@@ -110,7 +110,7 @@ GPUの処理最適化、離散最適化（SA、GA）、PPLの計算最適化な�
 
 <https://www.kaggle.com/competitions/fide-google-efficiency-chess-ai-challenge>
 
-![FIDE Google Efficiency Chess AI Challenge Leaderboard](</assets/blogs/look-back-on-2025/chess.webp>)
+![FIDE Google Efficiency Chess AI Challenge Leaderboard](/assets/blogs/look-back-on-2025/chess.webp)
 
 ### AtCoder
 

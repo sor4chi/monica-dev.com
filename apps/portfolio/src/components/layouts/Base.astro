@@ -13,27 +13,27 @@ import RightTopArea from "./RightTopArea.astro";
 import type { NavKinds } from "./Navigation.astro";
 
 interface Props {
-	title?: string;
-	description?: string;
-	canonical: `/${string}`;
-	ogImageUrl?: string;
-	active: NavKinds;
-	noindex?: boolean;
+  title?: string;
+  description?: string;
+  canonical: `/${string}`;
+  ogImageUrl?: string;
+  active: NavKinds;
+  noindex?: boolean;
 }
 
 const { title, description, canonical, ogImageUrl, active, noindex } =
-	Astro.props;
+  Astro.props;
 
 const getTitle = (title?: string) => {
-	if (title) {
-		return `${title} | ${SITE_NAME}`;
-	}
-	return SITE_NAME;
+  if (title) {
+    return `${title} | ${SITE_NAME}`;
+  }
+  return SITE_NAME;
 };
 
 const finalOgImageUrl = ogImageUrl
-	? `${SITE_BASE_URL}${ogImageUrl}`
-	: `${SITE_BASE_URL}/assets/ogp/default.png`;
+  ? `${SITE_BASE_URL}${ogImageUrl}`
+  : `${SITE_BASE_URL}/assets/ogp/default.png`;
 ---
 
 <html lang="ja" class="light">
@@ -69,6 +69,7 @@ const finalOgImageUrl = ogImageUrl
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
       function gtag() {
+        // eslint-disable-next-line prefer-rest-params
         dataLayer.push(arguments);
       }
       gtag("js", new Date());

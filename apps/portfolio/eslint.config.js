@@ -1,3 +1,3 @@
-import { astro, base, react } from '@sor4chi/configs/eslint'
+import { astro, base, react } from "@sor4chi/configs/eslint";
 
-export default [...base, ...react, ...astro]
+export default [...base, ...react, ...astro];

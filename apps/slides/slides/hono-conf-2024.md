@@ -74,6 +74,7 @@ GithubやXなどではこちらのIDをよく使っているため、もしか�
 ## My 🔥 History
 
 Started contributing to Hono in July 2023
+
 - `c.stream`/`stream helper` development from September 2023
 - `Hono Storage` development from September 2023
 - `Hono DO` development from September 2023
@@ -171,9 +172,7 @@ These are the official third-party middlewares for Hono:
 
 </div>
 
-You can find more on [hono/middleware](
-    https://github.com/hono/middleware
-).
+You can find more on [hono/middleware](https://github.com/hono/middleware).
 
 ---
 
@@ -219,7 +218,7 @@ const app = new Hono()
 
 app.use(
   '/google',
-  googleAuth({ settings })　// set your secrets
+  googleAuth({ settings }), // set your secrets
 )
 
 app.get('/google', (c) => {
@@ -246,7 +245,7 @@ const app = new Hono()
 
 app.use(
   '/google',
-  googleAuth({ settings }) // set your secrets
+  googleAuth({ settings }), // set your secrets
 )
 
 app.get('/google', (c) => {
@@ -452,11 +451,11 @@ const timestamp = createMiddleware<Env>(async (c, next) => {
 In this case, if you place the middleware just before this handler, the type will be propagated, and the `number` type value will be set to `c.var.time` without any problems.
 
 ```ts {5}
-import timestamp from "timestamp-middleware";
+import timestamp from 'timestamp-middleware'
 
-const app = new Hono();
+const app = new Hono()
 
-app.get("/", timestamp, (c) => c.text(c.var.time)); // TYPE SAFE
+app.get('/', timestamp, (c) => c.text(c.var.time)) // TYPE SAFE
 ```
 
 <!--
@@ -470,13 +469,13 @@ app.get("/", timestamp, (c) => c.text(c.var.time)); // TYPE SAFE
 On the other hand, if you place the middleware on the entire app rather than before this handler, the type will not be propagated, and an error will occur because the typing for `c.var.time` is not done.
 
 ```ts {5}
-import timestamp from "timestamp-middleware";
+import timestamp from 'timestamp-middleware'
 
-const app = new Hono();
+const app = new Hono()
 
-app.use(timestamp);
+app.use(timestamp)
 
-app.get("/", (c) => c.text(c.var.time)); // TYPE ERROR (c.var.time is not defined)
+app.get('/', (c) => c.text(c.var.time)) // TYPE ERROR (c.var.time is not defined)
 ```
 
 <!--
@@ -488,14 +487,14 @@ app.get("/", (c) => c.text(c.var.time)); // TYPE ERROR (c.var.time is not define
 One way to solve this problem is to provide `Env` from the library side to give the middleware type to `app` in the first place. However, this forces the user to set the type, which is inflexible.
 
 ```ts {2}
-import timestamp from "timestamp-middleware";
-import type { TimestampEnv } from "timestamp-middleware";
+import timestamp from 'timestamp-middleware'
+import type { TimestampEnv } from 'timestamp-middleware'
 
-const app = new Hono<TimestampEnv>();
+const app = new Hono<TimestampEnv>()
 
-app.use(timestamp);
+app.use(timestamp)
 
-app.get("/", (c) => c.text(c.var.time)); // TYPE SAFE
+app.get('/', (c) => c.text(c.var.time)) // TYPE SAFE
 ```
 
 <!--
@@ -571,24 +570,24 @@ Define the schema using the `z` object re-exported from `@hono/zod-openapi`.
 First, define the schema of the Request, Response, etc...
 
 ```ts
-import { z } from "@hono/zod-openapi";
+import { z } from '@hono/zod-openapi'
 
 const ParamsSchema = z.object({
   id: z
     .string()
     .min(3)
     .openapi({
-      param: { name: "id", in: "path" },
-      example: "100",
+      param: { name: 'id', in: 'path' },
+      example: '100',
     }),
-});
+})
 
 const UserSchema = z
   .object({
-    id: z.string().openapi({ example: "100" }),
-    name: z.string().openapi({ example: "Monica" }),
+    id: z.string().openapi({ example: '100' }),
+    name: z.string().openapi({ example: 'Monica' }),
   })
-  .openapi("User");
+  .openapi('User')
 ```
 
 ---
@@ -596,25 +595,25 @@ const UserSchema = z
 Then, you can create a route using the schema.
 
 ```ts
-import { createRoute } from "@hono/zod-openapi";
+import { createRoute } from '@hono/zod-openapi'
 
 const route = createRoute({
-  method: "get",
-  path: "/users/{id}",
+  method: 'get',
+  path: '/users/{id}',
   request: {
     params: ParamsSchema,
   },
   responses: {
     200: {
       content: {
-        "application/json": {
+        'application/json': {
           schema: UserSchema,
         },
       },
-      description: "Retrieve the user",
+      description: 'Retrieve the user',
     },
   },
-});
+})
 ```
 
 ---
@@ -622,22 +621,22 @@ const route = createRoute({
 Finally, create an OpenAPI document using the `openapi` method.
 
 ```ts
-import { OpenAPIHono } from "@hono/zod-openapi";
+import { OpenAPIHono } from '@hono/zod-openapi'
 
-const app = new OpenAPIHono();
+const app = new OpenAPIHono()
 
 app.openapi(route, (c) => {
-  const { id } = c.req.valid("param");
-  return c.json({ id, name: "Monica" });
-});
+  const { id } = c.req.valid('param')
+  return c.json({ id, name: 'Monica' })
+})
 
-app.doc("/doc", {
-  openapi: "3.0.0",
+app.doc('/doc', {
+  openapi: '3.0.0',
   info: {
-    version: "1.0.0",
-    title: "My API",
+    version: '1.0.0',
+    title: 'My API',
   },
-});
+})
 ```
 
 ---
@@ -692,9 +691,9 @@ In `app.openapi`:
 
 ```ts
 app.openapi(route, (c) => {
-  const { id } = c.req.valid("param");
-  return c.json({ id, name: "Monica" });
-});
+  const { id } = c.req.valid('param')
+  return c.json({ id, name: 'Monica' })
+})
 ```
 
 - Register the route in `openAPIRegistry` (`OpenAPIHono`'s property).
@@ -716,13 +715,13 @@ app.openapi(route, (c) => {
 In `app.doc`:
 
 ```ts
-app.doc("/doc", {
-  openapi: "3.0.0",
+app.doc('/doc', {
+  openapi: '3.0.0',
   info: {
-    version: "1.0.0",
-    title: "My API",
+    version: '1.0.0',
+    title: 'My API',
   },
-});
+})
 ```
 
 - Generate an OpenAPI document (JSON) from the registered routes.
@@ -751,21 +750,22 @@ If you have a motivation to **intervene in such route registration**, the approa
 <div class="flex items-center justify-center gap-32">
   <div>
 
-  Ultra is a React Streaming SSR framework focused on Deno, which fully manages the application written by the user, such as Full ESM frontend and API Routes.
+Ultra is a React Streaming SSR framework focused on Deno, which fully manages the application written by the user, such as Full ESM frontend and API Routes.
 
-  **Using Hono as a middleware framework**
+**Using Hono as a middleware framework**
 
-  Until `<= v1.0.x`, it used `oak`, a middleware framework for Deno, but from `v2.0.0`, it seems to be using Hono.
+Until `<= v1.0.x`, it used `oak`, a middleware framework for Deno, but from `v2.0.0`, it seems to be using Hono.
 
   </div>
 
-  <svg class="logo" fill="none" height="320" viewBox="0 0 440 440" width="320"
+<svg class="logo" fill="none" height="320" viewBox="0 0 440 440" width="320"
     xmlns="http://www.w3.org/2000/svg">
-      <g fill="currentColor">
-          <path d="m225 95-82 135.135 82-99.662v214.527l72-114.865z"></path>
-          <path d="m144 230 81 114-15-167z"></path>
-      </g>
-  </svg>
+<g fill="currentColor">
+<path d="m225 95-82 135.135 82-99.662v214.527l72-114.865z"></path>
+<path d="m144 230 81 114-15-167z"></path>
+</g>
+</svg>
+
 </div>
 
 <!--
@@ -815,14 +815,13 @@ export class UltraServer<
 Based on this field information, it performs HTML rendering using the `server.render` function, which performs different rendering on the server side.
 
 ```tsx {2}
-server.get("*", async (context) => {
-  const result = await server.render(<App />);
+server.get('*', async (context) => {
+  const result = await server.render(<App />)
 
   return context.body(result, 200, {
-    "content-type": "text/html",
-  });
-});
-
+    'content-type': 'text/html',
+  })
+})
 ```
 
 <!--
@@ -843,7 +842,7 @@ const server = new UltraServer<E, S, BasePath>(root, {
   assetManifestPath: String(assetManifestPath),
   enableEsModuleShims,
   esModuleShimsPath,
-});
+})
 ```
 
 <!--
@@ -889,17 +888,17 @@ Honoのコードを読むのもいいですが、Honoをよりうまく利用す
 A wrapper of Cloudflare Workers's Durable Object for Hono.
 
 ```ts
-export const Counter = generateHonoObject("/counter", async (app, state) => {
-  const { storage } = state;
-  let value = (await storage.get<number>("value")) ?? 0;
+export const Counter = generateHonoObject('/counter', async (app, state) => {
+  const { storage } = state
+  let value = (await storage.get<number>('value')) ?? 0
 
-  app.post("/increment", (c) => {
-    storage.put("value", value++);
-    return c.text(value.toString());
-  });
+  app.post('/increment', (c) => {
+    storage.put('value', value++)
+    return c.text(value.toString())
+  })
 
-  app.get("/", (c) => c.text(value.toString()));
-});
+  app.get('/', (c) => c.text(value.toString()))
+})
 ```
 
 ---
@@ -921,20 +920,20 @@ It is similar to the Express's Multer.
 In the case of Node.js, it is implemented as follows:
 
 ```ts {6-12}
-import { serve } from "@hono/node-server";
-import { HonoDiskStorage } from "@hono-storage/node-disk";
-import { Hono } from "hono";
+import { serve } from '@hono/node-server'
+import { HonoDiskStorage } from '@hono-storage/node-disk'
+import { Hono } from 'hono'
 
-const app = new Hono();
+const app = new Hono()
 
 const storage = new HonoDiskStorage({
-  dest: "./uploads",
+  dest: './uploads',
   filename: (_, file) => `${file.originalname}-${Date.now()}.${file.extension}`,
-});
+})
 
-app.post("/", storage.single("file"), (c) => c.text("OK"));
+app.post('/', storage.single('file'), (c) => c.text('OK'))
 
-serve(app);
+serve(app)
 ```
 
 ---

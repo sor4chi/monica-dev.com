@@ -1,15 +1,9 @@
 import { rm } from "fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { join } from "path";
 
 import { glob } from "glob";
 import sharp from "sharp";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const root = join(__dirname, "..");
 const ext = ["jpg", "jpeg", "png", "webp"];
 
 const resize = async (image: string, size: number) => {

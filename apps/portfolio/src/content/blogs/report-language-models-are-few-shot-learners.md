@@ -39,7 +39,9 @@ GPT-3 は GPT-2 と同様に Transformer に基づいているが、いくつか
 Reformer[^3]や Longformer[^4]と同じアイデアらしい。
 
 [^2]: [Rewon Child, Scott Gray, Alec Radford, Ilya Sutskever, "Generating Long Sequences with Sparse Transformers", 2019](https://arxiv.org/abs/1904.10509)
+
 [^3]: [Nikita Kitaev, Łukasz Kaiser, Anselm Levskaya, "Reformer: The Efficient Transformer", 2020](https://arxiv.org/abs/2001.04451)
+
 [^4]: [Iz Beltagy, Matthew E. Peters, Arman Cohan, "Longformer: The Long-Document Transformer", 2020](https://arxiv.org/abs/2004.05150)
 
 > [!NOTE]

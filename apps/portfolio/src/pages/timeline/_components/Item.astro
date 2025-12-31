@@ -6,14 +6,13 @@ import { clsx } from "clsx";
 import { styles } from "./Item.css";
 
 interface Props {
-	slug: string;
-	title: string;
-	date: Date;
-	icon?: string;
-	link?: string;
+  title: string;
+  date: Date;
+  icon?: string;
+  link?: string;
 }
 
-const { slug, title, date, icon, link } = Astro.props;
+const { title, date, icon, link } = Astro.props;
 ---
 
 <tr class={styles.row}>

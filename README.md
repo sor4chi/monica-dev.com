@@ -13,11 +13,13 @@ pnpm install
 ```
 
 If you're on macOS, you'll need to install some additional dependencies for the `canvas` package:
+
 ```sh
 brew install pkg-config cairo pango libpng jpeg giflib librsvg
 ```
 
 Run the development server:
+
 ```sh
 pnpm dev
 ```

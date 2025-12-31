@@ -14,31 +14,31 @@ import Left from "./_components/Left.astro";
 import Right from "./_components/Right.astro";
 
 export async function getStaticPaths() {
-	const works = await getCollection("works");
-	const sortedWorks = works.sort((a, b) => {
-		return b.data.createdAt.getTime() - a.data.createdAt.getTime();
-	});
-	return sortedWorks.map((work, i) => ({
-		params: { slug: work.slug },
-		props: {
-			...work,
-			prev: sortedWorks[i + 1] || null,
-			next: sortedWorks[i - 1] || null,
-		},
-	}));
+  const works = await getCollection("works");
+  const sortedWorks = works.sort((a, b) => {
+    return b.data.createdAt.getTime() - a.data.createdAt.getTime();
+  });
+  return sortedWorks.map((work, i) => ({
+    params: { slug: work.slug },
+    props: {
+      ...work,
+      prev: sortedWorks[i + 1] || null,
+      next: sortedWorks[i - 1] || null,
+    },
+  }));
 }
 
 type Props = CollectionEntry<"works"> & {
-	prev: CollectionEntry<"works"> | null;
-	next: CollectionEntry<"works"> | null;
+  prev: CollectionEntry<"works"> | null;
+  next: CollectionEntry<"works"> | null;
 };
 
 const {
-	data: { title, description, createdAt, authors },
-	prev,
-	next,
-	slug,
-	render,
+  data: { title, description, createdAt, authors },
+  prev,
+  next,
+  slug,
+  render,
 } = Astro.props;
 
 const { Content, headings } = await render();

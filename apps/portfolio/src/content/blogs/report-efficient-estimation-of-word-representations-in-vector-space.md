@@ -211,11 +211,19 @@ $C$ は一般に window size と呼ばれる
 - 異なるカテゴリの文章で同じ品詞の基本形と活用系のペアを抽出することで、単語間の構文的な類似性を評価している
 
 [^2]: [Jeffrey Pennington, Richard Socher, Christopher Manning, "GloVe: Global Vectors for Word Representation", 2014](https://aclanthology.org/D14-1162)
+
 [^3]: [nlp - How is the window size affect word2vec and how do we choose window size according to different tasks? - Stack Overflow](https://stackoverflow.com/questions/65422312/how-is-the-window-size-affect-word2vec-and-how-do-we-choose-window-size-accordin)
+
 [^4]: [Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, Jeffrey Dean, "Distributed Representations of Words and Phrases and their Compositionality", 2013](https://arxiv.org/abs/1310.4546)
+
 [^5]: [Omer Levy, and Yoav Goldberg, "Dependency-Based Word Embeddings"](https://levyomer.files.wordpress.com/2014/04/dependency-based-word-embeddings-acl-2014.pdf)
+
 [^6]: [Yoshua Bengio, Réjean Ducharme, Pascal Vincent, Christian Jauvin, "A Neural Probabilistic Language Model", 2003](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
+
 [^7]: [Tomas Mikolov, Martin Karafiát, Lukáš Burget, Jan Černocký, Sanjeev Khudanpur, "Recurrent Neural Network based Language Model", 2010](https://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf)
+
 [^8]: [Tomas Mikolov, Wen-tau Yih, Geoffrey Zweig, "Linguistic Regularities in Continuous Space Word Representations", 2013](https://www.aclweb.org/anthology/N13-1090/)
+
 [^9]: [SemEval 2012](https://ja.wikipedia.org/wiki/SemEval)
+
 [^10]: [SemEval 2012 Task 2](https://aclanthology.org/S12-1047/)

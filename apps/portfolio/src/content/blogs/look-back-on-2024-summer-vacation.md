@@ -31,7 +31,7 @@ publishedAt: 2024/09/29
 - [AHC036](https://atcoder.jp/contests/ahc036) 入賞 (61 位 / 1103・学生 19 位)
 - [AHC037](https://atcoder.jp/contests/ahc037) (232 位 / 985)
 
-![ビジュアライザのGif](</assets/blogs/look-back-on-2024-summer-vacation/vis-ahc036.gif>)
+![ビジュアライザのGif](/assets/blogs/look-back-on-2024-summer-vacation/vis-ahc036.gif)
 
 #### Marathon Match
 
@@ -42,7 +42,7 @@ publishedAt: 2024/09/29
 
 - [TUATPC2024Summer](https://mofecoder.com/contests/tuatpc2024summer_h/standings) (3 位 / 19)
 
-![ビジュアライザのGif](<../../../public/assets/blogs/look-back-on-2024-summer-vacation/vis-tuatpc.gif>)
+![ビジュアライザのGif](../../../public/assets/blogs/look-back-on-2024-summer-vacation/vis-tuatpc.gif)
 
 ### 研究
 
@@ -74,7 +74,7 @@ Cloudflare Workers Queue と Discord Webhook を使った
 
 :::
 
-![ランキング通知](</assets/blogs/look-back-on-2024-summer-vacation/ranking-notifier.webp>)
+![ランキング通知](/assets/blogs/look-back-on-2024-summer-vacation/ranking-notifier.webp)
 
 ::::
 

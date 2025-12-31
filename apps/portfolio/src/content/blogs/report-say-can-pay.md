@@ -35,8 +35,8 @@ LLM は近年の研究で **プランニング** のタスクにおいても有�
 
 そこで本論文では、**LLM が持つ世界知識とヒューリスティック探索を組み合わせる** 新たな手法 **SayCanPay** を提案する。
 
-*図1: LLMプランナーの比較*
-![llm planner comparison](</assets/blogs/report-say-can-pay/comparison.png>)
+_図1: LLMプランナーの比較_
+![llm planner comparison](/assets/blogs/report-say-can-pay/comparison.png)
 
 ### Q:なぜSayCanがオンラインプランニングなのに対してSayCanPayはオフラインプランニングなのか？
 
@@ -79,7 +79,7 @@ f(h_t) = z_1 \cdot f_{acc}(h_{t-1}) + z_2 \cdot f_{heur}(h_t, g) \\
 \text{where} \quad z_1, z_2 \in \{0, 1\}
 $$
 
-次の行動 $a_t$ は最小の $f(h_t)$ を持つものとして選択されます。特定のケースとして、$z_1 = 1$ と $z_2 = 1$ で A* アルゴリズム、$z_1 = 0$ と $z_2 = 1$ で Greedy Best-First Search (GBFS) アルゴリズムが得られます。
+次の行動 $a_t$ は最小の $f(h_t)$ を持つものとして選択されます。特定のケースとして、$z_1 = 1$ と $z_2 = 1$ で A\* アルゴリズム、$z_1 = 0$ と $z_2 = 1$ で Greedy Best-First Search (GBFS) アルゴリズムが得られます。
 
 4 章は言語モデルの**トークンレベルでの探索**(ビームサーチに代表される尤度総積の最大化手法)について述べられているが、論文ではこの手法がメインではなく、**アクションレベルでの探索**に興味があるとしている。
 
@@ -91,8 +91,8 @@ $$
 
 つまり三つの評価指標によって行動候補に推定コストによる優先順位をつけ、それを探索するということである。
 
-*図2: SayCanPayがBabyAI環境で次の行動をどのようにスコアリングするかのデモ*
-![Demo of SayCanPay](</assets/blogs/report-say-can-pay/demo.png>)
+_図2: SayCanPayがBabyAI環境で次の行動をどのようにスコアリングするかのデモ_
+![Demo of SayCanPay](/assets/blogs/report-say-can-pay/demo.png)
 
 図 2 では実行可能性(= Can)は赤の鍵を拾っても緑のボールを拾っても等確率であるが、ペイオフ(= Pay)は緑のボールを拾う方が良いペイオフであることを示している。
 最終的に Say, Can, Pay のそれぞれのスコアをかけた値を図中の Net が示していて、この場合 `pick up green ball` が最も高いスコアを持つため、この行動が選択される。
@@ -241,4 +241,3 @@ Ravens と Virtual Home には 800、BabytAI には 400 の Expert-Trajectories 
 - OOD 環境への適応性の限界
 
 これらはモデルの大きさ、報酬設計への LLM 活用によって訓練を緩和し汎化を完全できる可能性があるとしている。
-
