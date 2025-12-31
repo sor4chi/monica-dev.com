@@ -13,7 +13,7 @@ Hono Conference 第1回に登壇させていただくので感謝を述べる
 今回が人生で初の登壇
 -->
 
-https://slides.monica-dev.com/hono-conf-2024
+<https://slides.monica-dev.com/hono-conf-2024>
 
 ---
 
@@ -43,7 +43,7 @@ https://slides.monica-dev.com/hono-conf-2024
 
 <div class="flex items-center justify-center gap-32">
   <div class="flex flex-col items-center gap-8">
-	<img src="https://github.com/sor4chi.png" alt="icon" class="rounded-full w-48 h-48">
+ <img src="https://github.com/sor4chi.png" alt="icon" class="rounded-full w-48 h-48">
     <strong>Monica</strong>
   </div>
 
@@ -748,24 +748,17 @@ If you have a motivation to **intervene in such route registration**, the approa
 #### Ultra
 
 <div class="flex items-center justify-center gap-32">
-  <div>
-
-Ultra is a React Streaming SSR framework focused on Deno, which fully manages the application written by the user, such as Full ESM frontend and API Routes.
-
-**Using Hono as a middleware framework**
-
-Until `<= v1.0.x`, it used `oak`, a middleware framework for Deno, but from `v2.0.0`, it seems to be using Hono.
-
-  </div>
-
-<svg class="logo" fill="none" height="320" viewBox="0 0 440 440" width="320"
-    xmlns="http://www.w3.org/2000/svg">
+<div>
+<p>Ultra is a React Streaming SSR framework focused on Deno, which fully manages the application written by the user, such as Full ESM frontend and API Routes.</p>
+<p><strong>Using Hono as a middleware framework</strong></p>
+<p>Until v1.0.x or earlier, it used oak, a middleware framework for Deno, but from v2.0.0, it seems to be using Hono.</p>
+</div>
+<svg class="logo" fill="none" height="320" viewBox="0 0 440 440" width="320" xmlns="http://www.w3.org/2000/svg">
 <g fill="currentColor">
 <path d="m225 95-82 135.135 82-99.662v214.527l72-114.865z"></path>
 <path d="m144 230 81 114-15-167z"></path>
 </g>
 </svg>
-
 </div>
 
 <!--
@@ -995,6 +988,6 @@ If anyone has an interest or insight fot this, let's talk.
 
 ---
 
-## Let's develop a Third-Party Framework for Hono!
+## Let's develop a Third-Party Framework for Hono
 
 Thank you for listening to the talk 🥳
