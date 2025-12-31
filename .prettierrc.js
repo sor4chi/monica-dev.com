@@ -1,6 +1,3 @@
-module.export = {
-  printWidth: 80,
-  tabWidth: 2,
-  semi: false,
-  singleQuote: true,
-};
+import config from '@sor4chi/configs/prettier'
+
+export default config

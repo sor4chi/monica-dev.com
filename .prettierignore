@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.astro/
+
+# Cache
+.cache/
+.wrangler/
+
+# Lock files
+pnpm-lock.yaml
+
+# Generated files
+*.min.js
+*.min.css

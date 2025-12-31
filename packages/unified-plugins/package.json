@@ -1,7 +1,10 @@
 {
 	"name": "@sor4chi/unified-plugins",
+	"type": "module",
 	"scripts": {
-		"fix": "biome check --write ./src",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"fix": "pnpm lint:fix",
 		"test": "vitest"
 	},
 	"exports": {
@@ -9,7 +12,7 @@
 		"./rehype": "./src/rehype/index.ts"
 	},
 	"devDependencies": {
-		"@sor4chi/tsconfig": "workspace:*",
+		"@sor4chi/configs": "workspace:*",
 		"@types/hast": "^3.0.4",
 		"@types/mdast": "^4.0.4",
 		"prettier": "^3.2.5",

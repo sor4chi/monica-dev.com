@@ -1,7 +1,10 @@
 {
   "name": "@sor4chi/design-system",
+  "type": "module",
   "scripts": {
-    "fix": "biome check --write ./src"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "fix": "pnpm lint:fix"
   },
   "exports": {
     "./*": "./src/*.ts"
@@ -11,6 +14,6 @@
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
-    "@sor4chi/tsconfig": "workspace:*"
+    "@sor4chi/configs": "workspace:*"
   }
 }

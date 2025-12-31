@@ -1,5 +1,5 @@
 {
-  "extends": "@sor4chi/tsconfig",
+  "extends": "@sor4chi/configs/tsconfig",
   "compilerOptions": {
     "types": ["vitest/globals"]
   },

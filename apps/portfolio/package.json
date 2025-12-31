@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "run-p dev:*",
     "dev:pages": "wrangler pages dev functions",
@@ -10,9 +11,10 @@
     "build": "npm run generate:ogp && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "fix:textlint": "textlint --fix ./src/**/*.md",
-    "fix:biome": "biome check --write ./src",
-    "fix": "run-s fix:*",
+    "fix": "run-s lint:fix fix:textlint",
     "optimize": "tsx ./scripts/optimize",
     "generate:ogp": "tsx ./scripts/ogp",
     "prebuild": "npm run optimize"
@@ -35,6 +37,7 @@
     "vanjs-core": "^1.5.5"
   },
   "devDependencies": {
+    "@sor4chi/configs": "workspace:*",
     "@astrojs/partytown": "^2.1.2",
     "@cloudflare/workers-types": "^4.20231016.0",
     "@shikijs/transformers": "^1.16.3",
