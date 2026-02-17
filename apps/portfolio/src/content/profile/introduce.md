@@ -8,7 +8,7 @@ socials:
 
 :::section
 
-北海道出身、東京在住の 22 歳の Software Developer です。
+北海道出身、東京在住の 23 歳の Software Developer です。
 
 [Sor4chi](https://github.com/sor4chi) (Github) や [Monica](https://x.com/sor4chi) (X) という名前で活動しています。
 
