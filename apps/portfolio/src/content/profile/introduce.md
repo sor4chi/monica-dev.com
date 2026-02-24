@@ -42,6 +42,7 @@ AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4ch
 2026
 
 - [AHC061](https://atcoder.jp/contests/ahc061) 8 位入賞
+- [Web開発者のための［入門］Cloudflare Workers](https://gihyo.jp/book/2026/978-4-297-15438-7) 一部執筆
 
 2025
 
