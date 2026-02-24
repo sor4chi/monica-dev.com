@@ -39,6 +39,10 @@ AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4ch
 
 ## Achievements
 
+2026
+
+- [AHC061](https://atcoder.jp/contests/ahc061) 8 位入賞
+
 2025
 
 - [AHC051](https://atcoder.jp/contests/ahc051) 54 位
