@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsx ./scripts/slidev-bulk.ts build",
     "dev": "slidev $(ls slides/*.md | fzf)",
-    "export": "slidev export",
+    "export:pdf": "tsx ./scripts/export-pdfs.ts",
+    "export:thumbnails": "tsx ./scripts/export-thumbnails.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "fix": "pnpm lint:fix"
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@sor4chi/configs": "workspace:*",
     "fast-glob": "3.3.3",
+    "playwright-chromium": "1.59.1",
     "tsx": "4.21.0"
   }
 }

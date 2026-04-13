@@ -6,3 +6,6 @@ dist
 .remote-assets
 components.d.ts
 slides/index.html
+tmp-export
+.tmp-export
+dist-pdf
