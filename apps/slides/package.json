@@ -12,11 +12,11 @@
     "fix": "pnpm lint:fix"
   },
   "dependencies": {
-    "@slidev/cli": "52.11.1",
+    "@slidev/cli": "52.14.2",
     "@slidev/theme-default": "0.25.0",
     "@slidev/theme-seriph": "0.25.0",
     "slidev-theme-eloc": "1.1.0",
-    "vue": "3.5.26"
+    "vue": "3.5.32"
   },
   "devDependencies": {
     "@sor4chi/configs": "workspace:*",

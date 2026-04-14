@@ -1,15 +1,21 @@
-import { exec } from 'node:child_process'
+import { execSync } from "node:child_process";
+import path from "node:path";
 
-import glob from 'fast-glob'
+import glob from "fast-glob";
 
-const files = await glob('slides/*.md')
-const pwd = process.cwd()
-
-const BUILD = (file: string, basename: string) =>
-  `slidev build ${file} --out "${pwd}/dist/${basename}" --base "${basename}"`
+const files = await glob("slides/*.md");
+const pwd = process.cwd();
 
 for (const file of files) {
-  const res = exec(BUILD(file, file.replace(/.*\/(?<name>.*)\.md/, '$<name>')))
-  res.stdout?.pipe(process.stdout)
-  res.stderr?.pipe(process.stderr)
+  const basename = path.basename(file, ".md");
+  const outDir = path.join(pwd, "dist", basename);
+
+  console.log(`\n=== Building: ${file} → dist/${basename}/ ===\n`);
+
+  execSync(`slidev build ${file} --out "${outDir}" --base "/${basename}/"`, {
+    stdio: "inherit",
+    cwd: pwd,
+  });
 }
+
+console.log(`\n=== All ${files.length} slides built ===`);
