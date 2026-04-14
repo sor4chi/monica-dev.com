@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import { SITE_BASE_URL } from "@/config";
 import { CheckIcon, CopyIcon, GithubIcon, XIcon } from "@/components/ui/icons";
@@ -14,25 +14,27 @@ interface Props {
 }
 
 export default function Share({ pathname, title, source, flex }: Props) {
+  const [copied, setCopied] = useState(false);
+
   const shareXUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(
     `${title}\n`,
   )}&url=${encodeURIComponent(SITE_BASE_URL + pathname)}`;
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(window.location.href);
-    const button = document.querySelector(".link-copy-button");
-    if (!button) return;
-    button.classList.add("copied");
-    setTimeout(() => {
-      button.classList.remove("copied");
-    }, 1000);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1000);
   }, []);
 
   return (
     <div className={clsx(styles.links, flex && styles.flex)}>
       <div className={styles.btnWrapper}>
         <button
-          className={clsx(styles.btn, "link-copy-button")}
+          className={clsx(
+            styles.btn,
+            "link-copy-button",
+            copied && "copied",
+          )}
           onClick={handleCopy}
           aria-label="リンクをコピーする"
         >

@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { useEffect, useRef } from "react";
+import { useCallback, useRef } from "react";
 
 import { SITE_BASE_URL } from "@/config";
 
@@ -16,40 +16,22 @@ function getUnescapedText(text: string) {
   return div.textContent || div.innerText || "";
 }
 
-function initCodeblock(container: HTMLElement) {
-  const codeCopyButtons = container.querySelectorAll(
-    ".code-copy-button:not([data-initialized])",
-  );
-  codeCopyButtons.forEach((button) => {
-    button.setAttribute("data-initialized", "true");
-    button.addEventListener("click", () => {
-      const code = button.parentElement?.querySelector("code");
-      if (!code) return;
-      button.classList.add("copied");
-      navigator.clipboard.writeText(code.innerText);
-      setTimeout(() => {
-        button.classList.remove("copied");
-      }, 1000);
-    });
-  });
-}
-
-function initLinkCard(container: HTMLElement) {
+function initLinkCards(container: HTMLElement) {
   const links = container.querySelectorAll(
-    "a.link-card:not([data-link-card-initialized])",
+    "a.link-card:not([data-initialized])",
   );
-  links.forEach((link) => {
+  for (const link of links) {
     const url = link.getAttribute("href");
-    if (!url) return;
+    if (!url) continue;
 
-    link.setAttribute("data-link-card-initialized", "true");
+    link.setAttribute("data-initialized", "true");
 
     const isInternalLink = url.startsWith("/");
     const fullUrl = isInternalLink ? SITE_BASE_URL + url : url;
 
     const card = document.createElement("a");
     card.className = "link-card";
-    card.setAttribute("data-link-card-initialized", "true");
+    card.setAttribute("data-initialized", "true");
     card.href = url;
     if (!isInternalLink) {
       card.target = "_blank";
@@ -101,23 +83,42 @@ function initLinkCard(container: HTMLElement) {
       .catch(() => {
         titleSpan.textContent = url;
       });
-  });
+  }
 }
 
 export default function MdContents({ html }: Props) {
-  const ref = useRef<HTMLDivElement>(null);
+  const initializedHtmlRef = useRef<string | null>(null);
 
-  useEffect(() => {
-    if (!ref.current) return;
-    initCodeblock(ref.current);
-    initLinkCard(ref.current);
-  }, [html]);
+  // ref callback: runs when element mounts or re-attaches
+  const containerRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (!node || initializedHtmlRef.current === html) return;
+      initializedHtmlRef.current = html;
+      initLinkCards(node);
+    },
+    [html],
+  );
+
+  // Event delegation for code copy buttons (no useEffect needed)
+  const handleClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    const copyButton = target.closest(".code-copy-button");
+    if (!copyButton) return;
+
+    const code = copyButton.parentElement?.querySelector("code");
+    if (!code) return;
+
+    copyButton.classList.add("copied");
+    navigator.clipboard.writeText(code.innerText);
+    setTimeout(() => copyButton.classList.remove("copied"), 1000);
+  }, []);
 
   return (
     <div
-      ref={ref}
+      ref={containerRef}
       className={clsx(styles.contents, "markdown-contents")}
       dangerouslySetInnerHTML={{ __html: html }}
+      onClick={handleClick}
     />
   );
 }

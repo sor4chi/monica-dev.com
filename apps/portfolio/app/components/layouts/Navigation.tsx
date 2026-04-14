@@ -1,11 +1,13 @@
 import { clsx } from "clsx";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback } from "react";
 import { useLocation, useNavigate } from "react-router";
 
 import Link from "@/components/ui/Link";
+import { styles as linkStyles } from "@/components/ui/Link.css";
 import { GithubIcon, XIcon } from "@/components/ui/icons";
 
 import { styles } from "./Navigation.css";
+import { useNavigation } from "./NavigationContext";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -18,8 +20,7 @@ const NAV_LINKS = [
 export default function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
-  const backwardRef = useRef<HTMLDivElement>(null);
-  const isAnimatingRef = useRef(false);
+  const { isOpen, close } = useNavigation();
 
   const active = NAV_LINKS.find(
     (l) =>
@@ -28,56 +29,36 @@ export default function Navigation() {
   )?.href;
 
   const handleLinkClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    (e: React.MouseEvent, href: string) => {
       e.preventDefault();
-      const backward = backwardRef.current;
-      const toggle = document.querySelector("#navigation-toggle");
-      const main = document.querySelector("main");
-      if (backward) backward.classList.remove("is-active");
-      if (toggle) toggle.classList.remove("is-active");
-      if (main) main.classList.remove("is-active");
+      close();
       setTimeout(() => {
         navigate(href);
       }, 300);
     },
-    [navigate],
+    [navigate, close],
   );
 
-  useEffect(() => {
-    const backward = backwardRef.current;
-    if (backward) {
-      backward.classList.remove("is-active", "is-visibility-active");
-    }
-    const toggle = document.querySelector("#navigation-toggle");
-    if (toggle) toggle.classList.remove("is-active");
-    const main = document.querySelector("main");
-    if (main) main.classList.remove("is-active");
-    isAnimatingRef.current = false;
-  }, [location.pathname]);
-
   return (
-    <div className={styles.backward} id="backward" ref={backwardRef}>
+    <div
+      className={clsx(
+        styles.backward,
+        isOpen && "is-visibility-active",
+        isOpen && "is-active",
+      )}
+    >
       {NAV_LINKS.map(({ href, label }) => (
-        <Link
+        <a
           key={href}
           href={href}
-          exClass={clsx("backward-internal-link", styles.link, {
+          className={clsx(linkStyles.link, styles.link, {
             [styles.active]: href === active,
           })}
+          onClick={(e) => handleLinkClick(e, href)}
         >
-          <span
-            onClick={(e) =>
-              handleLinkClick(
-                e as unknown as React.MouseEvent<HTMLAnchorElement>,
-                href,
-              )
-            }
-            style={{ display: "contents" }}
-          >
-            {href === active && <span className={styles.activeDot} />}
-            {label}
-          </span>
-        </Link>
+          {href === active && <span className={styles.activeDot} />}
+          {label}
+        </a>
       ))}
       <hr className={styles.line} />
       <div className={styles.social}>

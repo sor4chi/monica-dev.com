@@ -1,5 +1,6 @@
 import "@/styles/global.css";
 
+import { clsx } from "clsx";
 import {
   Links,
   Meta,
@@ -11,6 +12,10 @@ import {
 import { styles } from "@/components/layouts/Base.css";
 import Footer from "@/components/layouts/Footer";
 import Navigation from "@/components/layouts/Navigation";
+import {
+  NavigationProvider,
+  useNavigation,
+} from "@/components/layouts/NavigationContext";
 import RightTopArea from "@/components/layouts/RightTopArea";
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -61,15 +66,25 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Root() {
+function RootContent() {
+  const { isOpen } = useNavigation();
+
   return (
     <>
       <RightTopArea />
-      <main className={styles.container}>
+      <main className={clsx(styles.container, isOpen && "is-active")}>
         <Outlet />
         <Footer />
       </main>
       <Navigation />
     </>
+  );
+}
+
+export default function Root() {
+  return (
+    <NavigationProvider>
+      <RootContent />
+    </NavigationProvider>
   );
 }
