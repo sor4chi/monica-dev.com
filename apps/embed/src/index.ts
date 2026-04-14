@@ -33,7 +33,15 @@ app.get('/meta', async (c) => {
   c.header('Access-Control-Allow-Headers', 'Content-Type')
 
   const siteRes = await fetch(decodedUrl, FETCH_INIT)
-  if (!siteRes.ok) return c.body('Not Found', 404)
+  if (!siteRes.ok) {
+    const errorResponse = c.json(
+      { title: '', description: '', imageUrl: '', faviconUrl: '' },
+      404,
+      { 'Cache-Control': 'public, max-age=3600' },
+    )
+    c.executionCtx.waitUntil(cache.put(decodedUrl, errorResponse.clone()))
+    return errorResponse
+  }
 
   const meta = new MetaParser()
   const res = new HTMLRewriter()
@@ -51,7 +59,9 @@ app.get('/meta', async (c) => {
     meta.faviconUrl = new URL(meta.faviconUrl, decodedUrl).toString()
   }
 
-  const response = c.json(meta)
+  const response = c.json(meta, 200, {
+    'Cache-Control': 'public, max-age=3600',
+  })
 
   c.executionCtx.waitUntil(cache.put(decodedUrl, response.clone()))
 
