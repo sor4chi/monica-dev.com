@@ -21,7 +21,7 @@ socials:
 Web フロントエンドを中心に、バックエンドやインフラも幅広く経験しています。
 UI/UX デザインとパフォーマンスチューニングが大好きで大会によく参加しています。
 現在は映像処理と数理最適化に興味があり、大学では自然言語処理の研究室に所属していました。
-AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4chi?contestType=heuristic&graph=rating), Kaggle Expert [@sor4chi](https://www.kaggle.com/sor4chi) です。
+AtCoder の Heuristic 部門で橙色 [@sor4chi](https://atcoder.jp/users/sor4chi?contestType=heuristic&graph=rating), Kaggle Expert [@sor4chi](https://www.kaggle.com/sor4chi) です。
 
 :::
 
@@ -41,6 +41,7 @@ AtCoder の Heuristic 部門で黄色 [@sor4chi](https://atcoder.jp/users/sor4ch
 
 2026
 
+- [AHC063](https://atcoder.jp/contests/ahc063) 3 位入賞
 - [AHC061](https://atcoder.jp/contests/ahc061) 8 位入賞
 - [Web開発者のための［入門］Cloudflare Workers](https://gihyo.jp/book/2026/978-4-297-15438-7) 一部執筆
 
