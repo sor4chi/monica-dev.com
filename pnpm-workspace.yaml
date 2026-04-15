@@ -11,4 +11,4 @@ minimumReleaseAgeExclude:
   - react
   - react-dom
   - postcss
-  - "@napi-rs/*"
+  - '@napi-rs/*'

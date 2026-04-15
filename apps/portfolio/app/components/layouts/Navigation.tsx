@@ -1,50 +1,50 @@
-import { clsx } from "clsx";
-import { useCallback } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { clsx } from 'clsx'
+import { useCallback } from 'react'
+import { useLocation, useNavigate } from 'react-router'
 
-import Link from "@/components/ui/Link";
-import { styles as linkStyles } from "@/components/ui/Link.css";
-import { GithubIcon, XIcon } from "@/components/ui/icons";
+import Link from '@/components/ui/Link'
+import { styles as linkStyles } from '@/components/ui/Link.css'
+import { GithubIcon, XIcon } from '@/components/ui/icons'
 
-import { styles } from "./Navigation.css";
-import { useNavigation } from "./NavigationContext";
+import { styles } from './Navigation.css'
+import { useNavigation } from './NavigationContext'
 
 const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/work", label: "Works" },
-  { href: "/timeline", label: "Timeline" },
-  { href: "/blog", label: "Blogs" },
-  { href: "/slide", label: "Slides" },
-] as const;
+  { href: '/', label: 'Home' },
+  { href: '/work', label: 'Works' },
+  { href: '/timeline', label: 'Timeline' },
+  { href: '/blog', label: 'Blogs' },
+  { href: '/slide', label: 'Slides' },
+] as const
 
 export default function Navigation() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { isOpen, close } = useNavigation();
+  const location = useLocation()
+  const navigate = useNavigate()
+  const { isOpen, close } = useNavigation()
 
   const active = NAV_LINKS.find(
     (l) =>
       l.href === location.pathname ||
-      (l.href !== "/" && location.pathname.startsWith(l.href)),
-  )?.href;
+      (l.href !== '/' && location.pathname.startsWith(l.href)),
+  )?.href
 
   const handleLinkClick = useCallback(
     (e: React.MouseEvent, href: string) => {
-      e.preventDefault();
-      close();
+      e.preventDefault()
+      close()
       setTimeout(() => {
-        navigate(href);
-      }, 300);
+        navigate(href)
+      }, 300)
     },
     [navigate, close],
-  );
+  )
 
   return (
     <div
       className={clsx(
         styles.backward,
-        isOpen && "is-visibility-active",
-        isOpen && "is-active",
+        isOpen && 'is-visibility-active',
+        isOpen && 'is-active',
       )}
     >
       {NAV_LINKS.map(({ href, label }) => (
@@ -70,5 +70,5 @@ export default function Navigation() {
         </Link>
       </div>
     </div>
-  );
+  )
 }

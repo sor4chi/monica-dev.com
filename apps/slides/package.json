@@ -1,7 +1,7 @@
 {
   "name": "slides",
-  "type": "module",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "tsx ./scripts/slidev-bulk.ts build",
     "dev": "slidev $(ls slides/*.md | fzf)",

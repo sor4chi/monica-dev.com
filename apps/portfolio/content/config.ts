@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from 'astro:content'
 
 const blogs = defineCollection({
   schema: z.object({
@@ -9,7 +9,7 @@ const blogs = defineCollection({
     authors: z.array(z.string()).optional(),
     noindex: z.boolean().optional(),
   }),
-});
+})
 
 const externalBlogs = defineCollection({
   schema: z.object({
@@ -17,7 +17,7 @@ const externalBlogs = defineCollection({
     publishedAt: z.coerce.date(),
     url: z.string(),
   }),
-});
+})
 
 const works = defineCollection({
   schema: z.object({
@@ -26,7 +26,7 @@ const works = defineCollection({
     createdAt: z.coerce.date(),
     authors: z.array(z.string()).optional(),
   }),
-});
+})
 
 const slides = defineCollection({
   schema: z.object({
@@ -36,7 +36,7 @@ const slides = defineCollection({
     publishedAt: z.coerce.date(),
     event: z.string(),
   }),
-});
+})
 
 const timelines = defineCollection({
   schema: z.object({
@@ -45,7 +45,7 @@ const timelines = defineCollection({
     link: z.string().optional(),
     date: z.coerce.date(),
   }),
-});
+})
 
 export const collections = {
   works,
@@ -53,4 +53,4 @@ export const collections = {
   blogs,
   externalBlogs,
   slides,
-};
+}

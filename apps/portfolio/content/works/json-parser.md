@@ -1,7 +1,7 @@
 ---
-title: "JSON Parser"
+title: 'JSON Parser'
 createdAt: 2022/12/22
-description: "A JSON parser written in Rust for learning."
+description: 'A JSON parser written in Rust for learning.'
 ---
 
 Rust で JSON パーサーを作りました。

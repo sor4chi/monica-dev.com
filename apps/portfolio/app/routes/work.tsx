@@ -1,9 +1,9 @@
-import { Link } from "react-router";
+import { Link } from 'react-router'
 
-import { SITE_BASE_URL, SITE_NAME } from "@/config";
-import { getWorks } from "@/lib/content.server";
+import { SITE_BASE_URL, SITE_NAME } from '@/config'
+import { getWorks } from '@/lib/content.server'
 
-import { styles } from "./work.css";
+import { styles } from './work.css'
 
 export async function loader() {
   const works = getWorks()
@@ -12,27 +12,30 @@ export async function loader() {
       slug: work.slug,
       title: work.data.title,
       description: work.data.description,
-    }));
-  return { works };
+    }))
+  return { works }
 }
 
 export function meta() {
-  const title = `Works | ${SITE_NAME}`;
+  const title = `Works | ${SITE_NAME}`
   return [
     { title },
-    { property: "og:title", content: title },
-    { property: "og:url", content: `${SITE_BASE_URL}/work` },
-    { property: "og:image", content: `${SITE_BASE_URL}/assets/ogp/default.png` },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: title },
-    { tagName: "link", rel: "canonical", href: `${SITE_BASE_URL}/work` },
-  ];
+    { property: 'og:title', content: title },
+    { property: 'og:url', content: `${SITE_BASE_URL}/work` },
+    {
+      property: 'og:image',
+      content: `${SITE_BASE_URL}/assets/ogp/default.png`,
+    },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { tagName: 'link', rel: 'canonical', href: `${SITE_BASE_URL}/work` },
+  ]
 }
 
-type LoaderData = Awaited<ReturnType<typeof loader>>;
+type LoaderData = Awaited<ReturnType<typeof loader>>
 
 export default function Work({ loaderData }: { loaderData: LoaderData }) {
-  const { works } = loaderData;
+  const { works } = loaderData
 
   return (
     <div className={styles.container}>
@@ -63,5 +66,5 @@ export default function Work({ loaderData }: { loaderData: LoaderData }) {
         ))}
       </div>
     </div>
-  );
+  )
 }

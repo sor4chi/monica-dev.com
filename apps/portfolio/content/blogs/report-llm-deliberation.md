@@ -1,6 +1,6 @@
 ---
-title: "論文読み - LLM-Deliberation: Evaluating LLMs with Interactive Multi-Agent Negotiation Game"
-description: "LLM-Deliberation: Evaluating LLMs with Interactive Multi-Agent Negotiation Game という論文を読みました。"
+title: '論文読み - LLM-Deliberation: Evaluating LLMs with Interactive Multi-Agent Negotiation Game'
+description: 'LLM-Deliberation: Evaluating LLMs with Interactive Multi-Agent Negotiation Game という論文を読みました。'
 publishedAt: 2024/09/11
 noindex: true
 ---

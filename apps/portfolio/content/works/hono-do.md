@@ -1,5 +1,5 @@
 ---
-title: "Hono DO"
+title: 'Hono DO'
 createdAt: 2023/9/27
 description: "A wrapper of Cloudflare Workers's Durable Object for Hono."
 ---
@@ -24,30 +24,30 @@ description: "A wrapper of Cloudflare Workers's Durable Object for Hono."
 ```ts
 export class Counter {
   constructor(state, env) {
-    this.state = state;
+    this.state = state
   }
 
   async fetch(request) {
-    let url = new URL(request.url);
+    let url = new URL(request.url)
 
-    let value = (await this.state.storage.get("value")) || 0;
+    let value = (await this.state.storage.get('value')) || 0
 
     switch (url.pathname) {
-      case "/increment":
-        ++value;
-        break;
-      case "/decrement":
-        --value;
-        break;
-      case "/":
-        break;
+      case '/increment':
+        ++value
+        break
+      case '/decrement':
+        --value
+        break
+      case '/':
+        break
       default:
-        return new Response("Not found", { status: 404 });
+        return new Response('Not found', { status: 404 })
     }
 
-    await this.state.storage.put("value", value);
+    await this.state.storage.put('value', value)
 
-    return new Response(value);
+    return new Response(value)
   }
 }
 ```
@@ -58,25 +58,25 @@ Hono DO では `prototype` を使って動的にオブジェクトを生成し�
 
 ```ts
 export const Counter = generateHonoObject(
-  "/counter",
+  '/counter',
   async (app, { storage }) => {
-    let value = (await storage.get<number>("value")) ?? 0;
+    let value = (await storage.get<number>('value')) ?? 0
 
-    app.post("/increment", (c) => {
-      storage.put("value", value++);
-      return c.text(value.toString());
-    });
+    app.post('/increment', (c) => {
+      storage.put('value', value++)
+      return c.text(value.toString())
+    })
 
-    app.post("/decrement", (c) => {
-      storage.put("value", value--);
-      return c.text(value.toString());
-    });
+    app.post('/decrement', (c) => {
+      storage.put('value', value--)
+      return c.text(value.toString())
+    })
 
-    app.get("/", (c) => {
-      return c.text(value.toString());
-    });
+    app.get('/', (c) => {
+      return c.text(value.toString())
+    })
   },
-);
+)
 ```
 
 ## 発展的な使い方
@@ -87,33 +87,33 @@ Hono DO では `State Helper` という機能を提供しています。これ�
 サブパッケージとして提供しているので必要に応じて呼び出すことが可能です。
 
 ```ts
-import { generateHonoObject } from "hono-do";
-import { defineStorage } from "hono-do/storage";
+import { generateHonoObject } from 'hono-do'
+import { defineStorage } from 'hono-do/storage'
 
 export const Counter = generateHonoObject(
-  "/counter",
+  '/counter',
   async (app, { storage }) => {
     const [getValue, setValue, delValue] = await defineStorage(
       storage,
-      "value",
+      'value',
       0,
-    );
+    )
 
-    app.post("/increment", async (c) => {
-      setValue((value) => value++);
-      return c.text((await getValue()).toString());
-    });
+    app.post('/increment', async (c) => {
+      setValue((value) => value++)
+      return c.text((await getValue()).toString())
+    })
 
-    app.post("/decrement", async (c) => {
-      setValue((value) => value--);
-      return c.text((await getValue()).toString());
-    });
+    app.post('/decrement', async (c) => {
+      setValue((value) => value--)
+      return c.text((await getValue()).toString())
+    })
 
-    app.get("/", async (c) => {
-      return c.text((await getValue()).toString());
-    });
+    app.get('/', async (c) => {
+      return c.text((await getValue()).toString())
+    })
   },
-);
+)
 ```
 
 もっとコードを見たい方はぜひ [examples](https://github.com/sor4chi/hono-do/tree/main/examples) をご覧ください。

@@ -1,7 +1,7 @@
 ---
-title: "TWrangler"
+title: 'TWrangler'
 createdAt: 2024/4/10
-description: "type-safe wrangler definition tool"
+description: 'type-safe wrangler definition tool'
 ---
 
 **Wrangler の定義を型安全に管理するツール**「TWrangler」を作成しました。
@@ -34,35 +34,35 @@ npm install twrangler # local install
 
 ```ts
 // wrangler.config.ts
-import { defineConfig } from "twrangler";
+import { defineConfig } from 'twrangler'
 
-import { defineConfig } from "twrangler";
+import { defineConfig } from 'twrangler'
 
 export default defineConfig({
-  name: "my-project",
-  main: "src/index.ts",
-  compatibility_date: "2022-03-21",
+  name: 'my-project',
+  main: 'src/index.ts',
+  compatibility_date: '2022-03-21',
   env: {
     production: {
       d1_databases: [
         {
-          binding: "DATABASE_URL",
-          database_id: "xxxxx",
-          database_name: "my-database",
+          binding: 'DATABASE_URL',
+          database_id: 'xxxxx',
+          database_name: 'my-database',
         },
       ],
     },
     development: {
       d1_databases: [
         {
-          binding: "DATABASE_URL",
-          database_id: "yyyyy",
-          database_name: "my-database",
+          binding: 'DATABASE_URL',
+          database_id: 'yyyyy',
+          database_name: 'my-database',
         },
       ],
     },
   },
-});
+})
 ```
 
 ### 実行

@@ -1,7 +1,7 @@
 ---
-title: "Discorder"
+title: 'Discorder'
 createdAt: 2023/9/3
-description: "CLIからdiscordのwebhookを叩けるツール"
+description: 'CLIからdiscordのwebhookを叩けるツール'
 ---
 
 Discorder は、SSH 環境などで手軽にデバッグをしたいというニーズに応えるために作ったツールです。

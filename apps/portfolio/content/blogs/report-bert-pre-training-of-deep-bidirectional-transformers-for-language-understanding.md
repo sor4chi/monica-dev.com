@@ -1,6 +1,6 @@
 ---
-title: "論文読み - BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
-description: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding という論文を読みました。"
+title: '論文読み - BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding'
+description: 'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding という論文を読みました。'
 publishedAt: 2024/05/22
 noindex: true
 ---

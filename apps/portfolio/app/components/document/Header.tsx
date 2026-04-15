@@ -1,28 +1,28 @@
-import Mikan from "mikanjs";
+import Mikan from 'mikanjs'
 
-import Tooltip from "@/components/ui/Tooltip";
+import Tooltip from '@/components/ui/Tooltip'
 
-import { styles } from "./Header.css";
+import { styles } from './Header.css'
 
 interface Props {
-  title: string;
-  createdAt: string;
-  updatedAt?: string;
-  authors?: string[];
+  title: string
+  createdAt: string
+  updatedAt?: string
+  authors?: string[]
 }
 
 const formatDateTime = (dateStr: string) => {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-};
+  const date = new Date(dateStr)
+  return date.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
+}
 
-const githubAvatar = (author: string) => `https://github.com/${author}`;
+const githubAvatar = (author: string) => `https://github.com/${author}`
 const githubProfile = (author: string) =>
-  `https://github.com/${author}.png?s=32`;
+  `https://github.com/${author}.png?s=32`
 
 export default function Header({
   title,
@@ -36,17 +36,23 @@ export default function Header({
         <h1
           className={styles.title}
           dangerouslySetInnerHTML={{
-            __html: Mikan(title, { style: "", className: styles.titleWord }),
+            __html: Mikan(title, { style: '', className: styles.titleWord }),
           }}
         />
         <p className={styles.meta}>
-          <time dateTime={new Date(createdAt).toISOString()} className={styles.date}>
+          <time
+            dateTime={new Date(createdAt).toISOString()}
+            className={styles.date}
+          >
             {formatDateTime(createdAt)}
           </time>
           {updatedAt && (
             <>
               <span>/</span>
-              <time dateTime={new Date(updatedAt).toISOString()} className={styles.date}>
+              <time
+                dateTime={new Date(updatedAt).toISOString()}
+                className={styles.date}
+              >
                 {formatDateTime(updatedAt)}
               </time>
             </>
@@ -77,5 +83,5 @@ export default function Header({
         </div>
       )}
     </div>
-  );
+  )
 }

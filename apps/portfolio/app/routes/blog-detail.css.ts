@@ -1,52 +1,58 @@
-import { vars } from "@sor4chi/design-system/theme.css";
-import { style } from "@vanilla-extract/css";
-import { ARTICLE_WIDTH, ASIDE_WIDTH, BREAKPOINT_MOBILE, BREAKPOINT_TABLET, CONTAINER_GAP } from "@/styles/constants";
+import { vars } from '@sor4chi/design-system/theme.css'
+import { style } from '@vanilla-extract/css'
+import {
+  ARTICLE_WIDTH,
+  ASIDE_WIDTH,
+  BREAKPOINT_MOBILE,
+  BREAKPOINT_TABLET,
+  CONTAINER_GAP,
+} from '@/styles/constants'
 
 export const styles = {
   container: style({
-    display: "flex",
-    justifyContent: "center",
+    display: 'flex',
+    justifyContent: 'center',
     gap: CONTAINER_GAP,
-    width: "100%",
+    width: '100%',
     maxWidth: BREAKPOINT_TABLET,
-    margin: "0 auto 3rem",
+    margin: '0 auto 3rem',
   }),
   aside: style({
-    position: "sticky",
+    position: 'sticky',
     top: `calc(${vars.spacing.absolute[8]} + 0.25rem)`,
-    height: "fit-content",
+    height: 'fit-content',
     width: ASIDE_WIDTH,
     flexShrink: 0,
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
   }),
   leftAside: style({
-    "@media": {
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        display: "none",
+        display: 'none',
       },
     },
   }),
   rightAside: style({
-    "@media": {
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_TABLET})`]: {
-        display: "none",
+        display: 'none',
       },
     },
   }),
   article: style({
-    position: "relative",
-    width: "100%",
+    position: 'relative',
+    width: '100%',
     maxWidth: ARTICLE_WIDTH,
   }),
   backLink: style({
-    display: "none",
-    height: "2.5rem",
+    display: 'none',
+    height: '2.5rem',
     marginBottom: vars.spacing.absolute[2],
-    "@media": {
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        display: "inline-flex",
-        alignItems: "center",
+        display: 'inline-flex',
+        alignItems: 'center',
       },
     },
   }),
@@ -54,10 +60,10 @@ export const styles = {
     marginTop: vars.spacing.absolute[4],
   }),
   notPC: style({
-    display: "none",
-    "@media": {
+    display: 'none',
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_TABLET})`]: {
-        display: "contents",
+        display: 'contents',
       },
     },
   }),
@@ -66,11 +72,11 @@ export const styles = {
   }),
   onlySP: style({
     marginTop: vars.spacing.absolute[6],
-    display: "none",
-    "@media": {
+    display: 'none',
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        display: "block",
+        display: 'block',
       },
     },
   }),
-};
+}

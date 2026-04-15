@@ -1,7 +1,7 @@
 ---
-title: "Pazcal"
+title: 'Pazcal'
 createdAt: 2020/2/27
-description: "パズドラの経験値計算機ツール"
+description: 'パズドラの経験値計算機ツール'
 ---
 
 パズドラの経験値計算機ツール「[Pazcal](https://pazcal.net)」を作りました。

@@ -1,13 +1,13 @@
-import { clsx } from "clsx";
+import { clsx } from 'clsx'
 
-import { SITE_BASE_URL, SITE_NAME } from "@/config";
-import MdContents from "@/components/document/MdContents";
-import { getTimelinesWithContent } from "@/lib/content.server";
+import { SITE_BASE_URL, SITE_NAME } from '@/config'
+import MdContents from '@/components/document/MdContents'
+import { getTimelinesWithContent } from '@/lib/content.server'
 
-import { styles } from "./timeline.css";
+import { styles } from './timeline.css'
 
 export async function loader() {
-  const timelines = await getTimelinesWithContent();
+  const timelines = await getTimelinesWithContent()
   const sorted = timelines
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
     .map((t) => ({
@@ -17,37 +17,36 @@ export async function loader() {
       icon: t.data.icon,
       link: t.data.link,
       html: t.html,
-    }));
-  return { timelines: sorted };
+    }))
+  return { timelines: sorted }
 }
 
 export function meta() {
-  const title = `Timelines | ${SITE_NAME}`;
+  const title = `Timelines | ${SITE_NAME}`
   return [
     { title },
-    { property: "og:title", content: title },
-    { property: "og:url", content: `${SITE_BASE_URL}/timeline` },
-    { property: "og:image", content: `${SITE_BASE_URL}/assets/ogp/default.png` },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: title },
-    { tagName: "link", rel: "canonical", href: `${SITE_BASE_URL}/timeline` },
-  ];
+    { property: 'og:title', content: title },
+    { property: 'og:url', content: `${SITE_BASE_URL}/timeline` },
+    {
+      property: 'og:image',
+      content: `${SITE_BASE_URL}/assets/ogp/default.png`,
+    },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { tagName: 'link', rel: 'canonical', href: `${SITE_BASE_URL}/timeline` },
+  ]
 }
 
-type LoaderData = Awaited<ReturnType<typeof loader>>;
+type LoaderData = Awaited<ReturnType<typeof loader>>
 
-export default function Timeline({
-  loaderData,
-}: {
-  loaderData: LoaderData;
-}) {
-  const { timelines } = loaderData;
+export default function Timeline({ loaderData }: { loaderData: LoaderData }) {
+  const { timelines } = loaderData
 
   const formatDate = (dateStr: string) =>
-    new Date(dateStr).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-    });
+    new Date(dateStr).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+    })
 
   return (
     <div className={styles.container}>
@@ -92,9 +91,7 @@ export default function Timeline({
               </td>
               <td className={styles.col}>
                 <span className={styles.titleWrapper}>
-                  <strong className={styles.itemTitle}>
-                    {timeline.title}
-                  </strong>
+                  <strong className={styles.itemTitle}>{timeline.title}</strong>
                   <time
                     dateTime={timeline.date}
                     className={clsx(styles.date, styles.mobileDate)}
@@ -113,5 +110,5 @@ export default function Timeline({
         </tbody>
       </table>
     </div>
-  );
+  )
 }

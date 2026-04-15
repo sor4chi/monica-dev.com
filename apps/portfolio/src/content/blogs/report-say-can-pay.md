@@ -1,6 +1,6 @@
 ---
-title: "論文読み - SayCanPay: Heuristic Planning with Large Language Models using Learnable Domain Knowledge"
-description: "SayCanPay: Heuristic Planning with Large Language Models using Learnable Domain Knowledge という論文を読んでまとめました。"
+title: '論文読み - SayCanPay: Heuristic Planning with Large Language Models using Learnable Domain Knowledge'
+description: 'SayCanPay: Heuristic Planning with Large Language Models using Learnable Domain Knowledge という論文を読んでまとめました。'
 publishedAt: 2024/10/01
 noindex: true
 ---

@@ -1,6 +1,6 @@
-import Hamburger from "./Hamburger";
-import { styles } from "./RightTopArea.css";
-import Switch from "./Switch";
+import Hamburger from './Hamburger'
+import { styles } from './RightTopArea.css'
+import Switch from './Switch'
 
 export default function RightTopArea() {
   return (
@@ -8,5 +8,5 @@ export default function RightTopArea() {
       <Switch />
       <Hamburger />
     </span>
-  );
+  )
 }

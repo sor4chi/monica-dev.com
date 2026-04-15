@@ -1,13 +1,13 @@
-import { vars } from "@sor4chi/design-system/theme.css";
-import { style } from "@vanilla-extract/css";
+import { vars } from '@sor4chi/design-system/theme.css'
+import { style } from '@vanilla-extract/css'
 
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
+import { BREAKPOINT_MOBILE } from '@/styles/constants'
 
 export const styles = {
   header: style({
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     gap: vars.spacing.absolute[4],
     marginBottom: vars.spacing.absolute[8],
   }),
@@ -16,36 +16,36 @@ export const styles = {
     color: vars.color.gray[12],
   }),
   titleWord: style({
-    display: "inline-block",
-    whiteSpace: "break-spaces",
+    display: 'inline-block',
+    whiteSpace: 'break-spaces',
   }),
   meta: style({
-    display: "inline-flex",
-    alignItems: "center",
+    display: 'inline-flex',
+    alignItems: 'center',
     gap: vars.spacing.relative[4],
     margin: 0,
     color: vars.color.gray[10],
   }),
   authors: style({
-    display: "flex",
+    display: 'flex',
     gap: vars.spacing.absolute[4],
 
-    "@media": {
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
         gap: vars.spacing[0],
       },
     },
   }),
   author: style({
-    textDecoration: "none",
+    textDecoration: 'none',
     color: vars.color.gray[11],
-    display: "block",
-    transition: "filter 0.2s ease-in-out",
+    display: 'block',
+    transition: 'filter 0.2s ease-in-out',
 
-    "@media": {
-      "(hover: hover)": {
-        ":hover": {
-          filter: "brightness(0.8)",
+    '@media': {
+      '(hover: hover)': {
+        ':hover': {
+          filter: 'brightness(0.8)',
         },
       },
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
@@ -54,11 +54,11 @@ export const styles = {
     },
   }),
   avatar: style({
-    objectFit: "cover",
-    borderRadius: "50%",
-    display: "block",
+    objectFit: 'cover',
+    borderRadius: '50%',
+    display: 'block',
   }),
   date: style({
     fontSize: vars.font.size.sm,
   }),
-};
+}

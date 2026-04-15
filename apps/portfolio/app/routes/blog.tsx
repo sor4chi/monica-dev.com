@@ -1,30 +1,30 @@
-import { clsx } from "clsx";
-import { Link } from "react-router";
+import { clsx } from 'clsx'
+import { Link } from 'react-router'
 
-import { SITE_BASE_URL, SITE_NAME } from "@/config";
-import UILink from "@/components/ui/Link";
-import Line from "@/components/ui/Line";
-import { RSSIcon } from "@/components/ui/icons";
-import { getBlogs, getExternalBlogs } from "@/lib/content.server";
+import { SITE_BASE_URL, SITE_NAME } from '@/config'
+import UILink from '@/components/ui/Link'
+import Line from '@/components/ui/Line'
+import { RSSIcon } from '@/components/ui/icons'
+import { getBlogs, getExternalBlogs } from '@/lib/content.server'
 
-import { styles } from "./blog.css";
+import { styles } from './blog.css'
 
 const ICON_MAP = new Map<string, string>([
-  ["zenn.dev", "https://static.zenn.studio/images/logo-transparent.png"],
+  ['zenn.dev', 'https://static.zenn.studio/images/logo-transparent.png'],
   [
-    "qiita.com",
-    "https://cdn.qiita.com/assets/favicons/public/production-c620d3e403342b1022967ba5e3db1aaa.ico",
+    'qiita.com',
+    'https://cdn.qiita.com/assets/favicons/public/production-c620d3e403342b1022967ba5e3db1aaa.ico',
   ],
-]);
+])
 
 function getDomain(url: string) {
-  const { hostname } = new URL(url);
-  return hostname.replace(/^www\./, "");
+  const { hostname } = new URL(url)
+  return hostname.replace(/^www\./, '')
 }
 
 export async function loader() {
-  const originalBlogs = getBlogs();
-  const externalBlogs = getExternalBlogs();
+  const originalBlogs = getBlogs()
+  const externalBlogs = getExternalBlogs()
 
   const blogs = [
     ...originalBlogs.map((b) => ({
@@ -39,13 +39,13 @@ export async function loader() {
       publishedAt: b.data.publishedAt.toISOString(),
       url: b.data.url,
     })),
-  ];
+  ]
 
-  const grouped: Record<string, typeof blogs> = {};
+  const grouped: Record<string, typeof blogs> = {}
   for (const blog of blogs) {
-    const year = new Date(blog.publishedAt).getFullYear().toString();
-    if (!grouped[year]) grouped[year] = [];
-    grouped[year].push(blog);
+    const year = new Date(blog.publishedAt).getFullYear().toString()
+    if (!grouped[year]) grouped[year] = []
+    grouped[year].push(blog)
   }
 
   const sorted = Object.entries(grouped)
@@ -60,35 +60,36 @@ export async function loader() {
               new Date(a.publishedAt).getTime(),
           ),
         ] as const,
-    );
+    )
 
-  return { sortedGroupedBlogs: sorted };
+  return { sortedGroupedBlogs: sorted }
 }
 
 export function meta() {
-  const title = `Blog | ${SITE_NAME}`;
+  const title = `Blog | ${SITE_NAME}`
   return [
     { title },
-    { property: "og:title", content: title },
-    { property: "og:url", content: `${SITE_BASE_URL}/blog` },
-    { property: "og:image", content: `${SITE_BASE_URL}/assets/ogp/default.png` },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: title },
-    { tagName: "link", rel: "canonical", href: `${SITE_BASE_URL}/blog` },
-  ];
+    { property: 'og:title', content: title },
+    { property: 'og:url', content: `${SITE_BASE_URL}/blog` },
+    {
+      property: 'og:image',
+      content: `${SITE_BASE_URL}/assets/ogp/default.png`,
+    },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { tagName: 'link', rel: 'canonical', href: `${SITE_BASE_URL}/blog` },
+  ]
 }
 
-type LoaderData = Awaited<ReturnType<typeof loader>>;
+type LoaderData = Awaited<ReturnType<typeof loader>>
 
 export default function Blog({ loaderData }: { loaderData: LoaderData }) {
-  const { sortedGroupedBlogs } = loaderData;
+  const { sortedGroupedBlogs } = loaderData
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Blogs</h1>
-      <p className={styles.description}>
-        writes about technology and thoughts
-      </p>
+      <p className={styles.description}>writes about technology and thoughts</p>
       {sortedGroupedBlogs.map(([year, blogs], i) => (
         <section
           key={year}
@@ -96,12 +97,7 @@ export default function Blog({ loaderData }: { loaderData: LoaderData }) {
           style={{ animationDelay: `${0.1 * i}s` }}
         >
           <div className={styles.listContainer}>
-            <h2
-              className={clsx(
-                styles.listTitle,
-                i === 0 && styles.hideOnSP,
-              )}
-            >
+            <h2 className={clsx(styles.listTitle, i === 0 && styles.hideOnSP)}>
               {year}
             </h2>
             <ul className={styles.list}>
@@ -165,5 +161,5 @@ export default function Blog({ loaderData }: { loaderData: LoaderData }) {
         </UILink>
       </div>
     </div>
-  );
+  )
 }

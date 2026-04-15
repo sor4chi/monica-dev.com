@@ -126,16 +126,16 @@ This renderer supports [Shiki](https://shiki.matsu.io/) for syntax highlighting.
 
 ```javascript
 function mandelbrot(c, maxIterations) {
-  let z = 0;
-  let n = 0;
+  let z = 0
+  let n = 0
   while (Math.abs(z) <= 2 && n < maxIterations) {
-    z = z * z + c;
-    n++;
+    z = z * z + c
+    n++
   }
   if (n === maxIterations) {
-    return maxIterations;
+    return maxIterations
   }
-  return n + 1 - Math.log(Math.log2(Math.abs(z)));
+  return n + 1 - Math.log(Math.log2(Math.abs(z)))
 }
 ```
 
@@ -144,16 +144,16 @@ This is a code block.
 ````markdown
 ```javascript
 function mandelbrot(c, maxIterations) {
-  let z = 0;
-  let n = 0;
+  let z = 0
+  let n = 0
   while (Math.abs(z) <= 2 && n < maxIterations) {
-    z = z * z + c;
-    n++;
+    z = z * z + c
+    n++
   }
   if (n === maxIterations) {
-    return maxIterations;
+    return maxIterations
   }
-  return n + 1 - Math.log(Math.log2(Math.abs(z)));
+  return n + 1 - Math.log(Math.log2(Math.abs(z)))
 }
 ```
 ````
@@ -161,68 +161,68 @@ function mandelbrot(c, maxIterations) {
 ### Highlight Line Notation
 
 ```ts
-import { Hono } from "hono";
-import { compress } from "hono/compress"; // [!code highlight]
+import { Hono } from 'hono'
+import { compress } from 'hono/compress' // [!code highlight]
 
-const app = new Hono();
+const app = new Hono()
 
-app.use(compress()); // [!code highlight]
+app.use(compress()) // [!code highlight]
 
-app.get("/", (c) => c.json({ message: "Hello, World!" }));
+app.get('/', (c) => c.json({ message: 'Hello, World!' }))
 
-export default hono;
+export default hono
 ```
 
 This is a code block.
 
 ````markdown
 ```ts
-import { Hono } from "hono";
-import { compress } from "hono/compress"; // [\!code highlight]
+import { Hono } from 'hono'
+import { compress } from 'hono/compress' // [\!code highlight]
 
-const app = new Hono();
+const app = new Hono()
 
-app.use(compress()); // [\!code highlight]
+app.use(compress()) // [\!code highlight]
 
-app.get("/", (c) => c.json({ message: "Hello, World!" }));
+app.get('/', (c) => c.json({ message: 'Hello, World!' }))
 
-export default hono;
+export default hono
 ```
 ````
 
 ### Diff Line Notation
 
 ```ts
-import { Hono } from "hono";
-import { compress } from "hono/compress"; // [!code --]
-import { etag } from "hono/etag"; // [!code ++]
+import { Hono } from 'hono'
+import { compress } from 'hono/compress' // [!code --]
+import { etag } from 'hono/etag' // [!code ++]
 
-const app = new Hono();
+const app = new Hono()
 
-app.use(compress()); // [!code --]
-app.use(etag()); // [!code ++]
+app.use(compress()) // [!code --]
+app.use(etag()) // [!code ++]
 
-app.get("/", (c) => c.json({ message: "Hello, World!" }));
+app.get('/', (c) => c.json({ message: 'Hello, World!' }))
 
-export default hono;
+export default hono
 ```
 
 This is a code block.
 
 ````markdown
 ```ts
-import { Hono } from "hono";
-import { compress } from "hono/compress"; // [\!code --]
-import { etag } from "hono/etag"; // [\!code ++]
+import { Hono } from 'hono'
+import { compress } from 'hono/compress' // [\!code --]
+import { etag } from 'hono/etag' // [\!code ++]
 
-const app = new Hono();
+const app = new Hono()
 
-app.use(compress()); // [\!code --]
-app.use(etag()); // [\!code ++]
+app.use(compress()) // [\!code --]
+app.use(etag()) // [\!code ++]
 
-app.get("/", (c) => c.json({ message: "Hello, World!" }));
+app.get('/', (c) => c.json({ message: 'Hello, World!' }))
 
-export default hono;
+export default hono
 ```
 ````
 

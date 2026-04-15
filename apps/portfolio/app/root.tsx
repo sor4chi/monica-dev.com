@@ -1,22 +1,16 @@
-import "@/styles/global.css";
+import '@/styles/global.css'
 
-import { clsx } from "clsx";
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "react-router";
+import { clsx } from 'clsx'
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 
-import { styles } from "@/components/layouts/Base.css";
-import Footer from "@/components/layouts/Footer";
-import Navigation from "@/components/layouts/Navigation";
+import { styles } from '@/components/layouts/Base.css'
+import Footer from '@/components/layouts/Footer'
+import Navigation from '@/components/layouts/Navigation'
 import {
   NavigationProvider,
   useNavigation,
-} from "@/components/layouts/NavigationContext";
-import RightTopArea from "@/components/layouts/RightTopArea";
+} from '@/components/layouts/NavigationContext'
+import RightTopArea from '@/components/layouts/RightTopArea'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -63,22 +57,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
 
 function RootContent() {
-  const { isOpen } = useNavigation();
+  const { isOpen } = useNavigation()
 
   return (
     <>
       <RightTopArea />
-      <main className={clsx(styles.container, isOpen && "is-active")}>
+      <main className={clsx(styles.container, isOpen && 'is-active')}>
         <Outlet />
         <Footer />
       </main>
       <Navigation />
     </>
-  );
+  )
 }
 
 export default function Root() {
@@ -86,5 +80,5 @@ export default function Root() {
     <NavigationProvider>
       <RootContent />
     </NavigationProvider>
-  );
+  )
 }

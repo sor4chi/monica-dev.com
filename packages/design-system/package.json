@@ -1,13 +1,13 @@
 {
   "name": "@sor4chi/design-system",
   "type": "module",
+  "exports": {
+    "./*": "./src/*.ts"
+  },
   "scripts": {
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "fix": "pnpm lint:fix"
-  },
-  "exports": {
-    "./*": "./src/*.ts"
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.13.0"

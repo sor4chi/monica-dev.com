@@ -1,6 +1,6 @@
 ---
-title: "Sor4chi / Monica"
-subtitle: "A Software Developer"
+title: 'Sor4chi / Monica'
+subtitle: 'A Software Developer'
 socials:
   github: https://github.com/sor4chi
   x: https://x.com/sor4chi

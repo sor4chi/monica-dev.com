@@ -1,14 +1,14 @@
-import { clsx } from "clsx";
-import { Link as RRLink } from "react-router";
+import { clsx } from 'clsx'
+import { Link as RRLink } from 'react-router'
 
-import { styles } from "./Link.css";
+import { styles } from './Link.css'
 
 interface Props {
-  href: string;
-  newTab?: boolean;
-  exClass?: string;
-  ariaLabel?: string;
-  children?: React.ReactNode;
+  href: string
+  newTab?: boolean
+  exClass?: string
+  ariaLabel?: string
+  children?: React.ReactNode
 }
 
 export default function Link({
@@ -18,7 +18,7 @@ export default function Link({
   ariaLabel,
   children,
 }: Props) {
-  const isExternal = href.startsWith("http") || href.startsWith("//");
+  const isExternal = href.startsWith('http') || href.startsWith('//')
 
   if (isExternal || newTab) {
     return (
@@ -31,7 +31,7 @@ export default function Link({
       >
         {children}
       </a>
-    );
+    )
   }
 
   return (
@@ -42,5 +42,5 @@ export default function Link({
     >
       {children}
     </RRLink>
-  );
+  )
 }

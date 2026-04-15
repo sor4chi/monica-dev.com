@@ -1,15 +1,15 @@
-import Link from "@/components/ui/Link";
+import Link from '@/components/ui/Link'
 
-import { styles } from "./FooterNav.css";
+import { styles } from './FooterNav.css'
 
 interface Navigation {
-  link: string;
-  title: string;
+  link: string
+  title: string
 }
 
 interface Props {
-  prev?: Navigation;
-  next?: Navigation;
+  prev?: Navigation
+  next?: Navigation
 }
 
 export default function FooterNav({ prev, next }: Props) {
@@ -22,5 +22,5 @@ export default function FooterNav({ prev, next }: Props) {
         {next && <Link href={next.link}>{next.title} →</Link>}
       </div>
     </div>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-import { styles } from "./Tooltip.css";
+import { styles } from './Tooltip.css'
 
 interface Props {
-  text: string;
-  children: React.ReactNode;
+  text: string
+  children: React.ReactNode
 }
 
 export default function Tooltip({ text, children }: Props) {
@@ -11,5 +11,5 @@ export default function Tooltip({ text, children }: Props) {
       <div className={styles.target}>{children}</div>
       <div className={styles.tooltip}>{text}</div>
     </div>
-  );
+  )
 }

@@ -1,8 +1,8 @@
 ---
-title: "深層強化学習を用いたテトリスBotの作成"
+title: '深層強化学習を用いたテトリスBotの作成'
 createdAt: 2024/3/31
-description: "友人とテトリスを自動でプレイする Bot を共同開発しました。"
-authors: ["sor4chi", "thirofoo", "seiei-n"]
+description: '友人とテトリスを自動でプレイする Bot を共同開発しました。'
+authors: ['sor4chi', 'thirofoo', 'seiei-n']
 ---
 
 g@sor4chi , g@thirofoo , g@seiei-n の３人で、深層強化学習を用いて **テトリスを自動でプレイする Bot** を作成しました。

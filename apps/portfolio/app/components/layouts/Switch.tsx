@@ -1,13 +1,13 @@
-import { useCallback } from "react";
+import { useCallback } from 'react'
 
-import { styles } from "./Switch.css";
+import { styles } from './Switch.css'
 
 export default function Switch() {
   const handleClick = useCallback(() => {
-    const html = document.documentElement;
-    const before = localStorage.getItem("theme");
+    const html = document.documentElement
+    const before = localStorage.getItem('theme')
 
-    const style = document.createElement("style");
+    const style = document.createElement('style')
     style.textContent = `
       * {
         -ms-transition: none!important;
@@ -16,23 +16,23 @@ export default function Switch() {
         -o-transition: none!important;
         transition: none!important
       }
-    `;
-    document.head.appendChild(style);
+    `
+    document.head.appendChild(style)
 
-    if (before === "dark") {
-      html.classList.remove("dark");
-      html.classList.add("light");
-      localStorage.setItem("theme", "light");
+    if (before === 'dark') {
+      html.classList.remove('dark')
+      html.classList.add('light')
+      localStorage.setItem('theme', 'light')
     } else {
-      html.classList.add("dark");
-      html.classList.remove("light");
-      localStorage.setItem("theme", "dark");
+      html.classList.add('dark')
+      html.classList.remove('light')
+      localStorage.setItem('theme', 'dark')
     }
 
     setTimeout(() => {
-      document.head.removeChild(style);
-    }, 1);
-  }, []);
+      document.head.removeChild(style)
+    }, 1)
+  }, [])
 
   return (
     <button
@@ -73,5 +73,5 @@ export default function Switch() {
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
       </svg>
     </button>
-  );
+  )
 }
