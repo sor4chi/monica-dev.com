@@ -2,8 +2,8 @@
   "name": "@sor4chi/unified-plugins",
   "type": "module",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "fix": "pnpm lint:fix",
     "test": "vitest"
   },
@@ -12,10 +12,8 @@
     "./rehype": "./src/rehype/index.ts"
   },
   "devDependencies": {
-    "@sor4chi/configs": "workspace:*",
     "@types/hast": "^3.0.4",
     "@types/mdast": "^4.0.4",
-    "prettier": "^3.2.5",
     "rehype-stringify": "^10.0.0",
     "remark-directive": "^3.0.0",
     "remark-parse": "^11.0.0",

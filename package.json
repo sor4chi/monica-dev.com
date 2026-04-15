@@ -2,19 +2,17 @@
   "name": "website",
   "type": "module",
   "scripts": {
-    "lint": "pnpm -r lint",
-    "lint:fix": "pnpm -r lint:fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
     "fix": "pnpm lint:fix && pnpm format",
     "dev:portfolio": "pnpm run --filter portfolio dev",
     "dev:dashboard": "pnpm run --filter @sor4chi/dashboard dev"
   },
   "devDependencies": {
-    "@sor4chi/configs": "workspace:*",
-    "eslint": "^9.17.0",
-    "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.7.2"
+    "oxlint": "^1.0.0",
+    "oxfmt": "^0.1.0",
+    "typescript": "^5.9.3"
   }
 }
