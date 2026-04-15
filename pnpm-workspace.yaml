@@ -1,3 +1,14 @@
 packages:
   - apps/*
   - packages/*
+
+onlyBuiltDependencies:
+  - esbuild
+  - playwright-chromium
+
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - react
+  - react-dom
+  - postcss
+  - "@napi-rs/*"
