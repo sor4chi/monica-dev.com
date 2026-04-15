@@ -1,6 +1,5 @@
 import { clsx } from 'clsx'
-import { useCallback } from 'react'
-import { useLocation, useNavigate } from 'react-router'
+import { Link as RRLink, useLocation } from 'react-router'
 
 import Link from '@/components/ui/Link'
 import { styles as linkStyles } from '@/components/ui/Link.css'
@@ -19,7 +18,6 @@ const NAV_LINKS = [
 
 export default function Navigation() {
   const location = useLocation()
-  const navigate = useNavigate()
   const { isOpen, close } = useNavigation()
 
   const active = NAV_LINKS.find(
@@ -27,17 +25,6 @@ export default function Navigation() {
       l.href === location.pathname ||
       (l.href !== '/' && location.pathname.startsWith(l.href)),
   )?.href
-
-  const handleLinkClick = useCallback(
-    (e: React.MouseEvent, href: string) => {
-      e.preventDefault()
-      close()
-      setTimeout(() => {
-        navigate(href)
-      }, 300)
-    },
-    [navigate, close],
-  )
 
   return (
     <div
@@ -48,17 +35,18 @@ export default function Navigation() {
       )}
     >
       {NAV_LINKS.map(({ href, label }) => (
-        <a
+        <RRLink
           key={href}
-          href={href}
+          to={href}
+          prefetch="intent"
           className={clsx(linkStyles.link, styles.link, {
             [styles.active]: href === active,
           })}
-          onClick={(e) => handleLinkClick(e, href)}
+          onClick={close}
         >
           {href === active && <span className={styles.activeDot} />}
           {label}
-        </a>
+        </RRLink>
       ))}
       <hr className={styles.line} />
       <div className={styles.social}>

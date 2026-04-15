@@ -8,6 +8,7 @@ interface Props {
   newTab?: boolean
   exClass?: string
   ariaLabel?: string
+  prefetch?: 'none' | 'intent' | 'render' | 'viewport'
   children?: React.ReactNode
 }
 
@@ -16,6 +17,7 @@ export default function Link({
   newTab,
   exClass,
   ariaLabel,
+  prefetch = 'intent',
   children,
 }: Props) {
   const isExternal = href.startsWith('http') || href.startsWith('//')
@@ -38,6 +40,7 @@ export default function Link({
     <RRLink
       className={clsx(styles.link, exClass)}
       to={href}
+      prefetch={prefetch}
       aria-label={ariaLabel}
     >
       {children}
