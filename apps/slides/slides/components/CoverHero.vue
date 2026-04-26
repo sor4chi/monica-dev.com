@@ -9,6 +9,7 @@
 </template>
 
 <style scoped>
+
 .cover-copy {
   padding-top: 0.5rem;
 }
@@ -23,4 +24,5 @@
   font-size: 0.95rem;
   color: var(--deck-text-soft);
 }
+
 </style>
