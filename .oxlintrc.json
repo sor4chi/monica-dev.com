@@ -9,6 +9,8 @@
   },
   "rules": {
     "no-unused-vars": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unassigned-import": "off",
     "typescript/no-unused-vars": "warn"
   },
   "ignorePatterns": [

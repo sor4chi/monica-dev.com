@@ -74,7 +74,6 @@ export default function BlogDetail({ loaderData }: { loaderData: LoaderData }) {
   const {
     slug,
     title,
-    description,
     publishedAt,
     updatedAt,
     authors,

@@ -56,8 +56,8 @@ export const remarkMention = createRemarkPlugin(
 
         // join the children with a space
         const newChildren: PhrasingContent[] = []
-        tmpChildren.forEach((child, index) => {
-          if (index !== 0) {
+        tmpChildren.forEach((child, childIndex) => {
+          if (childIndex !== 0) {
             newChildren.push({
               type: 'text',
               value: ' ',

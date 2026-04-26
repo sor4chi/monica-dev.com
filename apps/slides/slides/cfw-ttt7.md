@@ -1,7 +1,7 @@
 ---
 theme: default
 title: Durable Objects 2026
-titleTemplate: "%s"
+titleTemplate: '%s'
 info: |
   Cloudflare Workers Tech Talks in Tokyo #7
 class: text-left
@@ -68,7 +68,6 @@ lineNumbers: true
 
 <CoverHero />
 
-
 ---
 
 # Durable Objects とは
@@ -131,23 +130,24 @@ flowchart LR
   L["London"]
   F["Sydney"]
 
-  R1["room-1<br/>@ Tokyo"]
-  R2["room-2<br/>@ Sydney"]
+R1["room-1<br/>@ Tokyo"]
+R2["room-2<br/>@ Sydney"]
 
-  T -- "room-1" --> R1
-  T -- "room-2" --> R2
-  L -- "room-1" --> R1
-  F -- "room-1" --> R1
-  F -- "room-2" --> R2
+T -- "room-1" --> R1
+T -- "room-2" --> R2
+L -- "room-1" --> R1
+F -- "room-1" --> R1
+F -- "room-2" --> R2
 
-  classDef client fill:#1e293b,stroke:#475569,color:#e2e8f0
-  classDef do1 fill:#0c4a6e,stroke:#38bdf8,color:#e0f2fe
-  classDef do2 fill:#78350f,stroke:#f59e0b,color:#fef3c7
+classDef client fill:#1e293b,stroke:#475569,color:#e2e8f0
+classDef do1 fill:#0c4a6e,stroke:#38bdf8,color:#e0f2fe
+classDef do2 fill:#78350f,stroke:#f59e0b,color:#fef3c7
 
-  class T,L,F client
-  class R1 do1
-  class R2 do2
-```
+class T,L,F client
+class R1 do1
+class R2 do2
+
+````
 </div>
 
 <div class="mt-8 text-[1rem] leading-7 text-zinc-700 dark:text-zinc-200">
@@ -176,7 +176,8 @@ flowchart LR
 
   O1 --- S1
   O2 --- S2
-```
+````
+
   </div>
   <div class="space-y-3 text-[1rem] leading-8">
     <div>object ごとに <span class="font-semibold">専用の durable storage</span> が付く</div>
@@ -226,7 +227,6 @@ timeline
   ]"
 />
 
-
 ---
 
 # 2020-10 → 2021-11 GA: 初期の Durable Objects
@@ -255,14 +255,14 @@ export class Counter {
   }
 
   async fetch(request) {
-    let value = (await this.state.storage.get("value")) ?? 0
+    let value = (await this.state.storage.get('value')) ?? 0
     value++
-    await this.state.storage.put("value", value)
+    await this.state.storage.put('value', value)
     return new Response(String(value))
   }
 }
 
-const id = env.COUNTER.idFromName("global")
+const id = env.COUNTER.idFromName('global')
 const stub = env.COUNTER.get(id)
 ```
 
@@ -311,11 +311,12 @@ export class Session {
     return new Response("scheduled")
   }
 
-  async alarm() {
-    // cleanup / retry
-  }
+async alarm() {
+// cleanup / retry
 }
-```
+}
+
+````
 </div>
 
 <SourceNote
@@ -339,7 +340,8 @@ flowchart TB
   O --> T2["retry"]
   O --> T3["cleanup"]
   O --> T4["state transition"]
-```
+````
+
   </div>
   <div class="space-y-4 text-[1rem] leading-8">
     <div>あとで起きる仕事を <span class="font-semibold">同じ object の責務</span> として書ける</div>
@@ -356,7 +358,6 @@ flowchart TB
     { label: 'alarms blog', href: 'https://blog.cloudflare.com/durable-objects-alarms/' },
   ]"
 />
-
 
 ---
 
@@ -486,10 +487,11 @@ const id = env.ROOM.idFromName("general")
 const stub = env.ROOM.get(id)
 
 await stub.fetch("https://do/join", {
-  method: "POST",
-  body: JSON.stringify({ user: "alice" }),
+method: "POST",
+body: JSON.stringify({ user: "alice" }),
 })
-```
+
+````
   </div>
   <div>
     <div class="mb-3 text-sm uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">After</div>
@@ -497,7 +499,8 @@ await stub.fetch("https://do/join", {
 const id = env.ROOM.idFromName("general")
 const stub = env.ROOM.get(id)
 await stub.join("alice")
-```
+````
+
   </div>
 </div>
 
@@ -539,8 +542,9 @@ const avatar = await profile.fetchAvatar()
 
 // pipelined: 1 round trip に fuse される
 const avatar = await stub
-  .getUser(id).getProfile().fetchAvatar()
-```
+.getUser(id).getProfile().fetchAvatar()
+
+````
     <div class="mt-2 text-[0.8rem] text-amber-300/80">await 前の promise (JS Proxy) に続けて method を呼べる</div>
   </div>
   <div>
@@ -551,8 +555,10 @@ const room = env.ROOMS.getByName("general")
 await env.ADMIN.grantAccess(room, userId)
 //                          ^^^^
 //                  別 DO への reference が流通
-```
+````
+
     <div class="mt-2 text-[0.8rem] text-amber-300/80">object reference が RPC を越えて runtime 境界を渡る</div>
+
   </div>
 </div>
 
@@ -689,7 +695,6 @@ await env.ADMIN.grantAccess(room, userId)
   ]"
 />
 
-
 ---
 
 # 2025-05: Python Workers でも DO が使えるようになる
@@ -708,9 +713,10 @@ await env.ADMIN.grantAccess(room, userId)
 from workers import DurableObject
 
 class Room(DurableObject):
-    async def fetch(self, request):
-        return Response("ok")
-```
+async def fetch(self, request):
+return Response("ok")
+
+````
   </div>
 </div>
 
@@ -745,7 +751,8 @@ export class Counter extends Actor<Env> {
 }
 
 export default handler(Counter)      // Worker 側 routing を自動生成
-```
+````
+
   </div>
   <div class="space-y-3 text-[0.9rem] leading-6">
     <div><span class="font-semibold">@Persist</span> で property が auto-persist (手動 put/get 不要)</div>
@@ -789,8 +796,10 @@ export default handler(Counter)      // Worker 側 routing を自動生成
 />
 
 ---
+
 layout: center
 class: text-center
+
 ---
 
 <div class="text-[3rem] font-semibold tracking-wide">

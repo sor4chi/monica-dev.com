@@ -3,8 +3,10 @@ packages:
   - packages/*
 
 onlyBuiltDependencies:
+  - canvas
   - esbuild
   - playwright-chromium
+  - sharp
 
 minimumReleaseAge: 10080
 minimumReleaseAgeExclude:

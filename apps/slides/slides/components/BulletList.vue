@@ -22,7 +22,7 @@
 }
 
 .bullet-list :deep(li)::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0.6rem;

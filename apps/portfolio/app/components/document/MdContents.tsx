@@ -114,6 +114,7 @@ export default function MdContents({ html }: Props) {
   }, [])
 
   return (
+    // oxlint-disable-next-line jsx_a11y/click-events-have-key-events jsx_a11y/no-static-element-interactions -- delegated handling for generated markdown copy buttons
     <div
       ref={containerRef}
       className={clsx(styles.contents, 'markdown-contents')}
