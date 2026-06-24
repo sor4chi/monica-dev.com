@@ -58,7 +58,7 @@ const sortedGroupedBlogs = Object.entries(groupedBlogs)
             {blogs.map((blog) => (
               <Item
                 title={blog.data.title}
-                slug={blog.slug}
+                slug={blog.id}
                 url={isExternalBlog(blog) ? blog.data.url : undefined}
               />
             ))}

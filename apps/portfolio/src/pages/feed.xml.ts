@@ -11,13 +11,13 @@ export async function GET() {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     site: SITE_BASE_URL,
-    items: blogs.map(({ slug, data }) => ({
+    items: blogs.map(({ id, data }) => ({
       title: data.title,
       description: data.description,
-      link: `${SITE_BASE_URL}/blog/${slug}`,
+      link: `${SITE_BASE_URL}/blog/${id}`,
       pubDate: data.publishedAt,
       enclosure: {
-        url: `${SITE_BASE_URL}/assets/ogp/blogs/${slug}.png`,
+        url: `${SITE_BASE_URL}/assets/ogp/blogs/${id}.png`,
         type: "image/png",
         length: 1,
       },

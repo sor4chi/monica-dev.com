@@ -17,7 +17,7 @@ const works = await getCollection("works");
         .map((work) => ({
           title: work.data.title,
           description: work.data.description,
-          slug: work.slug,
+          slug: work.id,
         }))}
     />
   </WorksLayout>

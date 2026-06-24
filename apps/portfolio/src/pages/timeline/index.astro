@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 import MdContents from "@/components/document/MdContents.astro";
 import BaseLayout from "@/components/layouts/Base.astro";
@@ -14,7 +14,7 @@ const sortedTimelines = await Promise.all(
     .map(async (timeline) => ({
       ...timeline,
       isBodyExist: !!timeline.body,
-      content: await timeline.render(),
+      content: await render(timeline),
     })),
 );
 ---
@@ -26,7 +26,7 @@ const sortedTimelines = await Promise.all(
         timeline.isBodyExist ? (
           <Item
             title={timeline.data.title}
-            slug={timeline.slug}
+            slug={timeline.id}
             date={timeline.data.date}
             icon={timeline.data.icon}
             link={timeline.data.link}
@@ -38,7 +38,7 @@ const sortedTimelines = await Promise.all(
         ) : (
           <Item
             title={timeline.data.title}
-            slug={timeline.slug}
+            slug={timeline.id}
             date={timeline.data.date}
             icon={timeline.data.icon}
             link={timeline.data.link}
