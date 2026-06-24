@@ -3,7 +3,7 @@ import { globalStyle } from "@vanilla-extract/css";
 
 globalStyle("body", {
   backgroundColor: vars.color.gray[2],
-  fontFamily: '"Inter", "Noto Sans JP", sans-serif',
+  fontFamily: '"Gen Interface JP", sans-serif',
   fontSize: vars.font.size.base,
   margin: 0,
   padding: 0,

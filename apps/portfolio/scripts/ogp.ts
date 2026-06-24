@@ -38,13 +38,8 @@ const stateLabel = (state: State) => {
 };
 
 GlobalFonts.registerFromPath(
-  path.join(process.cwd(), "public/fonts/ZenKakuGothicNew-Regular.ttf"),
-  "Zen Kaku Gothic New",
-);
-
-GlobalFonts.registerFromPath(
-  path.join(process.cwd(), "public/fonts/Nunito-Regular.ttf"),
-  "Nunito",
+  path.join(process.cwd(), "public/fonts/GenInterfaceJPDisplay-SemiBold.ttf"),
+  "Gen Interface JP Display",
 );
 
 const createOgp = async (
@@ -56,7 +51,7 @@ const createOgp = async (
   const ctx = canvas.getContext("2d");
   const baseImage = await loadImage(PATH_OGP_BASE_IMAGE_FILE);
   ctx.drawImage(baseImage, 0, 0, OGP_WIDTH, OGP_HEIGHT);
-  ctx.font = `${FONT_SIZE}px "Nunito", "Zen Kaku Gothic New", sans-serif`;
+  ctx.font = `${FONT_SIZE}px "Gen Interface JP Display", sans-serif`;
   ctx.fillStyle = "#FFFFFF";
   ctx.textAlign = "center";
 
