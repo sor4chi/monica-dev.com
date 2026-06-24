@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { registerFont, createCanvas, loadImage } from "canvas";
+import { createCanvas, loadImage, GlobalFonts } from "@napi-rs/canvas";
 import { load } from "js-yaml";
 import pico from "picocolors";
 import { md5 } from "js-md5";
@@ -37,16 +37,15 @@ const stateLabel = (state: State) => {
   }
 };
 
-registerFont(
+GlobalFonts.registerFromPath(
   path.join(process.cwd(), "public/fonts/ZenKakuGothicNew-Regular.ttf"),
-  {
-    family: "Zen Kaku Gothic New",
-  },
+  "Zen Kaku Gothic New",
 );
 
-registerFont(path.join(process.cwd(), "public/fonts/Nunito-Regular.ttf"), {
-  family: "Nunito",
-});
+GlobalFonts.registerFromPath(
+  path.join(process.cwd(), "public/fonts/Nunito-Regular.ttf"),
+  "Nunito",
+);
 
 const createOgp = async (
   state: Exclude<State, "delete">,
@@ -89,17 +88,12 @@ const createOgp = async (
 
   const imgDir = PATH_OGP_IMAGE_DIR(slug);
   const imgPath = PATH_OGP_IMAGE_FILE(slug);
-  canvas.toBuffer((err, buf) => {
-    if (err) throw err;
-    if (!fs.existsSync(imgDir)) {
-      fs.mkdirSync(imgDir, { recursive: true });
-    }
-    fs.writeFile(imgPath, buf, () => {
-      console.log(
-        `${stateLabel(state)} ${imgPath.replace(PATH_PUBLIC_DIR, "")}`,
-      );
-    });
-  });
+  const buf = canvas.toBuffer("image/png");
+  if (!fs.existsSync(imgDir)) {
+    fs.mkdirSync(imgDir, { recursive: true });
+  }
+  fs.writeFileSync(imgPath, buf);
+  console.log(`${stateLabel(state)} ${imgPath.replace(PATH_PUBLIC_DIR, "")}`);
 };
 
 interface OgpItem {
