@@ -20,7 +20,7 @@ const makeBlogNav = (blog: CollectionEntry<"blogs"> | null) => {
   if (!blog) return undefined;
   return {
     title: blog.data.title,
-    link: `/blog/${blog.slug}`,
+    link: `/blog/${blog.id}`,
   };
 };
 ---

@@ -20,7 +20,7 @@ const makeWorkNav = (entry: CollectionEntry<"works"> | null) => {
   if (!entry) return undefined;
   return {
     title: entry.data.title,
-    link: `/work/${entry.slug}`,
+    link: `/work/${entry.id}`,
   };
 };
 ---

@@ -10,10 +10,10 @@
     "./*": "./src/*.ts"
   },
   "dependencies": {
-    "@vanilla-extract/css": "^1.13.0"
+    "@vanilla-extract/css": "^1.21.0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.12",
-    "@sor4chi/configs": "workspace:*"
+    "@sor4chi/configs": "workspace:*",
+    "@types/node": "^26.0.0"
   }
 }
