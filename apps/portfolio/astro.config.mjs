@@ -1,5 +1,4 @@
 import partytown from "@astrojs/partytown";
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import {
   transformerNotationDiff,
@@ -82,8 +81,10 @@ export default defineConfig({
       },
     },
   },
+  prefetch: {
+    prefetchAll: true,
+  },
   integrations: [
-    react(),
     sitemap(),
     partytown({
       config: {

@@ -1,7 +1,7 @@
 ---
 import "@/styles/global.css";
 
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/config";
 
@@ -80,7 +80,7 @@ const finalOgImageUrl = ogImageUrl
     <link rel="stylesheet" href="/fonts/gen/gen.css" />
 
     <script src="/scripts/theme.js" is:inline></script>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <RightTopArea />
