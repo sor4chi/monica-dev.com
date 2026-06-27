@@ -2,7 +2,12 @@
 import { styles } from "./Switch.css";
 ---
 
-<button id="theme-toggle" class={styles.button} aria-label="テーマを切り替える">
+<button
+  id="theme-toggle"
+  class={styles.button}
+  aria-label="テーマを切り替える"
+  transition:persist
+>
   <svg
     class={styles.sun}
     xmlns="http://www.w3.org/2000/svg"
@@ -89,9 +94,9 @@ import { styles } from "./Switch.css";
     }
   };
 
+  // The button is preserved across navigations via `transition:persist`, so
+  // its click listener survives too — initialise exactly once. Re-running on
+  // `astro:after-swap` would stack a second listener on the same node and
+  // toggle the theme twice (a no-op).
   initThemeToggle();
-
-  document.addEventListener("astro:after-swap", () => {
-    initThemeToggle();
-  });
 </script>
