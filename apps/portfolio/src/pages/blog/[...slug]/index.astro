@@ -1,23 +1,23 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
+import { type CollectionEntry, getCollection, render } from 'astro:content'
 
-import MdContets from "@/components/document/MdContents.astro";
-import BaseLayout from "@/components/layouts/Base.astro";
-import Link from "@/components/ui/Link.astro";
-import { getBlogSourceUrl } from "@/utils/blog";
+import MdContets from '@/components/document/MdContents.astro'
+import BaseLayout from '@/components/layouts/Base.astro'
+import Link from '@/components/ui/Link.astro'
+import { getBlogSourceUrl } from '@/utils/blog'
 
-import Article from "./_components/Article.astro";
-import Aside from "./_components/Aside.astro";
-import Bottom from "./_components/Bottom.astro";
-import Container from "./_components/Container.astro";
-import Left from "./_components/Left.astro";
-import Right from "./_components/Right.astro";
+import Article from './_components/Article.astro'
+import Aside from './_components/Aside.astro'
+import Bottom from './_components/Bottom.astro'
+import Container from './_components/Container.astro'
+import Left from './_components/Left.astro'
+import Right from './_components/Right.astro'
 
 export async function getStaticPaths() {
-  const blogs = await getCollection("blogs");
+  const blogs = await getCollection('blogs')
   const sortedBlogs = blogs.sort((a, b) => {
-    return b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
-  });
+    return b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+  })
 
   return blogs.map((blog, i) => ({
     params: { slug: blog.id },
@@ -26,24 +26,24 @@ export async function getStaticPaths() {
       prev: sortedBlogs[i + 1] || null,
       next: sortedBlogs[i - 1] || null,
     },
-  }));
+  }))
 }
 
 interface Props {
-  entry: CollectionEntry<"blogs">;
-  prev: CollectionEntry<"blogs"> | null;
-  next: CollectionEntry<"blogs"> | null;
+  entry: CollectionEntry<'blogs'>
+  prev: CollectionEntry<'blogs'> | null
+  next: CollectionEntry<'blogs'> | null
 }
 
-const { entry, prev, next } = Astro.props;
+const { entry, prev, next } = Astro.props
 const {
   id: slug,
   data: { title, description, publishedAt, updatedAt, authors, noindex },
-} = entry;
-const { Content, headings } = await render(entry);
+} = entry
+const { Content, headings } = await render(entry)
 
-const shareTitle = `${title} | Blogs - Monica's Portfolio`;
-const source = getBlogSourceUrl(slug);
+const shareTitle = `${title} | Blogs - Monica's Portfolio`
+const source = getBlogSourceUrl(slug)
 ---
 
 <BaseLayout

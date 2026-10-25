@@ -1,28 +1,28 @@
 ---
-import FooterNav from "@/components/document/FooterNav.astro";
-import Share from "@/components/document/Share.astro";
-import Line from "@/components/ui/Line.astro";
+import FooterNav from '@/components/document/FooterNav.astro'
+import Share from '@/components/document/Share.astro'
+import Line from '@/components/ui/Line.astro'
 
-import { styles } from "./Bottom.css";
+import { styles } from './Bottom.css'
 
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content'
 
 interface Props {
-  shareTitle: string;
-  source: string;
-  prev: CollectionEntry<"blogs"> | null;
-  next: CollectionEntry<"blogs"> | null;
+  shareTitle: string
+  source: string
+  prev: CollectionEntry<'blogs'> | null
+  next: CollectionEntry<'blogs'> | null
 }
 
-const { shareTitle, source, prev, next } = Astro.props;
+const { shareTitle, source, prev, next } = Astro.props
 
-const makeBlogNav = (blog: CollectionEntry<"blogs"> | null) => {
-  if (!blog) return undefined;
+const makeBlogNav = (blog: CollectionEntry<'blogs'> | null) => {
+  if (!blog) return undefined
   return {
     title: blog.data.title,
     link: `/blog/${blog.id}`,
-  };
-};
+  }
+}
 ---
 
 <div class={styles.onlySP}>

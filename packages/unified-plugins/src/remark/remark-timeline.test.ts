@@ -1,4 +1,10 @@
-import { format } from 'prettier'
+import { format as oxfmt } from 'oxfmt'
+
+const format = async (source: string, _options: unknown) => {
+  const result = await oxfmt('assertion.html', source)
+  if (result.errors.length) throw new Error(JSON.stringify(result.errors))
+  return result.code
+}
 import rehypeStringify from 'rehype-stringify'
 import remarkDirective from 'remark-directive'
 import remarkParse from 'remark-parse'
@@ -12,7 +18,7 @@ describe('remarkTimeline', () => {
     const input = /* md */ `
 ::::timeline
 
-## [1234] Hello World
+## [10:18] Hello World
 
 This is a timeline item
 
@@ -26,7 +32,7 @@ This is a timeline item 2
     const expectedOutput = /* html */ `
 <div class="timeline">
   <div class="timeline-item markdown-contents">
-    <h2 class="timeline-title" data-time="1234">Hello World</h2>
+    <h2 class="timeline-title" data-time="10:18">Hello World</h2>
     <p>This is a timeline item</p>
   </div>
   <div class="timeline-item markdown-contents">

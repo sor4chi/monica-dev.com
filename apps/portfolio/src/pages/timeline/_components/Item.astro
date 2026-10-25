@@ -1,18 +1,18 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets'
 
-import { clsx } from "clsx";
+import { clsx } from 'clsx'
 
-import { styles } from "./Item.css";
+import { styles } from './Item.css'
 
 interface Props {
-  title: string;
-  date: Date;
-  icon?: string;
-  link?: string;
+  title: string
+  date: Date
+  icon?: string
+  link?: string
 }
 
-const { title, date, icon, link } = Astro.props;
+const { title, date, icon, link } = Astro.props
 ---
 
 <tr class={styles.row}>
@@ -21,36 +21,32 @@ const { title, date, icon, link } = Astro.props;
       datetime={date.toISOString()}
       class={clsx(styles.date, styles.desktopDate)}
     >
-      {
-        date.toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-        })
-      }
+      {date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+      })}
     </time>
   </td>
   <td class={clsx(styles.iconCol, styles.col)}>
     <div class={styles.pointContainer}>
-      {
-        icon ? (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class={styles.iconLink}
-          >
-            <Image
-              width={48}
-              height={48}
-              src={icon}
-              alt={title}
-              class={styles.icon}
-            />
-          </a>
-        ) : (
-          <span class={styles.dot} />
-        )
-      }
+      {icon ? (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={styles.iconLink}
+        >
+          <Image
+            width={48}
+            height={48}
+            src={icon}
+            alt={title}
+            class={styles.icon}
+          />
+        </a>
+      ) : (
+        <span class={styles.dot} />
+      )}
     </div>
     <span class={styles.line}></span>
   </td>
@@ -61,20 +57,16 @@ const { title, date, icon, link } = Astro.props;
         datetime={date.toISOString()}
         class={clsx(styles.date, styles.mobileDate)}
       >
-        {
-          date.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-          })
-        }
+        {date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+        })}
       </time>
     </span>
-    {
-      Astro.slots.has("default") && (
-        <div class={styles.content}>
-          <slot />
-        </div>
-      )
-    }
+    {Astro.slots.has('default') && (
+      <div class={styles.content}>
+        <slot />
+      </div>
+    )}
   </td>
 </tr>

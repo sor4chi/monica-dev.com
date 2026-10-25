@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "astro": true,
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.astro/**",
+    "**/.cache/**",
+    "**/.wrangler/**",
+    "pnpm-lock.yaml",
+    "apps/portfolio/pnpm-lock.yaml",
+    "apps/portfolio/src/content/**",
+    "apps/slides/slides/*.md",
+    "**/public/assets/**",
+    "**/public/fonts/**",
+    "**/worker-configuration.d.ts"
+  ]
+}

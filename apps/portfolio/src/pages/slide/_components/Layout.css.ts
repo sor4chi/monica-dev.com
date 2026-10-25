@@ -1,12 +1,12 @@
-import { vars } from "@sor4chi/design-system/theme.css";
-import { style } from "@vanilla-extract/css";
+import { vars } from '@sor4chi/design-system/theme.css'
+import { style } from '@vanilla-extract/css'
 
 export const styles = {
   container: style({
-    width: "100%",
-    maxWidth: "64rem",
+    width: '100%',
+    maxWidth: '64rem',
     margin: `${vars.spacing.absolute[12]} auto`,
-    containerType: "inline-size",
+    containerType: 'inline-size',
   }),
   title: style({
     color: vars.color.gray[12],
@@ -18,4 +18,4 @@ export const styles = {
     color: vars.color.gray[11],
     marginBottom: vars.spacing.absolute[8],
   }),
-};
+}

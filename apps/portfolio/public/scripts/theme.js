@@ -1,26 +1,16 @@
 function initTheme() {
-  var theme = (() => {
-    const before = localStorage.getItem("theme");
-    if (before) {
-      return before;
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  })();
-  if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-    document.documentElement.classList.remove("light");
+  let theme
+  try {
+    theme = localStorage.getItem('theme')
+  } catch {
+    /* Storage can be disabled. */
   }
-  if (theme === "light") {
-    document.documentElement.classList.add("light");
-    document.documentElement.classList.remove("dark");
-  }
+  const dark =
+    theme === 'dark' ||
+    (theme !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+  document.documentElement.classList.toggle('dark', dark)
+  document.documentElement.classList.toggle('light', !dark)
 }
 
-initTheme();
-
-document.addEventListener("astro:after-swap", () => {
-  initTheme();
-});
+initTheme()
+document.addEventListener('astro:after-swap', initTheme)

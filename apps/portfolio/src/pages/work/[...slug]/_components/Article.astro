@@ -1,21 +1,23 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets'
 
-import Header from "@/components/document/Header.astro";
-import Link from "@/components/ui/Link.astro";
+import { getWorkImage } from '@/utils/work'
 
-import { styles } from "./Article.css";
+import Header from '@/components/document/Header.astro'
+import Link from '@/components/ui/Link.astro'
 
-import "katex/dist/katex.css";
+import { styles } from './Article.css'
+
+import 'katex/dist/katex.css'
 
 interface Props {
-  title: string;
-  slug: string;
-  createdAt: Date;
-  authors?: string[];
+  title: string
+  slug: string
+  createdAt: Date
+  authors?: string[]
 }
 
-const { slug, title, createdAt, authors } = Astro.props;
+const { slug, title, createdAt, authors } = Astro.props
 ---
 
 <article id="article" class={styles.article}>
@@ -26,7 +28,11 @@ const { slug, title, createdAt, authors } = Astro.props;
   <Image
     width={800}
     height={420}
-    src={`/assets/works/${slug}/hero-800.webp`}
+    src={getWorkImage(slug)}
+    widths={[400, 800, 1200, 1600]}
+    sizes="(max-width: 800px) calc(100vw - 2rem), 800px"
+    format="webp"
+    quality={80}
     alt={title}
     class={styles.heroImage}
     loading="eager"

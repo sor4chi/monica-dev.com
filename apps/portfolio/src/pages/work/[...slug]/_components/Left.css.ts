@@ -1,15 +1,15 @@
-import { style } from "@vanilla-extract/css";
+import { style } from '@vanilla-extract/css'
 
-import { BREAKPOINT_TABLET } from "@/styles/constants";
+import { BREAKPOINT_TABLET } from '@/styles/constants'
 
 export const styles = {
   notPC: style({
-    display: "none",
+    display: 'none',
 
-    "@media": {
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_TABLET})`]: {
-        display: "contents",
+        display: 'contents',
       },
     },
   }),
-};
+}

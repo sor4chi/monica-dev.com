@@ -1,32 +1,32 @@
-import { vars } from "@sor4chi/design-system/theme.css";
-import { style } from "@vanilla-extract/css";
+import { vars } from '@sor4chi/design-system/theme.css'
+import { style } from '@vanilla-extract/css'
 
-import { BREAKPOINT_MOBILE } from "@/styles/constants";
+import { BREAKPOINT_MOBILE } from '@/styles/constants'
 
 const item = style({
-  display: "flex",
-  alignItems: "center",
+  display: 'flex',
+  alignItems: 'center',
   gap: vars.spacing.absolute[4],
-  textDecoration: "none",
+  textDecoration: 'none',
   borderRadius: vars.spacing.absolute[2],
   padding: `${vars.spacing.relative[2]} ${vars.spacing.relative[3]}`,
-  transition: "background-color 0.2s ease-in-out",
-  justifyContent: "space-between",
-  position: "relative",
+  transition: 'background-color 0.2s ease-in-out',
+  justifyContent: 'space-between',
+  position: 'relative',
 
-  ":focus-visible": {
+  ':focus-visible': {
     backgroundColor: vars.color.gray[3],
-    outline: "none",
+    outline: 'none',
   },
 
-  "@media": {
-    "(hover: hover)": {
-      ":hover": {
+  '@media': {
+    '(hover: hover)': {
+      ':hover': {
         backgroundColor: vars.color.gray[3],
       },
     },
   },
-});
+})
 
 export const styles = {
   item,
@@ -34,17 +34,17 @@ export const styles = {
     fontSize: vars.font.size.base,
     fontWeight: vars.font.weight.normal,
     color: vars.color.gray[12],
-    width: "100%",
+    width: '100%',
   }),
   arrow: style({
-    width: "1rem",
-    height: "1rem",
+    width: '1rem',
+    height: '1rem',
     flexShrink: 0,
     color: vars.color.gray[10],
 
-    "@media": {
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        display: "none",
+        display: 'none',
       },
     },
   }),
@@ -52,16 +52,16 @@ export const styles = {
     opacity: 0,
     color: vars.color.gray[10],
     fontSize: vars.font.size.sm,
-    position: "absolute",
-    top: "50%",
+    position: 'absolute',
+    top: '50%',
     left: vars.spacing.full,
-    transform: "translateY(-50%)",
-    display: "flex",
-    alignItems: "center",
+    transform: 'translateY(-50%)',
+    display: 'flex',
+    alignItems: 'center',
     gap: vars.spacing.absolute[2],
     padding: `${vars.spacing[0]} ${vars.spacing.absolute[4]}`,
-    transition: "opacity 0.2s ease-in-out",
-    pointerEvents: "none",
+    transition: 'opacity 0.2s ease-in-out',
+    pointerEvents: 'none',
 
     selectors: {
       [`${item}:hover &`]: {
@@ -72,24 +72,24 @@ export const styles = {
       },
     },
 
-    "@media": {
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        display: "none",
+        display: 'none',
       },
     },
   }),
   domainMobile: style({
-    display: "none",
+    display: 'none',
 
-    "@media": {
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        display: "flex",
-        alignItems: "center",
+        display: 'flex',
+        alignItems: 'center',
         gap: vars.spacing.absolute[2],
         color: vars.color.gray[10],
         fontSize: vars.font.size.sm,
-        width: "1rem",
+        width: '1rem',
       },
     },
   }),
-};
+}

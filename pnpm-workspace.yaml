@@ -8,3 +8,12 @@ allowBuilds:
   workerd: true
 
 minimumReleaseAge: 1440
+
+# Security fixes for upstream packages that still pin vulnerable transitive versions.
+overrides:
+  dompurify: ^3.4.17
+  undici@7: ^7.30.1
+  '@cloudflare/vitest-plugin>zod': ^4.6.6
+  pptxgenjs>image-size: ^2.0.3
+  # Keep rendered math and portfolio CSS on the same KaTeX version.
+  katex: ^0.19.1

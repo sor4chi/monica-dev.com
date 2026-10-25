@@ -2,10 +2,12 @@ import { Hono } from 'hono'
 
 import { MetaParser } from './meta'
 import { logger } from 'hono/logger'
+import { cors } from 'hono/cors'
 
-const app = new Hono()
+const app = new Hono<{ Bindings: CloudflareBindings }>()
 
 app.use(logger())
+app.use(cors())
 
 const FETCH_INIT: RequestInit = {
   redirect: 'follow',
@@ -22,17 +24,29 @@ app.get('/meta', async (c) => {
   const paramUrl = url.searchParams.get('url')
   if (paramUrl === null) return c.body('Bad Request', 400)
 
-  const decodedUrl = decodeURIComponent(paramUrl)
+  let parsedUrl: URL
+  try {
+    parsedUrl = new URL(paramUrl)
+  } catch {
+    return c.body('Bad Request', 400)
+  }
+  if (!['http:', 'https:'].includes(parsedUrl.protocol))
+    return c.body('Bad Request', 400)
+  const decodedUrl = parsedUrl.href
 
   const cache = await caches.open('meta')
   const cachedResponse = await cache.match(decodedUrl)
   if (cachedResponse) return cachedResponse
 
-  c.header('Access-Control-Allow-Origin', '*')
-  c.header('Access-Control-Allow-Methods', 'GET')
-  c.header('Access-Control-Allow-Headers', 'Content-Type')
-
-  const siteRes = await fetch(decodedUrl, FETCH_INIT)
+  let siteRes: Response
+  try {
+    siteRes = await fetch(decodedUrl, {
+      ...FETCH_INIT,
+      signal: AbortSignal.timeout(5000),
+    })
+  } catch {
+    return c.body('Bad Gateway', 502)
+  }
   if (!siteRes.ok) return c.body('Not Found', 404)
 
   const meta = new MetaParser()
@@ -44,13 +58,16 @@ app.get('/meta', async (c) => {
 
   await res.text()
 
-  if (meta.imageUrl.startsWith('/')) {
-    meta.imageUrl = new URL(meta.imageUrl, decodedUrl).toString()
+  for (const key of ['imageUrl', 'faviconUrl'] as const) {
+    if (!meta[key]) continue
+    try {
+      const asset = new URL(meta[key], siteRes.url || decodedUrl)
+      meta[key] = ['http:', 'https:'].includes(asset.protocol) ? asset.href : ''
+    } catch {
+      meta[key] = ''
+    }
   }
-  if (meta.faviconUrl.startsWith('/')) {
-    meta.faviconUrl = new URL(meta.faviconUrl, decodedUrl).toString()
-  }
-
+  c.header('Cache-Control', 'public, max-age=3600')
   const response = c.json(meta)
 
   c.executionCtx.waitUntil(cache.put(decodedUrl, response.clone()))

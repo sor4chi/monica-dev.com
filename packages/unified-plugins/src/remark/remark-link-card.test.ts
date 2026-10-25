@@ -1,4 +1,10 @@
-import { format } from 'prettier'
+import { format as oxfmt } from 'oxfmt'
+
+const format = async (source: string, _options: unknown) => {
+  const result = await oxfmt('assertion.html', source)
+  if (result.errors.length) throw new Error(JSON.stringify(result.errors))
+  return result.code
+}
 import rehypeStringify from 'rehype-stringify'
 import remarkDirective from 'remark-directive'
 import remarkParse from 'remark-parse'
@@ -11,26 +17,17 @@ const mdProcessor = unified()
   .use(remarkParse)
   .use(remarkDirective)
   .use(remarkLinkCard)
-  .use(remarkRehype)
+  .use(remarkRehype, { handlers: remarkLinkCard.handlers })
   .use(rehypeStringify)
 
 describe('remarkLinkCard', () => {
-  it('should convert flex directives to flex blocks', async () => {
+  it('should mark standalone links for static card rendering', async () => {
     const input = /* md */ `
 <https://monica-dev.com>
 `.trim()
 
-    const expectedOutput = /* html */ `
-<p>
-  <a
-    href="https://monica-dev.com"
-    data-title="Monica&#x26;#39;s Portfolio"
-    data-image="https://monica-dev.com/assets/ogp/default.png"
-    data-favicon="https://monica-dev.com/favicon.ico"
-    >https://monica-dev.com</a
-  >
-</p>
-`.trim()
+    const expectedOutput =
+      '<a class="link-card" href="https://monica-dev.com">https://monica-dev.com</a>'
 
     const result = await mdProcessor
       .process(input)

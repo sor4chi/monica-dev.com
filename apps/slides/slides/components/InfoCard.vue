@@ -7,8 +7,12 @@ defineProps<{
 </script>
 
 <template>
-  <div class="rounded-2xl border border-zinc-200/70 bg-white/45 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.045)] backdrop-blur-sm dark:border-zinc-700/70 dark:bg-zinc-900/35">
-    <div class="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">
+  <div
+    class="rounded-2xl border border-zinc-200/70 bg-white/45 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.045)] backdrop-blur-sm dark:border-zinc-700/70 dark:bg-zinc-900/35"
+  >
+    <div
+      class="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400"
+    >
       <img v-if="icon" :src="icon" :alt="iconAlt" class="h-6 w-6 shrink-0" />
       <span>{{ title }}</span>
     </div>

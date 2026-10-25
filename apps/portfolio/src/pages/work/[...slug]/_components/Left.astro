@@ -1,19 +1,19 @@
 ---
-import Share from "@/components/document/Share.astro";
-import Toc from "@/components/document/Toc.astro";
-import Line from "@/components/ui/Line.astro";
+import Share from '@/components/document/Share.astro'
+import Toc from '@/components/document/Toc.astro'
+import Line from '@/components/ui/Line.astro'
 
-import { styles } from "./Left.css";
+import { styles } from './Left.css'
 
-import type { MarkdownHeading } from "astro";
+import type { MarkdownHeading } from 'astro'
 
 interface Props {
-  shareTitle: string;
-  headings: MarkdownHeading[];
-  source: string;
+  shareTitle: string
+  headings: MarkdownHeading[]
+  source: string
 }
 
-const { headings, shareTitle, source } = Astro.props;
+const { headings, shareTitle, source } = Astro.props
 ---
 
 <div>

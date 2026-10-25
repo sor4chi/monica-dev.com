@@ -1,43 +1,32 @@
-import type { Root } from 'hast'
 import { h } from 'hastscript'
-import type { Plugin } from 'unified'
 import { visit } from 'unist-util-visit'
 
-const ANNOTATION_REGEX = /\[!(WARNING|IMPORTANT|NOTE)\]/
+import type { Root } from 'hast'
+import type { Plugin } from 'unified'
+
+const ALERT_MARKER = /^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\](?=\s|$)/
 
 export const rehypeAnnotationBlock: Plugin<[], Root> = () => (tree) => {
   visit(tree, 'element', (node) => {
-    if (['blockquote'].includes(node.tagName)) {
-      for (const child of node.children) {
-        if (child.type === 'element') {
-          if (
-            child.children[0].type === 'text' &&
-            child.children[0].value.match(ANNOTATION_REGEX)
-          ) {
-            const label = (child.children[0].value.match(ANNOTATION_REGEX) ??
-              [])[1]
-            const className = node.properties.className || []
-            node.properties.className = [
-              'annotation-block',
-              'markdown-contents',
-            ]
-            if (typeof className === 'object')
-              node.properties.className.push(...className)
-            if (typeof className === 'string')
-              node.properties.className.push(className)
-            node.properties['data-annotation-type'] = child.children[0].value
-              .slice(2, -1)
-              .toLowerCase()
-            child.children[0] = h(
-              'span',
-              {
-                className: ['annotation-block__label'],
-              },
-              label,
-            )
-          }
-        }
-      }
-    }
+    if (node.tagName !== 'blockquote') return
+    const paragraph = node.children.find(
+      (child) => child.type === 'element' && child.tagName === 'p',
+    )
+    if (paragraph?.type !== 'element') return
+    const first = paragraph.children[0]
+    if (first?.type !== 'text') return
+    const match = ALERT_MARKER.exec(first.value)
+    if (!match) return
+    const kind = match[1]
+    // Replace only the marker; keep subsequent text, breaks, and inline markup.
+    first.value = first.value.slice(match[0].length)
+    paragraph.children.unshift(h('span.annotation-block__label', kind))
+    const classes = node.properties.className
+    node.properties.className = [
+      ...(classes ?? []),
+      'annotation-block',
+      'markdown-contents',
+    ]
+    node.properties['data-annotation-type'] = kind.toLowerCase()
   })
 }

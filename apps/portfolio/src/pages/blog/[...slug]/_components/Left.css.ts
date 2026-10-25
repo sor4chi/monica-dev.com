@@ -1,19 +1,19 @@
-import { vars } from "@sor4chi/design-system/theme.css";
-import { style } from "@vanilla-extract/css";
+import { vars } from '@sor4chi/design-system/theme.css'
+import { style } from '@vanilla-extract/css'
 
-import { BREAKPOINT_TABLET } from "@/styles/constants";
+import { BREAKPOINT_TABLET } from '@/styles/constants'
 
 export const styles = {
   container: style({
     marginTop: vars.spacing.absolute[4],
   }),
   notPC: style({
-    display: "none",
+    display: 'none',
 
-    "@media": {
+    '@media': {
       [`screen and (max-width: ${BREAKPOINT_TABLET})`]: {
-        display: "contents",
+        display: 'contents',
       },
     },
   }),
-};
+}

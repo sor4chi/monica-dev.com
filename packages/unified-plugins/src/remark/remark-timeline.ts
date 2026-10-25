@@ -60,6 +60,21 @@ const plugin = createRemarkPlugin(() => {
       let currentTimelineItem: TimelineItem | undefined
       for (const child of node.children) {
         if (child.type === 'heading') {
+          const merged: typeof child.children = []
+          for (const part of child.children) {
+            const literal =
+              part.type === 'textDirective' &&
+              /^\d+$/.test(part.name) &&
+              part.children.length === 0
+                ? { type: 'text' as const, value: `:${part.name}` }
+                : part
+            const previous = merged.at(-1)
+            if (previous?.type === 'text' && literal.type === 'text')
+              previous.value += literal.value
+            else merged.push(literal)
+          }
+          child.children = merged
+
           if (currentTimelineItem) {
             timeline.children.push(currentTimelineItem)
           }
@@ -103,7 +118,7 @@ const handlers = createRehypeHandlers({
       node.children.map((item) => {
         const titleEC = state.one(item.title, item)
         if (isElement(titleEC)) {
-          titleEC.properties.className = 'timeline-title'
+          titleEC.properties.className = ['timeline-title']
           titleEC.properties['data-time'] = item.time
         }
         return h('div', { className: 'timeline-item markdown-contents' }, [

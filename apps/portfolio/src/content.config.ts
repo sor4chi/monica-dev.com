@@ -1,8 +1,9 @@
-import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { defineCollection } from 'astro:content'
+import { z } from 'astro/zod'
+import { glob } from 'astro/loaders'
 
 const blogs = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/blogs" }),
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/blogs' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -11,29 +12,29 @@ const blogs = defineCollection({
     authors: z.array(z.string()).optional(),
     noindex: z.boolean().optional(),
   }),
-});
+})
 
 const externalBlogs = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/externalBlogs" }),
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/externalBlogs' }),
   schema: z.object({
     title: z.string(),
     publishedAt: z.coerce.date(),
     url: z.string(),
   }),
-});
+})
 
 const works = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/works" }),
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/works' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     createdAt: z.coerce.date(),
     authors: z.array(z.string()).optional(),
   }),
-});
+})
 
 const slides = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/slides" }),
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/slides' }),
   schema: z.object({
     title: z.string(),
     url: z.string(),
@@ -41,17 +42,17 @@ const slides = defineCollection({
     publishedAt: z.coerce.date(),
     event: z.string(),
   }),
-});
+})
 
 const timelines = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/timelines" }),
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/timelines' }),
   schema: z.object({
     title: z.string(),
     icon: z.string().optional(),
     link: z.string().optional(),
     date: z.coerce.date(),
   }),
-});
+})
 
 export const collections = {
   works,
@@ -59,4 +60,4 @@ export const collections = {
   blogs,
   externalBlogs,
   slides,
-};
+}

@@ -1,4 +1,10 @@
-import { format } from 'prettier'
+import { format as oxfmt } from 'oxfmt'
+
+const format = async (source: string, _options: unknown) => {
+  const result = await oxfmt('assertion.html', source)
+  if (result.errors.length) throw new Error(JSON.stringify(result.errors))
+  return result.code
+}
 import rehypeStringify from 'rehype-stringify'
 import remarkDirective from 'remark-directive'
 import remarkParse from 'remark-parse'
