@@ -15,7 +15,7 @@ export const styles = {
     margin: 0,
     border: 'none',
     color: vars.color.gray[11],
-    backgroundColor: vars.color.gray[1],
+    backgroundColor: 'transparent',
     left: 'auto',
     opacity: 0,
     transition:
