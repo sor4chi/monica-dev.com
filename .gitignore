@@ -1,1 +1,5 @@
 node_modules/
+
+# Compiler and package-manager caches
+*.tsbuildinfo
+.pnpm-store/

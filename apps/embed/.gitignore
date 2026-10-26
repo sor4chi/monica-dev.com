@@ -1,1 +1,4 @@
 .wrangler
+
+# Generated from wrangler.toml by pnpm types
+worker-configuration.d.ts

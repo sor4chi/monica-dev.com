@@ -2,10 +2,12 @@
   "extends": "@sor4chi/configs/tsconfig",
   "compilerOptions": {
     "types": [
+      "./worker-configuration.d.ts",
+      "node",
       "vitest/globals",
-      "@cloudflare/workers-types",
-      "@cloudflare/vitest-pool-workers"
-    ]
+      "@cloudflare/vitest-plugin/types"
+    ],
+    "lib": ["esnext"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]

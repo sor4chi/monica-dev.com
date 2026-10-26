@@ -1,24 +1,24 @@
 ---
-import { clsx } from "clsx";
+import { clsx } from 'clsx'
 
-import { styles } from "./Toc.css";
+import { styles } from './Toc.css'
 
-import type { MarkdownHeading } from "astro";
+import type { MarkdownHeading } from 'astro'
 
 interface Props {
-  headings: MarkdownHeading[];
+  headings: MarkdownHeading[]
 }
 
-const { headings } = Astro.props;
+const { headings } = Astro.props
 ---
 
-<ul class={styles.toc} id="toc-list">
-  {
-    headings.map((item) => (
+<article-toc>
+  <ul class={styles.toc} id="toc-list">
+    {headings.map((item) => (
       <li class={styles.tocItem}>
         <a
           href={`#${item.slug}`}
-          class={clsx(styles.link, "toc-anchor")}
+          class={clsx(styles.link, 'toc-anchor')}
           style={{
             paddingLeft: `${item.depth - 2}rem !important`,
           }}
@@ -26,35 +26,35 @@ const { headings } = Astro.props;
           {item.text}
         </a>
       </li>
-    ))
-  }
-</ul>
+    ))}
+  </ul>
+</article-toc>
 
 <script>
-  const initToc = () => {
-    const headings = document.querySelectorAll(
-      "#article h2, #article h3, #article h4, #article h5, #article h6",
-    );
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const { target } = entry;
-        const toc = document.querySelector(`#toc-list a[href="#${target.id}"]`);
-        if (!toc) return;
-        if (entry.isIntersecting) {
-          toc.classList.add("toc-active");
-        } else {
-          toc.classList.remove("toc-active");
-        }
-      });
-    });
-    headings.forEach((heading) => {
-      observer.observe(heading);
-    });
-  };
-
-  initToc();
-
-  document.addEventListener("astro:after-swap", () => {
-    initToc();
-  });
+  class ArticleToc extends HTMLElement {
+    #observer: IntersectionObserver | undefined
+    connectedCallback() {
+      this.#observer?.disconnect()
+      const links = new Map(
+        [...this.querySelectorAll<HTMLAnchorElement>('a[href]')].map((link) => [
+          link.getAttribute('href')?.slice(1),
+          link,
+        ]),
+      )
+      this.#observer = new IntersectionObserver((entries) => {
+        for (const entry of entries)
+          links
+            .get(entry.target.id)
+            ?.classList.toggle('toc-active', entry.isIntersecting)
+      })
+      document
+        .querySelectorAll('#article :is(h2, h3, h4, h5, h6)')
+        .forEach((heading) => this.#observer?.observe(heading))
+    }
+    disconnectedCallback() {
+      this.#observer?.disconnect()
+    }
+  }
+  if (!customElements.get('article-toc'))
+    customElements.define('article-toc', ArticleToc)
 </script>

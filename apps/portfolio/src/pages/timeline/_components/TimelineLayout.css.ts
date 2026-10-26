@@ -1,10 +1,10 @@
-import { vars } from "@sor4chi/design-system/theme.css";
-import { style } from "@vanilla-extract/css";
+import { vars } from '@sor4chi/design-system/theme.css'
+import { style } from '@vanilla-extract/css'
 
 export const styles = {
   container: style({
-    width: "100%",
-    maxWidth: "50rem",
+    width: '100%',
+    maxWidth: '50rem',
     margin: `${vars.spacing.relative[8]} auto`,
   }),
   title: style({
@@ -18,6 +18,6 @@ export const styles = {
     marginBottom: vars.spacing.absolute[8],
   }),
   timelineTable: style({
-    width: "100%",
+    width: '100%',
   }),
-};
+}

@@ -1,13 +1,13 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, render } from 'astro:content'
 
-import MdContents from "@/components/document/MdContents.astro";
-import BaseLayout from "@/components/layouts/Base.astro";
+import MdContents from '@/components/document/MdContents.astro'
+import BaseLayout from '@/components/layouts/Base.astro'
 
-import Item from "./_components/Item.astro";
-import TimelineLayout from "./_components/TimelineLayout.astro";
+import Item from './_components/Item.astro'
+import TimelineLayout from './_components/TimelineLayout.astro'
 
-const timelines = await getCollection("timelines");
+const timelines = await getCollection('timelines')
 const sortedTimelines = await Promise.all(
   timelines
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
@@ -16,35 +16,31 @@ const sortedTimelines = await Promise.all(
       isBodyExist: !!timeline.body,
       content: await render(timeline),
     })),
-);
+)
 ---
 
 <BaseLayout title="Timelines" canonical="/timeline" active="/timeline">
   <TimelineLayout>
-    {
-      sortedTimelines.map((timeline) =>
-        timeline.isBodyExist ? (
-          <Item
-            title={timeline.data.title}
-            slug={timeline.id}
-            date={timeline.data.date}
-            icon={timeline.data.icon}
-            link={timeline.data.link}
-          >
-            <MdContents>
-              <timeline.content.Content />
-            </MdContents>
-          </Item>
-        ) : (
-          <Item
-            title={timeline.data.title}
-            slug={timeline.id}
-            date={timeline.data.date}
-            icon={timeline.data.icon}
-            link={timeline.data.link}
-          />
-        ),
-      )
-    }
+    {sortedTimelines.map((timeline) =>
+      timeline.isBodyExist ? (
+        <Item
+          title={timeline.data.title}
+          date={timeline.data.date}
+          icon={timeline.data.icon}
+          link={timeline.data.link}
+        >
+          <MdContents>
+            <timeline.content.Content />
+          </MdContents>
+        </Item>
+      ) : (
+        <Item
+          title={timeline.data.title}
+          date={timeline.data.date}
+          icon={timeline.data.icon}
+          link={timeline.data.link}
+        />
+      ),
+    )}
   </TimelineLayout>
 </BaseLayout>

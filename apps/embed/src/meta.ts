@@ -1,4 +1,5 @@
 export class MetaParser {
+  #hasOgTitle = false
   title = ''
   description = ''
   imageUrl = ''
@@ -8,8 +9,9 @@ export class MetaParser {
     if (element.tagName === 'meta') {
       switch (element.getAttribute('property')) {
         case 'og:title':
-          if (this.title) break
+          if (this.#hasOgTitle) break
           this.title = element.getAttribute('content') ?? ''
+          this.#hasOgTitle = Boolean(this.title)
           break
         case 'og:description':
           if (this.description) break
@@ -48,7 +50,7 @@ export class MetaParser {
   }
 
   text(text: Text) {
-    if (this.title) return
-    this.title = text.text
+    if (this.#hasOgTitle) return
+    this.title += text.text
   }
 }

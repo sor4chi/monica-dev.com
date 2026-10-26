@@ -1,39 +1,40 @@
 ---
-import "@/styles/global.css";
+import '@/styles/global.css'
 
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from 'astro:transitions'
+import { Font } from 'astro:assets'
 
-import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/config";
+import { SITE_BASE_URL, SITE_DESCRIPTION, SITE_NAME } from '@/config'
 
-import { styles } from "./Base.css";
-import Footer from "./Footer.astro";
-import Navigation from "./Navigation.astro";
-import RightTopArea from "./RightTopArea.astro";
+import { styles } from './Base.css'
+import Footer from './Footer.astro'
+import Navigation from './Navigation.astro'
+import RightTopArea from './RightTopArea.astro'
 
-import type { NavKinds } from "./Navigation.astro";
+import type { NavKinds } from './Navigation.astro'
 
 interface Props {
-  title?: string;
-  description?: string;
-  canonical: `/${string}`;
-  ogImageUrl?: string;
-  active: NavKinds;
-  noindex?: boolean;
+  title?: string
+  description?: string
+  canonical: `/${string}`
+  ogImageUrl?: string
+  active: NavKinds
+  noindex?: boolean
 }
 
 const { title, description, canonical, ogImageUrl, active, noindex } =
-  Astro.props;
+  Astro.props
 
 const getTitle = (title?: string) => {
   if (title) {
-    return `${title} | ${SITE_NAME}`;
+    return `${title} | ${SITE_NAME}`
   }
-  return SITE_NAME;
-};
+  return SITE_NAME
+}
 
 const finalOgImageUrl = ogImageUrl
   ? `${SITE_BASE_URL}${ogImageUrl}`
-  : `${SITE_BASE_URL}/assets/ogp/default.png`;
+  : `${SITE_BASE_URL}/assets/ogp/default.png`
 ---
 
 <html lang="ja" class="light">
@@ -43,7 +44,7 @@ const finalOgImageUrl = ogImageUrl
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{getTitle(title)}</title>
     <meta name="description" content={description || SITE_DESCRIPTION} />
-    <meta name="robots" content={noindex ? "noindex" : "index,follow"} />
+    <meta name="robots" content={noindex ? 'noindex' : 'index,follow'} />
 
     <meta property="og:title" content={getTitle(title)} />
     <meta property="og:description" content={description || SITE_DESCRIPTION} />
@@ -65,22 +66,22 @@ const finalOgImageUrl = ogImageUrl
 
     <script
       type="text/partytown"
-      src="https://www.googletagmanager.com/gtag/js?id=G-EPLRRCMBLP"></script>
+      src="https://www.googletagmanager.com/gtag/js?id=G-EPLRRCMBLP"
+    ></script>
     <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || []
       function gtag() {
-        // eslint-disable-next-line prefer-rest-params
-        dataLayer.push(arguments);
+        dataLayer.push(arguments)
       }
-      gtag("js", new Date());
+      gtag('js', new Date())
 
-      gtag("config", "G-EPLRRCMBLP");
+      gtag('config', 'G-EPLRRCMBLP')
     </script>
 
-    <link rel="stylesheet" href="/fonts/gen/gen.css" />
+    <Font cssVariable="--font-gen-interface" />
 
     <script src="/scripts/theme.js" is:inline></script>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <RightTopArea />

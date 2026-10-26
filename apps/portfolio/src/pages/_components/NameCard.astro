@@ -1,20 +1,20 @@
 ---
-import Tooltip from "@/components/ui/Tooltip.astro";
-import Github from "@/components/ui/icon/Github.astro";
-import X from "@/components/ui/icon/X.astro";
+import Tooltip from '@/components/ui/Tooltip.astro'
+import Github from '@/components/ui/icon/Github.astro'
+import X from '@/components/ui/icon/X.astro'
 
-import { styles } from "./NameCard.css";
+import { styles } from './NameCard.css'
 
 interface Props {
-  title: string;
-  subtitle: string;
+  title: string
+  subtitle: string
   socials: {
-    github: string;
-    x: string;
-  };
+    github: string
+    x: string
+  }
 }
 
-const { title, subtitle, socials } = Astro.props;
+const { title, subtitle, socials } = Astro.props
 ---
 
 <div class={styles.container}>

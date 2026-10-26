@@ -1,15 +1,29 @@
-import { exec } from 'node:child_process'
+import { spawn } from 'node:child_process'
+import { glob } from 'node:fs/promises'
+import path from 'node:path'
 
-import glob from 'fast-glob'
-
-const files = await glob('slides/*.md')
-const pwd = process.cwd()
-
-const BUILD = (file: string, basename: string) =>
-  `slidev build ${file} --out "${pwd}/dist/${basename}" --base "${basename}"`
+const files = (await Array.fromAsync(glob('slides/*.md'))).sort()
 
 for (const file of files) {
-  const res = exec(BUILD(file, file.replace(/.*\/(?<name>.*)\.md/, '$<name>')))
-  res.stdout?.pipe(process.stdout)
-  res.stderr?.pipe(process.stderr)
+  const name = path.basename(file, '.md')
+  await new Promise<void>((resolve, reject) => {
+    const child = spawn(
+      'slidev',
+      [
+        'build',
+        file,
+        '--out',
+        path.resolve('dist', name),
+        '--base',
+        `/${name}/`,
+      ],
+      { stdio: 'inherit' },
+    )
+    child.once('error', reject)
+    child.once('exit', (code, signal) => {
+      if (code === 0) resolve()
+      else
+        reject(new Error(`Slide build failed for ${file}: ${signal ?? code}`))
+    })
+  })
 }

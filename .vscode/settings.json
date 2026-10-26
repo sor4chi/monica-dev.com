@@ -4,12 +4,8 @@
     "/apps/portfolio/src/content/works/**/*": "/apps/portfolio/public/assets/works/${documentBaseName}/"
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.codeActionsOnSave": {
-    "quickfix.biome": "always",
-    "source.organizeImports.biome": "always"
-  },
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
+    "source.fixAll.oxc": "explicit"
   }
 }

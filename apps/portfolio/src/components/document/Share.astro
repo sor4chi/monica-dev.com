@@ -1,36 +1,35 @@
 ---
-import { clsx } from "clsx";
+import { clsx } from 'clsx'
 
-import { SITE_BASE_URL } from "@/config";
+import { SITE_BASE_URL } from '@/config'
 
-import Check from "../ui/icon/Check.astro";
-import Copy from "../ui/icon/Copy.astro";
-import Github from "../ui/icon/Github.astro";
-import X from "../ui/icon/X.astro";
+import Check from '../ui/icon/Check.astro'
+import Copy from '../ui/icon/Copy.astro'
+import Github from '../ui/icon/Github.astro'
+import X from '../ui/icon/X.astro'
 
-import { styles } from "./Share.css";
+import { styles } from './Share.css'
 
 interface Props {
-  pathname: string;
-  title: string;
-  source: string;
-  flex?: boolean;
+  pathname: string
+  title: string
+  source: string
+  flex?: boolean
 }
 
-const { pathname, title, source, flex } = Astro.props;
+const { pathname, title, source, flex } = Astro.props
 
 const getShareXUrl = (title: string) => {
   return `https://x.com/intent/tweet?text=${encodeURIComponent(
     `${title}\n`,
-  )}&url=${encodeURIComponent(SITE_BASE_URL + pathname)}`;
-};
+  )}&url=${encodeURIComponent(SITE_BASE_URL + pathname)}`
+}
 ---
 
 <div class={clsx(styles.links, flex && styles.flex)}>
   <div class={styles.btnWrapper}>
     <button
-      class={clsx(styles.btn, "link-copy-button")}
-      onclick="navigator.clipboard.writeText(window.location.href)"
+      class={clsx(styles.btn, 'link-copy-button')}
       aria-label="リンクをコピーする"
     >
       <Copy exClass={clsx(styles.icon, styles.copyIcon)} />
@@ -57,25 +56,16 @@ const getShareXUrl = (title: string) => {
 </div>
 
 <script>
-  const initLinkBopyButton = () => {
-    const linkCopyButtons = document.querySelectorAll(".link-copy-button");
-    linkCopyButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        button.classList.add("copied");
-        setTimeout(() => {
-          button.classList.remove("copied");
-        }, 1000);
-      });
-    });
-  };
-
-  const init = () => {
-    initLinkBopyButton();
-  };
-
-  init();
-
-  document.addEventListener("astro:after-swap", () => {
-    init();
-  });
+  document.addEventListener('click', async (event) => {
+    if (!(event.target instanceof Element)) return
+    const button = event.target.closest('.link-copy-button')
+    if (!button) return
+    try {
+      await navigator.clipboard.writeText(window.location.href)
+      button.classList.add('copied')
+      setTimeout(() => button.classList.remove('copied'), 1000)
+    } catch {
+      button.classList.remove('copied')
+    }
+  })
 </script>

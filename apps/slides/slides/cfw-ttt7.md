@@ -125,6 +125,7 @@ lineNumbers: true
 </div>
 
 <div class="mt-6">
+
 ```mermaid
 flowchart LR
   T["Tokyo"]
@@ -148,6 +149,7 @@ flowchart LR
   class R1 do1
   class R2 do2
 ```
+
 </div>
 
 <div class="mt-8 text-[1rem] leading-7 text-zinc-700 dark:text-zinc-200">
@@ -160,6 +162,7 @@ flowchart LR
 
 <div class="mt-8 grid grid-cols-[1.1fr_1fr] gap-10 items-center">
   <div>
+
 ```mermaid
 flowchart LR
   subgraph N["namespace"]
@@ -177,6 +180,7 @@ flowchart LR
   O1 --- S1
   O2 --- S2
 ```
+
   </div>
   <div class="space-y-3 text-[1rem] leading-8">
     <div>object ごとに <span class="font-semibold">専用の durable storage</span> が付く</div>
@@ -198,6 +202,7 @@ flowchart LR
 # 年表で見る
 
 <div class="mt-8 w-full">
+
 ```mermaid
 timeline
   title Durable Objects 2020 -> 2025
@@ -212,6 +217,7 @@ timeline
   2025-05 : Python Workers support
   2025-06 : @cloudflare/actors
 ```
+
 </div>
 
 <div class="mt-16 text-[1.5rem] text-zinc-700 dark:text-zinc-200 text-center">
@@ -289,12 +295,14 @@ const stub = env.COUNTER.get(id)
 <div class="mt-8 flex h-[calc(100%-5.5rem)] flex-col">
 <div class="grid grid-cols-[1.1fr_1fr] gap-10 items-center">
   <div>
+
 ```mermaid
 flowchart LR
   R["request"] --> O["Durable Object"]
   A["alarm"] --> O
   O --> ST["same state"]
 ```
+
   </div>
   <div class="space-y-3 text-[1rem] leading-8">
     <div><span class="font-semibold">request</span> 以外に <span class="font-semibold">alarm</span> でも起動できる</div>
@@ -304,6 +312,7 @@ flowchart LR
 </div>
 
 <div class="mt-6">
+
 ```ts
 export class Session {
   async fetch() {
@@ -316,6 +325,7 @@ export class Session {
   }
 }
 ```
+
 </div>
 
 <SourceNote
@@ -331,6 +341,7 @@ export class Session {
 
 <div class="mt-8 grid grid-cols-[1.2fr_1fr] gap-10 items-center">
   <div>
+
 ```mermaid
 flowchart TB
   A["request"] --> O["same object / same state"]
@@ -340,6 +351,7 @@ flowchart TB
   O --> T3["cleanup"]
   O --> T4["state transition"]
 ```
+
   </div>
   <div class="space-y-4 text-[1rem] leading-8">
     <div>あとで起きる仕事を <span class="font-semibold">同じ object の責務</span> として書ける</div>
@@ -447,14 +459,17 @@ flowchart TB
 <div class="mt-6 grid grid-cols-2 gap-6">
   <div>
     <div class="text-xs uppercase tracking-[0.18em] text-zinc-400 mb-1">Before: in-memory handler</div>
+
 ```ts
 server.addEventListener("message", (msg) => {
   // closure は evict で消える
 })
 ```
+
   </div>
   <div>
     <div class="text-xs uppercase tracking-[0.18em] text-zinc-400 mb-1">After: class method</div>
+
 ```ts
 class Room extends DurableObject {
   async webSocketMessage(ws, msg) {
@@ -462,6 +477,7 @@ class Room extends DurableObject {
   }
 }
 ```
+
   </div>
 </div>
 
@@ -481,6 +497,7 @@ class Room extends DurableObject {
 <div class="mt-8 grid grid-cols-2 gap-8">
   <div>
     <div class="mb-3 text-sm uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">Before</div>
+
 ```ts
 const id = env.ROOM.idFromName("general")
 const stub = env.ROOM.get(id)
@@ -490,14 +507,17 @@ await stub.fetch("https://do/join", {
   body: JSON.stringify({ user: "alice" }),
 })
 ```
+
   </div>
   <div>
     <div class="mb-3 text-sm uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">After</div>
+
 ```ts
 const id = env.ROOM.idFromName("general")
 const stub = env.ROOM.get(id)
 await stub.join("alice")
 ```
+
   </div>
 </div>
 
@@ -531,6 +551,7 @@ await stub.join("alice")
 <div class="mt-6 grid grid-cols-2 gap-6">
   <div>
     <div class="text-[0.7rem] uppercase tracking-[0.18em] text-zinc-500 mb-2">Promise pipelining</div>
+
 ```ts
 // naive: 3 round trips
 const user = await stub.getUser(id)
@@ -541,10 +562,12 @@ const avatar = await profile.fetchAvatar()
 const avatar = await stub
   .getUser(id).getProfile().fetchAvatar()
 ```
+
     <div class="mt-2 text-[0.8rem] text-amber-300/80">await 前の promise (JS Proxy) に続けて method を呼べる</div>
   </div>
   <div>
     <div class="text-[0.7rem] uppercase tracking-[0.18em] text-zinc-500 mb-2">Capability passing</div>
+
 ```ts
 // stub 自体を RPC の引数に渡せる
 const room = env.ROOMS.getByName("general")
@@ -552,6 +575,7 @@ await env.ADMIN.grantAccess(room, userId)
 //                          ^^^^
 //                  別 DO への reference が流通
 ```
+
     <div class="mt-2 text-[0.8rem] text-amber-300/80">object reference が RPC を越えて runtime 境界を渡る</div>
   </div>
 </div>
@@ -704,6 +728,7 @@ await env.ADMIN.grantAccess(room, userId)
   </SurfaceCard>
   <div>
     <div class="mb-3 text-sm uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">Python</div>
+
 ```py
 from workers import DurableObject
 
@@ -711,6 +736,7 @@ class Room(DurableObject):
     async def fetch(self, request):
         return Response("ok")
 ```
+
   </div>
 </div>
 
@@ -730,6 +756,7 @@ class Room(DurableObject):
 
 <div class="mt-6 grid grid-cols-[1.2fr_1fr] gap-8">
   <div>
+
 ```ts
 import { Actor, Persist, handler } from "@cloudflare/actors"
 
@@ -746,6 +773,7 @@ export class Counter extends Actor<Env> {
 
 export default handler(Counter)      // Worker 側 routing を自動生成
 ```
+
   </div>
   <div class="space-y-3 text-[0.9rem] leading-6">
     <div><span class="font-semibold">@Persist</span> で property が auto-persist (手動 put/get 不要)</div>

@@ -265,14 +265,17 @@ This time, let's create a middleware that sets the logger.
 
 ````md magic-move
 ```ts
+
 const app = new Hono()
 
 app.get('/', (c) => {
   return c.text('Hello World!')
 })
+
 ```
 
 ```ts
+
 type Env = {
   Variables: {
     logger: (str: string) => string
@@ -284,9 +287,11 @@ const app = new Hono()
 app.get('/', (c) => {
   return c.text('Hello World!')
 })
+
 ```
 
 ```ts
+
 type Env = {
   Variables: {
     logger: (str: string) => string
@@ -303,9 +308,11 @@ const loggerMiddleware = createMiddleware<Env>(async (c, next) => {
 app.get('/', (c) => {
   return c.text('Hello World!')
 })
+
 ```
 
 ```ts
+
 type Env = {
   Variables: {
     logger: (str: string) => string
@@ -323,6 +330,7 @@ app.get('/', loggerMiddleware, (c) => {
   c.var.logger('Request received')
   return c.text('Hello World!')
 })
+
 ```
 ````
 

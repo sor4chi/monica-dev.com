@@ -1,0 +1,21 @@
+[tools]
+node = "24.22.1"
+
+[settings]
+# Use package.json as the single source of truth for pnpm.
+idiomatic_version_file_enable_tools = ["pnpm"]
+
+[tasks.dev]
+run = "pnpm --filter portfolio dev --background"
+
+[tasks.build]
+run = "pnpm --filter portfolio build"
+
+[tasks.preview]
+run = "pnpm --filter portfolio preview --host 0.0.0.0"
+
+[tasks.check]
+run = "pnpm lint && pnpm typecheck && pnpm test && pnpm format:check"
+
+[tasks.stop]
+run = "pnpm --filter portfolio exec astro dev stop"

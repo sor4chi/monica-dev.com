@@ -4,19 +4,21 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
     "fix": "pnpm lint:fix",
-    "test": "vitest"
-  },
-  "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.16.19",
-    "@cloudflare/workers-types": "^4.20260624.1",
-    "@sor4chi/configs": "workspace:*",
-    "vitest": "4.1.9",
-    "wrangler": "^4.104.0"
+    "test": "vitest",
+    "typecheck": "pnpm types && tsc --noEmit",
+    "types": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
-    "hono": "^4.12.27"
+    "hono": "^4.13.13"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.4.7",
+    "@sor4chi/configs": "workspace:*",
+    "@types/node": "^26.6.5",
+    "vitest": "5.0.5",
+    "wrangler": "^4.152.0"
   }
 }
