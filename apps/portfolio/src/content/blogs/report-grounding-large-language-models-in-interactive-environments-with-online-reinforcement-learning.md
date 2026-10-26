@@ -256,7 +256,7 @@ $$
 - The **augmented** action space
   - このタスクにおいて可能な全ての行動 + 余計な行動 (`sleep`, `do nothing`, `think`)を Available actions として与える
 
-![図3: 行動空間のサイズが与える影響](/public/assets/blogs/report-grounding-large-language-models-in-interactive-environments-with-online-reinforcement-learning/figure3.png)
+![図3: 行動空間のサイズが与える影響](/assets/blogs/report-grounding-large-language-models-in-interactive-environments-with-online-reinforcement-learning/figure3.png)
 
 図 3 (a)はその結果を示している。ベースラインの 3 つは状態が増えるにつれてサンプル効率が低下しているのに対し、GFlan-T5 は状態が増えると逆にサンプル効率が向上していることがわかる。
 論文では **ファインチューニング時に無駄な行動を素早く捨てることができているため** ではないかと考察している。
