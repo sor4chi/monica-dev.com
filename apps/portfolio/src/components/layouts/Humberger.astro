@@ -9,7 +9,9 @@ import { styles } from './Humberger.css'
   class={styles.button}
   aria-label="ナビゲーションを開閉する"
 >
-  <span class={styles.lines}></span>
-  <span class={styles.lines}></span>
-  <span class={styles.lines}></span>
+  <svg class={styles.icon} viewBox="0 0 24 24" aria-hidden="true">
+    <path class={styles.lines} d="M1 4H23" />
+    <path class={styles.lines} d="M1 12H23" />
+    <path class={styles.lines} d="M1 20H23" />
+  </svg>
 </button>

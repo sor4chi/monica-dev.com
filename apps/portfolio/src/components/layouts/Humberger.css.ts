@@ -24,35 +24,24 @@ export const styles = {
       },
     },
   ]),
-  lines: style({
+  icon: style({
     position: 'absolute',
+    inset: 0,
     margin: 'auto',
-    display: 'block',
     width: '1.5rem',
-    height: '0.125rem',
-    backgroundColor: vars.color.gray[10],
-    transform: 'translateY(-50%)',
-    left: 0,
-    right: 0,
-    borderRadius: vars.spacing.absolute[16],
-    transition:
-      'transform 0.2s ease-in-out, opacity 0.2s ease-in-out, left 0.2s ease-in-out',
-
+    height: '1.5rem',
+    fill: 'none',
+    stroke: vars.color.gray[10],
+    strokeWidth: 2,
+    strokeLinecap: 'round',
+    // Snap horizontal strokes consistently at fractional browser zoom levels.
+    shapeRendering: 'crispEdges',
+  }),
+  lines: style({
+    transition: 'transform 0.2s ease-in-out, opacity 0.2s ease-in-out',
     selectors: {
-      '&:nth-child(1)': {
-        top: 'calc(50% - 0.5rem)',
-        transformOrigin: 'left top',
-      },
-
-      '&:nth-child(2)': {
-        top: '50%',
-        opacity: 1,
-      },
-
-      '&:nth-child(3)': {
-        top: 'calc(50% + 0.5rem)',
-        transformOrigin: 'left bottom',
-      },
+      '&:nth-child(1)': { transformOrigin: '12px 4px' },
+      '&:nth-child(3)': { transformOrigin: '12px 20px' },
     },
   }),
 }
@@ -60,8 +49,7 @@ export const styles = {
 globalStyle(
   `body:has(#backward:popover-open) ${styles.button} ${styles.lines}:nth-child(1)`,
   {
-    transform: 'translateY(-50%) rotate(45deg)',
-    left: '0.5rem',
+    transform: 'translateY(8px) rotate(45deg)',
   },
 )
 
@@ -75,7 +63,10 @@ globalStyle(
 globalStyle(
   `body:has(#backward:popover-open) ${styles.button} ${styles.lines}:nth-child(3)`,
   {
-    transform: 'translateY(-50%) rotate(-45deg)',
-    left: '0.5rem',
+    transform: 'translateY(-8px) rotate(-45deg)',
   },
 )
+
+globalStyle(`body:has(#backward:popover-open) ${styles.icon}`, {
+  shapeRendering: 'geometricPrecision',
+})
