@@ -12,8 +12,8 @@ export const styles = {
     position: 'absolute',
     top: '50%',
     right: '100%',
-    rotate: '-90deg',
-    transform: 'translateX(50%)',
+    // Lightning CSS drops an independent rotate when transform is also set.
+    transform: 'rotate(-90deg) translateX(50%)',
     fontSize: vars.font.size.lg,
     color: vars.color.gray[9],
     fontWeight: 400,
@@ -22,7 +22,6 @@ export const styles = {
 
     '@media': {
       [`screen and (max-width: ${BREAKPOINT_MOBILE})`]: {
-        rotate: '0deg',
         top: '0',
         left: '50%',
         right: 'auto',
